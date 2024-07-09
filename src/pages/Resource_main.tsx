@@ -44,7 +44,8 @@
 
 
 
-
+import React from 'react';
+import { Button, Flex } from 'antd';
 
 
 
@@ -57,6 +58,8 @@ const App = () => {
         { id: 2, label: 'Documents', link: './resource-upload' },
         { id: 3, label: 'Links ', link: './resource-upload' },
         { id: 4, label: 'Other ', link: './resource-upload'},
+        { id: 5, label: 'Uploaded ', link: './resource-done'},
+
       ];
 
   return (
@@ -80,11 +83,18 @@ const App = () => {
                   {button.label}
                 </a>
               </div>
+              
             ))}
+
+
+
           </div>
+          
+
         </div>
 
       </div>
+     
 
       </div>
     
@@ -95,5 +105,12 @@ export default App;
 
 
 
+
+
+ 
+
+
+
+ 
 
 

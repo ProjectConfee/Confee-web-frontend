@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const App = () => {
   // const [open, setOpen] = useState(true);
-  const [selectedSegment, setSelectedSegment] = useState('Media');
+  const [selectedSegment, setSelectedSegment] = useState('Images');
 
   // const Menus = [
   //   { title: "Home", src: "home", gap: true },
@@ -75,6 +75,7 @@ const App = () => {
               ]}
               value={selectedSegment}
               onChange={(value) => setSelectedSegment(value)}
+              defaultValue="Images"
             />
           </div>
 
