@@ -18,8 +18,10 @@ import Navbar from './components/Navbar';
 
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
-import Event from './pages/event';
+import Signup from './pages/Signup.tsx';
 import NoEvent from './pages/No_event.tsx';
+import AddEvent from './pages/Add_event.tsx';
+import Event from './pages/Event.tsx';
 
 function App() {
   return (
@@ -38,8 +40,10 @@ function App() {
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
 
-        <Route path="/event" element={<Event/>} />
+        <Route path="/signup" element={<Signup/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
+        <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
+        <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
 
         {/* Add more routes as needed */}
       </Routes>
