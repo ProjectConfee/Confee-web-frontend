@@ -18,6 +18,8 @@ import Navbar from './components/Navbar';
 
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
+import Event from './pages/event';
+import NoEvent from './pages/No_event.tsx';
 
 function App() {
   return (
@@ -35,6 +37,10 @@ function App() {
         <Route path="/schedule" element={<MainLayout><Schedule /></MainLayout>} />
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
+
+        <Route path="/event" element={<Event/>} />
+        <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
+
         {/* Add more routes as needed */}
       </Routes>
     </Router>
