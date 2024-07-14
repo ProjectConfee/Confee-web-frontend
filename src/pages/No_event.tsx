@@ -10,7 +10,7 @@ const App = () => (
 
         <div className="bg-white mt-20 rounded-lg shadow-lg p-8">
                 <div className="col-span-2 flex justify-center items-center">
-                        <Title>Conference Event</Title>
+                        <Title level={3}>Conference Event</Title>
                 </div>
 
                 <div className="flex justify-end">
@@ -26,7 +26,7 @@ const App = () => (
                 </div>
 
                 <div className="flex justify-center items-center">
-                        <Title level={4}>No event scheduled yet</Title>
+                        <Title level={5}>No event scheduled yet</Title>
                 </div>
 
 

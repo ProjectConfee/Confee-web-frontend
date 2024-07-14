@@ -15,7 +15,7 @@ const App = () => (
 
         <div className="bg-white mt-20 rounded-lg shadow-lg p-8">
             <div className="col-span-2 flex justify-center items-center">
-                <Title>Conference Event</Title>
+                <Title level={3}>Conference Event</Title>
             </div>
 
             <div className="flex justify-end mb-8">
@@ -25,7 +25,7 @@ const App = () => (
             <div>
                 <div>
                     <div>
-                        <Title level={3}>Conference</Title>
+                        <Title level={4}>Conference</Title>
                     </div>
                     <div>
                         <Row gutter={32}>
@@ -65,7 +65,7 @@ const App = () => (
 
                                     />}
                                 >
-                                    <Meta title="Europe Street beat" description="Date : 11th of November 2024"/>
+                                    <Meta title="Conference day 2" description="Date : 11th of November 2024"/>
                                 </Card>
                             </Col>
                         </Row>
@@ -77,7 +77,7 @@ const App = () => (
 
                 <div>
                     <div>
-                        <Title level={3}>Pre Conference Workshops</Title>
+                        <Title level={4}>Pre Conference Workshops</Title>
                     </div>
                     <div>
                         <Row gutter={32}>
@@ -97,7 +97,7 @@ const App = () => (
 
                                     />}
                                 >
-                                    <Meta title="Europe Street beat" description="Date : 04th of November 2024"/>
+                                    <Meta title="Workshop 1" description="Date : 04th of November 2024"/>
                                 </Card>
                             </Col>
 
@@ -117,7 +117,7 @@ const App = () => (
 
                                     />}
                                 >
-                                    <Meta title="Europe Street beat" description="Date : 05th of November 2024"/>
+                                    <Meta title="Workshop 2" description="Date : 05th of November 2024"/>
                                 </Card>
                             </Col>
 
@@ -137,7 +137,7 @@ const App = () => (
 
                                     />}
                                 >
-                                    <Meta title="Europe Street beat" description="Date : 08th of November 2024"/>
+                                    <Meta title="Workshop 3" description="Date : 08th of November 2024"/>
                                 </Card>
                             </Col>
                         </Row>
@@ -149,7 +149,7 @@ const App = () => (
 
                 <div>
                     <div>
-                        <Title level={3}>Post Conference Workshops</Title>
+                        <Title level={4}>Post Conference Workshops</Title>
                     </div>
                     <div>
                         <Row gutter={32}>
@@ -169,7 +169,7 @@ const App = () => (
 
                                     />}
                                 >
-                                    <Meta title="Europe Street beat" description="Date : 14th of November 2024"/>
+                                    <Meta title="Workshop 1" description="Date : 14th of November 2024"/>
                                 </Card>
                             </Col>
                         </Row>
