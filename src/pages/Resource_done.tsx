@@ -1,6 +1,6 @@
 
 // import LOGO from '../assets/logo.png';
-import { Pagination } from 'antd';
+// import { Pagination } from 'antd';
 import { FileImageFilled, CopyOutlined, ProfileOutlined, LinkOutlined } from '@ant-design/icons';
 import { Segmented } from 'antd';
 import { useState } from "react";
@@ -135,11 +135,11 @@ const App = () => {
           </div>
         </div>
 
-        <div className="min-h-screen flex flex-col justify-between">
-          <div className="flex justify-center items-center p-4">
-            <Pagination defaultCurrent={1} total={50} />
-          </div>
-        </div>
+        {/*<div className="min-h-screen flex flex-col justify-between">*/}
+        {/*  <div className="flex justify-center items-center p-4">*/}
+        {/*    <Pagination defaultCurrent={1} total={50} />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
  </div>
   );
