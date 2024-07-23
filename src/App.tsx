@@ -24,6 +24,7 @@ import AddEvent from './pages/Add_event.tsx';
 import Event from './pages/Event.tsx';
 import ViewEvent from './pages/View_event.tsx';
 import EventDetail from './pages/Event_detail.tsx';
+import Ticket from './pages/Ticket.tsx';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/view_event" element={<MainLayout><ViewEvent/></MainLayout>} />
         <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
+        <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
 
         {/* Add more routes as needed */}
       </Routes>
