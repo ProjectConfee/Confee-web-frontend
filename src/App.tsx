@@ -19,6 +19,8 @@ import Navbar from './components/Navbar';
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
 import Badge_details from './pages/admin/Badge_details';
+import Stall_register from './pages/admin/Stall_register.tsx';
+import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
 
@@ -38,7 +40,9 @@ function App() {
         <Route path="/schedule" element={<MainLayout><Schedule /></MainLayout>} />
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
+        <Route path="/stall-register" element={<MainLayout><Stall_register /></MainLayout>} />
         <Route path="/sponsor-register" element={<MainLayout>< Sponsor_register /></MainLayout>} />
+        <Route path="/stall-location" element={<MainLayout>< Stall_location /></MainLayout>} />
         <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
         {/* Add more routes as needed */}
