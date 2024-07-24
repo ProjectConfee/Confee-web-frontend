@@ -2,9 +2,9 @@
 
 // export default register
 import LOGO  from './assets/logo.jpeg'
-import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Dropdown, Space } from 'antd';
+// import { DownOutlined } from '@ant-design/icons';
+// import type { MenuProps } from 'antd';
+// import { Dropdown, Space } from 'antd';
 import { Pagination } from 'antd';
 // import { Button, Divider, Image, Modal } from 'antd';
 
@@ -25,9 +25,9 @@ const App = () => {
  
 
 
-    const [show1, setShow1] = useState(false);
-  const [show2, setShow2] = useState(false);
-  const [show3, setShow3] = useState(false);
+  //   const [show1, setShow1] = useState(false);
+  // const [show2, setShow2] = useState(false);
+  // const [show3, setShow3] = useState(false);
 
   const videos = [
     'https://www.w3schools.com/html/mov_bbb.mp4', 
