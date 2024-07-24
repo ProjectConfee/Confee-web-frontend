@@ -33,14 +33,14 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
 const App: React.FC = () => (
 
 
-<div className='flex flex-col justify-center items-center h-full mt-30 ml-50'>
-<div className='flex flex-col justify-center items-center h-full mt-20 ml-50'>
+<div className='flex flex-col justify-center items-center h-full mt-40 ml-50 border-4 border-black p-5 rounded-lg'>
+
 <h2 className="text-2xl font-semibold text-center mt-[-10]">Badge Details</h2><br></br><br></br>
 <div><p>Name of the Badge:</p><br></br>
 <Input  size="large" placeholder="Badge Name" style={{ width: '600px' }}/></div>
-</div>
+
     <br></br><br></br>
-    <div className='flex flex-col justify-center items-left h-full mt-100 ml-50'>
+
       <p>Privilages:</p><br></br>
       <TextArea
       showCount
@@ -49,10 +49,10 @@ const App: React.FC = () => (
       placeholder="Enter the Privilages"
       style={{ height: 120, resize: 'none' ,width:'600px'}}
     />
-      
-    </div>
+
+
     <br></br><br></br>
-    <div className='flex flex-col justify-center items-left h-full mt-100 ml-50'>
+    {/*<div className='flex flex-col justify-center items-left h-full mt-100 ml-50'>*/}
       <p>Upload the Badge:</p><br></br>
       <Dragger {...props} style={{ width: '600px' }}>
     <p className="ant-upload-drag-icon  " >
@@ -64,18 +64,18 @@ const App: React.FC = () => (
       banned files.
     </p>
   </Dragger>
-      
-    </div>
-    
+
+    {/*</div>*/}
+
     <div className='flex flex-col justify-center items-left h-full mt-100 ml-50'>
-   
+
   </div>
-  <br></br><br></br>
+  <br></br>
   <Flex gap="small" wrap  >
     <Button type="primary">Submit</Button>
-   
+
   </Flex>
-  
+
 </div>
 
 );

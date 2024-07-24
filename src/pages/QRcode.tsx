@@ -3,10 +3,23 @@
 // import  { useState } from 'react';
 import { Button, QRCode } from 'antd';
 
+import React from 'react';
+import { Input} from 'antd';
 
-const App = () => {
+
+const App: React.FC = () => {
   // const [open, setOpen] = useState(true);
-
+  const [text, setText] = React.useState('https://ant.design/');
+  // useEffect(() => {
+  //   // Fetch the URL from the backend
+  //   axios.get('http://localhost:8080/api/sponsor/your-sponsor-id')
+  //       .then(response => {
+  //         setQrCodeUrl(response.data.qrCodeUrl);  // Adjust based on your actual data structure
+  //       })
+  //       .catch(error => {
+  //         console.error('Error fetching QR code URL:', error);
+  //       });
+  // }, []);
   const downloadQRCode = () => {
     const canvas = document.getElementById('myqrcode')?.querySelector<HTMLCanvasElement>('canvas');
     if (canvas) {
@@ -25,7 +38,13 @@ const App = () => {
       <h1 className="text-2xl font-semibold text-center text-sky-700">ICTer Conference 2024</h1>
       <h2 className="text-2xl font-semibold text-center">Welcome Sponsors!</h2>
         <div id="myqrcode" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
-          <QRCode value="https://ant.design/" size={400} bgColor="#fff" style={{ marginBottom: 25, marginTop: 50 }} />
+          <Input
+              placeholder="-"
+              maxLength={60}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+          />
+          <QRCode value= {text || '-'} size={400} bgColor="#fff"  style={{ marginBottom: 25, marginTop: 50 }} />
           <Button type="primary" onClick={downloadQRCode} style={{ marginBottom: 25, marginTop: 50, fontSize: '20px', padding: '20px 40px' }}>
             Download
           </Button>
@@ -37,5 +56,8 @@ const App = () => {
     
   );
 };
-
 export default App;
+
+
+
+
