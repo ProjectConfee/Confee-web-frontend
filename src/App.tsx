@@ -18,11 +18,16 @@ import Navbar from './components/Navbar';
 
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
+
 //import Signup from './pages/Signup.tsx';
 import NoEvent from './pages/No_event.tsx';
 //import AddEvent from './pages/Add_event.tsx';
 import Event from './pages/Event.tsx';
 import Announcement from './pages/announcement.tsx';
+
+import Badge_details from './pages/admin/Badge_details';
+import Sponsor_register from './pages/admin/Sponsor_register';
+import MoreFeedback from './pages/MoreFeedbacks.tsx';
 
 
 function App() {
@@ -40,6 +45,9 @@ function App() {
         <Route path="/resource-other" element={<ResourceOther />} />
         <Route path="/schedule" element={<MainLayout><Schedule /></MainLayout>} />
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
+        <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
+        <Route path="/sponsor-register" element={<MainLayout>< Sponsor_register /></MainLayout>} />
+        <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
         {/*<Route path="/signup" element={<Signup/>} />*/}
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
