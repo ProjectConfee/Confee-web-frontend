@@ -18,10 +18,12 @@ import Navbar from './components/Navbar';
 
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
-import Signup from './pages/Signup.tsx';
+//import Signup from './pages/Signup.tsx';
 import NoEvent from './pages/No_event.tsx';
-import AddEvent from './pages/Add_event.tsx';
+//import AddEvent from './pages/Add_event.tsx';
 import Event from './pages/Event.tsx';
+import Announcement from './pages/announcement.tsx';
+
 
 function App() {
   return (
@@ -39,11 +41,12 @@ function App() {
         <Route path="/schedule" element={<MainLayout><Schedule /></MainLayout>} />
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
-
-        <Route path="/signup" element={<Signup/>} />
+        {/*<Route path="/signup" element={<Signup/>} />*/}
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
-        <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
+        {/*<Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />*/}
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
+        <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
+
 
         {/* Add more routes as needed */}
       </Routes>
