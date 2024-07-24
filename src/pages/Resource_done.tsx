@@ -1,6 +1,6 @@
 
 // import LOGO from '../assets/logo.png';
-import { Pagination } from 'antd';
+// import { Pagination } from 'antd';
 import { FileImageFilled, CopyOutlined, ProfileOutlined, LinkOutlined } from '@ant-design/icons';
 import { Segmented } from 'antd';
 import { useState } from "react";
@@ -61,8 +61,7 @@ const App = () => {
         <div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-[0%]'>
          {/* <img src={LOGO} className='bg-cover w-full h-full' alt="Logo" /> */}
         </div>
-        <h1 className="text-2xl font-semibold text-center text-sky-700">ICTer Conference 2024</h1>
-        <h2 className="text-2xl font-semibold text-center">Welcome Sponsors!</h2>
+        <h2 className="text-2xl font-semibold text-center">Uploaded Resources</h2>
         <div>
           <br />
           <div className="flex justify-center items-center p-4">
@@ -135,11 +134,11 @@ const App = () => {
           </div>
         </div>
 
-        <div className="min-h-screen flex flex-col justify-between">
-          <div className="flex justify-center items-center p-4">
-            <Pagination defaultCurrent={1} total={50} />
-          </div>
-        </div>
+        {/*<div className="min-h-screen flex flex-col justify-between">*/}
+        {/*  <div className="flex justify-center items-center p-4">*/}
+        {/*    <Pagination defaultCurrent={1} total={50} />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
  </div>
   );

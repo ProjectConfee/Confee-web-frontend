@@ -20,6 +20,7 @@ import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
 import Badge_details from './pages/admin/Badge_details';
 import Sponsor_register from './pages/admin/Sponsor_register';
+import MoreFeedback from './pages/MoreFeedbacks.tsx';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
         <Route path="/sponsor-register" element={<MainLayout>< Sponsor_register /></MainLayout>} />
+        <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
         {/* Add more routes as needed */}
       </Routes>
