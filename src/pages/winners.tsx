@@ -35,6 +35,7 @@ const App = () => {
       <div className="flex flex-col flex-grow pr-10 mb-8 mt-0">
         <div className="flex justify-center mt-4">
           <Select
+          className='size-9'
             showSearch
             style={{
               width: 200,
