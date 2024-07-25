@@ -11,7 +11,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     <div className="flex min-h-screen">
       <Navbar />
       <div className="flex flex-col flex-grow">
-        <div className="h-20 w-full flex items-center justify-between px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
+        <div className="h-20 bg-white shadow-md w-full flex items-center justify-between px-6  text-black">
           <div className="font-semibold text-3xl">
             Hi! Viranga Dias
           </div>

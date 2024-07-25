@@ -28,6 +28,8 @@ import Announcement from './pages/announcement.tsx';
 import Badge_details from './pages/admin/Badge_details';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
+ import Winners from './pages/winners.tsx';
+
 
 
 function App() {
@@ -54,6 +56,8 @@ function App() {
         {/*<Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />*/}
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
+        <Route path="/winners" element={<MainLayout><Winners/></MainLayout>} />
+
 
 
         {/* Add more routes as needed */}

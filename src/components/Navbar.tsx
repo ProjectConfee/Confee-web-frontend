@@ -8,11 +8,12 @@ const Navbar = () => {
   const Menus = [
     { title: "Home", src: "home", path: "/homepage", gap: true },
     { title: "Profile", src: "profile", path: "/profile", gap: true },
-    { title: "Stall Details", src: "stall", path: "/stall-details", gap: true },
+    { title: "Stall Details", src: "stall2", path: "/stall-details", gap: true },
     { title: "Schedule", src: "schedule", path: "/schedule", gap: true },
     { title: "QR Code", src: "qrcode", path: "/qrcode", gap: true },
     { title: "Resource Upload", src: "upload", path: "/resource-home", gap: true },
     { title: "Announcement", src: "announcement", path: "/announcements", gap: true },
+    { title: "Winners", src: "trophy", path: "/winners", gap: true },
     { title: "Logout", src: "logout", path: "/" },
   ];
 
@@ -28,14 +29,14 @@ const Navbar = () => {
         </div>
       </div>
         <div className="flex gap-x-4 items-center"></div>
-        <ul className="pt-2">
+        <ul className="pt-0">
           {Menus.map((menu, index) => (
             <li
               key={index}
               className={`flex  p-2 py-4 cursor-pointer hover:bg-[#3572EF] hover:text-white hover:rounded-r-3xl text-xl  items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
             >
               <Link to={menu.path} className="flex items-center gap-x-4 w-full">
-                <div className="size-10">
+                <div className="size-7">
                   <img src={`./src/assets/${menu.src}.svg`} alt={menu.title} className="group-hover:bg-white" />
                 </div>
                 <span className={`${!open && "hidden"} origin-left duration-200 group-hover:text-white`}>

@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-white mt-16 mx-40 rounded-xl shadow-2xl pb-16 ">
+      <div className="bg-white mt-16 mx-40 rounded-xl shadow-lg pb-16 ">
         <div className="flex pt-6 justify-center text-3xl font-medium">
           Announcements
         </div>
@@ -29,9 +29,9 @@ const App = () => {
           <div className="flex items-center justify-center ml-auto my-3 mr-5">
             <Button type="primary" onClick={handleAddClick}>
               <div className="text-lg">
-                add
+                ADD
               </div>
-              <IoMdAddCircleOutline className="text-lg mt-0.5 -ml-1" />
+              <IoMdAddCircleOutline className="text-xl mt-0.5 -ml-1" />
             </Button>
           </div>
         </div>
