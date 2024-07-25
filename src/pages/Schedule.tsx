@@ -165,13 +165,13 @@ const App = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center h-full mt-10 ml-50">
-      <h1 className="text-2xl font-semibold text-center text-sky-700">
-        ICTer Conference 2024
-      </h1>
-      <h2 className="text-2xl font-semibold text-center">Welcome Sponsors!</h2>
+    <div className="flex flex-col justify-center items-center h-full mt-20 ml-50">
+      {/*<h1 className="text-2xl font-semibold text-center text-sky-700">*/}
+      {/*  ICTer Conference 2024*/}
+      {/*</h1>*/}
+      <h2 className="text-2xl font-semibold text-center"> Conference Day Schedule</h2>
       <br></br>
-      <p> Conference Schedule </p>
+
       <p> DAY 01 - 2024/11/06</p><br></br>
     <div className="h-full">
       <Table columns={columns} dataSource={data} /></div>
