@@ -18,14 +18,14 @@ import Navbar from './components/Navbar';
 
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
-// import Signup from './pages/Signup.tsx';
+import Signup from './pages/Sign_up.tsx';
 import NoEvent from './pages/No_event.tsx';
 import AddEvent from './pages/Add_event.tsx';
 import Event from './pages/Event.tsx';
 import ViewEvent from './pages/View_event.tsx';
 import EventDetail from './pages/Event_detail.tsx';
 import Ticket from './pages/Ticket.tsx';
-// import Resource from './pages/UploadResource.tsx';
+import Resource from './pages/UploadResource.tsx';
 
 function App() {
   return (
@@ -44,14 +44,14 @@ function App() {
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
 
-        {/*<Route path="/signup" element={<Signup/>} />*/}
+        <Route path="/signup" element={<Signup/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
         <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
         <Route path="/view_event" element={<MainLayout><ViewEvent/></MainLayout>} />
         <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
-        {/*<Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />*/}
+        <Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />
 
         {/* Add more routes as needed */}
       </Routes>
