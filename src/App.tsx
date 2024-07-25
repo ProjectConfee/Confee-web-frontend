@@ -21,13 +21,13 @@ import Login from './pages/Login';
 
 //import Signup from './pages/Signup.tsx';
 import NoEvent from './pages/No_event.tsx';
-//import AddEvent from './pages/Add_event.tsx';
+import AddEvent from './pages/Add_event.tsx';
 import Event from './pages/Event.tsx';
 
 import ViewEvent from './pages/View_event.tsx';
 import EventDetail from './pages/Event_detail.tsx';
 import Ticket from './pages/Ticket.tsx';
-import Resource from './pages/UploadResource.tsx';
+// import Resource from './pages/UploadResource.tsx';
 
 import Announcement from './pages/announcement.tsx';
 
@@ -68,7 +68,7 @@ function App() {
         <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
-        <Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />
+        {/*<Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />*/}
 
         {/*<Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />*/}
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
