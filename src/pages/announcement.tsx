@@ -1,4 +1,3 @@
-
 import Swal from 'sweetalert2';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { Button, Card } from 'antd';
@@ -22,11 +21,11 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-white mt-32 mx-40 rounded-lg shadow-2xl pb-16">
+      <div className="bg-white mt-16 mx-40 rounded-xl shadow-2xl pb-16 ">
         <div className="flex pt-6 justify-center text-3xl font-medium">
           Announcements
         </div>
-        <div className="flex flex-col flex-grow pr-10 mb-4 mt-3">
+        <div className="flex flex-col flex-grow pr-10 mb-4 mt-0">
           <div className="flex items-center justify-center ml-auto my-3 mr-5">
             <Button type="primary" onClick={handleAddClick}>
               <div className="text-lg">
@@ -58,3 +57,4 @@ const App = () => {
 };
 
 export default App;
+
