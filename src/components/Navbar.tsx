@@ -1,7 +1,9 @@
+
 import { Link } from 'react-router-dom';
+import LOGO from '../assets/logo.jpeg';
 import { useState } from "react";
 
-const Navbar = () => {
+const App = () => {
   const [open, setOpen] = useState(true);
 
   const Menus = [
@@ -11,27 +13,26 @@ const Navbar = () => {
     { title: "Schedule", src: "schedule", path: "/schedule", gap: true },
     { title: "QR Code", src: "qrcode", path: "/qrcode", gap: true },
     { title: "Resource Upload", src: "upload", path: "/resource-home", gap: true },
-    { title: "Announcement", src: "announcement", path: "/announcements", gap: true },
+    { title: "Announcement", src: "announcement", path: "/announcement", gap: true },
     { title: "Logout", src: "logout", path: "/" },
   ];
+  
 
   return (
     <div className="flex">
-      <div className={`${open ? "w-72" : "w-20"} bg-white h-screen px-5 pt-2  relative duration-300 shadow-xl`}>
-      <div className="flex items-center cursor-pointer ">
-        <div className="logo ">
-          <img src="./src/assets/logo.jpeg" alt="Logo" className="w-20 h-20" />
-        </div>
-        <div className="text-4xl pl-2 font-semibold">
-          Confee
-        </div>
-      </div>
+      <div className={`${open ? "w-72" : "w-20"} bg-stone-300 h-screen p-5 pt-8 relative duration-300`}>
+      <img alt="Logo"
+        src="./src/assets/control.png"
+        className={`absolute cursor-pointer -right-3 top-9 w-7  bg-[#050C9B]relative
+         border-2 rounded-full  ${!open && "rotate-180"}`}
+        onClick={() => setOpen(!open)}
+      />
         <div className="flex gap-x-4 items-center"></div>
-        <ul className="pt-2">
+        <ul className="pt-6">
           {Menus.map((menu, index) => (
             <li
               key={index}
-              className={`flex  p-2 py-4 cursor-pointer hover:bg-[#3572EF] hover:text-white hover:rounded-r-3xl text-xl  items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
+              className={`flex rounded-md p-2 cursor-pointer hover:bg-[#050C9B] hover:text-white text-black text-sm items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
             >
               <Link to={menu.path} className="flex items-center gap-x-4 w-full">
                 <div className="size-10">
@@ -45,8 +46,22 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+      <div className="h-screen flex-1 p-7">
+        <div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-[0%]'>
+          <img src={LOGO} className='bg-cover w-full h-full' alt="Logo" />
+        </div>
+        <div>
+          <br></br>
+          {/* Content area */}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Navbar;
+export default App;
+
+
+
+
+
