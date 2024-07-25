@@ -36,6 +36,8 @@ import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
+ import Winners from './pages/winners.tsx';
+
 
 
 
@@ -73,6 +75,8 @@ function App() {
         {/*<Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />*/}
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
+        <Route path="/winners" element={<MainLayout><Winners/></MainLayout>} />
+
 
 
 
