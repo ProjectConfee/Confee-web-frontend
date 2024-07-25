@@ -29,7 +29,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/homepage" element={<Register />} />
+        <Route path="/homepage" element={<MainLayout><Register /></MainLayout>} />
         <Route path="/qrcode" element={<MainLayout><QRcode /></MainLayout>} />
         <Route path="/resource-home" element={<MainLayout><ResourceHome /></MainLayout>} />
         <Route path="/resource-upload" element={<MainLayout><ResourceUpload /></MainLayout>} />

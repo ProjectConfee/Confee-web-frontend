@@ -35,8 +35,8 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-full mt-20 ml-50">
-      <h1 className="text-2xl font-semibold text-center text-sky-700">ICTer Conference 2024</h1>
-      <h2 className="text-2xl font-semibold text-center">Welcome Sponsors!</h2>
+      {/*<h1 className="text-2xl font-semibold text-center text-sky-700">ICTer Conference 2024</h1>*/}
+      {/*<h2 className="text-2xl font-semibold text-center">Welcome Sponsors!</h2>*/}
         <div id="myqrcode" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
           <Input
               placeholder="-"

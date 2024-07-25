@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import LOGO from '../assets/logo.jpeg';
+// import LOGO from '../assets/logo.jpeg';
 import { useState } from "react";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     { title: "Announcement", src: "announcement", path: "/announcement", gap: true },
     { title: "Logout", src: "logout", path: "/" },
   ];
-  
+
 
   return (
     <div className="flex">
@@ -32,7 +32,7 @@ const App = () => {
           {Menus.map((menu, index) => (
             <li
               key={index}
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-[#050C9B] hover:text-white text-black text-sm items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
+              className={`flex rounded-md p-2 cursor-pointer hover:bg-[#3572EF] hover:text-white text-black text-sm items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
             >
               <Link to={menu.path} className="flex items-center gap-x-4 w-full">
                 <div className="size-10">
@@ -47,9 +47,9 @@ const App = () => {
         </ul>
       </div>
       <div className="h-screen flex-1 p-7">
-        <div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-[0%]'>
-          <img src={LOGO} className='bg-cover w-full h-full' alt="Logo" />
-        </div>
+        {/*<div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-[0%]'>*/}
+        {/*  <img src={LOGO} className='bg-cover w-full h-full' alt="Logo" />*/}
+        {/*</div>*/}
         <div>
           <br></br>
           {/* Content area */}

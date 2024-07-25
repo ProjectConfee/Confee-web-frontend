@@ -1,5 +1,5 @@
 
-import LOGO  from '../assets/logo.png'
+// import LOGO  from '../assets/logo.png'
 
 const Login = ()=>{
     return (
@@ -11,7 +11,8 @@ const Login = ()=>{
             </div>
 
             <div className='w-1/2 h-screen flex  bg -[#f5f5f5] flex-col p-20 justify-center  pl-10 pr-[10%] mt-[-50px]  mb-8'>
-                <div className='absolute ml-[30%] w-20 mr-[70%] mb-[70%] mt-[30%] ' ><img src={LOGO} className='bg-cover w-full h-full ' /></div>
+                {/*<div className='absolute ml-[30%] w-20 mr-[70%] mb-[70%] mt-[30%] ' >*/}
+                {/*    <img src={LOGO} className='bg-cover w-full h-full ' /></div>*/}
                 <h1 className='text-4xl text-[#060606] font-semibold mt-[10%]  text-center'>ICTer Conference 2024 </h1>
                 <div className='w-full flex flex-col '>
                     

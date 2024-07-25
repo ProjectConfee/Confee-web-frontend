@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Flex } from 'antd';
 
 interface Feedback {
     id: number;
@@ -17,7 +19,7 @@ const moreFeedbacks: Feedback[] = [
 const MoreFeedbacks:
     React.FC = () => {
     return (
-        <div className="flex flex-col justify-center items-center min-h-screen bg-white p-4">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-white p-4  ">
             <h1 className="text-3xl font-bold text-center mb-10">More Feedbacks</h1>
             <div className="w-full max-w-4xl">
                 {moreFeedbacks.map((feedback) => (
@@ -27,6 +29,17 @@ const MoreFeedbacks:
                         <p className="mt-2 text-yellow-500">Rating: {'★'.repeat(feedback.rating)}</p>
                     </div>
                 ))}
+            </div>
+            <div>
+
+                <Flex gap="small" wrap>
+                    <Link to="/homepage"> {/* Adjust the path as needed */}
+                        <Button type="primary">Back to Homepage</Button>
+                    </Link>
+
+
+                </Flex>
+
             </div>
         </div>
     );
