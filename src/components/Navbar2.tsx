@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar2 = () => {
   const [open, setOpen] = useState(true);
 
   const Menus = [
@@ -49,4 +49,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

@@ -1,15 +1,15 @@
 import React, { ReactNode } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar2 from '../components/Navbar2';
 import { IoMdNotificationsOutline } from "react-icons/io";
 
 interface MainLayoutProps {
   children: ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const Layout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="flex min-h-screen">
-      <Navbar />
+      <Navbar2 />
       <div className="flex flex-col flex-grow">
         <div className="h-20 w-full flex items-center justify-between px-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white">
           <div className="font-semibold text-3xl">
@@ -38,4 +38,4 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   );
 };
 
-export default MainLayout;
+export default Layout;
