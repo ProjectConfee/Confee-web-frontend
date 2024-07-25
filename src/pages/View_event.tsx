@@ -3,6 +3,7 @@ import {Tabs, Typography} from "antd";
 
 
 import EventDetail from './Event_detail.tsx';
+import EventSchedule from './Event_schedule.tsx';
 
 const onChange = (key:string) => {
     console.log(key);
@@ -63,7 +64,7 @@ const App = () => (
                         {
                             label: 'Schedule',
                             key: '3',
-                            children: <EventDetail/>,
+                            children: <EventSchedule/>,
                         },
                     ]}
                 />
