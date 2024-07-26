@@ -25,7 +25,9 @@ const App = () => {
                     <div className="text-2xl font-bold ml-[300px]">
                         My Profile
                     </div>
-                    <Button className="w-25 ml-[200px]" type="primary">Edit Profile</Button>
+                    <Button className="w-25 ml-[200px]" type="primary">
+                        Edit Profile
+                    </Button>
                 </div>
                 <Divider />
                 <div className="mt-5 flex justify-around">
@@ -39,7 +41,9 @@ const App = () => {
                         </div>
 
                         <div className="text-center mt-2">
-                            <p className="font-bold text-lg">Olivia Grace</p>
+                            <p className="font-bold text-lg">
+                                Olivia Grace
+                            </p>
                             {/*<p className="text-lg">olivia@gmail.com</p>*/}
                         </div>
                         <div className="flex">
