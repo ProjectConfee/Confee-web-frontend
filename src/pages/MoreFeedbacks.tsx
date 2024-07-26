@@ -10,9 +10,9 @@ interface Feedback {
 }
 
 const moreFeedbacks: Feedback[] = [
-    { id: 5, participant: 'Anna Lee', comment: 'Fantastic experience!', rating: 5 },
-    { id: 6, participant: 'James King', comment: 'Learned a lot!', rating: 4 },
-    { id: 7, participant: 'Maria Garcia', comment: 'Will attend again!', rating: 5 },
+    { id: 5, participant: 'Amaya fernando', comment: 'Fantastic experience!', rating: 5 },
+    { id: 6, participant: 'kamal Perera ', comment: 'Learned a lot!', rating: 4 },
+    { id: 7, participant: 'Maria Smith', comment: 'Will attend again!', rating: 5 },
     { id: 8, participant: 'Robert Wilson', comment: 'Very useful.', rating: 4 },
 ];
 

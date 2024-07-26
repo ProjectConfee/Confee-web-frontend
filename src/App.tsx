@@ -24,6 +24,7 @@ import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
 import Announcement  from './pages/announcement.tsx';
+import Profile  from './pages/Profile.tsx';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/stall-location" element={<MainLayout>< Stall_location /></MainLayout>} />
         <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
+        <Route path="/profile" element={<MainLayout><Profile/></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
         {/* Add more routes as needed */}
       </Routes>

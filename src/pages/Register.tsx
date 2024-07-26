@@ -26,7 +26,7 @@ const App = () => {
   }
 
   const feedbacks: Feedback[] = [
-    { id: 1, participant: 'John Doe', comment: 'Great event!', rating: 5 },
+    { id: 1, participant: 'Damiru Herath', comment: 'Great event!', rating: 3 },
     { id: 2, participant: 'Jane Smith', comment: 'Very informative.', rating: 4 },
   ];
 
