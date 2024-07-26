@@ -2,6 +2,7 @@
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Profile from './pages/Profile';
 import QRcode from './pages/QRcode';
 import ResourceHome from '../src/pages/Resource_main';
 import ResourceUpload from './pages/Resource_upload';
@@ -42,9 +43,11 @@ function App() {
   return (
     <Router>
       <Routes>
+
         <Route path="/" element={<Login />} />
         <Route path="/homepage" element={<Register />} />
         <Route path="/qrcode" element={<MainLayout><QRcode /></MainLayout>} />
+        <Route path="/profile" element={<MainLayout><Profile /></MainLayout>} />
         <Route path="/resource-home" element={<MainLayout><ResourceHome /></MainLayout>} />
         <Route path="/resource-upload" element={<MainLayout><ResourceUpload /></MainLayout>} />
         <Route path="/resource-done" element={<MainLayout><ResourceDone /></MainLayout>} />

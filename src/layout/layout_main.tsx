@@ -1,13 +1,16 @@
 import React, { ReactNode } from 'react';
 import Navbar from '../components/Navbar';
 
+
 import { IoMdNotificationsOutline } from "react-icons/io";
+
 
 interface MainLayoutProps {
   children: ReactNode;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+
   return (
     <div className="flex min-h-screen bg-slate-50">
       <Navbar />
