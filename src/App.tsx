@@ -43,6 +43,11 @@ import Profile  from './pages/Profile.tsx';
  import Winners from './pages/winners.tsx';
  import AllWinners from './pages/participant/all_winners.tsx';
 
+ // participant imports
+import Layout_participant from "./layout/layout_participant.tsx";
+import Profile_participant from "./pages/participant/Participant_profile.tsx";
+
+
 
 function App() {
   return (
@@ -86,6 +91,9 @@ function App() {
         <Route path="/winners" element={<MainLayout><Winners/></MainLayout>} />
         <Route path="/all_winners" element={<MainLayout><AllWinners/></MainLayout>} />
 
+        {/*Participant route*/}
+        <Route path="/announcement_participant" element={<Layout_participant ><Announcement_view /></Layout_participant >} />
+        <Route path="/profile_participant" element={<Layout_participant ><Profile_participant /></Layout_participant >} />
 
 
 
