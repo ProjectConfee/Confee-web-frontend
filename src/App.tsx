@@ -2,6 +2,7 @@
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Profile from './pages/Profile';
 import QRcode from './pages/QRcode';
 import ResourceHome from '../src/pages/Resource_main';
 import ResourceUpload from './pages/Resource_upload';
@@ -15,7 +16,11 @@ import Stall_details from './pages/Stall_details'
 import Schedule from './pages/Schedule'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
-
+import Header from './components/header';
+import Icter from './components/icter';
+import AboutUs from './components/aboutus';
+import Speakers from './components/speakers';
+import Sponsors from './components/sponsors';
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
 import Badge_details from './pages/admin/Badge_details';
@@ -26,9 +31,15 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/home" element={<Header />} />
+        <Route path="/icter" element={<Icter />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/speakers" element={<Speakers />} />
+        <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/" element={<Login />} />
         <Route path="/homepage" element={<Register />} />
         <Route path="/qrcode" element={<MainLayout><QRcode /></MainLayout>} />
+        <Route path="/profile" element={<MainLayout><Profile /></MainLayout>} />
         <Route path="/resource-home" element={<MainLayout><ResourceHome /></MainLayout>} />
         <Route path="/resource-upload" element={<MainLayout><ResourceUpload /></MainLayout>} />
         <Route path="/resource-done" element={<MainLayout><ResourceDone /></MainLayout>} />
