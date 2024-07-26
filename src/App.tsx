@@ -35,8 +35,6 @@ import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
-
-import Announcement  from './pages/announcement.tsx';
 import Profile  from './pages/Profile.tsx';
 
  import Winners from './pages/winners.tsx';
