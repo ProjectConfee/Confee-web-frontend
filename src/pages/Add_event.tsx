@@ -84,7 +84,7 @@ const App = () => {
 
     return (
         <>
-            <div className="bg-white mt-20 rounded-lg shadow-lg p-8">
+            <div className="bg-white mt-8 rounded-lg shadow-lg p-8">
                 <div className="flex justify-center items-center mb-6">
                     <Title level={3}>Add Conference Event</Title>
                 </div>

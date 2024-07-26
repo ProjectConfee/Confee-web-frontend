@@ -13,7 +13,7 @@ const { Title } = Typography;
 const App = () => (
     <>
 
-        <div className="bg-white mt-20 rounded-lg shadow-lg p-8">
+        <div className="bg-white mt-8 rounded-lg shadow-lg p-8">
             <div className="col-span-2 flex justify-center items-center">
                 <Title level={3}>Conference Event</Title>
             </div>
