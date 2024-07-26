@@ -165,7 +165,7 @@ const App = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center h-full mt-20 ml-50">
+    <div className="flex flex-col justify-center items-center h-full mt-10 ml-50">
       {/*<h1 className="text-2xl font-semibold text-center text-sky-700">*/}
       {/*  ICTer Conference 2024*/}
       {/*</h1>*/}

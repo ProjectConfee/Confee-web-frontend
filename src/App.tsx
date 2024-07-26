@@ -35,15 +35,20 @@ import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
+
+import Announcement  from './pages/announcement.tsx';
+import Profile  from './pages/Profile.tsx';
+
  import Winners from './pages/winners.tsx';
  import AllWinners from './pages/participant/all_winners.tsx';
+
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/homepage" element={<Register />} />
+        <Route path="/homepage" element={<MainLayout><Register /></MainLayout>} />
         <Route path="/qrcode" element={<MainLayout><QRcode /></MainLayout>} />
         <Route path="/resource-home" element={<MainLayout><ResourceHome /></MainLayout>} />
         <Route path="/resource-upload" element={<MainLayout><ResourceUpload /></MainLayout>} />
@@ -58,6 +63,8 @@ function App() {
         <Route path="/sponsor-register" element={<MainLayout>< Sponsor_register /></MainLayout>} />
         <Route path="/stall-location" element={<MainLayout>< Stall_location /></MainLayout>} />
         <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
+        <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
+        <Route path="/profile" element={<MainLayout><Profile/></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
         {/*<Route path="/signup" element={<Signup/>} />*/}
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />

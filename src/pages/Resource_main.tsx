@@ -333,10 +333,10 @@ const App = () => {
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-white">
-            <div className="text-center mt-10 ml-30">
+            <div className="text-center mt-0 ml-30">
                 <h2 className="text-3xl font-semibold">ADD YOUR RESOURCES HERE</h2>
             </div>
-            <div className="flex mt-20 w-11/12 max-w-5xl ml-40">
+            <div className="flex mt-10 w-11/12 max-w-5xl ml-40">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4">
                     {linkedButtons.slice(0, 4).map((button) => (
                         <div
