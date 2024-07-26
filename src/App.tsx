@@ -30,16 +30,13 @@ import Ticket from './pages/Ticket.tsx';
 // import Resource from './pages/UploadResource.tsx';
 
 import Announcement from './pages/announcement.tsx';
-
 import Badge_details from './pages/admin/Badge_details';
 import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
  import Winners from './pages/winners.tsx';
-
-
-
+ import AllWinners from './pages/participant/all_winners.tsx';
 
 function App() {
   return (
@@ -76,6 +73,8 @@ function App() {
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/winners" element={<MainLayout><Winners/></MainLayout>} />
+        <Route path="/all_winners" element={<MainLayout><AllWinners/></MainLayout>} />
+
 
 
 
