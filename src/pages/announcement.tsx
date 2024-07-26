@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-white mt-16 mx-40 rounded-xl shadow-lg pb-16 ">
+      <div className="bg-white mt-16 mx-20 rounded-3xl shadow-lg pb-16 ">
         <div className="flex pt-6 justify-center text-3xl font-medium">
           Announcements
         </div>
@@ -36,15 +36,15 @@ const App = () => {
           </div>
         </div>
         <div className="mx-14 pb-4">
-          <Card>
+          <Card className=''>
             <p className="text-xl">Card content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
             </div>
           </Card>
         </div>
-        <div className="mx-14 pb-4">
-          <Card>
+        <div className="mx-14 pb-4 shadow-3xl">
+          <Card className=''>
             <p className="text-xl">Card content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
