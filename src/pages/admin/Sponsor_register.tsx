@@ -18,27 +18,32 @@ const App: React.FC = () => {
     <div className='flex flex-col justify-center items-center h-full mt-30 ml-50'>
       <div className='flex flex-col justify-center items-center h-full mt-20 ml-50'>
         <h2 className="text-2xl font-semibold text-center mt-[-10]">Sponsor Registration</h2>
-        <br /><br />
+        <br/><br/>
         <div className='mb-8'>
           <p>Name of the Company:</p>
-          <br />
-          <Input size="large" placeholder="Company Name" style={{ width: '600px' }} />
+          <br/>
+          <Input size="large" placeholder="Company Name" style={{width: '600px'}}/>
         </div>
         <div className='mb-8'>
           <p>Company Email:</p>
-          <br />
-          <Input size="large" placeholder="Company Email" style={{ width: '600px' }} />
+          <br/>
+          <Input size="large" placeholder="Company Email" style={{width: '600px'}}/>
+        </div>
+        <div className='mb-8'>
+          <p>Company URL  :</p>
+          <br/>
+          <Input size="large" placeholder="Company URL" style={{width: '600px'}}/>
         </div>
         <div className='mb-8'>
           <p>Password:</p>
-          <br />
-          <Space direction="vertical" style={{ width: '600px' }}>
-            
+          <br/>
+          <Space direction="vertical" style={{width: '600px'}}>
+
             <Space direction="horizontal">
               <Input.Password
-                placeholder="input password"
-                visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
-                style={{ width: 600 }}
+                  placeholder="input password"
+                  visibilityToggle={{visible: passwordVisible, onVisibleChange: setPasswordVisible}}
+                  style={{width: 600}}
               />
               {/* <Button style={{ width: 80 }} onClick={() => setPasswordVisible((prevState) => !prevState)}>
                 {passwordVisible ? 'Hide' : 'Show'}
@@ -62,15 +67,15 @@ const App: React.FC = () => {
 
         <div className='mb-8'>
           <p>Badge Name of the Company:</p>
-          <br />
-          <Input size="large" placeholder="Company Badge Name" style={{ width: '600px' }} />
+          <br/>
+          <Input size="large" placeholder="Company Badge Name" style={{width: '600px'}}/>
         </div>
       </div>
-      
+
       <Flex gap="small" wrap>
-    <Button type="primary">Submit</Button>
-    
-  </Flex>
+        <Button type="primary">Submit</Button>
+
+      </Flex>
     </div>
   );
 };

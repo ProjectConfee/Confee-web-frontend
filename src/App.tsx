@@ -19,9 +19,25 @@ import Navbar from './components/Navbar';
 
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
+
+//import Signup from './pages/Signup.tsx';
+import NoEvent from './pages/No_event.tsx';
+import AddEvent from './pages/Add_event.tsx';
+import Event from './pages/Event.tsx';
+
+import ViewEvent from './pages/View_event.tsx';
+import EventDetail from './pages/Event_detail.tsx';
+import Ticket from './pages/Ticket.tsx';
+// import Resource from './pages/UploadResource.tsx';
+
+import Announcement from './pages/announcement.tsx';
 import Badge_details from './pages/admin/Badge_details';
+import Stall_register from './pages/admin/Stall_register.tsx';
+import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/MoreFeedbacks.tsx';
+ import Winners from './pages/winners.tsx';
+ import AllWinners from './pages/participant/all_winners.tsx';
 
 function App() {
   return (
@@ -41,9 +57,31 @@ function App() {
         <Route path="/schedule" element={<MainLayout><Schedule /></MainLayout>} />
         <Route path="/stall-details" element={<MainLayout><Stall_details /></MainLayout>} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
+        <Route path="/stall-register" element={<MainLayout><Stall_register /></MainLayout>} />
         <Route path="/sponsor-register" element={<MainLayout>< Sponsor_register /></MainLayout>} />
+        <Route path="/stall-location" element={<MainLayout>< Stall_location /></MainLayout>} />
         <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
+        {/*<Route path="/signup" element={<Signup/>} />*/}
+        <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
+
+        <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
+        <Route path="/view_event" element={<MainLayout><ViewEvent/></MainLayout>} />
+        <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
+        <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
+        <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
+        {/*<Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />*/}
+
+        {/*<Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />*/}
+        <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
+        <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
+        <Route path="/winners" element={<MainLayout><Winners/></MainLayout>} />
+        <Route path="/all_winners" element={<MainLayout><AllWinners/></MainLayout>} />
+
+
+
+
+
         {/* Add more routes as needed */}
       </Routes>
     </Router>
