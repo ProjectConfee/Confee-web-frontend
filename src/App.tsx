@@ -19,7 +19,7 @@ import Navbar from './components/Navbar';
 import MainLayout from './layout/layout_main';
 import Login from './pages/Login';
 
-//import Signup from './pages/Signup.tsx';
+import Signup from './pages/Sign_up.tsx';
 import NoEvent from './pages/No_event.tsx';
 import AddEvent from './pages/Add_event.tsx';
 import Event from './pages/Event.tsx';
@@ -64,7 +64,7 @@ function App() {
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/profile" element={<MainLayout><Profile/></MainLayout>} />
         <Route path="/navbar" element={<Navbar />} />
-        {/*<Route path="/signup" element={<Signup/>} />*/}
+        <Route path="/signup" element={<Signup/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
 
         <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
