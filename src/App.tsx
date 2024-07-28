@@ -47,6 +47,18 @@ import Profile  from './pages/Profile.tsx';
 import Layout_participant from "./layout/layout_participant.tsx";
 import Profile_participant from "./pages/participant/Participant_profile.tsx";
 
+// speaker imports
+import Layout_speaker from "./layout/layout_speaker.tsx";
+
+// author imports
+import Layout_author from "./layout/layout_author.tsx";
+
+// admin imports
+import Layout_admin from "./layout/layout_admin.tsx";
+
+// oc imports
+import Layout_oc from "./layout/layout_oc.tsx";
+
 
 
 function App() {
@@ -96,7 +108,21 @@ function App() {
         <Route path="/profile_participant" element={<Layout_participant ><Profile_participant /></Layout_participant >} />
 
 
+        {/*Speaker route*/}
+        <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />
+        <Route path="/profile_speaker" element={<Layout_speaker ><Profile_participant /></Layout_speaker >} />
 
+        {/*Author route*/}
+        <Route path="/announcement_author" element={<Layout_author ><Announcement_view /></Layout_author >} />
+        <Route path="/profile_author" element={<Layout_author ><Profile_participant /></Layout_author >} />
+
+        {/*Admin route*/}
+        <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
+        <Route path="/profile_admin" element={<Layout_admin ><Profile_participant /></Layout_admin >} />
+
+        {/*Committee route*/}
+        <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
+        <Route path="/profile_oc" element={<Layout_oc ><Profile_participant /></Layout_oc >} />
 
         {/* Add more routes as needed */}
       </Routes>
