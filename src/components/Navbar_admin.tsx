@@ -15,7 +15,7 @@ const Navbar_admin = () => {
         { title: "Schedule", src: "schedule", path: "#", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "#", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_admin", gap: true },
-        { title: "Feedback", src: "feedback", path: "#", gap: true },
+        { title: "Feedback", src: "feedback", path: "/view_feedback_admin", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 

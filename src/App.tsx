@@ -48,12 +48,15 @@ import Layout_participant from "./layout/layout_participant.tsx";
 import Profile_participant from "./pages/participant/Participant_profile.tsx";
 import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
+import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
+import View_feedback from "./pages/participant/Feedbacks.tsx";
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
 import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
+import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";
@@ -66,12 +69,15 @@ import Layout_admin from "./layout/layout_admin.tsx";
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
 import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
+import View_feedback_admin from "./pages/committee/View_feedback.tsx";
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
 import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
 import Change_password_oc from "./pages/committee/Edit_password_oc.tsx";
+import View_feedback_oc from "./pages/committee/View_feedback.tsx";
+// import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
 
@@ -122,12 +128,15 @@ function App() {
         <Route path="/profile_participant" element={<Layout_participant ><Profile_participant /></Layout_participant >} />
         <Route path="/edit_profile" element={<Layout_participant ><Edit_profile /></Layout_participant >} />
         <Route path="/change_password" element={<Layout_participant ><Change_password /></Layout_participant >} />
+        <Route path="/stall_allocation" element={<Layout_participant ><Stall_allocation /></Layout_participant >} />
+        <Route path="/view_feedback" element={<Layout_participant ><View_feedback /></Layout_participant >} />
 
         {/*Speaker route*/}
         <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />
         <Route path="/profile_speaker" element={<Layout_speaker ><Profile_speaker /></Layout_speaker >} />
         <Route path="/edit_profile_speaker" element={<Layout_speaker ><Edit_profile_speaker /></Layout_speaker >} />
         <Route path="/change_password_speaker" element={<Layout_speaker ><Change_password_speaker /></Layout_speaker >} />
+        <Route path="/view_feedback_speaker" element={<Layout_speaker ><View_feedback_speaker /></Layout_speaker >} />
 
         {/*Author route*/}
         <Route path="/announcement_author" element={<Layout_author ><Announcement_view /></Layout_author >} />
@@ -140,12 +149,14 @@ function App() {
         <Route path="/profile_admin" element={<Layout_admin ><Profile_admin /></Layout_admin >} />
         <Route path="/edit_profile_admin" element={<Layout_admin ><Edit_profile_admin /></Layout_admin >} />
         <Route path="/change_password_admin" element={<Layout_admin ><Change_password_admin /></Layout_admin >} />
+        <Route path="/view_feedback_admin" element={<Layout_admin ><View_feedback_admin /></Layout_admin >} />
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
         <Route path="/profile_oc" element={<Layout_oc ><Profile_oc /></Layout_oc >} />
         <Route path="/edit_profile_oc" element={<Layout_oc ><Edit_profile_oc /></Layout_oc >} />
         <Route path="/change_password_oc" element={<Layout_oc ><Change_password_oc /></Layout_oc >} />
+        <Route path="/view_feedback_oc" element={<Layout_oc ><View_feedback_oc /></Layout_oc >} />
 
         {/* Add more routes as needed */}
       </Routes>

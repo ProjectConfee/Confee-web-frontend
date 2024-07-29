@@ -14,7 +14,7 @@ const Navbar_author = () => {
         { title: "Schedule", src: "schedule", path: "#", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "#", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_author", gap: true },
-        { title: "Feedback", src: "feedback", path: "#", gap: true },
+        // { title: "Feedback", src: "feedback", path: "#", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 
