@@ -11,8 +11,8 @@ const Navbar_author = () => {
     const Menus = [
         { title: "Home", src: "home", path: "#", gap: true },
         { title: "Profile", src: "profile", path: "/profile_author", gap: true },
-        { title: "Schedule", src: "schedule", path: "#", gap: true },
-        { title: "Innovation Studio", src: "sponsor", path: "#", gap: true },
+        { title: "Schedule", src: "schedule", path: "/view_schedules_author", gap: true },
+        { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation_author", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_author", gap: true },
         // { title: "Feedback", src: "feedback", path: "#", gap: true },
         { title: "Logout", src: "logout", path: "/" },
