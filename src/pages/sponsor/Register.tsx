@@ -93,7 +93,7 @@ const App = () => {
               </div>
               <div className="flex justify-center mt-6">
                 <Link to="/more-feedbacks">
-                  <button className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                  <button className="bg-blue-950 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
                     See More
                   </button>
                 </Link>

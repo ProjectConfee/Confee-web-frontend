@@ -17,7 +17,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Navbar />
             </div>
             <div className="flex flex-col flex-grow">
-                <div className="w-full fixed top-0 left-0 flex items-center justify-between px-6 bg-gradient-to-r from-blue-600 to-blue-900 text-white z-20" style={{ height: '80px' }}>
+                <div className="w-full fixed top-0 left-0 flex items-center justify-between px-6 bg-[#12086f] text-white z-20" style={{ height: '80px' }}>
                     <div className="flex items-center">
                         <img
                             src="src/assets/final%20logo.jpeg"  // replace with your logo path

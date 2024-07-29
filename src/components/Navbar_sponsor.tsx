@@ -40,7 +40,7 @@ const Navbar = () => {
             <li
               key={index}
 
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-[#3572EF] hover:rounded-r-3xl hover:text-white text-black text-m items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
+              className={`flex rounded-md p-2 cursor-pointer hover:bg-[#12086f] hover:rounded-r-3xl hover:text-white text-black text-m items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
             >
               <Link to={menu.path} className="flex items-center gap-x-4 w-full">
                 <div className="size-8">

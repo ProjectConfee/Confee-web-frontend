@@ -34,7 +34,7 @@ const MoreFeedbacks:
 
                 <Flex gap="small" wrap>
                     <Link to="/homepage"> {/* Adjust the path as needed */}
-                        <Button type="primary">Back to Homepage</Button>
+                        <Button type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}> Back to Homepage</Button>
                     </Link>
 
 

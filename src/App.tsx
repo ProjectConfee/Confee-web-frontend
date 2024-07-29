@@ -12,6 +12,7 @@ import ResourceOther from './Resources_other';
 // import ViewMain from './View_main';
 import Register from './pages/sponsor/Register.tsx'
 import Stall_details from './pages/sponsor/Stall_details.tsx'
+import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
 import Schedule from './pages/sponsor/Schedule.tsx'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
@@ -38,10 +39,11 @@ import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
 import Sponsor_register from './pages/admin/Sponsor_register';
 import MoreFeedback from './pages/sponsor/MoreFeedbacks.tsx';
-import Profile  from './pages/Profile.tsx';
+
 
  import Winners from './pages/winners.tsx';
  import AllWinners from './pages/participant/all_winners.tsx';
+import Edit_sp_profile from "./pages/sponsor/Edit_sp_profile.tsx";
 
 
 function App() {
@@ -59,13 +61,15 @@ function App() {
         <Route path="/resource-other" element={<ResourceOther />} />
         <Route path="/schedule" element={<Layout_sponsor ><Schedule /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
+        <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
         <Route path="/stall-register" element={<MainLayout><Stall_register /></MainLayout>} />
         <Route path="/sponsor-register" element={<MainLayout>< Sponsor_register /></MainLayout>} />
         <Route path="/stall-location" element={<MainLayout>< Stall_location /></MainLayout>} />
-        <Route path="/more-feedbacks" element={<MainLayout><MoreFeedback /></MainLayout>} />
+        <Route path="/more-feedbacks" element={<Layout_sponsor><MoreFeedback /></Layout_sponsor>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
-        <Route path="/profile" element={<Layout_sponsor ><Profile/></Layout_sponsor >} />
+        <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
+        <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/navbar_sponsor" element={<Navbar_sponsor />} />

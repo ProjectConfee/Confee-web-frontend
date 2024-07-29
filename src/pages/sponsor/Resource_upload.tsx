@@ -6,7 +6,7 @@
 
 
 
-import {Button, Flex} from 'antd';
+import {Button} from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
 import { message, Upload } from 'antd';
@@ -40,51 +40,47 @@ const props: UploadProps = {
 
   return (
     <div className="flex flex-col justify-center items-center h-full mt-20 ml-50">
-        
- <div style={{ width: '60%', margin: '0 auto', alignItems:'center', padding:'40px', marginTop:'60px'}}>
-  <Dragger {...props}>
-    <p className="ant-upload-drag-icon">
-       <InboxOutlined />
-     </p>
-     <p className="ant-upload-text">Click or drag file to this area to upload</p>
-    <p className="ant-upload-hint">
-      Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-       banned files.
-     </p>
-  </Dragger>
-     <Flex gap="small " wrap>
-         <Link to="/resource-home"> {/* Adjust the path as needed */}
-             <Button type="primary">Back to Homepage</Button>
-         </Link>
+
+        <div style={{width: '60%', margin: '0 auto', alignItems: 'center', padding: '40px', marginTop: '60px'}}>
+            <Dragger {...props}>
+                <p className="ant-upload-drag-icon">
+                    <InboxOutlined/>
+                </p>
+                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                <p className="ant-upload-hint">
+                    Support for a single or bulk upload. Strictly prohibited from uploading company data or other
+                    banned files.
+                </p>
+            </Dragger>
+            <div className="flex items-center justify-center h-screen">
+                <div className="text-center mb-80">
+                    <Link to="/resource-home"> {/* Adjust the path as needed */}
+                        <Button     type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}>Back to Homepage</Button>
+                    </Link>
+                </div>
+                <br></br><br></br><br></br>
 
 
-     </Flex>
+            </div>
+
+            <div className="flex items-center justify-center h-screen">
+                <div className="text-center mt-20">
+                    <Result
+                        status="success"
+                        title="Successfully Uploaded your Resources!"
+                        subTitle="Thank you for the support."
+                        extra={[]}
+                    />
+                </div>
+            </div>
+
+        </div>
 
 
+    </div>
 
- 
-
-   <div className='mt-40'>
-   <Result
-    status="success"
-    title="Successfully Uploaded your Resources!"
-    subTitle="Thank you for the support."
-    extra={[
-
-      
-    ]}
-
-  />
-
-
-</div>
-
-  </div>
-       
-
-      </div>
-    
-  );
+  )
+      ;
 };
 
 export default App;

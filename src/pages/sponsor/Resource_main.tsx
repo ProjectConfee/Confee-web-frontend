@@ -324,11 +324,11 @@
 
 const App = () => {
     const linkedButtons = [
-        { id: 1, label: 'Images/Videos', link: './resource-upload', image: '../src/assets/gradient.jpeg' },
-        { id: 2, label: 'Documents', link: './resource-upload', image: '../src/assets/gradient.jpeg' },
-        { id: 3, label: 'Links', link: './resource-upload', image: '../src/assets/gradient.jpeg' },
-        { id: 4, label: 'Other', link: './resource-upload', image: '../src/assets/gradient.jpeg' },
-        { id: 5, label: 'Uploaded', link: './resource-done', image: '../src/assets/gradient2.jpeg' },
+        { id: 1, label: 'Media', link: './resource-upload', image: '../src/assets/upload_other.jpg' },
+        { id: 2, label: 'Documents', link: './resource-upload', image: '../src/assets/upload_linksss.jpg' },
+        { id: 3, label: 'Links', link: './resource-upload', image: '../src/assets/uploded.jpg' },
+        { id: 4, label: 'Other', link: './resource-upload', image: '../src/assets/upload_link.jpg' },
+        { id: 5, label: 'Uploaded', link: './resource-done', image: '../src/assets/upload_docs.jpg' },
     ];
 
     return (
@@ -344,7 +344,7 @@ const App = () => {
                             className="flex justify-center items-center bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl"
                             style={{
                                 width: '300px',
-                                height: '150px',
+                                height: '200px',
                                 backgroundImage: `url(${button.image})`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
@@ -370,7 +370,7 @@ const App = () => {
             <div className="flex justify-center items-center bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl mt-6"
                  style={{
                      width: '300px',
-                     height: '150px',
+                     height: '200px',
                      backgroundImage: `url(${linkedButtons[4].image})`,
                      backgroundSize: 'cover',
                      backgroundPosition: 'center',

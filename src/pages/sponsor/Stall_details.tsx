@@ -120,7 +120,7 @@ const App: React.FC = () => {
                         <div
                             key={stall.id}
                             className={`flex flex-col justify-center items-center p-6 border-4 rounded-xl shadow-lg transition-transform transform hover:scale-105
-                             ${stall.occupied ? 'bg-slate-700 border-slate-700 ' : 'bg-slate-500 border-slate-500'}`}
+                             ${stall.occupied ? 'bg-blue-800 border-bg-blue-800' : 'bg-blue-900 border-bg-blue-900'}`}
                         >
                             <p className="text-white font-bold text-2xl">{stall.name}</p>
                             <p className="text-white mt-2">{stall.occupied ? 'Your Stall' : 'Other stalls'}</p>
@@ -136,7 +136,7 @@ const App: React.FC = () => {
                         <div
                             key={subStall.id}
                             className={`flex flex-col justify-center items-center p-6 border-4 rounded-xl shadow-lg transition-transform transform hover:scale-105
-                             ${subStall.occupied ? 'bg-slate-700 border-slate-700 ' : 'bg-slate-500 border-slate-500'}`}
+                             ${subStall.occupied ? 'bg-blue-700 border-blue-700' : 'bg-blue-900 border-blue-900'}`}
                         >
                             <p className="text-white font-bold text-2xl">{subStall.name}</p>
                             <p className="text-white mt-2">{subStall.occupied ? 'Your Stall' : 'Other Stalls'}</p>
