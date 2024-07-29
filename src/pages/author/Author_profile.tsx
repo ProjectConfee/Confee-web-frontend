@@ -24,7 +24,7 @@ const data1 = [
     'Age: 30',
     'Date of Birth: 1994-09-10',
     'Gender: Female',
-    'Position: Entrance',
+    'University: UCSC',
 ];
 
 const App = () => {
@@ -36,7 +36,7 @@ const App = () => {
                         My Profile
                     </div>
 
-                    <Link to="/edit_profile_oc">
+                    <Link to="/edit_profile">
 
                         <Button
                             className="w-25 ml-[220px]"
@@ -47,7 +47,7 @@ const App = () => {
 
                     </Link>
 
-                    <Link to="/change_password_oc">
+                    <Link to="/change_password">
 
                         <Button className="w-25 ml-[50px]" type="primary">
                             Change Password

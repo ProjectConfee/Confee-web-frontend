@@ -61,7 +61,8 @@ import Layout_admin from "./layout/layout_admin.tsx";
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
-
+import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
+import Change_password_oc from "./pages/committee/Edit_password_oc.tsx";
 
 
 
@@ -128,6 +129,8 @@ function App() {
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
         <Route path="/profile_oc" element={<Layout_oc ><Profile_oc /></Layout_oc >} />
+        <Route path="/edit_profile_oc" element={<Layout_oc ><Edit_profile_oc /></Layout_oc >} />
+        <Route path="/change_password_oc" element={<Layout_oc ><Change_password_oc /></Layout_oc >} />
 
         {/* Add more routes as needed */}
       </Routes>
