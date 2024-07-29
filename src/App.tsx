@@ -51,9 +51,9 @@ import Change_password from "./pages/participant/Edit_password.tsx";
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
-import Profile_speaker from "./pages/author/Author_profile.tsx";
-import Edit_profile_speaker from "./pages/author/Edit_profile_author.tsx";
-import Change_password_speaker from "./pages/author/Edit_password_author.tsx";
+import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
+import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
+import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";

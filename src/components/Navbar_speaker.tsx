@@ -10,11 +10,11 @@ const Navbar_speaker = () => {
 
     const Menus = [
         { title: "Home", src: "home", path: "#", gap: true },
-        { title: "Profile", src: "profile", path: "/profile_participant", gap: true },
+        { title: "Profile", src: "profile", path: "/profile_speaker", gap: true },
         { title: "Schedule", src: "schedule", path: "#", gap: true },
         { title: "Resource Upload", src: "upload_resource", path: "#", gap: true },
         { title: "Feedback", src: "feedback", path: "#", gap: true },
-        { title: "Announcement", src: "announcement", path: "/announcement_participant", gap: true },
+        { title: "Announcement", src: "announcement", path: "/announcement_speaker", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 
