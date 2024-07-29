@@ -17,7 +17,7 @@ const Navbar_oc = () => {
         { title: "Winners", src: "sponsor", path: "#", gap: true },
         { title: "Issue Certificates", src: "sponsor", path: "#", gap: true },
         { title: "Resource Upload", src: "sponsor", path: "#", gap: true },
-        { title: "Feedback", src: "feedback", path: "#", gap: true },
+        { title: "Feedback", src: "feedback", path: "/view_feedback_oc", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 
