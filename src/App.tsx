@@ -51,12 +51,21 @@ import Change_password from "./pages/participant/Edit_password.tsx";
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
+import Profile_speaker from "./pages/author/Author_profile.tsx";
+import Edit_profile_speaker from "./pages/author/Edit_profile_author.tsx";
+import Change_password_speaker from "./pages/author/Edit_password_author.tsx";
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";
+import Profile_author from "./pages/author/Author_profile.tsx";
+import Edit_profile_author from "./pages/author/Edit_profile_author.tsx";
+import Change_password_author from "./pages/author/Edit_password_author.tsx";
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
+import Profile_admin from "./pages/author/Author_profile.tsx";
+import Edit_profile_admin from "./pages/author/Edit_profile_author.tsx";
+import Change_password_admin from "./pages/author/Edit_password_author.tsx";
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -116,15 +125,21 @@ function App() {
 
         {/*Speaker route*/}
         <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />
-        <Route path="/profile_speaker" element={<Layout_speaker ><Profile_participant /></Layout_speaker >} />
+        <Route path="/profile_speaker" element={<Layout_speaker ><Profile_speaker /></Layout_speaker >} />
+        <Route path="/edit_profile_speaker" element={<Layout_speaker ><Edit_profile_speaker /></Layout_speaker >} />
+        <Route path="/change_password_speaker" element={<Layout_speaker ><Change_password_speaker /></Layout_speaker >} />
 
         {/*Author route*/}
         <Route path="/announcement_author" element={<Layout_author ><Announcement_view /></Layout_author >} />
-        <Route path="/profile_author" element={<Layout_author ><Profile_participant /></Layout_author >} />
+        <Route path="/profile_author" element={<Layout_author ><Profile_author /></Layout_author >} />
+        <Route path="/edit_profile_author" element={<Layout_author ><Edit_profile_author /></Layout_author >} />
+        <Route path="/change_password_author" element={<Layout_author ><Change_password_author /></Layout_author >} />
 
         {/*Admin route*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
-        <Route path="/profile_admin" element={<Layout_admin ><Profile_participant /></Layout_admin >} />
+        <Route path="/profile_admin" element={<Layout_admin ><Profile_admin /></Layout_admin >} />
+        <Route path="/edit_profile_admin" element={<Layout_admin ><Edit_profile_admin /></Layout_admin >} />
+        <Route path="/change_password_admin" element={<Layout_admin ><Change_password_admin /></Layout_admin >} />
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
