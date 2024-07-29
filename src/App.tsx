@@ -63,9 +63,9 @@ import Change_password_author from "./pages/author/Edit_password_author.tsx";
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
-import Profile_admin from "./pages/author/Author_profile.tsx";
-import Edit_profile_admin from "./pages/author/Edit_profile_author.tsx";
-import Change_password_admin from "./pages/author/Edit_password_author.tsx";
+import Profile_admin from "./pages/admin/Admin_profile.tsx";
+import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
+import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
