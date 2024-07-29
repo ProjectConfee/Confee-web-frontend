@@ -11,7 +11,9 @@ const Navbar_participant = () => {
     const Menus = [
         { title: "Home", src: "home", path: "#", gap: true },
         { title: "Profile", src: "profile", path: "/profile_participant", gap: true },
-        { title: "Schedule", src: "schedule", path: "#", gap: true },
+        { title: "Events", src: "events", path: "/view_event_details", gap: true },
+        { title: "Schedule", src: "schedule", path: "/view_schedules", gap: true },
+        { title: "Winners", src: "winner", path: "/view_winners", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_participant", gap: true },
         // { title: "Feedback", src: "feedback", path: "/view_feedback", gap: true },

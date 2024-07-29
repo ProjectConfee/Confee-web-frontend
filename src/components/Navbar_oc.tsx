@@ -14,9 +14,9 @@ const Navbar_oc = () => {
         { title: "Schedules", src: "schedule", path: "#", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_oc", gap: true },
         { title: "Sponsors", src: "sponsor", path: "#", gap: true },
-        { title: "Winners", src: "sponsor", path: "#", gap: true },
-        { title: "Issue Certificates", src: "sponsor", path: "#", gap: true },
-        { title: "Resource Upload", src: "sponsor", path: "#", gap: true },
+        { title: "Winners", src: "winner", path: "/add_winners", gap: true },
+        { title: "Issue Certificates", src: "certificate", path: "#", gap: true },
+        { title: "Resource Upload", src: "upload_resource", path: "#", gap: true },
         { title: "Feedback", src: "feedback", path: "/view_feedback_oc", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];

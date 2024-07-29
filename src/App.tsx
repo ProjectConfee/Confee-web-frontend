@@ -52,6 +52,9 @@ import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
 import View_feedback from "./pages/participant/Feedbacks.tsx";
+import Events from './pages/Event.tsx';
+import Event_schedules from './pages/Event_schedule.tsx';
+import View_winners from './pages/participant/all_winners.tsx';
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
@@ -59,12 +62,15 @@ import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
+import View_schedules_speaker from './pages/Event_schedule.tsx';
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";
 import Profile_author from "./pages/author/Author_profile.tsx";
 import Edit_profile_author from "./pages/author/Edit_profile_author.tsx";
 import Change_password_author from "./pages/author/Edit_password_author.tsx";
+import Stall_allocation_author from "./pages/participant/Stall_allocation.tsx";
+import View_schedules_author from './pages/Event_schedule.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
@@ -72,6 +78,8 @@ import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
 import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 import View_feedback_admin from "./pages/committee/View_feedback.tsx";
+import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
+import View_schedules_admin from './pages/Event_schedule.tsx';
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -79,6 +87,8 @@ import Profile_oc from "./pages/committee/Oc_profile.tsx";
 import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
 import Change_password_oc from "./pages/committee/Edit_password_oc.tsx";
 import View_feedback_oc from "./pages/committee/View_feedback.tsx";
+import Add_winners from "./pages/winners.tsx";
+// import Resource_upload_oc from "./pages/UploadResource.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
@@ -134,6 +144,9 @@ function App() {
         <Route path="/change_password" element={<Layout_participant ><Change_password /></Layout_participant >} />
         <Route path="/stall_allocation" element={<Layout_participant ><Stall_allocation /></Layout_participant >} />
         <Route path="/view_feedback" element={<Layout_participant ><View_feedback /></Layout_participant >} />
+        <Route path="/view_event_details" element={<Layout_participant ><Events/></Layout_participant >} />
+        <Route path="/view_schedules" element={<Layout_participant ><Event_schedules/></Layout_participant >} />
+        <Route path="/view_winners" element={<Layout_participant ><View_winners/></Layout_participant >} />
 
         {/*Speaker route*/}
         <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />
@@ -141,12 +154,15 @@ function App() {
         <Route path="/edit_profile_speaker" element={<Layout_speaker ><Edit_profile_speaker /></Layout_speaker >} />
         <Route path="/change_password_speaker" element={<Layout_speaker ><Change_password_speaker /></Layout_speaker >} />
         <Route path="/view_feedback_speaker" element={<Layout_speaker ><View_feedback_speaker /></Layout_speaker >} />
+        <Route path="/view_schedules_speaker" element={<Layout_speaker ><View_schedules_speaker /></Layout_speaker >} />
 
         {/*Author route*/}
         <Route path="/announcement_author" element={<Layout_author ><Announcement_view /></Layout_author >} />
         <Route path="/profile_author" element={<Layout_author ><Profile_author /></Layout_author >} />
         <Route path="/edit_profile_author" element={<Layout_author ><Edit_profile_author /></Layout_author >} />
         <Route path="/change_password_author" element={<Layout_author ><Change_password_author /></Layout_author >} />
+        <Route path="/stall_allocation_author" element={<Layout_author ><Stall_allocation_author /></Layout_author >} />
+        <Route path="/view_schedules_author" element={<Layout_author ><View_schedules_author /></Layout_author >} />
 
         {/*Admin route*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
@@ -154,6 +170,8 @@ function App() {
         <Route path="/edit_profile_admin" element={<Layout_admin ><Edit_profile_admin /></Layout_admin >} />
         <Route path="/change_password_admin" element={<Layout_admin ><Change_password_admin /></Layout_admin >} />
         <Route path="/view_feedback_admin" element={<Layout_admin ><View_feedback_admin /></Layout_admin >} />
+        <Route path="/stall_allocation_admin" element={<Layout_admin ><Stall_allocation_admin /></Layout_admin >} />
+        <Route path="/view_schedules_admin" element={<Layout_admin ><View_schedules_admin /></Layout_admin >} />
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
@@ -161,6 +179,8 @@ function App() {
         <Route path="/edit_profile_oc" element={<Layout_oc ><Edit_profile_oc /></Layout_oc >} />
         <Route path="/change_password_oc" element={<Layout_oc ><Change_password_oc /></Layout_oc >} />
         <Route path="/view_feedback_oc" element={<Layout_oc ><View_feedback_oc /></Layout_oc >} />
+        <Route path="/add_winners" element={<Layout_oc ><Add_winners /></Layout_oc >} />
+        {/*<Route path="/resource_upload_oc" element={<Layout_oc ><Resource_upload_oc /></Layout_oc >} />*/}
 
         {/* Add more routes as needed */}
       </Routes>
