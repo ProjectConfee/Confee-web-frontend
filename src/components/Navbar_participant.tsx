@@ -37,7 +37,7 @@ const Navbar_participant = () => {
                             className={`flex rounded-md p-2 cursor-pointer hover:bg-[#3572EF] hover:rounded-r-3xl hover:text-white text-black text-m items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
                         >
                             <Link to={menu.path} className="flex items-center gap-x-4 w-full">
-                                <div className="size-8">
+                                <div className="size-6">
                                     <img src={`./src/assets/${menu.src}.svg`} alt={menu.title} className="group-hover:bg-white" />
                                 </div>
                                 <span className={`${!open && "hidden"} origin-left duration-200 group-hover:text-white`}>

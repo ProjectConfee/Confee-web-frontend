@@ -24,7 +24,7 @@ const data1 = [
     'Age: 30',
     'Date of Birth: 1994-09-10',
     'Gender: Female',
-    'University: UCSC',
+    'Position: Entrance',
 ];
 
 const App = () => {
@@ -49,9 +49,9 @@ const App = () => {
 
                     <Link to="/change_password">
 
-                    <Button className="w-25 ml-[50px]" type="primary">
-                        Change Password
-                    </Button>
+                        <Button className="w-25 ml-[50px]" type="primary">
+                            Change Password
+                        </Button>
 
                     </Link>
 
@@ -94,7 +94,7 @@ const App = () => {
                     <div className="p-3 w-3/5 flex flex-col justify-evenly text-xl font-semibold">
                         <div className="flex justify-around">
                             <div className="w-4/5">
-                            <List
+                                <List
                                     size="small"
                                     className="shadow-md"
                                     // header={<div>Header</div>}
