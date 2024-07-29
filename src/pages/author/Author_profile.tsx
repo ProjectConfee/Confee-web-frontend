@@ -36,7 +36,7 @@ const App = () => {
                         My Profile
                     </div>
 
-                    <Link to="/edit_profile">
+                    <Link to="/edit_profile_author">
 
                         <Button
                             className="w-25 ml-[220px]"
@@ -47,7 +47,7 @@ const App = () => {
 
                     </Link>
 
-                    <Link to="/change_password">
+                    <Link to="/change_password_author">
 
                         <Button className="w-25 ml-[50px]" type="primary">
                             Change Password

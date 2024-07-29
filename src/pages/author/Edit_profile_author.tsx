@@ -46,7 +46,7 @@ const App = () => {
                         Edit Profile
                     </div>
 
-                    <Link to="/profile_participant">
+                    <Link to="/profile_author">
                         <Button className="w-25 ml-[220px]" type="primary">
                             Save
                         </Button>
