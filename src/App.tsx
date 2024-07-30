@@ -22,15 +22,15 @@ import MainLayout from './layout/layout_main';
 import Layout_sponsor from './layout/layout_sponsor.tsx';
 import Login from './pages/Login';
 
-//import Signup from './pages/Signup.tsx';
-import NoEvent from './pages/No_event.tsx';
-import AddEvent from './pages/Add_event.tsx';
-import Event from './pages/Event.tsx';
+import Signup from './pages/event/Sign_up.tsx';
+import NoEvent from './pages/event/No_event.tsx';
+import AddEvent from './pages/event/Add_event.tsx';
+import Event from './pages/event/Event.tsx';
 
-import ViewEvent from './pages/View_event.tsx';
-import EventDetail from './pages/Event_detail.tsx';
-import Ticket from './pages/Ticket.tsx';
-// import Resource from './pages/UploadResource.tsx';
+import ViewEvent from './pages/event/View_event.tsx';
+import EventDetail from './pages/event/Event_detail.tsx';
+import Ticket from './pages/event/Ticket.tsx';
+import Resource from './pages/event/UploadResource.tsx';
 
 import Announcement from './pages/announcement.tsx';
 import Announcement_view from './pages/sponsor/announcement_view.tsx';
@@ -52,8 +52,8 @@ import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
 import View_feedback from "./pages/participant/Feedbacks.tsx";
-import Events from './pages/Event.tsx';
-import Event_schedules from './pages/Event_schedule.tsx';
+import Events from './pages/event/Event.tsx';
+import Event_schedules from './pages/event/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
 
 // speaker imports
@@ -62,7 +62,7 @@ import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
-import View_schedules_speaker from './pages/Event_schedule.tsx';
+import View_schedules_speaker from './pages/event/Event_schedule.tsx';
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";
@@ -70,7 +70,7 @@ import Profile_author from "./pages/author/Author_profile.tsx";
 import Edit_profile_author from "./pages/author/Edit_profile_author.tsx";
 import Change_password_author from "./pages/author/Edit_password_author.tsx";
 import Stall_allocation_author from "./pages/participant/Stall_allocation.tsx";
-import View_schedules_author from './pages/Event_schedule.tsx';
+import View_schedules_author from './pages/event/Event_schedule.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
@@ -79,7 +79,7 @@ import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
 import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 import View_feedback_admin from "./pages/committee/View_feedback.tsx";
 import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
-import View_schedules_admin from './pages/Event_schedule.tsx';
+import View_schedules_admin from './pages/event/Event_schedule.tsx';
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -119,19 +119,17 @@ function App() {
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
         <Route path="/navbar" element={<Navbar />} />
-        <Route path="/navbar_sponsor" element={<Navbar_sponsor />} />
-        {/*<Route path="/signup" element={<Signup/>} />*/}
+        
+        <Route path="/signup" element={<Signup/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
-
         <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
         <Route path="/view_event" element={<MainLayout><ViewEvent/></MainLayout>} />
         <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
-        {/*<Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />*/}
+        <Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />
 
-        {/*<Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />*/}
-        <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
+
         <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/announcements_view" element={<Layout_sponsor><Announcement/></Layout_sponsor>} />
         <Route path="/winners" element={<MainLayout><Winners/></MainLayout>} />

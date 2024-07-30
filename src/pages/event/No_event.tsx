@@ -1,5 +1,5 @@
 import {Button, Typography} from "antd";
-import no_event from "../assets/no_schedule.jpg";
+import no_event from "../../assets/no_schedule.jpg";
 
 
 const { Title } = Typography;
