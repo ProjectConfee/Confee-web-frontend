@@ -63,7 +63,10 @@ import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
-import View_schedules_speaker from './pages/event/Event_schedule.tsx';
+import View_schedules_speaker from './pages/participant/Event_schedule.tsx';
+import Resource_speaker from './pages/event/UploadResource.tsx';
+import Event_speaker from './pages/speaker/Event_speaker.tsx';
+import View_event_speaker from './pages/speaker/View_event_speaker.tsx';
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";
@@ -164,6 +167,9 @@ function App() {
         <Route path="/change_password_speaker" element={<Layout_speaker ><Change_password_speaker /></Layout_speaker >} />
         <Route path="/view_feedback_speaker" element={<Layout_speaker ><View_feedback_speaker /></Layout_speaker >} />
         <Route path="/view_schedules_speaker" element={<Layout_speaker ><View_schedules_speaker /></Layout_speaker >} />
+        <Route path="/resource_speaker" element={<Layout_speaker ><Resource_speaker /></Layout_speaker >} />
+        <Route path="/event_speaker" element={<Layout_speaker ><Event_speaker /></Layout_speaker >} />
+        <Route path="/view_event_speaker" element={<Layout_speaker ><View_event_speaker /></Layout_speaker >} />
 
         {/*Author route*/}
         <Route path="/announcement_author" element={<Layout_author ><Announcement_view /></Layout_author >} />
