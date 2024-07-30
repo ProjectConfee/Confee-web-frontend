@@ -16,7 +16,7 @@ const Login = () => {
 
         {/* Right side: Content */}
         <div className="w-1/2 p-8 flex flex-col justify-center bg-[#f5f5f5]">
-          <h1 className="text-4xl text-[#3572EF] font-bold text-center mb-6">
+          <h1 className="text-4xl text-[#050C9B] font-bold text-center mb-6">
             Welcome to ICTer Conference 2024
           </h1>
           <div className="w-full flex flex-col items-center">
