@@ -1,9 +1,9 @@
-import {Button, List, Typography} from "antd";
+import {List, Typography} from "antd";
 // import Dragger from "antd/es/upload/Dragger";
 // import {InboxOutlined,} from "@ant-design/icons";
 // import TextArea from "antd/es/input/TextArea";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEdit, faFilePdf, faImage, faTrash,} from "@fortawesome/free-solid-svg-icons";
+import {faFilePdf, faImage} from "@fortawesome/free-solid-svg-icons";
 import libreOffice from "../../assets/libreoffice.jpg";
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 const { Title,Text } = Typography;
@@ -43,18 +43,18 @@ const App = () => (
                 dataSource={data}
                 renderItem={(item) => (
                     <List.Item actions={[
-                        <Button
-                            key="edit"
-                            type="link"
-                            icon={<FontAwesomeIcon icon={faEdit} size={'lg'} />}
-                            onClick={() => console.log(`Edit ${item.title}`)}
-                        />,
-                        <Button
-                            key="delete"
-                            type="link"
-                            icon={<FontAwesomeIcon icon={faTrash} size={'lg'} style={{ color: '#FF4D4F' }}/>}
-                            onClick={() => console.log(`Delete ${item.title}`)}
-                        />,
+                        // <Button
+                        //     key="edit"
+                        //     type="link"
+                        //     icon={<FontAwesomeIcon icon={faEdit} size={'lg'} />}
+                        //     onClick={() => console.log(`Edit ${item.title}`)}
+                        // />,
+                        // <Button
+                        //     key="delete"
+                        //     type="link"
+                        //     icon={<FontAwesomeIcon icon={faTrash} size={'lg'} style={{ color: '#FF4D4F' }}/>}
+                        //     onClick={() => console.log(`Delete ${item.title}`)}
+                        // />,
                     ]}>
                         <List.Item.Meta
                             avatar={<FontAwesomeIcon icon={item.icon} style={{ fontSize: '24px', color: '#003eb3'}} />}

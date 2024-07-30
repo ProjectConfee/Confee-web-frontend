@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
-import LOGIN from '../assets/login1.png';
+import LOGIN from '../assets/icter2024.jpeg';
 
 const Login = () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-white p-30 ">
-      <div className="w-full max-w-4xl h-auto flex bg-white shadow-xl rounded-lg overflow-hidden ">
+    <div className="w-full h-screen flex justify-center items-center bg-white p-30">
+      <div className="w-full max-w-4xl h-auto flex bg-white shadow-xl rounded-lg overflow-hidden">
         {/* Left side: Image */}
-        <div className="w-1/2 relative">
+        <div className="w-1/2 flex justify-center items-center">
           <img
             src={LOGIN}
             alt="Login Background"
-            className="absolute inset-0 w-full h-full object-cover p-10"
+            className="object-contain max-h-full max-w-full"
           />
         </div>
 
@@ -64,5 +64,6 @@ const Login = () => {
     </div>
   );
 };
+
 
 export default Login;
