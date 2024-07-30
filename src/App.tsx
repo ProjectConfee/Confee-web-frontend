@@ -16,7 +16,7 @@ import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
 import Schedule from './pages/sponsor/Schedule.tsx'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
-import Navbar_sponsor from './components/Navbar_sponsor.tsx';
+// import Navbar_sponsor from './components/Navbar_sponsor.tsx';
 
 import MainLayout from './layout/layout_main';
 import Layout_sponsor from './layout/layout_sponsor.tsx';
