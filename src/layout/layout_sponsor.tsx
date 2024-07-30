@@ -42,7 +42,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         </div>
                         <div>
                             <img
-                                src="src/assets/profile.svg"
+                                src="src/assets/profile_final.png"
                                 alt="Profile"
                                 className="w-14 h-14 rounded-full border-2 border-white"
                             />
