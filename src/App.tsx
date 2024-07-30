@@ -53,7 +53,7 @@ import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
 import View_feedback from "./pages/participant/Feedbacks.tsx";
 import View_events from './pages/participant/View_events.tsx';
-import Event_schedules from './pages/event/Event_schedule.tsx';
+import Event_schedules from './pages/participant/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
 import Event_details from './pages/participant/Event_details.tsx';
 
@@ -72,6 +72,7 @@ import Edit_profile_author from "./pages/author/Edit_profile_author.tsx";
 import Change_password_author from "./pages/author/Edit_password_author.tsx";
 import Stall_allocation_author from "./pages/participant/Stall_allocation.tsx";
 import View_schedules_author from './pages/event/Event_schedule.tsx';
+import Events_author from './pages/participant/View_events.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
@@ -92,7 +93,9 @@ import Add_winners from "./pages/winners.tsx";
 import View_events_oc from './pages/event/Event.tsx';
 import Event_details_oc from './pages/committee/View_event_oc.tsx';
 import Add_event_oc from './pages/event/Add_event.tsx';
-// import Resource_upload_oc from "./pages/UploadResource.tsx";
+import No_events from './pages/event/No_event.tsx';
+import Update_schedule from './pages/event/Event_schedule.tsx';
+import Upload_resource_oc from "./pages/event/UploadResource.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
@@ -167,6 +170,7 @@ function App() {
         <Route path="/change_password_author" element={<Layout_author ><Change_password_author /></Layout_author >} />
         <Route path="/stall_allocation_author" element={<Layout_author ><Stall_allocation_author /></Layout_author >} />
         <Route path="/view_schedules_author" element={<Layout_author ><View_schedules_author /></Layout_author >} />
+        <Route path="/Events_author" element={<Layout_author ><Events_author /></Layout_author >} />
 
         {/*Admin route*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
@@ -187,7 +191,9 @@ function App() {
         <Route path="/view_events_oc" element={<Layout_oc ><View_events_oc /></Layout_oc >} />
         <Route path="/event_details_oc" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
         <Route path="/add_event_oc" element={<Layout_oc ><Add_event_oc /></Layout_oc >} />
-        {/*<Route path="/resource_upload_oc" element={<Layout_oc ><Resource_upload_oc /></Layout_oc >} />*/}
+        <Route path="/no_events" element={<Layout_oc ><No_events /></Layout_oc >} />
+        <Route path="/update_schedule_oc" element={<Layout_oc ><Update_schedule /></Layout_oc >} />
+        <Route path="/upload_resource_oc" element={<Layout_oc ><Upload_resource_oc /></Layout_oc >} />
 
         {/* Add more routes as needed */}
       </Routes>
