@@ -27,15 +27,15 @@ interface FormValues {
     title: string;
     name: string;
     contactNumber: string;
-    emailAddress: string;
+    email: string;
     username: string;
     dateOfBirth: string;
     password: string;
     jobTitle: string;
-    organizationUniversity: string;
+    organization: string;
     country: string;
     numberOfPreviousAttendance: number;
-    researchInterests: string;
+    researchInterest: string;
     mealPreference: string;
     accessibilityNeeds: boolean;
 }
@@ -44,15 +44,15 @@ const initialValues: FormValues = {
     title: '',
     name: '',
     contactNumber: '',
-    emailAddress: '',
+    email: '',
     username: '',
     dateOfBirth: '',
     password: '',
     jobTitle: '',
-    organizationUniversity: '',
+    organization: '',
     country: '',
     numberOfPreviousAttendance: 1,
-    researchInterests: '',
+    researchInterest: '',
     mealPreference: '',
     accessibilityNeeds: false,
 };
@@ -132,7 +132,7 @@ const steps = [
                             <label>Email Address</label>
                         </div>
                         <div>
-                            <Form.Item name="emailAddress">
+                            <Form.Item name="email">
                                 <Input placeholder="Enter your email address" />
                             </Form.Item>
                         </div>
@@ -217,7 +217,7 @@ const steps = [
                             <label>Organization/University</label>
                         </div>
                         <div>
-                            <Form.Item name="organizationUniversity">
+                            <Form.Item name="organization">
                                 <Input placeholder="Enter your organization/university" />
                             </Form.Item>
                         </div>
@@ -326,7 +326,7 @@ const App = () => {
         const finalValues = { ...formValues, ...values };
         console.log('Received values of form:', finalValues);
         try {
-            const response = await fetch('http://localhost:8080/api/participant/signup', {
+            const response = await fetch('http://localhost:8080/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -336,6 +336,7 @@ const App = () => {
 
             if (response.ok) {
                 message.success('Form submitted successfully!');
+                window.location.href = '/';
             } else {
                 message.error('Failed to submit form. Please try again.');
             }
