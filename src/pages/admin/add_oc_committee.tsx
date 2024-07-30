@@ -27,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <div className="bg-white mt-16 mx-80 rounded-xl shadow-2xl pb-16">
+    <div className="bg-white mt-10 mx-80 rounded-xl shadow-2xl pb-16">
       <div className="flex pt-6 mb-1 justify-center text-3xl font-medium">OC Committee</div>
       <div className="flex flex-col flex-grow pr-10 mb-8 mt-0">
         <div className="flex justify-center mt-4">
