@@ -36,7 +36,7 @@ const App = () => {
                         My Profile
                     </div>
 
-                    <Link to="/edit_profile">
+                    <Link to="#">
 
                         <Button
                             className="w-25 ml-[220px]"
