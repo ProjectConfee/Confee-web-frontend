@@ -74,8 +74,10 @@ import Profile_author from "./pages/author/Author_profile.tsx";
 import Edit_profile_author from "./pages/author/Edit_profile_author.tsx";
 import Change_password_author from "./pages/author/Edit_password_author.tsx";
 import Stall_allocation_author from "./pages/participant/Stall_allocation.tsx";
-import View_schedules_author from './pages/event/Event_schedule.tsx';
-import Events_author from './pages/participant/View_events.tsx';
+import View_schedules_author from './pages/participant/Event_schedule.tsx';
+import Events_author from './pages/author/Events_author.tsx';
+import Event_details_author from './pages/author/Event_detail_author.tsx';
+import View_ticket_author from './pages/event/Ticket.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
@@ -178,7 +180,9 @@ function App() {
         <Route path="/change_password_author" element={<Layout_author ><Change_password_author /></Layout_author >} />
         <Route path="/stall_allocation_author" element={<Layout_author ><Stall_allocation_author /></Layout_author >} />
         <Route path="/view_schedules_author" element={<Layout_author ><View_schedules_author /></Layout_author >} />
-        <Route path="/Events_author" element={<Layout_author ><Events_author /></Layout_author >} />
+        <Route path="/events_author" element={<Layout_author ><Events_author /></Layout_author >} />
+        <Route path="/event_details_author" element={<Layout_author ><Event_details_author /></Layout_author >} />
+        <Route path="/view_ticket_author" element={<Layout_author ><View_ticket_author /></Layout_author >} />
 
         {/*Admin route*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
