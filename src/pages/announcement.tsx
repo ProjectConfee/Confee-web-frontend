@@ -39,7 +39,7 @@ const App = () => {
         </div>
         <div className="mx-14 pb-4">
           <Card className='bg-slate-100'>
-            <p className="text-xl">Due to unforeseen circumstances, the key speaker's session will be delayed by 10 minutes. We appreciate your patience and understanding.😓</p>
+            <p className="text-xl">Due to unforeseen circumstances, the key speaker's session will be delayed by 10 minutes. We appreciate your patience and understanding.</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
             </div>
@@ -47,7 +47,7 @@ const App = () => {
         </div>
         <div className="mx-14 pb-4 shadow-3xl">
           <Card className='bg-slate-100'>
-            <p className="text-xl">Your refreshments are now ready. Please feel free to help yourself and enjoy. Thank you! 🍕🌭</p>
+            <p className="text-xl">Your refreshments are now ready. Please feel free to help yourself and enjoy. Thank you! </p>
             <div className="flex justify-end text-slate-500 text-lg">
               2 hour ago
             </div>
