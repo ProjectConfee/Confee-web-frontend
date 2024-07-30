@@ -81,6 +81,8 @@ import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 import View_feedback_admin from "./pages/committee/View_feedback.tsx";
 import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
 import View_schedules_admin from './pages/event/Event_schedule.tsx';
+import Add_Oc_Admin from './pages/admin/add_oc_committee.tsx';
+
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -89,6 +91,9 @@ import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
 import Change_password_oc from "./pages/committee/Edit_password_oc.tsx";
 import View_feedback_oc from "./pages/committee/View_feedback.tsx";
 import Add_winners from "./pages/winners.tsx";
+import View_events_oc from './pages/event/Event.tsx';
+import Event_details_oc from './pages/committee/View_event_oc.tsx';
+import Add_event_oc from './pages/event/Add_event.tsx';
 // import Resource_upload_oc from "./pages/UploadResource.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
@@ -173,6 +178,8 @@ function App() {
         <Route path="/view_feedback_admin" element={<Layout_admin ><View_feedback_admin /></Layout_admin >} />
         <Route path="/stall_allocation_admin" element={<Layout_admin ><Stall_allocation_admin /></Layout_admin >} />
         <Route path="/view_schedules_admin" element={<Layout_admin ><View_schedules_admin /></Layout_admin >} />
+        <Route path="/add_oc_admin" element={<Layout_admin ><Add_Oc_Admin /></Layout_admin >} />
+
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
@@ -181,6 +188,9 @@ function App() {
         <Route path="/change_password_oc" element={<Layout_oc ><Change_password_oc /></Layout_oc >} />
         <Route path="/view_feedback_oc" element={<Layout_oc ><View_feedback_oc /></Layout_oc >} />
         <Route path="/add_winners" element={<Layout_oc ><Add_winners /></Layout_oc >} />
+        <Route path="/view_events_oc" element={<Layout_oc ><View_events_oc /></Layout_oc >} />
+        <Route path="/event_details_oc" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
+        <Route path="/add_event_oc" element={<Layout_oc ><Add_event_oc /></Layout_oc >} />
         {/*<Route path="/resource_upload_oc" element={<Layout_oc ><Resource_upload_oc /></Layout_oc >} />*/}
 
         {/* Add more routes as needed */}

@@ -33,31 +33,23 @@ const App = () => {
               <div className="text-lg">
                 ADD
               </div>
-              <IoMdAddCircleOutline className="text-xl mt-0.5 -ml-1"/>
+              <IoMdAddCircleOutline className="text-xl mt-0.5 -ml-1" />
             </Button>
           </div>
         </div>
         <div className="mx-14 pb-4">
-          <Card className=''>
-            <p className="text-xl">Don't forget to join us for the keynote speech tomorrow at 10 AM in Hall A.</p>
-            <div className="flex justify-end text-slate-500 text-lg">
-              2 hour ago
-            </div>
-          </Card>
-        </div>
-        <div className="mx-14 pb-4 shadow-3xl">
-          <Card className=''>
-            <p className="text-xl">The workshop on 'Advanced Networking' has been moved to Room 204.</p>
+          <Card className='bg-slate-100'>
+            <p className="text-xl">Due to unforeseen circumstances, the key speaker's session will be delayed by 10 minutes. We appreciate your patience and understanding.😓</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
             </div>
-          </Card>
+          </Card >
         </div>
         <div className="mx-14 pb-4 shadow-3xl">
-          <Card className=''>
-            <p className="text-xl">We are excited to announce that Dr. Jane Smith will be our guest speaker for the afternoon session.</p>
+          <Card className='bg-slate-100'>
+            <p className="text-xl">Your refreshments are now ready. Please feel free to help yourself and enjoy. Thank you! 🍕🌭</p>
             <div className="flex justify-end text-slate-500 text-lg">
-              23 minutes  ago
+              2 hour ago
             </div>
           </Card>
         </div>
