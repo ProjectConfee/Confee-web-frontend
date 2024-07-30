@@ -18,6 +18,7 @@ import moment from 'moment';
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { InboxOutlined, MinusCircleOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
 import Dragger from "antd/es/upload/Dragger";
+import {Link} from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -84,7 +85,7 @@ const App = () => {
 
     return (
         <>
-            <div className="bg-white mt-8 rounded-lg shadow-lg p-8">
+            <div className="bg-white rounded-3xl shadow-lg p-8">
                 <div className="flex justify-center items-center mb-6">
                     <Title level={3}>Add Conference Event</Title>
                 </div>
@@ -541,7 +542,13 @@ const App = () => {
                     ) : null}
 
                     <div className="flex justify-end mb-2">
-                        <Button type="primary" size="large">Add Event</Button>
+
+                        <Link to="/view_events_oc">
+                            <Button type="primary" size="large">
+                                Add Event
+                            </Button>
+                        </Link>
+
                     </div>
                 </div>
             </div>

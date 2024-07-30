@@ -9,7 +9,7 @@ const Navbar_oc = () => {
     const [open, setOpen] = useState(true);
 
     const Menus = [
-        { title: "Home", src: "home", path: "#", gap: true },
+        { title: "Home", src: "home", path: "/view_events_oc", gap: true },
         { title: "Profile", src: "profile", path: "/profile_oc", gap: true },
         { title: "Schedules", src: "schedule", path: "#", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_oc", gap: true },
