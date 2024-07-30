@@ -323,7 +323,7 @@ const App = () => {
                             />
                         </div>
                         <Link to="/edit_sp_profile">
-                            <Button    type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}>
+                            <Button    type="primary" style={{ backgroundColor: '#3572EF', borderColor: '#3572EF' }}>
                                 Edit Profile
                             </Button>
                         </Link>

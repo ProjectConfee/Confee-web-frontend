@@ -33,13 +33,21 @@ const App = () => {
               <div className="text-lg">
                 ADD
               </div>
-              <IoMdAddCircleOutline className="text-xl mt-0.5 -ml-1" />
+              <IoMdAddCircleOutline className="text-xl mt-0.5 -ml-1"/>
             </Button>
           </div>
         </div>
         <div className="mx-14 pb-4">
           <Card className=''>
-            <p className="text-xl">Card content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+            <p className="text-xl">Don't forget to join us for the keynote speech tomorrow at 10 AM in Hall A.</p>
+            <div className="flex justify-end text-slate-500 text-lg">
+              2 hour ago
+            </div>
+          </Card>
+        </div>
+        <div className="mx-14 pb-4 shadow-3xl">
+          <Card className=''>
+            <p className="text-xl">The workshop on 'Advanced Networking' has been moved to Room 204.</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
             </div>
@@ -47,9 +55,9 @@ const App = () => {
         </div>
         <div className="mx-14 pb-4 shadow-3xl">
           <Card className=''>
-            <p className="text-xl">Card content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+            <p className="text-xl">We are excited to announce that Dr. Jane Smith will be our guest speaker for the afternoon session.</p>
             <div className="flex justify-end text-slate-500 text-lg">
-              1 hour ago
+              23 minutes  ago
             </div>
           </Card>
         </div>

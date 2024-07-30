@@ -143,7 +143,7 @@ const App = () => {
           <div className=" items-center justify-center h-screen">
               <div className="text-center mb-20">
                   <Link to="/resource-home"> {/* Adjust the path as needed */}
-                      <Button     type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}>Back to Homepage</Button>
+                      <Button     type="primary" style={{ backgroundColor: '#3572EF', borderColor: '#3572EF' }}>Back to Homepage</Button>
                   </Link>
               </div>
           </div>

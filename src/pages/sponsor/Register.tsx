@@ -1,85 +1,98 @@
 
+
+
 import { Link } from 'react-router-dom';
-// import LOGO from '../assets/logo.png';
-// import { useState } from "react";
-// import background from './assets/back.jpeg';
 
-const App = () => {
-  // const [open, setOpen] = useState(true);
+interface Feedback {
+  id: number;
+  participant: string;
+  comment: string;
+  rating: number;
+}
 
-  // const Menus = [
-  //   { title: "Home", src: "home", path: "/homepage", gap: true },
-  //   { title: "Profile", src: "User", path: "/profile", gap: true },
-  //   { title: "Stall Details", src: "stall", path: "/stall-details", gap: true },
-  //   { title: "Schedule", src: "schedule", path: "/schedule", gap: true },
-  //   { title: "QR Code", src: "qr-code", path: "/qrcode", gap: true },
-  //   { title: "Resource Upload", src: "upload", path: "/resource-home", gap: true },
-  //   { title: "Announcement", src: "marketing", path: "/announcement", gap: true },
-  //   { title: "Logout", src: "logout", path: "/logout" },
-  // ];
+const feedbacks: Feedback[] = [
+  { id: 1, participant: 'Damiru Herath', comment: 'Great event!', rating: 3 },
+  { id: 2, participant: 'Jane Smith', comment: 'Very informative.', rating: 4 },
+];
 
-  interface Feedback {
-    id: number;
-    participant: string;
-    comment: string;
-    rating: number;
-  }
 
-  const feedbacks: Feedback[] = [
-    { id: 1, participant: 'Damiru Herath', comment: 'Great event!', rating: 3 },
-    { id: 2, participant: 'Jane Smith', comment: 'Very informative.', rating: 4 },
+import './Home.css';
+import { GiShop } from "react-icons/gi";
+import {  BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
+import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+
+function Home() {
+  const data = [
+    { name: 'Participants who visit', value: 50 },
+    { name: 'Participants yet to come', value: 200 },
   ];
 
+  const COLORS = ['#0088FE', '#23b37f', '#b19041', '#b66544'];
+
   return (
-      // <div
-      //     className="min-h-screen bg-cover bg-center"
-      //     style={{backgroundImage: `url(${background})`}}
-      // >
-        <div className="flex">
-          {/*<div className={`${open ? "w-72" : "w-20"} bg-stone-300 h-screen p-5 pt-8 relative duration-300`}>*/}
-          {/*  <img*/}
-          {/*      src="./src/assets/control.png"*/}
-          {/*      className={`absolute cursor-pointer -right-3 top-9 w-7 bg-[#050C9B] border-2 rounded-full ${!open && "rotate-180"}`}*/}
-          {/*      onClick={() => setOpen(!open)}*/}
-          {/*  />*/}
-          {/*  <ul className="pt-6">*/}
-          {/*    {Menus.map((menu, index) => (*/}
-          {/*        <li*/}
-          {/*            key={index}*/}
-          {/*            className={`flex rounded-md p-2 cursor-pointer hover:bg-[#050C9B] hover:text-white text-black text-sm items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}*/}
-          {/*        >*/}
-          {/*          <Link to={menu.path} className="flex items-center gap-x-4">*/}
-          {/*            <img src={`./src/assets/${menu.src}.png`} alt={menu.title} className="w-6"/>*/}
-          {/*            <span className={`${!open && "hidden"} origin-left duration-200`}>{menu.title}</span>*/}
-          {/*          </Link>*/}
-          {/*        </li>*/}
-          {/*    ))}*/}
-          {/*  </ul>*/}
-          {/*</div>*/}
+      <main className='main-container'>
 
-          <div className="h-screen flex-1 p-7">
-            {/*<div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-0'>*/}
-            {/*  <img src={LOGO} className='bg-cover w-full h-full' alt="Logo"/>*/}
-            {/*</div>*/}
-            <h1 className="text-3xl font-semibold text-center text-sky-700 mt-10">WELCOME SPONSORS TO ICTER CONFERENCE
-              ONLINE PLATFORM</h1>
+        <div className='main-cards'>
 
-            <p className='text-justify border border-gray-300 p-4 mt-5'>
-              The International Conference on Advances in ICT for Emerging Regions (ICTer) is a prestigious gathering
-              that
-              continues the legacy of the International Information Technology Conference (IITC) held in Sri Lanka since
-              1998. Serving as a vital platform for global scholars, researchers, and practitioners, ICTer fosters
-              collaboration and showcases cutting-edge advancements in information and communication technology. Through
-              a
-              rigorous peer-review process, high-quality papers are selected for presentation and publication with
-              recognized publishers, driving both academic discourse and real-world impact. More than just a conference,
-              ICTer cultivates a vibrant community where participants exchange ideas, forge partnerships, and
-              collectively
-              strive to address the challenges facing emerging regions. Committed to innovation, inclusivity, and
-              excellence, ICTer invites all stakeholders to join in shaping a brighter future through the transformative
-              power of ICT.
-            </p>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>REGISTERED PARTICIPANTS</h3>
+              <h2>FOR CONFERENCE DAY 1</h2>
+              <BsPeopleFill/>
+            </div>
+            <h1>300</h1>
+          </div>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>REGISTERED PARTICIPANTS</h3>
+              <h2>FOR CONFERENCE DAY 2</h2>
+              <BsPeopleFill/>
+            </div>
+            <h1>120</h1>
+          </div>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>STALL </h3>
+              <br></br>
 
+              <GiShop/>
+            </div>
+            <h1>STALL NO 3</h1>
+          </div>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>ALERTS</h3><br></br>
+              <BsFillBellFill/>
+            </div>
+            <h1>42</h1>
+          </div>
+        </div>
+        <br></br><br></br>
+        <div className='charts-container'>
+          <div className='chart-container'>
+            <h3>PARTICIPANT COUNT</h3>
+            <ResponsiveContainer width="100%" height={200}>
+              <PieChart>
+                <Pie
+                    data={data}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                >
+                  {data.map((_entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
+                  ))}
+                </Pie>
+                <Tooltip/>
+                <Legend/>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          <div className='right-container'>
             <div className="mt-10 items-left">
               <h1 className="text-3xl font-bold text-center mb-10">Participant Feedback</h1>
               <div className="w-full max-w-2xl mx-auto">
@@ -93,7 +106,7 @@ const App = () => {
               </div>
               <div className="flex justify-center mt-6">
                 <Link to="/more-feedbacks">
-                  <button className="bg-blue-950 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                  <button className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
                     See More
                   </button>
                 </Link>
@@ -101,10 +114,8 @@ const App = () => {
             </div>
           </div>
         </div>
+      </main>
+  )
+}
 
-
-  );
-};
-
-export default App;
-
+export default Home;
