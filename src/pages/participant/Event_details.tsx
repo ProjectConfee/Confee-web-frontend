@@ -3,7 +3,7 @@ import {Tabs, Typography} from "antd";
 
 
 import EventDetail from '../event/Event_detail.tsx';
-import EventSchedule from '../event/Event_schedule.tsx';
+import EventSchedule from './Event_schedule.tsx';
 import Resource from './Resource.tsx';
 
 const onChange = (key:string) => {
