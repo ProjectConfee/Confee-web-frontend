@@ -16,7 +16,7 @@ import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
 import Schedule from './pages/sponsor/Schedule.tsx'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
-import Navbar_sponsor from './components/Navbar_sponsor.tsx';
+// import Navbar_sponsor from './components/Navbar_sponsor.tsx';
 
 import MainLayout from './layout/layout_main';
 import Layout_sponsor from './layout/layout_sponsor.tsx';
@@ -52,9 +52,10 @@ import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
 import View_feedback from "./pages/participant/Feedbacks.tsx";
-import Events from './pages/event/Event.tsx';
+import View_events from './pages/participant/View_events.tsx';
 import Event_schedules from './pages/event/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
+import Event_details from './pages/participant/Event_details.tsx';
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
@@ -142,9 +143,11 @@ function App() {
         <Route path="/change_password" element={<Layout_participant ><Change_password /></Layout_participant >} />
         <Route path="/stall_allocation" element={<Layout_participant ><Stall_allocation /></Layout_participant >} />
         <Route path="/view_feedback" element={<Layout_participant ><View_feedback /></Layout_participant >} />
-        <Route path="/view_event_details" element={<Layout_participant ><Events/></Layout_participant >} />
+        <Route path="/view_events" element={<Layout_participant ><View_events/></Layout_participant >} />
         <Route path="/view_schedules" element={<Layout_participant ><Event_schedules/></Layout_participant >} />
         <Route path="/view_winners" element={<Layout_participant ><View_winners/></Layout_participant >} />
+        <Route path="/event_details" element={<Layout_participant ><Event_details/></Layout_participant >} />
+        <Route path="/view_ticket" element={<Layout_participant ><Ticket/></Layout_participant >} />
 
         {/*Speaker route*/}
         <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />

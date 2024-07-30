@@ -2,9 +2,9 @@ import {Tabs, Typography} from "antd";
 
 
 
-import EventDetail from './Event_detail.tsx';
-import EventSchedule from './Event_schedule.tsx';
-import Resource from './UploadResource.tsx';
+import EventDetail from '../event/Event_detail.tsx';
+import EventSchedule from '../event/Event_schedule.tsx';
+import Resource from './Resource.tsx';
 
 const onChange = (key:string) => {
     console.log(key);
@@ -22,30 +22,30 @@ const App = () => (
             </div>
 
             <div>
-            {/*    <Tabs*/}
-            {/*        onChange={onChange}*/}
-            {/*        size={'large'}*/}
-            {/*        type="card"*/}
-            {/*        items={[*/}
-            {/*            {*/}
-            {/*                label: 'Event Details',*/}
-            {/*                key:'1',*/}
-            {/*                children:<EventDetail/>,*/}
-            {/*            },*/}
+                {/*    <Tabs*/}
+                {/*        onChange={onChange}*/}
+                {/*        size={'large'}*/}
+                {/*        type="card"*/}
+                {/*        items={[*/}
+                {/*            {*/}
+                {/*                label: 'Event Details',*/}
+                {/*                key:'1',*/}
+                {/*                children:<EventDetail/>,*/}
+                {/*            },*/}
 
 
-            {/*        ]*/}
+                {/*        ]*/}
 
-            {/*        }*/}
-            {/*//         new Array(3).fill(null).map((_, i) => {*/}
-            {/*//     const id = String(i + 1);*/}
-            {/*//     return {*/}
-            {/*//     label: `Tab ${id}`,*/}
-            {/*//     key: id,*/}
-            {/*//     children: <EventDetail/>,*/}
-            {/*// };*/}
-            {/*// })*/}
-            {/*    />*/}
+                {/*        }*/}
+                {/*//         new Array(3).fill(null).map((_, i) => {*/}
+                {/*//     const id = String(i + 1);*/}
+                {/*//     return {*/}
+                {/*//     label: `Tab ${id}`,*/}
+                {/*//     key: id,*/}
+                {/*//     children: <EventDetail/>,*/}
+                {/*// };*/}
+                {/*// })*/}
+                {/*    />*/}
 
                 <Tabs
                     onChange={onChange}
