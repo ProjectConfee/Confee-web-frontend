@@ -9,9 +9,9 @@ const Navbar_participant = () => {
     const [open, setOpen] = useState(true);
 
     const Menus = [
-        { title: "Home", src: "home", path: "#", gap: true },
+        { title: "Home", src: "home", path: "/view_events", gap: true },
         { title: "Profile", src: "profile", path: "/profile_participant", gap: true },
-        { title: "Events", src: "events", path: "/view_event_details", gap: true },
+        // { title: "Events", src: "events", path: "/view_event_details", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules", gap: true },
         { title: "Winners", src: "winner", path: "/view_winners", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation", gap: true },
