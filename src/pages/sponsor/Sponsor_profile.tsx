@@ -317,7 +317,7 @@ const App = () => {
                     <div className="flex items-center">
                         <div className="mr-4">
                             <img
-                                src="src/assets/gold%20badge.svg"
+                                src="src/assets/gold_badge.jpeg"
                                 alt="Profile"
                                 className="object-cover w-20 h-20"
                             />
