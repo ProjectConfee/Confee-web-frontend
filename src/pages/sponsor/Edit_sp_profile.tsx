@@ -47,7 +47,7 @@ const App = () => {
     </div>
 
     <Link to="/profile">
-     <Button   className="w-25 ml-[220px]"   type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}>
+     <Button   className="w-25 ml-[220px]"   type="primary" style={{ backgroundColor: '#3572EF', borderColor: '#3572EF' }}>
     Save
     </Button>
     </Link>

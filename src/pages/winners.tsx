@@ -28,7 +28,9 @@ const App = () => {
   ];
 
   return (
+
     <div className="bg-white mt-16 mx-40 rounded-xl shadow-2xl pb-16">
+
       <div className="flex pt-6 mb-1 justify-center text-3xl font-medium">
         Winners
       </div>

@@ -163,7 +163,7 @@
           canvas.height = totalHeight;
 
           // Fill the background with dark blue and create rounded corners
-          context.fillStyle = '#00008B'; // DarkBlue color
+          context.fillStyle = '#3572EF'; // DarkBlue color
           context.beginPath();
           context.moveTo(20, 0);
           context.lineTo(totalWidth - 20, 0);
@@ -181,10 +181,16 @@
           context.fillStyle = '#fff';
           context.font = '20px Arial';
           context.textAlign = 'center';
-          context.fillText('ICTer Conference 2024 ', totalWidth / 2, 35);
+          context.fillText('ICTer Conference 2024  ', totalWidth / 2, 35);
+
 
           // Draw the QR code onto the new canvas
           context.drawImage(qrCanvas, padding, titleHeight, qrSize, qrSize);
+          // Add the bottom text
+          context.fillStyle = '#fff';
+          context.font = '16px Arial';
+          context.textAlign = 'center';
+          context.fillText('Company 01', totalWidth / 2, totalHeight - 10);
 
           // Create the download link
           const url = canvas.toDataURL();

@@ -328,7 +328,7 @@ const App = () => {
         { id: 2, label: 'Documents', link: './resource-upload', image: '../src/assets/upload_linksss.jpg' },
         { id: 3, label: 'Links', link: './resource-upload', image: '../src/assets/uploded.jpg' },
         { id: 4, label: 'Other', link: './resource-upload', image: '../src/assets/upload_link.jpg' },
-        { id: 5, label: 'Uploaded', link: './resource-done', image: '../src/assets/upload_docs.jpg' },
+        { id: 5, label: 'Uploaded Resources', link: './resource-done', image: '../src/assets/upload_docs.jpg' },
     ];
 
     return (
