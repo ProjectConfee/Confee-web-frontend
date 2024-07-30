@@ -4,7 +4,7 @@ import {InboxOutlined,} from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faFilePdf, faImage, faTrash,} from "@fortawesome/free-solid-svg-icons";
-import libreOffice from "../assets/libreoffice.jpg";
+import libreOffice from "../../assets/libreoffice.jpg";
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const props = {

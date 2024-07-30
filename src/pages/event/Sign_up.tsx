@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Steps, message, Typography, Select, Input, DatePicker, InputNumber, Form, Checkbox } from 'antd';
-import signUp from '../assets/Signup.jpg';
+import signUp from '../../assets/Signup.jpg';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 

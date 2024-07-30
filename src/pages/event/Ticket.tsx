@@ -1,4 +1,4 @@
-import event from "../assets/icter_logo.png";
+import event from "../../assets/icter_logo.png";
 // import {Divider, QRCode, Typography} from "antd";
 
 import {Button, Divider, QRCode, Typography} from "antd";

@@ -1,11 +1,11 @@
 import {Button, Card, Col, Divider, Row, Typography} from "antd";
 import Meta from "antd/es/card/Meta";
-import conference_day1 from "../assets/event1.jpeg";
-import conference_day2 from "../assets/event2.jpeg";
-import pre_conference_1 from "../assets/event3.jpeg";
-import pre_conference_2 from "../assets/event4.jpeg";
-import pre_conference_3 from "../assets/event5.jpeg";
-import post_conference_1 from "../assets/event6.jpeg";
+import conference_day1 from "../../assets/event1.jpeg";
+import conference_day2 from "../../assets/event2.jpeg";
+import pre_conference_1 from "../../assets/event3.jpeg";
+import pre_conference_2 from "../../assets/event4.jpeg";
+import pre_conference_3 from "../../assets/event5.jpeg";
+import post_conference_1 from "../../assets/event6.jpeg";
 
 const { Title } = Typography;
 

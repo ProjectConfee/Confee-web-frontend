@@ -1,5 +1,5 @@
 import {Button, Divider, Typography} from "antd";
-import event from "../assets/event_post.jpg";
+import event from "../../assets/event_post.jpg";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarDays, faClock, faCreditCard, faLink, faLocationDot} from "@fortawesome/free-solid-svg-icons";
 

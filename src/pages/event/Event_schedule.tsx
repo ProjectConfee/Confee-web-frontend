@@ -1,9 +1,9 @@
 import {Button, Card, Divider, Typography} from "antd";
 import {faClock, faPenToSquare, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import speaker from "../assets/Speaker_1.jpg";
-import speaker_2 from "../assets/Speaker_2.jpg";
-import speaker_3 from "../assets/Speaker_3.jpg";
+import speaker from "../../assets/Speaker_1.jpg";
+import speaker_2 from "../../assets/Speaker_2.jpg";
+import speaker_3 from "../../assets/Speaker_3.jpg";
 
 
 const { Title,Text } = Typography;
