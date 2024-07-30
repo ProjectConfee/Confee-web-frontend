@@ -81,6 +81,8 @@ import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 import View_feedback_admin from "./pages/committee/View_feedback.tsx";
 import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
 import View_schedules_admin from './pages/event/Event_schedule.tsx';
+import Add_Oc_Admin from './pages/admin/add_oc_committee.tsx';
+
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -176,6 +178,8 @@ function App() {
         <Route path="/view_feedback_admin" element={<Layout_admin ><View_feedback_admin /></Layout_admin >} />
         <Route path="/stall_allocation_admin" element={<Layout_admin ><Stall_allocation_admin /></Layout_admin >} />
         <Route path="/view_schedules_admin" element={<Layout_admin ><View_schedules_admin /></Layout_admin >} />
+        <Route path="/add_oc_admin" element={<Layout_admin ><Add_Oc_Admin /></Layout_admin >} />
+
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />

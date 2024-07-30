@@ -38,7 +38,7 @@ const App = () => {
         {/*  /!*</div>*!/*/}
         {/*</div>*/}
         <div className="mx-14 pb-4">
-          <Card className=''>
+          <Card className='bg-slate-100'>
             <p className="text-xl">Card content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
@@ -46,7 +46,7 @@ const App = () => {
           </Card>
         </div>
         <div className="mx-14 pb-4 shadow-3xl">
-          <Card className=''>
+          <Card className='bg-slate-100'>
             <p className="text-xl">Card content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
             <div className="flex justify-end text-slate-500 text-lg">
               1 hour ago
