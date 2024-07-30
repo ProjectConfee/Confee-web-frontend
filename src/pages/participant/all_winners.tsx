@@ -1,29 +1,30 @@
 import { List, Avatar, Button } from 'antd';
+import {Link} from "react-router-dom";
 
 const App = () => {
   const data = [
     {
-      name: 'K.M.G.Kavindu Viranga Dias',
+      name: 'Kavindu Viranga Dias',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'K.M.G.Kavindu Viranga Dias',
+      name: 'Kavindu Viranga Dias',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'K.M.G.Kavindu Viranga Dias',
+      name: 'Kavindu Viranga Dias',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'K.M.G.Kavindu Viranga Dias',
+      name: 'Kavindu Viranga Dias',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'K.M.G.Kavindu Viranga Dias',
+      name: 'Kavindu Viranga Dias',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
@@ -35,7 +36,7 @@ const App = () => {
   };
 
   return (
-      <div className="bg-white mt-16 mx-80 rounded-xl shadow-2xl pb-16">
+      <div className="bg-white mt-16 mx-40 rounded-xl shadow-2xl pb-16">
         <div className="flex pt-6 mb-6 justify-center text-3xl font-medium">
           Winners
         </div>
@@ -56,9 +57,13 @@ const App = () => {
                           </div>
                         }
                     />
-                    <Button className="ml-2" type="primary" onClick={() => handleViewPaperClick(item.name)}>
-                      View Profile
-                    </Button>
+
+                      <Link to="/edit_profile">
+                        <Button className="ml-2" type="primary" onClick={() => handleViewPaperClick(item.name)}>
+                          View Profile
+                        </Button>
+
+                      </Link>
                   </List.Item>
               )}
           />

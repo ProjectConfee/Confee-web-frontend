@@ -24,13 +24,14 @@ const App = () => {
   const resources = [
     { title: 'Audio File 1', type: 'audio', src: 'https://example.com/audio1.mp3' },
 
-    { title: 'MP4 Video 1', type: 'video', src: 'https://example.com/video1.mp4' },
+    { title: 'MP4 Video 1', type: 'video', src: 'https://youtu.be/nr1cFyxVdDw?si=kdK5uLAu1_ZdoZNO' },
     { title: 'MP4 Video 2', type: 'video', src: 'https://example.com/video2.mp4' },
     { title: 'Image 1', type: 'image', src: './src/assets/image41.png' },
     { title: 'Image 2', type: 'image', src: './src/assets/image42.png' },
-    { title: 'Document 1', type: 'document', src: 'https://example.com/document1.pdf' },
+      { title: 'Image 2', type: 'image', src: './src/assets/signup.jpg' },
+    { title: 'Document 1', type: 'document', src: '././src/assets/document 1.pdf' },
     { title: 'Document 2', type: 'document', src: 'https://example.com/document2.pdf' },
-    { title: 'Link 1', type: 'link', url: 'https://example.com/link1' },
+    { title: 'Link 1', type: 'link', url: 'https://wso2.com/' },
     { title: 'Link 2', type: 'link', url: 'https://example.com/link2' },
     // Add more resources as needed
   ];
@@ -142,7 +143,7 @@ const App = () => {
           <div className=" items-center justify-center h-screen">
               <div className="text-center mb-20">
                   <Link to="/resource-home"> {/* Adjust the path as needed */}
-                      <Button     type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}>Back to Homepage</Button>
+                      <Button     type="primary" style={{ backgroundColor: '#3572EF', borderColor: '#3572EF' }}>Back to Homepage</Button>
                   </Link>
               </div>
           </div>

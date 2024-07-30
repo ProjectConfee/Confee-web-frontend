@@ -317,13 +317,13 @@ const App = () => {
                     <div className="flex items-center">
                         <div className="mr-4">
                             <img
-                                src="src/assets/gold%20badge.svg"
+                                src="src/assets/gold_badge.jpeg"
                                 alt="Profile"
                                 className="object-cover w-20 h-20"
                             />
                         </div>
                         <Link to="/edit_sp_profile">
-                            <Button    type="primary" style={{ backgroundColor: '#12086f', borderColor: '#12086f' }}>
+                            <Button    type="primary" style={{ backgroundColor: '#3572EF', borderColor: '#3572EF' }}>
                                 Edit Profile
                             </Button>
                         </Link>
@@ -332,9 +332,9 @@ const App = () => {
                 <Divider />
                 <div className="mt-5 flex justify-around">
                     <div className="flex flex-col items-center">
-                        <div className="bg-white shadow-md rounded-3xl h-50 w-56 overflow-hidden mt-10">
+                        <div className="bg-white shadow-md rounded-3xl h-50 w-56 overflow-hidden mt-2">
                             <img
-                                src="src/assets/profile2.png"
+                                src="src/assets/profile_final.png"
                                 alt="Profile"
                                 className="object-cover w-full h-full"
                             />

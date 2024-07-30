@@ -11,7 +11,7 @@ const Navbar_admin = () => {
     const Menus = [
         { title: "Home", src: "home", path: "#", gap: true },
         { title: "Profile", src: "profile", path: "/profile_admin", gap: true },
-        { title: "Organizing Committee", src: "committee", path: "#", gap: true },
+        { title: "Organizing Committee", src: "committee", path: "/add_oc_admin", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules_admin", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation_admin", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_admin", gap: true },

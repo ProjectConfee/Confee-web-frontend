@@ -9,7 +9,7 @@ const App = () => (
 
     <>
         {/*<div className=" bg-white  rounded-lg shadow-lg p-2">*/}
-        <div className="  rounded-lg shadow-lg p-8 "
+        <div className="  rounded-3xl shadow-lg p-8 "
              style={{background: 'white'}}>
 
             <div className={"flex flex-1 mb-8"}>

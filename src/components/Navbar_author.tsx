@@ -9,7 +9,7 @@ const Navbar_author = () => {
     const [open, setOpen] = useState(true);
 
     const Menus = [
-        { title: "Home", src: "home", path: "#", gap: true },
+        { title: "Home", src: "home", path: "/events_author", gap: true },
         { title: "Profile", src: "profile", path: "/profile_author", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules_author", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation_author", gap: true },

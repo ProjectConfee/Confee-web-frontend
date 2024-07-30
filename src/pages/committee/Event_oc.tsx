@@ -1,8 +1,8 @@
-import {Button, Divider, Typography} from "antd";
+import {Divider, Typography} from "antd";
 import event from "../../assets/event_post.jpg";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarDays, faClock, faCreditCard, faLink, faLocationDot} from "@fortawesome/free-solid-svg-icons";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 
 const { Title,Text } = Typography;
 
@@ -265,15 +265,15 @@ const App = () => (
                 </div>
 
             </div>
-            <div className={"flex justify-end"}>
+            {/*<div className={"flex justify-end"}>*/}
 
-                <Link to="/view_ticket">
-                    <Button type="primary" size="large">
-                        Buy Ticket
-                    </Button>
-                </Link>
+            {/*    <Link to="/view_ticket">*/}
+            {/*        <Button type="primary" size="large">*/}
+            {/*            Buy Ticket*/}
+            {/*        </Button>*/}
+            {/*    </Link>*/}
 
-            </div>
+            {/*</div>*/}
         </div>
 
     </>

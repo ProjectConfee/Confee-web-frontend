@@ -1,11 +1,20 @@
-import {Button, Card, Col, Divider, Row, Typography} from "antd";
+import {
+    Card,
+    Col,
+    Divider,
+    Row,
+    Typography
+} from "antd";
+
 import Meta from "antd/es/card/Meta";
+
 import conference_day1 from "../../assets/event1.jpeg";
 import conference_day2 from "../../assets/event2.jpeg";
 import pre_conference_1 from "../../assets/event3.jpeg";
 import pre_conference_2 from "../../assets/event4.jpeg";
 import pre_conference_3 from "../../assets/event5.jpeg";
 import post_conference_1 from "../../assets/event6.jpeg";
+
 import {Link} from "react-router-dom";
 
 const { Title } = Typography;
@@ -14,19 +23,14 @@ const { Title } = Typography;
 const App = () => (
     <>
 
-        <div className="bg-white rounded-3xl shadow-lg p-8">
+        <div className="bg-white rounded-3xl shadow-lg p-8 text-2xl">
             <div className="col-span-2 flex justify-center items-center">
-                <Title level={3}>Conference Event</Title>
+                <Title level={3}>Conference Events</Title>
             </div>
 
-            <div className="flex justify-end mb-8">
-
-                <Link to="/add_event_oc">
-                    <Button type="primary" size="large" >
-                        Add Event
-                    </Button>
-                </Link>
-            </div>
+            {/*<div className="flex justify-end mb-8">*/}
+            {/*    <Button type="primary" size="large" >Add Event</Button>*/}
+            {/*</div>*/}
 
             <div>
                 <div>
@@ -37,7 +41,7 @@ const App = () => (
                         <Row gutter={32}>
                             <Col>
 
-                                <Link to="/event_details_oc">
+                                <Link to="/event_details">
                                     <Card
                                         hoverable
                                         style={{
@@ -61,7 +65,7 @@ const App = () => (
 
                             <Col>
 
-                                <Link to="/event_details_oc">
+                                <Link to="/event_details">
                                     <Card
                                         hoverable
                                         style={{
@@ -97,7 +101,7 @@ const App = () => (
                         <Row gutter={32}>
                             <Col>
 
-                                <Link to="/event_details_oc">
+                                <Link to="/event_details">
                                     <Card
                                         hoverable
                                         style={{
@@ -121,7 +125,7 @@ const App = () => (
 
                             <Col>
 
-                                <Link to="/event_details_oc">
+                                <Link to="/event_details">
                                     <Card
                                         hoverable
                                         style={{
@@ -145,7 +149,7 @@ const App = () => (
 
                             <Col>
 
-                                <Link to="/event_details_oc">
+                                <Link to="/event_details">
                                     <Card
                                         hoverable
                                         style={{
@@ -181,7 +185,7 @@ const App = () => (
                         <Row gutter={32}>
                             <Col>
 
-                                <Link to="/event_details_oc">
+                                <Link to="/event_details">
                                     <Card
                                         hoverable
                                         style={{
