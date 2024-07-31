@@ -33,7 +33,7 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
 const App: React.FC = () => (
 
 
-<div className='flex flex-col justify-center items-center h-full mt-40 ml-50 border-4 border-black p-5 rounded-lg'>
+<div className='flex flex-col justify-center items-center h-full ml-50 border-4 border-black p-5 rounded-lg'>
 
 <h2 className="text-2xl font-semibold text-center mt-[-10]">Badge Details</h2><br></br><br></br>
 <div><p>Name of the Badge:</p><br></br>

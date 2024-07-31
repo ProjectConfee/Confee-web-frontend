@@ -21,10 +21,10 @@ const App = () => {
 
   const data = [
     { name: 'K.M.G.Kavindu Viranga Dias', profilePic: './src/assets/event1.jpeg' },
-    { name: 'K.M.G.Kavindu Viranga Dias', profilePic: './src/assets/event1.jpeg' },
-    { name: 'K.M.G.Kavindu Viranga Dias', profilePic: './src/assets/event1.jpeg' },
-    { name: 'K.M.G.Kavindu Viranga Dias', profilePic: './src/assets/event1.jpeg' },
-    { name: 'K.M.G.Kavindu Viranga Dias', profilePic: './src/assets/event1.jpeg' },
+    { name: 'Keshali Dhananjana', profilePic: './src/assets/event1.jpeg' },
+    { name: 'Viraji Dewmini', profilePic: './src/assets/event1.jpeg' },
+    { name: 'Ranuri Dissanayake', profilePic: './src/assets/event1.jpeg' },
+    { name: 'Ayesh Pramudith', profilePic: './src/assets/event1.jpeg' },
   ];
 
   return (

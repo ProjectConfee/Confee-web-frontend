@@ -186,8 +186,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -239,8 +239,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -292,8 +292,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -373,8 +373,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -434,8 +434,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -489,8 +489,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -542,8 +542,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -607,8 +607,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -689,8 +689,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -751,8 +751,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -815,8 +815,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -868,8 +868,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -949,8 +949,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>
@@ -1010,8 +1010,8 @@ const App = () => (
 
                     <div className={"flex items-center gap-4"}>
 
-                        <Button type="primary" size="large" style={{backgroundColor: '#ffc107'}}>
-                            Ongoing
+                        <Button type="primary" size="large" style={{backgroundColor: '#28a745'}}>
+                            Pending
                         </Button>
 
                     </div>

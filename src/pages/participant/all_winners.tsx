@@ -9,22 +9,22 @@ const App = () => {
       university: 'University of Colombo',
     },
     {
-      name: 'Kavindu Viranga Dias',
+      name: 'Keshali Dhananjana',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'Kavindu Viranga Dias',
+      name: 'Viraji Dewmini',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'Kavindu Viranga Dias',
+      name: 'Ranuri Dissanayake',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
     {
-      name: 'Kavindu Viranga Dias',
+      name: 'Ayesh Pramuditha',
       profilePic: './src/assets/event1.jpeg',
       university: 'University of Colombo',
     },
