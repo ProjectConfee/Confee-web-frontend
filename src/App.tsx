@@ -88,7 +88,10 @@ import View_feedback_admin from "./pages/committee/View_feedback.tsx";
 import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
 import View_schedules_admin from './pages/event/Event_schedule.tsx';
 import Add_Oc_Admin from './pages/admin/add_oc_committee.tsx';
-
+import Sponsor_register_admin from './pages/admin/Sponsor_register.tsx';
+import Stall_register_admin from './pages/admin/Stall_register.tsx';
+import Stall_location_admin from './pages/admin/Stall_location.tsx';
+import Badge_details_admin from './pages/admin/Badge_details.tsx';
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -193,7 +196,10 @@ function App() {
         <Route path="/stall_allocation_admin" element={<Layout_admin ><Stall_allocation_admin /></Layout_admin >} />
         <Route path="/view_schedules_admin" element={<Layout_admin ><View_schedules_admin /></Layout_admin >} />
         <Route path="/add_oc_admin" element={<Layout_admin ><Add_Oc_Admin /></Layout_admin >} />
-
+        <Route path="/sponsor_register_admin" element={<Layout_admin ><Sponsor_register_admin /></Layout_admin >} />
+        <Route path="/stall_register_admin" element={<Layout_admin ><Stall_register_admin /></Layout_admin >} />
+        <Route path="/stall_location_admin" element={<Layout_admin ><Stall_location_admin /></Layout_admin >} />
+        <Route path="/badge_details_admin" element={<Layout_admin ><Badge_details_admin /></Layout_admin >} />
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
@@ -208,6 +214,9 @@ function App() {
         <Route path="/no_events" element={<Layout_oc ><No_events /></Layout_oc >} />
         <Route path="/update_schedule_oc" element={<Layout_oc ><Update_schedule /></Layout_oc >} />
         <Route path="/upload_resource_oc" element={<Layout_oc ><Upload_resource_oc /></Layout_oc >} />
+        <Route path="/sponsor_register_oc" element={<Layout_oc ><Sponsor_register_admin /></Layout_oc >} />
+        <Route path="/stall_register_oc" element={<Layout_oc ><Stall_register_admin /></Layout_oc >} />
+        <Route path="/stall_location_oc" element={<Layout_oc ><Stall_location_admin /></Layout_oc >} />
 
         {/* Add more routes as needed */}
       </Routes>
