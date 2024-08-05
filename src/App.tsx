@@ -16,7 +16,7 @@ import Stall_details from './pages/sponsor/Stall_details.tsx'
 import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
 
 import Participant_details from './pages/sponsor/Participant_details.tsx'
-import Schedule from './pages/sponsor/Schedule.tsx'
+// import Schedule from './pages/sponsor/Schedule.tsx'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
 // import Navbar_sponsor from './components/Navbar_sponsor.tsx';
@@ -127,7 +127,7 @@ function App() {
         <Route path="/resource-docs" element={<ResourceDocs />} />
         <Route path="/resource-links" element={<ResourceLinks />} />
         <Route path="/resource-other" element={<ResourceOther />} />
-        <Route path="/schedule" element={<Layout_sponsor ><Schedule /></Layout_sponsor >} />
+        <Route path="/schedule" element={<Layout_sponsor ><View_schedules_author /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />

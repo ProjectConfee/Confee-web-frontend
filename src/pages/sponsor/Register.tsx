@@ -65,7 +65,7 @@ function Home() {
             <h1>STALL NO 3</h1>
           </div>
           <div className='card'>
-            <Link to="/announcement">
+            <Link to="/announcement_view">
             <div className='card-inner'>
               <h3>ALERTS</h3><br></br>
               <BsFillBellFill/>
