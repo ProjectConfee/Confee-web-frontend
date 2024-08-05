@@ -36,36 +36,41 @@ function Home() {
         <div className='main-cards'>
 
           <div className='card'>
+            <Link to='/participant-details'>
             <div className='card-inner'>
               <h3>REGISTERED PARTICIPANTS</h3>
               <h2>FOR CONFERENCE DAY 1</h2>
               <BsPeopleFill/>
             </div>
+            </Link>
             <h1>300</h1>
           </div>
           <div className='card'>
+            <Link to='/participant-details'>
             <div className='card-inner'>
               <h3>REGISTERED PARTICIPANTS</h3>
               <h2>FOR CONFERENCE DAY 2</h2>
               <BsPeopleFill/>
             </div>
-            <h1>120</h1>
+            <h1>120</h1></Link >
           </div>
           <div className='card'>
+            <Link to='/stall-details'>
             <div className='card-inner'>
               <h3>STALL </h3>
               <br></br>
 
               <GiShop/>
-            </div>
+            </div></Link>
             <h1>STALL NO 3</h1>
           </div>
           <div className='card'>
+            <Link to="/announcement_view">
             <div className='card-inner'>
               <h3>ALERTS</h3><br></br>
               <BsFillBellFill/>
-            </div>
-            <h1>42</h1>
+            </div></Link>
+            <h1>2</h1>
           </div>
         </div>
         <br></br><br></br>

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import QRcode from './pages/sponsor/QRcode.tsx';
 import ResourceHome from './pages/sponsor/Resource_main.tsx';
 import ResourceUpload from './pages/sponsor/Resource_upload.tsx';
+import Resourceother from './pages/sponsor/Resource_upload_other.tsx';
 import ResourceDone from './pages/sponsor/Resource_done.tsx';
 import ResourceDocs from './Resources_docs';
 import ResourceLinks from './Resources_links';
@@ -13,7 +14,9 @@ import ResourceOther from './Resources_other';
 import Register from './pages/sponsor/Register.tsx'
 import Stall_details from './pages/sponsor/Stall_details.tsx'
 import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
-import Schedule from './pages/sponsor/Schedule.tsx'
+
+import Participant_details from './pages/sponsor/Participant_details.tsx'
+// import Schedule from './pages/sponsor/Schedule.tsx'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
 // import Navbar_sponsor from './components/Navbar_sponsor.tsx';
@@ -119,11 +122,12 @@ function App() {
         <Route path="/qrcode" element={<Layout_sponsor ><QRcode /></Layout_sponsor >} />
         <Route path="/resource-home" element={<Layout_sponsor ><ResourceHome /></Layout_sponsor >} />
         <Route path="/resource-upload" element={<Layout_sponsor ><ResourceUpload /></Layout_sponsor >} />
+        <Route path="/resource-other" element={<Layout_sponsor ><Resourceother /></Layout_sponsor >} />
         <Route path="/resource-done" element={<Layout_sponsor ><ResourceDone /></Layout_sponsor >} />
         <Route path="/resource-docs" element={<ResourceDocs />} />
         <Route path="/resource-links" element={<ResourceLinks />} />
         <Route path="/resource-other" element={<ResourceOther />} />
-        <Route path="/schedule" element={<Layout_sponsor ><Schedule /></Layout_sponsor >} />
+        <Route path="/schedule" element={<Layout_sponsor ><View_schedules_author /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
@@ -133,6 +137,7 @@ function App() {
         <Route path="/more-feedbacks" element={<Layout_sponsor><MoreFeedback /></Layout_sponsor>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
+        <Route path="/participant-details" element={<Layout_sponsor ><Participant_details/></Layout_sponsor >} />
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
         <Route path="/navbar" element={<Navbar />} />
