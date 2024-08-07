@@ -28,9 +28,9 @@ const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
       message.success('Login successful!');
 
       if (data.role === "PARTICIPANT") {
-        window.location.href = '/event';
+        window.location.href = '/view_events';
       } else if (data.role === "ADMIN") {
-        window.location.href = '/announcement_admin';
+        window.location.href = '/add_oc_admin';
       }
 
       console.log('Login response:', data);
