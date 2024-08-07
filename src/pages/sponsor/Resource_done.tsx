@@ -1,157 +1,329 @@
 
-// import LOGO from '../assets/logo.png';
-// import { Pagination } from 'antd';
-import { FileImageFilled, CopyOutlined, ProfileOutlined, LinkOutlined } from '@ant-design/icons';
-import {Button,  Segmented} from 'antd';
-import { useState } from "react";
-import {Link} from "react-router-dom";
+
+import { FileImageFilled, CopyOutlined, ProfileOutlined, LinkOutlined,VideoCameraOutlined } from '@ant-design/icons';
+import {Button, Segmented} from 'antd';
+import {useState} from "react";
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
+import { FaFacebook } from "react-icons/fa";
+import DocumentIcon from '@mui/icons-material/Description';
+import LinkIcon from '@mui/icons-material/Link';
+
+
+
+import { FaInstagram, FaLinkedin, FaTwitter,FaYoutube} from "react-icons/fa";
+
+
 
 const App = () => {
-  // const [open, setOpen] = useState(true);
-  const [selectedSegment, setSelectedSegment] = useState('Images');
-
-  // const Menus = [
-  //   { title: "Home", src: "home", gap: true },
-  //   { title: "Profile", src: "User", gap: true },
-  //   { title: "Stall Details", src: "stall", gap: true },
-  //   { title: "Schedule", src: "schedule", gap: true },
-  //   { title: "QR Code", src: "qr-code", gap: true },
-  //   { title: "Resource Upload", src: "upload", gap: true },
-  //   { title: "Announcement", src: "marketing", gap: true },
-  //   { title: "Logout", src: "logout", gap: true },
-  // ];
-
-  const resources = [
-    { title: 'Audio File 1', type: 'audio', src: 'https://example.com/audio1.mp3' },
-
-    { title: 'MP4 Video 1', type: 'video', src: 'https://youtu.be/nr1cFyxVdDw?si=kdK5uLAu1_ZdoZNO' },
-    { title: 'MP4 Video 2', type: 'video', src: 'https://example.com/video2.mp4' },
-    { title: 'Image 1', type: 'image', src: './src/assets/image41.png' },
-    { title: 'Image 2', type: 'image', src: './src/assets/image42.png' },
-      { title: 'Image 2', type: 'image', src: './src/assets/signup.jpg' },
-    { title: 'Document 1', type: 'document', src: '././src/assets/document 1.pdf' },
-    { title: 'Document 2', type: 'document', src: 'https://example.com/document2.pdf' },
-    { title: 'Link 1', type: 'link', url: 'https://wso2.com/' },
-    { title: 'Link 2', type: 'link', url: 'https://example.com/link2' },
-    // Add more resources as needed
-  ];
-
-  return (
-
-      <div className="flex flex-col justify-center items-center h-full mt-20 ml-50">
-          <div className="h-screen flex-1 p-7">
-              <div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-[0%]'>
-                  {/* <img src={LOGO} className='bg-cover w-full h-full' alt="Logo" /> */}
-              </div>
-              <h2 className="text-2xl font-semibold text-center">Uploaded Resources</h2>
-              <div>
-                  <br/>
-                  <div className="flex justify-center items-center p-4">
-                      <Segmented
-                          options={[
-                              {label: 'Media', value: 'Images', icon: <FileImageFilled/>},
-                              {label: 'Docs', value: 'Docs', icon: <CopyOutlined/>},
-                              {label: 'Links', value: 'Links', icon: <LinkOutlined/>},
-                              {label: 'Other', value: 'Other', icon: <ProfileOutlined/>},
-                          ]}
-                          value={selectedSegment}
-                          onChange={(value) => setSelectedSegment(value)}
-                          defaultValue="Images"
-                      />
-                  </div>
-
-                  <div className="container mx-auto p-4">
-                      {selectedSegment === 'Images' && (
-                          <div className="grid grid-cols-3 gap-4">
-                              {resources.filter(resource => resource.type === 'image').map((image, index) => (
-                                  <div key={index} className="flex justify-center items-center">
-                                      <img src={image.src} alt={`Image ${index + 1}`}
-                                           style={{width: 250, height: 250}}/>
-                                  </div>
-                              ))}
-                          </div>
-                      )}
-                      {selectedSegment === 'Docs' && (
-                          <div className="grid grid-cols-3 gap-4">
-                              {resources.filter(resource => resource.type === 'document').map((doc, index) => (
-                                  <div key={index} className="flex justify-center items-center">
-                                      <a href={doc.src} target="_blank" rel="noopener noreferrer"
-                                         className="bg-gray-200 p-6 rounded-md shadow-md size-60">
-                                          {doc.title}
-                                      </a>
-                                  </div>
-                              ))}
-                          </div>
-                      )}
-
-                      {selectedSegment === 'Links' && (
-                          <div className="grid grid-cols-3 gap-4">
-                              {resources.filter(resource => resource.type === 'link').map((link, index) => (
-                                  <div key={index} className="flex justify-center items-center">
-                                      <a href={link.url} target="_blank" rel="noopener noreferrer"
-                                         className="bg-gray-200 p-6 rounded-md shadow-md size-60">
-                                          {link.title}
-                                      </a>
-                                  </div>
-                              ))}
-                          </div>
-                      )}
-                      {selectedSegment === 'Other' && (
-                          <div className="grid grid-cols-3 gap-4">
-                              {resources.map((resource, index) => (
-                                  <div key={index} className="flex justify-center items-center">
-                                      {resource.type === 'audio' && (
-                                          <audio controls className="bg-gray-200 p-6 rounded-md shadow-md size-60">
-                                              <source src={resource.src} type="audio/mp3"/>
-                                              Your browser does not support the audio element.
-                                          </audio>
-                                      )}
-                                      {resource.type === 'video' && (
-                                          <video controls className="bg-gray-200 p-6 rounded-md shadow-md size-60">
-                                              <source src={resource.src} type="video/mp4"/>
-                                              Your browser does not support the video tag.
-                                          </video>
-                                      )}
-                                  </div>
-                              ))}
-                          </div>
-                      )}
-
-                      <br></br><br></br>
-                      {/*<div className="items-center ml-70">  <Flex gap="small " wrap>*/}
-                      {/*    <Link to="/resource-home"> /!* Adjust the path as needed *!/*/}
-                      {/*        <Button type="primary">Back to Homepage</Button>*/}
-                      {/*    </Link>*/}
+    // const [open, setOpen] = useState(true);
+    const [selectedSegment, setSelectedSegment] = useState('Images');
 
 
-                      {/*</Flex>*/}
-                      {/*</div>*/}
+    const resources = [
+        {title: 'Audio File 1', type: 'audio', src: 'https://example.com/audio1.mp3'},
+        {title: ' Video ', type: 'video', src: 'https://www.youtube.com/watch?v=YyQUdyak3i4'},
+        {title: 'Video ', type: 'video', src: 'https://example.com/video2.mp4'},
+        {title: ' Video', type: 'video', src: 'https://youtu.be/nr1cFyxVdDw?si=kdK5uLAu1_ZdoZNO'},
+        {title: 'Video ', type: 'video', src: 'https://example.com/video2.mp4'},
+        // {title: 'Image 1', type: 'image', src: './src/assets/image41.png'},
+        // {title: 'Image 2', type: 'image', src: './src/assets/image42.png'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Image ', type: 'image', src: './src/assets/signup.jpg'},
+        {title: 'Document ', type: 'document', src: '././src/assets/document 1.pdf'},
+        {title: 'Document ', type: 'document', src: 'https://example.com/document2.pdf'},
+        {title: 'Document ', type: 'document', src: 'https://example.com/document2.pdf'},
+        {title: 'Document ', type: 'document', src: 'https://example.com/document2.pdf'},
+        {title: 'Document ', type: 'document', src: 'https://example.com/document2.pdf'},
+        {title: 'Webpage', type: 'link', url: 'https://wso2.com/'},
+        {title: 'Link ', type: 'link', url: 'https://example.com/link2'},
 
 
-                  </div>
+        ];
+    const resources2 = [
+        {url: 'https://facebook.com', title: 'Facebook',type:'other', icon: <FaFacebook className="w-12 h-12" />},
+        {url: 'https://twitter.com', title: 'Twitter', type:'other',icon: <FaTwitter className="w-12 h-12"/>},
+        {url: 'https://instagram.com', title: 'Instagram',type:'other', icon: <FaInstagram className="w-12 h-12"/>},
+        {url: 'https://linkedin.com', title: 'Linkedin',type:'other', icon: <FaLinkedin className="w-12 h-12"/>},
+        {url: 'https://youtube.com', title: 'Youtube',type:'other', icon: <FaYoutube className="w-12 h-12"/>},
 
-              </div>
-          </div>
-
-          {/*<div className="min-h-screen flex flex-col justify-between">*/}
-          {/*  <div className="flex justify-center items-center p-4">*/}
-          {/*    <Pagination defaultCurrent={1} total={50} />*/}
-          {/*  </div>*/}
-          {/*</div>*/}
-
-
-          <div className=" items-center justify-center h-screen">
-              <div className="text-center mb-20">
-                  <Link to="/resource-home"> {/* Adjust the path as needed */}
-                      <Button     type="primary" style={{ backgroundColor: '#3572EF', borderColor: '#3572EF' }}>Back to Homepage</Button>
-                  </Link>
-              </div>
-          </div>
+        // Add more resources as needed
+    ];
 
 
-      </div>
-  )
-      ;
+
+
+
+    return (
+
+        <div className="flex flex-col justify-center items-center h-full  ml-50 mb-2">
+            <div className="h-screen flex-1 p-7">
+                <div className='absolute ml-[0%] w-20 mr-[99%] mb-[100%] mt-[0%]'>
+                    {/* <img src={LOGO} className='bg-cover w-full h-full' alt="Logo" /> */}
+                </div>
+                <h2 className="text-2xl font-semibold text-center">Uploaded Resources</h2>
+                <div>
+                    <br/>
+                    <div className="flex justify-center items-center p-2 ">
+                        <Segmented
+                            options={[
+                                {label: 'Images', value: 'Images', icon: <FileImageFilled/>},
+                                {label: 'Videos', value: 'Videos', icon: <VideoCameraOutlined/>},
+                                {label: 'Docs', value: 'Docs', icon: <CopyOutlined/>},
+                                {label: 'Links', value: 'Links', icon: <LinkOutlined/>},
+                                {label: 'Other', value: 'Other', icon: <ProfileOutlined/>},
+                            ]}
+                            value={selectedSegment}
+                            onChange={(value) => setSelectedSegment(value)}
+                            defaultValue="Images"
+                            className="text-lg" // Increase font size
+                            style={{
+                                padding: '10px 20px',
+                                fontSize: '18px',
+                                height: '60px',
+
+                            }}
+                        />
+                    </div>
+
+                    <div className="container mx-auto p-4">
+                        {selectedSegment === 'Images' && (
+
+
+                            <ImageList sx={{ width: '100%', height: 'auto' }} cols={4} gap={16}>
+                                {resources.filter(resource => resource.type === 'image').map((image, index) => (
+                                    <ImageListItem key={index}>
+                                        <img
+                                            srcSet={`${image.src}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                            src={`${image.src}?w=248&fit=crop&auto=format`}
+                                            alt={image.title}
+                                            loading="lazy"
+                                        />
+                                        <ImageListItemBar
+                                            title={image.title}
+                                            // subtitle={<span>by: {image.author}</span>}
+                                            position="below"
+                                        />
+                                    </ImageListItem>
+                                ))}
+                            </ImageList>
+
+
+                        )}
+
+                        {selectedSegment === 'Docs' && (
+
+
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-3">
+                                {resources.filter(resource => resource.type === 'document').map((doc, index) => (
+                                    <Card sx={{maxWidth: 345}} key={index}>
+                                        <CardMedia
+                                            sx={{
+                                                height: 200,
+                                                width: 300,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                borderRadius: '10px' // Optional: add some rounding to the container
+                                            }}
+                                            className='bg-sky-700'
+                                        >
+                                            <DocumentIcon
+                                                sx={{
+                                                    fontSize: 80,  // Adjust the size of the icon
+                                                    color: 'white' // Ensure the icon has a contrasting color
+                                                }}
+                                            />
+                                        </CardMedia>
+                                        <CardContent>
+                                            <div className='flex justify-center items-center mb-4'>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {doc.title}
+                                                </Typography>
+                                            </div>
+                                        </CardContent>
+                                        <Button
+                                            className='flex items-center bg-sky-700 text-white'
+                                            size="large"
+                                            href={doc.src}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            // sx={{margin: '16px auto', width: '80%'}}
+                                        >
+                                            View Document
+                                        </Button>
+                                    </Card>
+                                ))}
+                            </div>
+
+                        )}
+
+                        {selectedSegment === 'Links' && (
+
+
+
+
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8">
+                        {resources.filter(resource => resource.type === 'link').map((link, index) => (
+                            <Card sx={{ maxWidth: 345 }} key={index}>
+                        <CardMedia
+                            sx={{
+                                height: 200,
+                                width: 300,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: '10px' // Optional: add some rounding to the container
+                            }}
+                            className='bg-sky-700'
+                        >
+                            <LinkIcon
+                                sx={{
+                                    fontSize: 80,  // Adjust the size of the icon
+                                    color: 'white' // Ensure the icon has a contrasting color
+                                }}
+                            />
+                        </CardMedia>
+                        <CardContent>
+                            <div className='flex justify-center items-center mb-4'>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    {link.title}
+                                </Typography>
+                            </div>
+                        </CardContent>
+                        <Button
+                            className='flex items-center bg-sky-700 text-white'
+                            size="large"
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            // sx={{ margin: '16px auto', width: '80%' }}
+                        >
+                            View Link
+                        </Button>
+                    </Card>
+                    ))}
+                </div>
+
+
+                )}
+                        {selectedSegment === 'Videos' && (
+
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
+                                {resources.filter(resource => resource.type === 'video').map((video, index) => (
+                                    <Card sx={{display: 'flex', flexDirection: 'column', height: '80%', width: '100%'}}
+                                          key={index}>
+                                        <CardMedia
+                                            component="video"
+                                            controls
+                                            sx={{width: '100%', height: 400, borderRadius: '10px'}}
+                                            image={video.src}
+                                            title={video.title}
+                                        />
+                                        <Box sx={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'space-between',
+                                            flexGrow: 1
+                                        }}>
+                                            <CardContent sx={{flex: '1 0 auto'}}>
+                                                <Typography component="div" variant="h6">
+                                                    {video.title}
+                                                </Typography>
+                                            </CardContent>
+                                            <Box sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                pb: 1
+                                            }}>
+
+
+
+                                            </Box>
+                                        </Box>
+                                    </Card>
+                                ))}
+                            </div>
+                        )}
+                        {selectedSegment === 'Other' && (
+
+
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-3">
+                                {resources2.filter(resource => resource.type === 'other').map((link, index) => (
+                                    <Card sx={{maxWidth: 345}} key={index}>
+                                        <CardMedia
+                                            sx={{
+                                                height: 200,
+                                                width: 300,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                borderRadius: '10px' // Optional: add some rounding to the container
+                                            }}
+                                            className="bg-sky-700"
+                                        >
+                                            <div
+                                                style={{
+                                                    maxWidth: '70%',  // Adjust the size of the container
+                                                    maxHeight: '70%', // Adjust the size of the container
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    borderRadius: '10px', // Optional: add some rounding to the container
+                                                    color: 'white', // Ensure the icon has a contrasting color
+                                                }}
+                                            >
+                                                {link.icon}
+                                            </div>
+                                        </CardMedia>
+                                        <CardContent>
+                                            <div className='flex justify-center items-center mb-4'>
+                                                <Typography gutterBottom variant="h5" component="div">
+                                                    {link.title}
+                                                </Typography>
+                                            </div>
+                                        </CardContent>
+                                        <Button
+                                            className='flex items-center bg-sky-700 text-white'
+                                            size="large"
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            // sx={{margin: '16px auto', width: '80%'}}
+                                        >
+                                            View  {link.title}
+                                        </Button>
+                                    </Card>
+                                ))}
+                            </div>
+
+                        )}
+
+                        <br></br><br></br>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    )
+        ;
 };
 
 export default App;
