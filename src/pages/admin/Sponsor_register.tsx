@@ -15,8 +15,8 @@ const App: React.FC = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
-    <div className='flex flex-col justify-center items-center h-full mt-30 ml-50'>
-      <div className='flex flex-col justify-center items-center h-full mt-20 ml-50'>
+    <div className='flex flex-col justify-center items-center h-full ml-50'>
+      <div className='flex flex-col justify-center items-center h-full mt-10 ml-50'>
         <h2 className="text-2xl font-semibold text-center mt-[-10]">Sponsor Registration</h2>
         <br/><br/>
         <div className='mb-8'>

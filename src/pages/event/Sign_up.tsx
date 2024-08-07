@@ -336,6 +336,7 @@ const App = () => {
 
             if (response.ok) {
                 message.success('Form submitted successfully!');
+                window.location.href = '/';
             } else {
                 message.error('Failed to submit form. Please try again.');
             }

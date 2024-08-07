@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import QRcode from './pages/sponsor/QRcode.tsx';
 import ResourceHome from './pages/sponsor/Resource_main.tsx';
 import ResourceUpload from './pages/sponsor/Resource_upload.tsx';
+import Resourceother from './pages/sponsor/Resource_upload_other.tsx';
 import ResourceDone from './pages/sponsor/Resource_done.tsx';
 import ResourceDocs from './Resources_docs';
 import ResourceLinks from './Resources_links';
@@ -13,7 +14,9 @@ import ResourceOther from './Resources_other';
 import Register from './pages/sponsor/Register.tsx'
 import Stall_details from './pages/sponsor/Stall_details.tsx'
 import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
-import Schedule from './pages/sponsor/Schedule.tsx'
+
+import Participant_details from './pages/sponsor/Participant_details.tsx'
+// import Schedule from './pages/sponsor/Schedule.tsx'
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
 // import Navbar_sponsor from './components/Navbar_sponsor.tsx';
@@ -63,7 +66,10 @@ import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
-import View_schedules_speaker from './pages/event/Event_schedule.tsx';
+import View_schedules_speaker from './pages/participant/Event_schedule.tsx';
+import Resource_speaker from './pages/event/UploadResource.tsx';
+import Event_speaker from './pages/speaker/Event_speaker.tsx';
+import View_event_speaker from './pages/speaker/View_event_speaker.tsx';
 
 // author imports
 import Layout_author from "./layout/layout_author.tsx";
@@ -71,8 +77,10 @@ import Profile_author from "./pages/author/Author_profile.tsx";
 import Edit_profile_author from "./pages/author/Edit_profile_author.tsx";
 import Change_password_author from "./pages/author/Edit_password_author.tsx";
 import Stall_allocation_author from "./pages/participant/Stall_allocation.tsx";
-import View_schedules_author from './pages/event/Event_schedule.tsx';
-import Events_author from './pages/participant/View_events.tsx';
+import View_schedules_author from './pages/participant/Event_schedule.tsx';
+import Events_author from './pages/author/Events_author.tsx';
+import Event_details_author from './pages/author/Event_detail_author.tsx';
+import View_ticket_author from './pages/event/Ticket.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
@@ -83,7 +91,10 @@ import View_feedback_admin from "./pages/committee/View_feedback.tsx";
 import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
 import View_schedules_admin from './pages/event/Event_schedule.tsx';
 import Add_Oc_Admin from './pages/admin/add_oc_committee.tsx';
-
+import Sponsor_register_admin from './pages/admin/Sponsor_register.tsx';
+import Stall_register_admin from './pages/admin/Stall_register.tsx';
+import Stall_location_admin from './pages/admin/Stall_location.tsx';
+import Badge_details_admin from './pages/admin/Badge_details.tsx';
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
@@ -111,11 +122,12 @@ function App() {
         <Route path="/qrcode" element={<Layout_sponsor ><QRcode /></Layout_sponsor >} />
         <Route path="/resource-home" element={<Layout_sponsor ><ResourceHome /></Layout_sponsor >} />
         <Route path="/resource-upload" element={<Layout_sponsor ><ResourceUpload /></Layout_sponsor >} />
+        <Route path="/resource-other" element={<Layout_sponsor ><Resourceother /></Layout_sponsor >} />
         <Route path="/resource-done" element={<Layout_sponsor ><ResourceDone /></Layout_sponsor >} />
         <Route path="/resource-docs" element={<ResourceDocs />} />
         <Route path="/resource-links" element={<ResourceLinks />} />
         <Route path="/resource-other" element={<ResourceOther />} />
-        <Route path="/schedule" element={<Layout_sponsor ><Schedule /></Layout_sponsor >} />
+        <Route path="/schedule" element={<Layout_sponsor ><View_schedules_author /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
@@ -125,6 +137,7 @@ function App() {
         <Route path="/more-feedbacks" element={<Layout_sponsor><MoreFeedback /></Layout_sponsor>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
+        <Route path="/participant-details" element={<Layout_sponsor ><Participant_details/></Layout_sponsor >} />
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
         <Route path="/navbar" element={<Navbar />} />
@@ -164,6 +177,9 @@ function App() {
         <Route path="/change_password_speaker" element={<Layout_speaker ><Change_password_speaker /></Layout_speaker >} />
         <Route path="/view_feedback_speaker" element={<Layout_speaker ><View_feedback_speaker /></Layout_speaker >} />
         <Route path="/view_schedules_speaker" element={<Layout_speaker ><View_schedules_speaker /></Layout_speaker >} />
+        <Route path="/resource_speaker" element={<Layout_speaker ><Resource_speaker /></Layout_speaker >} />
+        <Route path="/event_speaker" element={<Layout_speaker ><Event_speaker /></Layout_speaker >} />
+        <Route path="/view_event_speaker" element={<Layout_speaker ><View_event_speaker /></Layout_speaker >} />
 
         {/*Author route*/}
         <Route path="/announcement_author" element={<Layout_author ><Announcement_view /></Layout_author >} />
@@ -172,7 +188,9 @@ function App() {
         <Route path="/change_password_author" element={<Layout_author ><Change_password_author /></Layout_author >} />
         <Route path="/stall_allocation_author" element={<Layout_author ><Stall_allocation_author /></Layout_author >} />
         <Route path="/view_schedules_author" element={<Layout_author ><View_schedules_author /></Layout_author >} />
-        <Route path="/Events_author" element={<Layout_author ><Events_author /></Layout_author >} />
+        <Route path="/events_author" element={<Layout_author ><Events_author /></Layout_author >} />
+        <Route path="/event_details_author" element={<Layout_author ><Event_details_author /></Layout_author >} />
+        <Route path="/view_ticket_author" element={<Layout_author ><View_ticket_author /></Layout_author >} />
 
         {/*Admin route*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
@@ -183,7 +201,10 @@ function App() {
         <Route path="/stall_allocation_admin" element={<Layout_admin ><Stall_allocation_admin /></Layout_admin >} />
         <Route path="/view_schedules_admin" element={<Layout_admin ><View_schedules_admin /></Layout_admin >} />
         <Route path="/add_oc_admin" element={<Layout_admin ><Add_Oc_Admin /></Layout_admin >} />
-
+        <Route path="/sponsor_register_admin" element={<Layout_admin ><Sponsor_register_admin /></Layout_admin >} />
+        <Route path="/stall_register_admin" element={<Layout_admin ><Stall_register_admin /></Layout_admin >} />
+        <Route path="/stall_location_admin" element={<Layout_admin ><Stall_location_admin /></Layout_admin >} />
+        <Route path="/badge_details_admin" element={<Layout_admin ><Badge_details_admin /></Layout_admin >} />
 
         {/*Committee route*/}
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
@@ -198,6 +219,9 @@ function App() {
         <Route path="/no_events" element={<Layout_oc ><No_events /></Layout_oc >} />
         <Route path="/update_schedule_oc" element={<Layout_oc ><Update_schedule /></Layout_oc >} />
         <Route path="/upload_resource_oc" element={<Layout_oc ><Upload_resource_oc /></Layout_oc >} />
+        <Route path="/sponsor_register_oc" element={<Layout_oc ><Sponsor_register_admin /></Layout_oc >} />
+        <Route path="/stall_register_oc" element={<Layout_oc ><Stall_register_admin /></Layout_oc >} />
+        <Route path="/stall_location_oc" element={<Layout_oc ><Stall_location_admin /></Layout_oc >} />
 
         {/* Add more routes as needed */}
       </Routes>

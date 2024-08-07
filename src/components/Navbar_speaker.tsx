@@ -9,10 +9,10 @@ const Navbar_speaker = () => {
     const [open, setOpen] = useState(true);
 
     const Menus = [
-        { title: "Home", src: "home", path: "#", gap: true },
+        { title: "Home", src: "home", path: "/view_event_speaker", gap: true },
         { title: "Profile", src: "profile", path: "/profile_speaker", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules_speaker", gap: true },
-        { title: "Resource Upload", src: "upload_resource", path: "#", gap: true },
+        { title: "Resource Upload", src: "upload_resource", path: "/resource_speaker", gap: true },
         { title: "Feedback", src: "feedback", path: "/view_feedback_speaker", gap: true },
         { title: "Announcement", src: "announcement", path: "/announcement_speaker", gap: true },
         { title: "Logout", src: "logout", path: "/" },
