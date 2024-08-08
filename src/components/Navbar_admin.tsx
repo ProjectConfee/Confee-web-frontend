@@ -10,7 +10,7 @@ const Navbar_admin = () => {
 
     const Menus = [
         { title: "Dashboard", src: "dashboard", path: "/admin_dashboard", gap: true },
-        { title: "Profile", src: "profile", path: "/profile_admin", gap: true },
+        { title: "Profile", src: "profile", path: "/admin_profile", gap: true },
         // { title: "Organizing Committee", src: "committee", path: "/add_oc_admin", gap: true },
         // { title: "New Badges", src: "badge", path: "/badge_details_admin", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules_admin", gap: true },

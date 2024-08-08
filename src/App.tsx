@@ -85,6 +85,9 @@ import View_ticket_author from './pages/event/Ticket.tsx';
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
 import Admin_dashboard from "./pages/admin/Dashboard.tsx";
+import Admin_profile from "./pages/admin/Profile.tsx";
+import Admin_announcement from "./pages/admin/Profile.tsx";
+
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
 import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
@@ -195,6 +198,9 @@ function App() {
 
         {/*Admin route*/}
         <Route path="/admin_dashboard" element={<Layout_admin ><Admin_dashboard /></Layout_admin >} />
+        <Route path="/admin_profile" element={<Layout_admin ><Admin_profile /></Layout_admin >} />
+        <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
+
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
         <Route path="/profile_admin" element={<Layout_admin ><Profile_admin /></Layout_admin >} />
         <Route path="/edit_profile_admin" element={<Layout_admin ><Edit_profile_admin /></Layout_admin >} />
