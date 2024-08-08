@@ -62,6 +62,7 @@ import Event_details from './pages/participant/Event_details.tsx';
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
+import Speaker_dashboard from "./pages/speaker/Dashboard.tsx";
 import Speaker_profile from "./pages/speaker/Profile.tsx";
 import Speaker_edit_profile from "./pages/speaker/Edit_profile.tsx";
 
@@ -178,6 +179,7 @@ function App() {
         <Route path="/view_ticket" element={<Layout_participant ><Ticket/></Layout_participant >} />
 
         {/*Speaker route*/}
+        <Route path="/speaker_dashboard" element={<Layout_speaker ><Speaker_dashboard /></Layout_speaker >} />
         <Route path="/speaker_profile" element={<Layout_speaker ><Speaker_profile /></Layout_speaker >} />
         <Route path="/speaker_edit_profile" element={<Layout_speaker ><Speaker_edit_profile /></Layout_speaker >} />
 
