@@ -15,7 +15,7 @@ const Navbar_admin = () => {
         // { title: "New Badges", src: "badge", path: "/badge_details_admin", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules_admin", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation_admin", gap: true },
-        { title: "Announcement", src: "announcement", path: "/announcement_admin", gap: true },
+        { title: "Announcement", src: "announcement", path: "/admin_announcement", gap: true },
         // { title: "Feedback", src: "feedback", path: "/view_feedback_admin", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];

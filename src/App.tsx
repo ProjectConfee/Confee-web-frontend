@@ -86,7 +86,7 @@ import View_ticket_author from './pages/event/Ticket.tsx';
 import Layout_admin from "./layout/layout_admin.tsx";
 import Admin_dashboard from "./pages/admin/Dashboard.tsx";
 import Admin_profile from "./pages/admin/Profile.tsx";
-import Admin_announcement from "./pages/admin/Profile.tsx";
+import Admin_announcement from "./pages/admin/Announcement.tsx";
 
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
