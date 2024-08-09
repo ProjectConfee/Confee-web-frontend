@@ -83,6 +83,7 @@ const App: React.FC = () => {
                             </div>
                         ))}
                     </div>
+
                 </div>
 
                 {/* Pie Chart */}
