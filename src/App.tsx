@@ -13,7 +13,7 @@ import ResourceOther from './Resources_other';
 import Register from './pages/sponsor/Register.tsx'
 import Stall_details from './pages/sponsor/Stall_details.tsx'
 import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
-import Schedule from './pages/sponsor/Schedule.tsx'
+
 // import Home from './Homepage'
 import Navbar from './components/Navbar';
 // import Navbar_sponsor from './components/Navbar_sponsor.tsx';
@@ -112,6 +112,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        {/*Sponsors routes*/}
         <Route path="/homepage" element={<Layout_sponsor ><Register /></Layout_sponsor >} />
         <Route path="/qrcode" element={<Layout_sponsor ><QRcode /></Layout_sponsor >} />
         <Route path="/resource-home" element={<Layout_sponsor ><ResourceHome /></Layout_sponsor >} />
@@ -120,7 +121,7 @@ function App() {
         <Route path="/resource-docs" element={<ResourceDocs />} />
         <Route path="/resource-links" element={<ResourceLinks />} />
         <Route path="/resource-other" element={<ResourceOther />} />
-        <Route path="/schedule" element={<Layout_sponsor ><Schedule /></Layout_sponsor >} />
+        <Route path="/schedule" element={<Layout_sponsor ><Event_schedules/></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/stall-details" element={<Layout_sponsor ><Stall_details /></Layout_sponsor >} />
         <Route path="/badge-details" element={<MainLayout><Badge_details /></MainLayout>} />
@@ -132,6 +133,7 @@ function App() {
         <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
+        <Route path="/view_schedules" element={<Layout_sponsor ><Event_schedules/></Layout_sponsor >} />
         <Route path="/navbar" element={<Navbar />} />
         
         <Route path="/signup" element={<Signup/>} />
