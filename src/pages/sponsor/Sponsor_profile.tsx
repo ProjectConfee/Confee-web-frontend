@@ -49,12 +49,12 @@ const App = () => {
                             />
                         </div>
 
-                        <div className="text-center mt-2">
+                        <div className="text-center mt-0">
                             <p className="font-bold text-lg">
                                 WSO2
                             </p>
                         </div>
-                        <div className="flex mt-5 space-x-4">
+                        <div className="flex space-x-4">
                             <a href="#linkedin" target="_blank" rel="noopener noreferrer">
                                 <img src="/src/assets/linkedin1.png" alt="LinkedIn" className="w-10 h-10" />
                             </a>
