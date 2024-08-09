@@ -18,7 +18,7 @@ const data1 = [
 const App = () => {
     return (
         <div className="flex justify-center h-screen">
-            <div className="bg-white h-[500px] shadow-2xl w-4/6 mx-20 rounded-3xl mt-10">
+            <div className="bg-white h-[500px] shadow-2xl w-7/8 mx-20 rounded-3xl mt-20">
                 <div className="flex items-center pt-5 justify-between px-10">
                     <div className="text-2xl font-bold">
                         My Profile

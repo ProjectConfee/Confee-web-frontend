@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 const Navbar = () => {
-  const [open, setOpen] = useState(true);
+  const [open] = useState(true);
 
   const Menus = [
     { title: "Home", src: "home", path: "/homepage", gap: true },
@@ -27,12 +27,12 @@ const Navbar = () => {
   return (
     <div className="flex">
       <div className={`${open ? "w-72" : "w-20"} bg-white  h-screen p-5 pt-8 relative duration-300`}>
-      <img alt="Logo"
-        src="./src/assets/control.png"
-        className={`absolute cursor-pointer -right-3 top-9 w-7  bg-[#050C9B]relative
-         border-2 rounded-full  ${!open && "rotate-180"}`}
-        onClick={() => setOpen(!open)}
-      />
+      {/*<img alt="Logo"*/}
+      {/*  src="./src/assets/control.png"*/}
+      {/*  className={`absolute cursor-pointer -right-3 top-9 w-7  bg-[#050C9B]relative*/}
+      {/*   border-2 rounded-full  ${!open && "rotate-180"}`}*/}
+      {/*  onClick={() => setOpen(!open)}*/}
+      {/*/>*/}
 
 
  
