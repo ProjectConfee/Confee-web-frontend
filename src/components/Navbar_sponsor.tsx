@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useState } from "react";
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(true);
 
@@ -15,6 +16,7 @@ const Navbar = () => {
     { title: "Schedule", src: "schedule", path: "/schedule", gap: true },
     { title: "QR Code", src: "qrcode", path: "/qrcode", gap: true },
     { title: "Resource Upload", src: "upload", path: "/resource-home", gap: true },
+      { title: "Uploads", src: "resources", path: "/resource-done", gap: true },
     { title: "Announcement", src: "announcement", path: "/announcement_view", gap: true },
     // { title: "Winners", src: "trophy", path: "/winners", gap: true },
     { title: "Logout", src: "logout", path: "/" },

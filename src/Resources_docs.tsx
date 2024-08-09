@@ -1,6 +1,6 @@
 import LOGO from '../src/assets/logo.png';
 import { Pagination } from 'antd';
-import React from 'react';
+
 import { FileImageFilled, CopyOutlined, ProfileOutlined, LinkOutlined } from '@ant-design/icons';
 import { Segmented } from 'antd';
 import { useState } from "react";
@@ -28,10 +28,10 @@ const App = () => {
     { title: 'Document 6', src: 'https://example.com/document6.pdf' },
   ];
 
-  const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSize(Number(e.target.value));
-  };
-  const [size, setSize] = useState(150);
+  // const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSize(Number(e.target.value));
+  // };
+  //const [size, setSize] = useState(150);
 
   return (
     <div className="flex items-center">

@@ -9,13 +9,14 @@ const Navbar_admin = () => {
     const [open, setOpen] = useState(true);
 
     const Menus = [
-        { title: "Home", src: "home", path: "#", gap: true },
-        { title: "Profile", src: "profile", path: "/profile_admin", gap: true },
-        { title: "Organizing Committee", src: "committee", path: "/add_oc_admin", gap: true },
+        { title: "Dashboard", src: "dashboard", path: "/admin_dashboard", gap: true },
+        { title: "Profile", src: "profile", path: "/admin_profile", gap: true },
+        // { title: "Organizing Committee", src: "committee", path: "/add_oc_admin", gap: true },
+        // { title: "New Badges", src: "badge", path: "/badge_details_admin", gap: true },
         { title: "Schedule", src: "schedule", path: "/view_schedules_admin", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation_admin", gap: true },
-        { title: "Announcement", src: "announcement", path: "/announcement_admin", gap: true },
-        { title: "Feedback", src: "feedback", path: "/view_feedback_admin", gap: true },
+        { title: "Announcement", src: "announcement", path: "/admin_announcement", gap: true },
+        // { title: "Feedback", src: "feedback", path: "/view_feedback_admin", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 
