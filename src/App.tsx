@@ -88,9 +88,12 @@ import View_ticket_author from './pages/event/Ticket.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
+import Admin_first from "./pages/admin/First_page.tsx";
 import Admin_dashboard from "./pages/admin/Dashboard.tsx";
+import Admin_2023 from "./pages/admin/2023.tsx";
 import Admin_profile from "./pages/admin/Profile.tsx";
 import Admin_announcement from "./pages/admin/Announcement.tsx";
+import Admin_feedback from "./pages/admin/Feedback.tsx";
 
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
@@ -209,8 +212,11 @@ function App() {
 
         {/*Admin route*/}
         <Route path="/admin_dashboard" element={<Layout_admin ><Admin_dashboard /></Layout_admin >} />
+        <Route path="/admin_2023" element={<Layout_admin ><Admin_2023 /></Layout_admin >} />
+        <Route path="/admin_first" element={<Layout_admin ><Admin_first /></Layout_admin >} />
         <Route path="/admin_profile" element={<Layout_admin ><Admin_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
+        <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
 
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
         <Route path="/profile_admin" element={<Layout_admin ><Profile_admin /></Layout_admin >} />
