@@ -117,6 +117,7 @@ import Add_event_oc from './pages/event/Add_event.tsx';
 import No_events from './pages/event/No_event.tsx';
 import Update_schedule from './pages/event/Event_schedule.tsx';
 import Upload_resource_oc from "./pages/event/UploadResource.tsx";
+import View_profile from "./pages/sponsor/View_profile.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
@@ -147,6 +148,7 @@ function App() {
         <Route path="/more-feedbacks" element={<Layout_sponsor><MoreFeedback /></Layout_sponsor>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
+        <Route path="/profile_view" element={<Layout_sponsor ><View_profile/></Layout_sponsor >} />
         <Route path="/participant-details" element={<Layout_sponsor ><Participant_details/></Layout_sponsor >} />
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />

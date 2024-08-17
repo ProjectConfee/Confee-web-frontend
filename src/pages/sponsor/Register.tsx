@@ -455,7 +455,7 @@ import { PiNewspaperClippingFill } from 'react-icons/pi';
 // Define the styles with TypeScript type assertions
 const styles: { [key: string]: React.CSSProperties } = {
   mainContainer: {
-    padding: '20px',
+    padding: '0px',
     backgroundColor: '#f9f9f9',
 
   },
@@ -466,23 +466,24 @@ const styles: { [key: string]: React.CSSProperties } = {
     justifyContent: 'center', // Center content horizontally
   },
   card: {
-    width: '320px',
+    width: '275px',
     borderRadius: '12px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     backgroundColor: '#fff',
     transition: 'transform 0.3s, box-shadow 0.3s',
     marginTop: '0px',
-    overflow: 'hidden', // Ensure content does not overflow
+    overflow: 'hidden',
+    height: '150px'
   },
   card2: {
-    width: '660px',
-    height: '250px',
-    borderRadius: '12px',
+    width: '570px',
+    height: '200px',
+    borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     backgroundColor: '#fff',
     transition: 'transform 0.3s, box-shadow 0.3s',
     marginTop: '0px',
-    marginBottom: '20px',
+    marginBottom: '10px',
     overflow: 'hidden',
   },
   cardHover: {
@@ -490,18 +491,20 @@ const styles: { [key: string]: React.CSSProperties } = {
     boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)'
   },
   icon: {
-    fontSize: '40px',
+    fontSize: '30px',
     color: '#4a90e2',
-    marginBottom: '20px',
+    marginBottom: '2px',
   },
   chartsContainer: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginTop: '20px',
+    marginTop: '10px',
     backgroundColor: '#fff',
     borderRadius: '12px',
     padding: '20px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    height: '350px',
+
   },
   chartContainer: {
     flex: 1,
@@ -518,10 +521,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginLeft:'160px',
   },
   image2: {
-    width: '27%',
+    width: '22%',
     height: 'auto',
     objectFit: 'cover', // Type assertion
-    borderRadius: '8px',
+    borderRadius: '5px',
     marginTop: '0px',
     marginBottom: '10px',
   },
@@ -551,8 +554,8 @@ const data = [
 ];
 
 const users = [
-  { userName: 'Registered Participants for Conference Day 01', count: 60, icon: FaUser, link: '/participant-details' },
-  { userName: 'Registered Participants for Conference Day 02', count: 200, icon: FaUser, link: '/participant-details' },
+  { userName: 'Registered Participants  Conference Day 01', count: 60, icon: FaUser, link: '/participant-details' },
+  { userName: 'Registered Participants  Conference Day 02', count: 200, icon: FaUser, link: '/participant-details' },
   { userName: 'Stall Details', count: 10, icon: GiShop, link: '/stall-details' },
   { userName: 'Alerts', count: 20, icon: PiNewspaperClippingFill, link: '/announcement_view' },
 ];
@@ -560,13 +563,13 @@ const users = [
 const users2 = [
   {
     userName: 'ICTer Conference 2024',
-    link: '/topic1',
+
     venue: 'At Marino Beach Hotel',
     date: '2024-10-05 to 2024-10-08'
   },
   {
     userName: 'Your Sponsor Level',
-    link: '/topic2',
+
     icon: FaImage,
     imageUrl: 'src/assets/gold_badge.jpeg'
   }
@@ -580,22 +583,22 @@ const Home: React.FC = () => {
 
         <div style={styles.flex}>
           <Card style={styles.card2} hoverable>
-            <Link to={users2[0].link}>
+
               <div style={styles.textCenter} className="flex flex-col items-center">
-                <h3 style={{ margin: '5px 0' ,fontSize:'50px'}}>{users2[0].userName}</h3>
-                <p style={{ margin: '2px 0' ,fontSize:'30px'}}>{users2[0].venue}</p>
+                <h3 style={{ margin: '2px 0' ,fontSize:'40px'}}>{users2[0].userName}</h3>
+                <p style={{ margin: '0px 0' ,fontSize:'30px'}}>{users2[0].venue}</p>
                 <p style={{ margin: '5px 0', fontWeight: 'bold' }}>{users2[0].date}</p>
               </div>
-            </Link>
+
           </Card>
 
           <Card style={styles.card2} hoverable>
-            <Link to={users2[1].link}>
+
               <div style={styles.textCenter} className="flex flex-col items-center">
-                <h3 style={{ margin: '0px 0' ,fontSize:'30px'}}>{users2[1].userName}</h3>
+                <h3 style={{ margin: '0px 0' ,fontSize:'20px'}}>{users2[1].userName}</h3>
                 {users2[1].imageUrl && <img src={users2[1].imageUrl} alt={users2[1].userName} style={styles.image2} />}
               </div>
-            </Link>
+
           </Card>
         </div>
 
