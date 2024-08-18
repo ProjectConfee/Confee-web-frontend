@@ -1,11 +1,30 @@
 import React from 'react';
-import { FaUser, FaMicrophone, FaIdBadge } from 'react-icons/fa';
-import { FaUsersGear } from "react-icons/fa6";
-import { PiNewspaperClippingFill } from 'react-icons/pi';
+import {
+    FaUser,
+    FaMicrophone,
+    FaIdBadge
+} from 'react-icons/fa';
+import {
+    FaUsersGear
+} from "react-icons/fa6";
+import {
+    PiNewspaperClippingFill
+} from 'react-icons/pi';
 // import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement
+} from 'chart.js';
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement);
+ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement
+);
 
 interface CardProps {
     userName: string;
@@ -27,11 +46,31 @@ const Card: React.FC<CardProps> = ({ userName, count, Icon }) => {
 
 const App: React.FC = () => {
     const users = [
-        { userName: 'Committee', count: 60, icon: FaUsersGear },
-        { userName: 'Participants', count: 200, icon: FaUser },
-        { userName: 'Authors', count: 10, icon: PiNewspaperClippingFill },
-        { userName: 'Speakers', count: 20, icon: FaMicrophone },
-        { userName: 'Sponsors', count: 50, icon: FaIdBadge },
+        {
+            userName: 'Committee',
+            count: 60,
+            icon: FaUsersGear
+        },
+        {
+            userName: 'Participants',
+            count: 200,
+            icon: FaUser
+        },
+        {
+            userName: 'Authors',
+            count: 10,
+            icon: PiNewspaperClippingFill
+        },
+        {
+            userName: 'Speakers',
+            count: 20,
+            icon: FaMicrophone
+        },
+        {
+            userName: 'Sponsors',
+            count: 50,
+            icon: FaIdBadge
+        },
     ];
 
     // Pie chart data with blue colors

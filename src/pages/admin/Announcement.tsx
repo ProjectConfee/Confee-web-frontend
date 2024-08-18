@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faTrash,
+    faPlus
+} from '@fortawesome/free-solid-svg-icons';
 
 interface Announcement {
     title: string;
@@ -112,9 +115,13 @@ const AnnouncementPage: React.FC = () => {
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
                     <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                        <h2 className="text-xl font-semibold mb-4">Add New Announcement</h2>
+                        <h2 className="text-xl font-semibold mb-4">
+                            Add New Announcement
+                        </h2>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium mb-2">Title</label>
+                            <label className="block text-sm font-medium mb-2">
+                                Title
+                            </label>
                             <input
                                 type="text"
                                 name="title"
@@ -123,7 +130,9 @@ const AnnouncementPage: React.FC = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium mb-2">Content</label>
+                            <label className="block text-sm font-medium mb-2">
+                                Content
+                            </label>
                             <textarea
                                 name="content"
                                 className="w-full p-2 border border-gray-300 rounded"
@@ -132,19 +141,27 @@ const AnnouncementPage: React.FC = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium mb-2">Schedule Time</label>
+                            <label className="block text-sm font-medium mb-2">
+                                Schedule Time
+                            </label>
                             <select
                                 className="w-full p-2 border border-gray-300 rounded"
                                 onChange={handleScheduleTimeChange}
                             >
-                                <option value="now">Now</option>
-                                <option value="later">Later</option>
+                                <option value="now">
+                                    Now
+                                </option>
+                                <option value="later">
+                                    Later
+                                </option>
                             </select>
                         </div>
                         {scheduleTime === 'later' && (
                             <div className="flex space-x-4 mb-4">
                                 <div>
-                                    <label className="block text-sm font-medium mb-2">Date</label>
+                                    <label className="block text-sm font-medium mb-2">
+                                        Date
+                                    </label>
                                     <input
                                         type="date"
                                         name="date"
@@ -153,7 +170,9 @@ const AnnouncementPage: React.FC = () => {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium mb-2">Time</label>
+                                    <label className="block text-sm font-medium mb-2">
+                                        Time
+                                    </label>
                                     <input
                                         type="time"
                                         name="time"

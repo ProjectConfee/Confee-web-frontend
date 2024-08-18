@@ -91,6 +91,9 @@ import Layout_admin from "./layout/layout_admin.tsx";
 import Admin_first from "./pages/admin/First_page.tsx";
 import Admin_dashboard from "./pages/admin/Dashboard.tsx";
 import Admin_2023 from "./pages/admin/2023.tsx";
+import Admin_committee from "./pages/admin/Committee.tsx";
+import Admin_speaker from "./pages/admin/Speaker.tsx";
+import Admin_author from "./pages/admin/Author.tsx";
 import Admin_profile from "./pages/admin/Profile.tsx";
 import Admin_announcement from "./pages/admin/Announcement.tsx";
 import Admin_feedback from "./pages/admin/Feedback.tsx";
@@ -214,6 +217,9 @@ function App() {
         <Route path="/admin_dashboard" element={<Layout_admin ><Admin_dashboard /></Layout_admin >} />
         <Route path="/admin_2023" element={<Layout_admin ><Admin_2023 /></Layout_admin >} />
         <Route path="/admin_first" element={<Layout_admin ><Admin_first /></Layout_admin >} />
+        <Route path="/admin_committee" element={<Layout_admin ><Admin_committee /></Layout_admin >} />
+        <Route path="/admin_speaker" element={<Layout_admin ><Admin_speaker /></Layout_admin >} />
+        <Route path="/admin_author" element={<Layout_admin ><Admin_author /></Layout_admin >} />
         <Route path="/admin_profile" element={<Layout_admin ><Admin_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
