@@ -95,6 +95,7 @@ import Admin_committee from "./pages/admin/Committee.tsx";
 import Admin_speaker from "./pages/admin/Speaker.tsx";
 import Admin_author from "./pages/admin/Author.tsx";
 import Admin_profile from "./pages/admin/Profile.tsx";
+import Admin_edit_profile from "./pages/admin/Edit_profile.tsx";
 import Admin_announcement from "./pages/admin/Announcement.tsx";
 import Admin_feedback from "./pages/admin/Feedback.tsx";
 
@@ -221,6 +222,7 @@ function App() {
         <Route path="/admin_speaker" element={<Layout_admin ><Admin_speaker /></Layout_admin >} />
         <Route path="/admin_author" element={<Layout_admin ><Admin_author /></Layout_admin >} />
         <Route path="/admin_profile" element={<Layout_admin ><Admin_profile /></Layout_admin >} />
+        <Route path="/admin_edit_profile" element={<Layout_admin ><Admin_edit_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
 
