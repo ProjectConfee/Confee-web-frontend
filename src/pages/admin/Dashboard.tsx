@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
+import {
+    Chart as ChartJS,
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    CategoryScale,
+    LinearScale
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Link } from "react-router-dom";
 import { AiOutlinePlus } from 'react-icons/ai';
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+ChartJS.register(
+    Title,
+    Tooltip,
+    Legend,
+    BarElement,
+    CategoryScale,
+    LinearScale
+);
 
 interface Detail {
     label: string;
@@ -128,16 +143,19 @@ const MainCard: React.FC<MainCardProps> = ({ title, details, buttonText, addNewB
 interface SubCardProps {
     userName: string;
     imageSrc: string;
+    link: string;
 }
 
-const SubCard: React.FC<SubCardProps> = ({ userName, imageSrc }) => {
+const SubCard: React.FC<SubCardProps> = ({ userName, imageSrc, link }) => {
     return (
         <div className="flex flex-col items-center p-4 border rounded-2xl shadow-lg bg-white w-60 h-64">
             <h3 className="text-lg font-semibold">{userName}</h3>
             <img src={imageSrc} alt={userName} className="w-40 h-40 object-cover" />
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
-                View
-            </button>
+            <Link to={link}> {/* Use Link component for navigation */}
+                <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
+                    View
+                </button>
+            </Link>
         </div>
     );
 };
@@ -181,10 +199,26 @@ const App: React.FC = () => {
     ];
 
     const subCards = [
-        { userName: 'Committee', imageSrc: 'src/assets/committee.png' },
-        { userName: 'Speaker', imageSrc: 'src/assets/speaker.png' },
-        { userName: 'Author', imageSrc: 'src/assets/author.png' },
-        { userName: 'Sponsor', imageSrc: 'src/assets/sponsor.png' },
+        {
+            userName: 'Committee',
+            imageSrc: 'src/assets/committee.png',
+            link: '/admin_committee'
+        },
+        {
+            userName: 'Speaker',
+            imageSrc: 'src/assets/speaker.png',
+            link: '/admin_speaker'
+        },
+        {
+            userName: 'Author',
+            imageSrc: 'src/assets/author.png',
+            link: '/admin_author'
+        },
+        {
+            userName: 'Sponsor',
+            imageSrc: 'src/assets/sponsor.png',
+            link: '/sponsor'
+        },
     ];
 
     const handleAddNewConference = () => {
@@ -201,125 +235,142 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="p-4">
-            {/* Topic at the Top */}
-            <h1 className="text-4xl font-bold text-center mb-8">ICTer International Conference</h1>
+        // <Router>
+            <div className="p-4">
+                {/* Topic at the Top */}
+                <h1 className="text-4xl font-bold text-center mb-8">
+                    ICTer International Conference
+                </h1>
 
-            {/* Two Main Cards Side by Side */}
-            <div className="flex space-x-8 mb-8 justify-center">
-                <div className="w-1/2">
-                    <MainCard
-                        title={mainCards[0].title}
-                        details={mainCards[0].details}
-                        buttonText={mainCards[0].buttonText}
-                        addNewButtonText={mainCards[0].addNewButtonText}
-                        onAddNewConference={handleAddNewConference}
-                        imageSrc={mainCards[0].imageSrc}
-                    />
-                </div>
-                <div className="w-1/3">
-                    <MainCard
-                        title={mainCards[1].title}
-                        chartData={mainCards[1].chartData}
-                        imageSrc={mainCards[1].imageSrc}
-                    />
-                </div>
-            </div>
-
-            {/* Subtopic Aligned to the Left */}
-            <h2 className="text-3xl font-semibold text-center mb-4 mt-12">User Profiles</h2>
-
-            {/* Four Sub Cards in a Single Row */}
-            <div className="flex space-x-10 justify-center mb-4">
-                {subCards.map((card, index) => (
-                    <SubCard
-                        key={index} // Ensure a unique key is used
-                        userName={card.userName}
-                        imageSrc={card.imageSrc}
-                    />
-                ))}
-            </div>
-
-            {/* Popup for Adding New Conference */}
-            {isPopupVisible && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-6 rounded-2xl w-[500px] max-h-[80vh] overflow-y-auto mt-20"> {/* Added max-h-[80vh] and overflow-y-auto */}
-                        <h2 className="text-2xl font-bold mb-4">Add New Conference</h2>
-                        <div className="mb-4">
-                            {/* Start Date and End Date */}
-                            <div className="flex space-x-4 mb-4">
-                                <div className="flex flex-col w-1/2">
-                                    <label className="font-medium mb-1">Start Date</label>
-                                    <input type="date" className="border rounded-lg p-2" />
-                                </div>
-                                <div className="flex flex-col w-1/2">
-                                    <label className="font-medium mb-1">End Date</label>
-                                    <input type="date" className="border rounded-lg p-2" />
-                                </div>
-                            </div>
-
-                            {/* Location */}
-                            <div>
-                                <label className="block mb-2">Location</label>
-                                <input
-                                    type="text"
-                                    placeholder="Location"
-                                    className="border p-2 rounded-md w-full mb-4"
-                                />
-                            </div>
-
-                            {/* Upload Logo */}
-                            <div className="mb-4">
-                                <label className="block mb-2">Upload Logo</label>
-                                <input
-                                    type="file"
-                                    className="border p-2 rounded-md w-full"
-                                />
-                            </div>
-
-                            {/* Additional Fields */}
-                            {conferenceDays.map((day, index) => (
-                                <div key={day.id} className="flex items-center mb-2 space-x-5">
-                                    <input
-                                        type="text"
-                                        value={day.day}
-                                        onChange={(e) => {
-                                            const updatedDays = [...conferenceDays];
-                                            updatedDays[index].day = e.target.value;
-                                            setConferenceDays(updatedDays);
-                                        }}
-                                        className="border rounded-lg p-2 w-full"
-                                    />
-                                    <input
-                                        type="date"
-                                        placeholder="Date"
-                                        className="border p-2 rounded-md flex-1"
-                                    />
-                                    <button
-                                        className="ml-2 px-2 py-2 bg-blue-600 text-white rounded-full"
-                                        onClick={addConferenceDay}
-                                    >
-                                        <AiOutlinePlus size={20} />
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex justify-end space-x-4">
-                            <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
-                                Save
-                            </button>
-                            <button
-                                className="px-4 py-2 bg-gray-300 text-black rounded-2xl shadow-md hover:bg-gray-400"
-                                onClick={closePopup}
-                            >
-                                Cancel
-                            </button>
-                        </div>
+                {/* Two Main Cards Side by Side */}
+                <div className="flex space-x-8 mb-8 justify-center">
+                    <div className="w-1/2">
+                        <MainCard
+                            title={mainCards[0].title}
+                            details={mainCards[0].details}
+                            buttonText={mainCards[0].buttonText}
+                            addNewButtonText={mainCards[0].addNewButtonText}
+                            onAddNewConference={handleAddNewConference}
+                            imageSrc={mainCards[0].imageSrc}
+                        />
+                    </div>
+                    <div className="w-1/3">
+                        <MainCard
+                            title={mainCards[1].title}
+                            chartData={mainCards[1].chartData}
+                            imageSrc={mainCards[1].imageSrc}
+                        />
                     </div>
                 </div>
-            )}
 
-        </div>
+                {/* Subtopic Aligned to the Left */}
+                <h2 className="text-3xl font-semibold text-center mb-4 mt-12">
+                    User Profiles
+                </h2>
+
+                {/* Four Sub Cards in a Single Row */}
+                <div className="flex space-x-10 justify-center mb-4">
+                    {subCards.map((card, index) => (
+                        <SubCard
+                            key={index} // Ensure a unique key is used
+                            userName={card.userName}
+                            imageSrc={card.imageSrc}
+                            link={card.link} // Pass the link prop here
+                        />
+                    ))}
+                </div>
+
+                {/* Popup for Adding New Conference */}
+                {isPopupVisible && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div className="bg-white p-6 rounded-2xl w-[500px] max-h-[80vh] overflow-y-auto mt-20"> {/* Added max-h-[80vh] and overflow-y-auto */}
+                            <h2 className="text-2xl font-bold mb-4">
+                                Add New Conference
+                            </h2>
+                            <div className="mb-4">
+                                {/* Start Date and End Date */}
+                                <div className="flex space-x-4 mb-4">
+                                    <div className="flex flex-col w-1/2">
+                                        <label className="font-medium mb-1">
+                                            Start Date
+                                        </label>
+                                        <input type="date" className="border rounded-lg p-2" />
+                                    </div>
+                                    <div className="flex flex-col w-1/2">
+                                        <label className="font-medium mb-1">
+                                            End Date
+                                        </label>
+                                        <input type="date" className="border rounded-lg p-2" />
+                                    </div>
+                                </div>
+
+                                {/* Location */}
+                                <div>
+                                    <label className="block mb-2">
+                                        Location
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Location"
+                                        className="border p-2 rounded-md w-full mb-4"
+                                    />
+                                </div>
+
+                                {/* Upload Logo */}
+                                <div className="mb-4">
+                                    <label className="block mb-2">
+                                        Upload Logo
+                                    </label>
+                                    <input
+                                        type="file"
+                                        className="border p-2 rounded-md w-full"
+                                    />
+                                </div>
+
+                                {/* Additional Fields */}
+                                {conferenceDays.map((day, index) => (
+                                    <div key={day.id} className="flex items-center mb-2 space-x-5">
+                                        <input
+                                            type="text"
+                                            value={day.day}
+                                            onChange={(e) => {
+                                                const updatedDays = [...conferenceDays];
+                                                updatedDays[index].day = e.target.value;
+                                                setConferenceDays(updatedDays);
+                                            }}
+                                            className="border rounded-lg p-2 w-full"
+                                        />
+                                        <input
+                                            type="date"
+                                            placeholder="Date"
+                                            className="border p-2 rounded-md flex-1"
+                                        />
+                                        <button
+                                            className="ml-2 px-2 py-2 bg-blue-600 text-white rounded-full"
+                                            onClick={addConferenceDay}
+                                        >
+                                            <AiOutlinePlus size={20} />
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="flex justify-end space-x-4">
+                                <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
+                                    Save
+                                </button>
+                                <button
+                                    className="px-4 py-2 bg-gray-300 text-black rounded-2xl shadow-md hover:bg-gray-400"
+                                    onClick={closePopup}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+            </div>
+
     );
 };
 
