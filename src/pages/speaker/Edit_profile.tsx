@@ -37,7 +37,7 @@ const EditProfile: React.FC = () => {
                 country: 'Sri Lanka',
                 age: 29,
                 gender: 'Female',
-                bio: 'Anjalee Fernando is a highly motivated and experienced software engineer...',
+                bio: 'Anjalee Fernando is a highly motivated and experienced software engineer with a passion for developing innovative programs. She is well-versed in technology and writing code to create reliable, user-friendly, and functional systems.',
                 company: 'Tech Solutions Inc.',
                 position: 'Software Engineer',
                 github: 'https://github.com/anjaleefernando',
