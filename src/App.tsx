@@ -115,6 +115,14 @@ import Badge_details_admin from './pages/admin/Badge_details.tsx';
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
+import Committee_dashboard from "./pages/committee/Dashboard.tsx";
+import Committee_speaker from "./pages/committee/Speaker.tsx";
+import Committee_author from "./pages/committee/Author.tsx";
+import Committee_profile from "./pages/committee/Profile.tsx";
+import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
+import Committee_announcement from "./pages/committee/Announcement.tsx";
+import Committee_feedback from "./pages/committee/Feedback.tsx";
+
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
 import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
 import Change_password_oc from "./pages/committee/Edit_password_oc.tsx";
@@ -244,6 +252,15 @@ function App() {
         <Route path="/badge_details_admin" element={<Layout_admin ><Badge_details_admin /></Layout_admin >} />
 
         {/*Committee route*/}
+        <Route path="/committee_dashboard" element={<Layout_oc ><Committee_dashboard /></Layout_oc >} />
+        <Route path="/committee_speaker" element={<Layout_oc ><Committee_speaker /></Layout_oc >} />
+        <Route path="/committee_author" element={<Layout_oc ><Committee_author /></Layout_oc >} />
+        {/*<Route path="/committee_sponsor" element={<Layout_oc ><Committee_sponsor /></Layout_oc >} />*/}
+        <Route path="/committee_profile" element={<Layout_oc ><Committee_profile /></Layout_oc >} />
+        <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
+        <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
+        <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
+
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
         <Route path="/profile_oc" element={<Layout_oc ><Profile_oc /></Layout_oc >} />
         <Route path="/edit_profile_oc" element={<Layout_oc ><Edit_profile_oc /></Layout_oc >} />
