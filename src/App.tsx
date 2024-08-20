@@ -66,6 +66,7 @@ import Speaker_dashboard from "./pages/speaker/Dashboard.tsx";
 import Speaker_profile from "./pages/speaker/Profile.tsx";
 import Speaker_edit_profile from "./pages/speaker/Edit_profile.tsx";
 import Speaker_feedback from "./pages/speaker/Feedback.tsx";
+import Speaker_announcement from "./pages/speaker/Announcement.tsx";
 
 import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
@@ -194,6 +195,7 @@ function App() {
         <Route path="/speaker_profile" element={<Layout_speaker ><Speaker_profile /></Layout_speaker >} />
         <Route path="/speaker_edit_profile" element={<Layout_speaker ><Speaker_edit_profile /></Layout_speaker >} />
         <Route path="/speaker_feedback" element={<Layout_speaker ><Speaker_feedback /></Layout_speaker >} />
+        <Route path="/speaker_announcement" element={<Layout_speaker ><Speaker_announcement /></Layout_speaker >} />
 
         <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />
         <Route path="/profile_speaker" element={<Layout_speaker ><Profile_speaker /></Layout_speaker >} />

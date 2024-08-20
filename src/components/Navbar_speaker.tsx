@@ -15,7 +15,7 @@ const Navbar_speaker = () => {
         { title: "Schedule", src: "schedule", path: "/view_schedules_speaker", gap: true },
         { title: "Resource Upload", src: "upload_resource", path: "/resource_speaker", gap: true },
         { title: "Feedback", src: "feedback", path: "/speaker_feedback", gap: true },
-        { title: "Announcement", src: "announcement", path: "/announcement_speaker", gap: true },
+        { title: "Announcement", src: "announcement", path: "/speaker_announcement", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 
