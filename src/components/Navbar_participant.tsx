@@ -3,7 +3,7 @@ import { useState } from "react";
 import LOGO from '../assets/logo.png'; // Replace with the actual path to your logo
 
 const Navbar_participant = () => {
-  const [open, setOpen] = useState(true);
+  const [open] = useState(true);
 
   const Menus = [
     { title: "Home", src: "home", path: "/view_events", gap: true },
