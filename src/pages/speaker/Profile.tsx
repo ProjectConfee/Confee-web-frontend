@@ -29,9 +29,9 @@ const Profile: React.FC = () => {
 
     // Sample session data without images
     const sessions = [
-        { topic: 'Introduction to React', date: '2024-11-06', time: '10:00 AM - 11:00 AM', location: 'Room A' },
-        { topic: 'Advanced TypeScript', date: '2024-11-07', time: '11:30 AM - 12:30 PM', location: 'Room B' },
-        { topic: 'UI/UX Design Principles', date: '2024-11-08', time: '02:00 PM - 03:00 PM', location: 'Room C' },
+        { topic: 'Introduction to React', date: '6th November 2024', time: '10:00 AM - 12:00 PM', location: 'Room A' },
+        { topic: 'Advanced TypeScript', date: '7th November 2024', time: '02:00 PM - 04:00 PM', location: 'Room B' },
+        { topic: 'UI/UX Design Principles', date: '8th November 2024', time: '02:00 PM - 04:00 PM', location: 'Room A' },
     ];
 
     const [isPasswordModalVisible, setIsPasswordModalVisible] = useState(false);
@@ -87,7 +87,7 @@ const Profile: React.FC = () => {
     };
 
     const SessionCard: React.FC<{ topic: string, date: string, time: string, location: string }> = ({ topic, date, time, location }) => (
-        <div className="flex p-3 bg-gray-100 rounded-2xl shadow-md mb-3">
+        <div className="flex p-5 bg-gray-100 rounded-2xl shadow-md my-3 mx-2">
             <div className="flex-1 pr-3">
                 <h3 className="text-md font-semibold mb-2">{topic}</h3>
                 <p><strong>Date:</strong> {date}</p>
@@ -110,7 +110,7 @@ const Profile: React.FC = () => {
                         {personalDetails.email}
                     </p>
                     <div className="flex space-x-4 mb-4">
-                        <Link to="/admin_edit_profile">
+                        <Link to="/speaker_edit_profile">
                             <button className="w-40 py-2 px-4 bg-blue-500 text-white rounded-2xl">
                                 Edit Profile
                             </button>
@@ -266,7 +266,7 @@ const Profile: React.FC = () => {
                 visible={isPasswordModalVisible}
                 onCancel={handleCancelPassword}
                 footer={null}
-                width={400}
+                width={500}
                 className="overflow-y-auto"
             >
                 <Form
@@ -277,24 +277,24 @@ const Profile: React.FC = () => {
                     <Form.Item
                         name="currentPassword"
                         label="Current Password"
-                        rules={[{ required: true, message: 'Please input your current password!' }]}
+                        rules={[{required: true, message: 'Please input your current password!'}]}
                     >
-                        <Input.Password />
+                        <Input.Password/>
                     </Form.Item>
                     <Form.Item
                         name="newPassword"
                         label="New Password"
-                        rules={[{ required: true, message: 'Please input your new password!' }]}
+                        rules={[{required: true, message: 'Please input your new password!'}]}
                     >
-                        <Input.Password />
+                        <Input.Password/>
                     </Form.Item>
                     <Form.Item
                         name="confirmPassword"
                         label="Confirm New Password"
                         dependencies={['newPassword']}
                         rules={[
-                            { required: true, message: 'Please confirm your new password!' },
-                            ({ getFieldValue }) => ({
+                            {required: true, message: 'Please confirm your new password!'},
+                            ({getFieldValue}) => ({
                                 validator(_, value) {
                                     if (!value || getFieldValue('newPassword') === value) {
                                         return Promise.resolve();
@@ -304,13 +304,15 @@ const Profile: React.FC = () => {
                             }),
                         ]}
                     >
-                        <Input.Password />
+                        <Input.Password/>
                     </Form.Item>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit" className="w-full py-2">
-                            Save
-                        </Button>
-                    </Form.Item>
+                    <div className="text-right">
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit" className="w-1/3 py-2">
+                                Save
+                            </Button>
+                        </Form.Item>
+                    </div>
                 </Form>
             </Modal>
 
