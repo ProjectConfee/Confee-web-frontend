@@ -99,7 +99,7 @@ const steps = [
                                         { value: 'Mrs', label: 'Mrs' },
                                         { value: 'Miss', label: 'Miss' },
                                     ]}
-                                    style={{ width: '100px' }}
+                                    style={{height:'40px',border: '1.4px solid #D9D9D9',  width: '100px', borderRadius:'8px'}}
                                 />
                             </Form.Item>
                         </div>
@@ -110,7 +110,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="name">
-                                <Input placeholder="Enter your Name" />
+                                <Input placeholder="Enter your Name" style={{height:'40px',border: '2px solid #D9D9D9',}} />
                             </Form.Item>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="contactNumber">
-                                <Input placeholder="Enter your contact number" />
+                                <Input placeholder="Enter your contact number" style={{height:'40px',border: '2px solid #D9D9D9',}} />
                             </Form.Item>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="email">
-                                <Input placeholder="Enter your email address" />
+                                <Input placeholder="Enter your email address" style={{height:'40px',border: '2px solid #D9D9D9',}} />
                             </Form.Item>
                         </div>
                     </div>
@@ -146,7 +146,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="username">
-                                <Input placeholder="Enter Username" />
+                                <Input placeholder="Enter Username" style={{height:'40px',border: '2px solid #D9D9D9',}} />
                             </Form.Item>
                         </div>
                     </div>
@@ -156,7 +156,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="dateOfBirth">
-                                <DatePicker onChange={onChangeDate} style={{ width: '100%' }} />
+                                <DatePicker onChange={onChangeDate} style={{height:'40px',border: '2px solid #D9D9D9',width: '100%' }} />
                             </Form.Item>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ const steps = [
                                     iconRender={(visible) =>
                                         visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                                     }
-                                />
+                                    style={{height:'40px',border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -189,7 +189,7 @@ const steps = [
                                     iconRender={(visible) =>
                                         visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                                     }
-                                />
+                                    style={{height:'40px',border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ const steps = [
         ),
     },
     {
-        title: 'Academic & Professional',
+        title: 'Academic',
         content: (
             <div>
                 <div className="flex gap-3">
@@ -208,7 +208,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="jobTitle">
-                                <Input placeholder="Enter your Job Title" />
+                                <Input placeholder="Enter your Job Title" style={{height:'40px',border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -218,7 +218,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="organization">
-                                <Input placeholder="Enter your organization/university" />
+                                <Input placeholder="Enter your organization/university" style={{height:'40px',border: '2px solid #D9D9D9',}} />
                             </Form.Item>
                         </div>
                     </div>
@@ -231,7 +231,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="country">
-                                <Input placeholder="Enter your country" />
+                                <Input placeholder="Enter your country" style={{height:'40px',border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -241,7 +241,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="numberOfPreviousAttendance">
-                                <InputNumber min={1} max={10} defaultValue={1} onChange={onChangeNumber} style={{ width: '100%' }} />
+                                <InputNumber min={1} max={10} defaultValue={1} onChange={onChangeNumber} style={{height:'40px',border: '2px solid #D9D9D9', width: '100%'}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -254,7 +254,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="researchInterests">
-                                <Input placeholder="Enter your research interests" />
+                                <Input placeholder="Enter your research interests" style={{height:'40px',border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -280,7 +280,7 @@ const steps = [
                                     { value: 'nonVeg', label: 'Non-Vegetarian Meal' },
                                     { value: 'veg', label: 'Vegetarian Meal' },
                                 ]}
-                                style={{ width: '100%' }}
+                                style={{height:'40px',border: '1.4px solid #D9D9D9',  width: '100%', borderRadius:'8px'}}
                             />
                         </Form.Item>
                     </div>
@@ -346,43 +346,46 @@ const App = () => {
     };
 
     return (
-        <div className="bg-white mt-5 rounded-lg shadow-lg p-8 relative">
-            <div className="flex flex-row gap-8 w-full h-full">
-                <div className="w-1/2">
-                    <img
-                        src={signUp}
-                        alt="No Event Scheduled"
-                        className="mr-8 rounded-lg h-full w-full"
-                    />
-                </div>
-                <div className="w-1/2 flex flex-col">
-                    <div className="flex justify-center p-4">
-                        <Title level={2}>Create a New Account</Title>
+
+            <div className={"min-h-screen flex items-center justify-center bg-gray-100"}>
+                <div className={"w-10/12 h-9/12 grid grid-cols-2 gap-4 rounded-2xl bg-white"}>
+                    <div className={"h-full"}>
+                        <img
+                            src={signUp}
+                            alt="No Event Scheduled"
+                            className="mr-8 w-full h-full object-cover rounded-l-2xl"
+                        />
                     </div>
-                    <Form form={form} onFinish={handleFinish} initialValues={initialValues}>
-                        <Steps current={current}>
-                            {steps.map((item) => (
-                                <Step key={item.title} title={item.title} />
-                            ))}
-                        </Steps>
-                        <div className="flex-1 overflow-auto">
-                            <div style={{ margin: '24px 0' }}>
-                                <div>{steps[current].content}</div>
-                            </div>
+                    <div className={"h-full p-4"}>
+
+                        <div className="flex justify-center p-4">
+                            <Title level={2}>Create a New Account</Title>
                         </div>
-                        <div className="flex justify-end mt-4">
-                            {current > 0 && (
-                                <Button style={{ marginRight: 'auto' }} onClick={prev} size={"large"}>
-                                    Previous
-                                </Button>
-                            )}
-                            {current < steps.length - 1 && (
-                                <Button type="primary" onClick={next} size={"large"}>
-                                    Next
-                                </Button>
-                            )}
-                            {current === steps.length - 1 && (
-                                <Form.Item>
+
+                        <Form form={form} onFinish={handleFinish} initialValues={initialValues } className={"min-h-[550px] flex flex-col flex-grow "}>
+                            <Steps current={current}>
+                                {steps.map((item) => (
+                                    <Step key={item.title} title={item.title}/>
+                                ))}
+                            </Steps>
+                            <div className="flex-1 overflow-auto">
+                                <div style={{margin: '24px 0'}}>
+                                    <div>{steps[current].content}</div>
+                                </div>
+                            </div>
+                            <div className="flex justify-end">
+                                {current > 0 && (
+                                    <Button style={{marginRight: 'auto'}} onClick={prev} size={"large"}>
+                                        Previous
+                                    </Button>
+                                )}
+                                {current < steps.length - 1 && (
+                                    <Button type="primary" onClick={next} size={"large"}>
+                                        Next
+                                    </Button>
+                                )}
+                                {current === steps.length - 1 && (
+                                    // <Form.Item>
                                     <Button
                                         type="primary"
                                         size={"large"}
@@ -390,13 +393,70 @@ const App = () => {
                                     >
                                         Submit
                                     </Button>
-                                </Form.Item>
-                            )}
-                        </div>
-                    </Form>
+                                    // </Form.Item>
+                                )}
+                            </div>
+                        </Form>
+                    </div>
+
+
                 </div>
-            </div>
-        </div>
+
+
+
+            {/*<div className="bg-white mt-5 rounded-lg  p-8 relative">*/}
+            {/*<div className="flex flex-row gap-8 w-full">*/}
+            {/*    <div className="w-1/2 flex justify-center items-center h-full">*/}
+            {/*        <img*/}
+            {/*            src={signUp}*/}
+            {/*            alt="No Event Scheduled"*/}
+            {/*            className="mr-8 rounded-lg "*/}
+            {/*        />*/}
+            {/*    </div>*/}
+            {/*    <div className="w-1/2 flex flex-col ">*/}
+            {/*        <div className="flex justify-center p-4">*/}
+            {/*            <Title level={2}>Create a New Account</Title>*/}
+            {/*        </div>*/}
+            {/*        <Form form={form} onFinish={handleFinish} initialValues={initialValues} className={"min-h-[550px] flex flex-col flex-grow"}>*/}
+            {/*            <Steps current={current}>*/}
+            {/*                {steps.map((item) => (*/}
+            {/*                    <Step key={item.title} title={item.title} />*/}
+            {/*                ))}*/}
+            {/*            </Steps>*/}
+            {/*            <div className="flex-1 overflow-auto">*/}
+            {/*                <div style={{ margin: '24px 0' }}>*/}
+            {/*                    <div>{steps[current].content}</div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*            <div className="flex justify-end">*/}
+            {/*                {current > 0 && (*/}
+            {/*                    <Button style={{ marginRight: 'auto' }} onClick={prev} size={"large"}>*/}
+            {/*                        Previous*/}
+            {/*                    </Button>*/}
+            {/*                )}*/}
+            {/*                {current < steps.length - 1 && (*/}
+            {/*                    <Button type="primary" onClick={next} size={"large"}>*/}
+            {/*                        Next*/}
+            {/*                    </Button>*/}
+            {/*                )}*/}
+            {/*                {current === steps.length - 1 && (*/}
+            {/*                    // <Form.Item>*/}
+            {/*                        <Button*/}
+            {/*                            type="primary"*/}
+            {/*                            size={"large"}*/}
+            {/*                            htmlType="submit"*/}
+            {/*                        >*/}
+            {/*                            Submit*/}
+            {/*                        </Button>*/}
+            {/*                    // </Form.Item>*/}
+            {/*                )}*/}
+            {/*            </div>*/}
+            {/*        </Form>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+        {/*</div>*/}
+    </div>
+
     );
 };
 
