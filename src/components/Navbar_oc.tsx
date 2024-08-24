@@ -9,15 +9,16 @@ const Navbar_oc = () => {
     const [open, setOpen] = useState(true);
 
     const Menus = [
-        { title: "Home", src: "home", path: "/no_events", gap: true },
-        { title: "Profile", src: "profile", path: "/profile_oc", gap: true },
+        { title: "Dashboard", src: "dashboard", path: "/committee_dashboard", gap: true },
+        { title: "Profile", src: "profile", path: "/committee_profile", gap: true },
+        { title: "Events", src: "events", path: "#", gap: true },
         { title: "Schedules", src: "schedule", path: "/update_schedule_oc", gap: true },
-        { title: "Announcement", src: "announcement", path: "/announcement_oc", gap: true },
+        { title: "Announcement", src: "announcement", path: "/committee_announcement", gap: true },
         { title: "Sponsors", src: "sponsor", path: "/sponsor_register_oc", gap: true },
         // { title: "Stalls", src: "certificate", path: "#", gap: true },
         { title: "Winners", src: "winner", path: "/add_winners", gap: true },
         { title: "Resource Upload", src: "upload_resource", path: "/upload_resource_oc", gap: true },
-        { title: "Feedback", src: "feedback", path: "/view_feedback_oc", gap: true },
+        { title: "Feedback", src: "feedback", path: "/committee_feedback", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 

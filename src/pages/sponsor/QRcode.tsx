@@ -207,7 +207,7 @@
           {/* Container for positioning QR code */}
           <div className="relative w-full md:w-5/6">
             {/* Details Container */}
-            <div className="shadow-lg p-8 bg-gradient-to-r from-slate-50 to-sky-950 rounded-lg flex flex-col items-center justify-center relative">
+            <div className="shadow-lg p-8 bg-gradient-to-r from-blue-300 to-blue-900  rounded-lg flex flex-col items-center justify-center relative">
               <p className="text-2xl md:text-4xl text-center">DOWNLOAD YOUR OWN STALL QR CODE</p>
               <p className="text-center mt-4">
                 YOU HAVE TO SHOW THIS QR CODE IN FRONT OF THE STALL FOR THE CHECKED-IN PROCESS.
@@ -218,14 +218,14 @@
                   maxLength={80}
                   value={text}
                   onChange={(e) => setText(e.target.value)}
-                  className="mb-8 md:mb-20 w-full max-w-lg"
+                  className="mb-8 md:mb-10 w-full max-w-lg"
               />
               <Button
                   size='lg'
                   variant="shadow"
                   onClick={downloadQRCode}
                   radius="full"
-                  className="flex items-center justify-center text-lg md:text-2xl bg-gradient-to-r from-sky-950 to-sky-50 text-white shadow-lg py-4 px-8 md:py-10 md:px-20 mb-4 md:mb-10 border-transparent"
+                  className="flex  flex-auto items-center justify-center text-sm md:text-3xl bg-gradient-to-r from-blue-300 to-blue-700 text-white shadow-lg  mb-4 md:mb-10 border-transparent"
               >
                 Download
               </Button>
