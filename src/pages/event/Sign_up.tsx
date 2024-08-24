@@ -254,7 +254,7 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="researchInterests">
-                                <Input placeholder="Enter your research interests" style={{height:'40px',border: '2px solid #D9D9D9',}}/>
+                                <Input placeholder="Enter your research interests" style={{height:'40px',border: '2px solid #D9D9D9',width:'100%'}}/>
                             </Form.Item>
                         </div>
                     </div>
