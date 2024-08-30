@@ -36,7 +36,7 @@ import Ticket from './pages/event/Ticket.tsx';
 import Resource from './pages/event/UploadResource.tsx';
 
 import Announcement from './pages/announcement.tsx';
-import Announcement_view from './pages/sponsor/announcement_view.tsx';
+import Announcement_view from './pages/announcement_view.tsx';
 import Badge_details from './pages/admin/Badge_details';
 import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
@@ -65,6 +65,8 @@ import Layout_speaker from "./layout/layout_speaker.tsx";
 import Speaker_dashboard from "./pages/speaker/Dashboard.tsx";
 import Speaker_profile from "./pages/speaker/Profile.tsx";
 import Speaker_edit_profile from "./pages/speaker/Edit_profile.tsx";
+import Speaker_feedback from "./pages/speaker/Feedback.tsx";
+import Speaker_announcement from "./pages/speaker/Announcement.tsx";
 
 import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
@@ -88,9 +90,16 @@ import View_ticket_author from './pages/event/Ticket.tsx';
 
 // admin imports
 import Layout_admin from "./layout/layout_admin.tsx";
+import Admin_first from "./pages/admin/First_page.tsx";
 import Admin_dashboard from "./pages/admin/Dashboard.tsx";
+import Admin_2023 from "./pages/admin/2023.tsx";
+import Admin_committee from "./pages/admin/Committee.tsx";
+import Admin_speaker from "./pages/admin/Speaker.tsx";
+import Admin_author from "./pages/admin/Author.tsx";
 import Admin_profile from "./pages/admin/Profile.tsx";
+import Admin_edit_profile from "./pages/admin/Edit_profile.tsx";
 import Admin_announcement from "./pages/admin/Announcement.tsx";
+import Admin_feedback from "./pages/admin/Feedback.tsx";
 
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
@@ -106,6 +115,14 @@ import Badge_details_admin from './pages/admin/Badge_details.tsx';
 
 // oc imports
 import Layout_oc from "./layout/layout_oc.tsx";
+import Committee_dashboard from "./pages/committee/Dashboard.tsx";
+import Committee_speaker from "./pages/committee/Speaker.tsx";
+import Committee_author from "./pages/committee/Author.tsx";
+import Committee_profile from "./pages/committee/Profile.tsx";
+import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
+import Committee_announcement from "./pages/committee/Announcement.tsx";
+import Committee_feedback from "./pages/committee/Feedback.tsx";
+
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
 import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
 import Change_password_oc from "./pages/committee/Edit_password_oc.tsx";
@@ -187,6 +204,8 @@ function App() {
         <Route path="/speaker_dashboard" element={<Layout_speaker ><Speaker_dashboard /></Layout_speaker >} />
         <Route path="/speaker_profile" element={<Layout_speaker ><Speaker_profile /></Layout_speaker >} />
         <Route path="/speaker_edit_profile" element={<Layout_speaker ><Speaker_edit_profile /></Layout_speaker >} />
+        <Route path="/speaker_feedback" element={<Layout_speaker ><Speaker_feedback /></Layout_speaker >} />
+        <Route path="/speaker_announcement" element={<Layout_speaker ><Speaker_announcement /></Layout_speaker >} />
 
         <Route path="/announcement_speaker" element={<Layout_speaker ><Announcement_view /></Layout_speaker >} />
         <Route path="/profile_speaker" element={<Layout_speaker ><Profile_speaker /></Layout_speaker >} />
@@ -211,8 +230,15 @@ function App() {
 
         {/*Admin route*/}
         <Route path="/admin_dashboard" element={<Layout_admin ><Admin_dashboard /></Layout_admin >} />
+        <Route path="/admin_2023" element={<Layout_admin ><Admin_2023 /></Layout_admin >} />
+        <Route path="/admin_first" element={<Layout_admin ><Admin_first /></Layout_admin >} />
+        <Route path="/admin_committee" element={<Layout_admin ><Admin_committee /></Layout_admin >} />
+        <Route path="/admin_speaker" element={<Layout_admin ><Admin_speaker /></Layout_admin >} />
+        <Route path="/admin_author" element={<Layout_admin ><Admin_author /></Layout_admin >} />
         <Route path="/admin_profile" element={<Layout_admin ><Admin_profile /></Layout_admin >} />
+        <Route path="/admin_edit_profile" element={<Layout_admin ><Admin_edit_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
+        <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
 
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
         <Route path="/profile_admin" element={<Layout_admin ><Profile_admin /></Layout_admin >} />
@@ -228,6 +254,15 @@ function App() {
         <Route path="/badge_details_admin" element={<Layout_admin ><Badge_details_admin /></Layout_admin >} />
 
         {/*Committee route*/}
+        <Route path="/committee_dashboard" element={<Layout_oc ><Committee_dashboard /></Layout_oc >} />
+        <Route path="/committee_speaker" element={<Layout_oc ><Committee_speaker /></Layout_oc >} />
+        <Route path="/committee_author" element={<Layout_oc ><Committee_author /></Layout_oc >} />
+        {/*<Route path="/committee_sponsor" element={<Layout_oc ><Committee_sponsor /></Layout_oc >} />*/}
+        <Route path="/committee_profile" element={<Layout_oc ><Committee_profile /></Layout_oc >} />
+        <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
+        <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
+        <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
+
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
         <Route path="/profile_oc" element={<Layout_oc ><Profile_oc /></Layout_oc >} />
         <Route path="/edit_profile_oc" element={<Layout_oc ><Edit_profile_oc /></Layout_oc >} />

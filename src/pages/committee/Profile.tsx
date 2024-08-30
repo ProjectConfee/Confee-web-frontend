@@ -133,7 +133,7 @@ const Profile: React.FC = () => {
                         {personalDetails.email}
                     </p>
                     <div className="space-y-2 text-center">
-                        <Link to="/admin_edit_profile">
+                        <Link to="/committee_edit_profile">
                             <button className="w-3/4 py-2 bg-blue-500 text-white rounded-2xl mb-2">
                                 Edit Profile
                             </button>
