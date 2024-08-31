@@ -133,7 +133,7 @@ const Dashboard = () => {
                         <h3 className="text-xl font-bold mb-2">Sponsor</h3>
                         <img src="src/assets/sponsor.png" alt="Sponsor"
                              className="w-40 h-40 rounded-full mx-auto mb-4"/>
-                        <Link to="/sponsor_details">
+                        <Link to="/committee_sponsor">
                             <button
                                 className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600"
                             >
