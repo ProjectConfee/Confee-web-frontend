@@ -744,7 +744,8 @@ const Home: React.FC = () => {
             <div className="bg-white shadow-md rounded-2xl p-4 w-1/4 text-center">
               <h3 className="text-xl font-bold mb-2">Stall Map</h3>
               <img src="src/assets/author.png" alt="Author" className="w-40 h-40 rounded-full mx-auto mb-4"/>
-              <Link to="/stall-details" className="w-[30%] ml-14">
+
+              <Link to="/stall-details">
                 <button
                     className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600"
                 >
