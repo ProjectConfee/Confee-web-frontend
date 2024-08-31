@@ -96,6 +96,7 @@ import Admin_2023 from "./pages/admin/2023.tsx";
 import Admin_committee from "./pages/admin/Committee.tsx";
 import Admin_speaker from "./pages/admin/Speaker.tsx";
 import Admin_author from "./pages/admin/Author.tsx";
+import Admin_sponsor from "./pages/admin/Sponsor.tsx";
 import Admin_profile from "./pages/admin/Profile.tsx";
 import Admin_edit_profile from "./pages/admin/Edit_profile.tsx";
 import Admin_announcement from "./pages/admin/Announcement.tsx";
@@ -118,6 +119,7 @@ import Layout_oc from "./layout/layout_oc.tsx";
 import Committee_dashboard from "./pages/committee/Dashboard.tsx";
 import Committee_speaker from "./pages/committee/Speaker.tsx";
 import Committee_author from "./pages/committee/Author.tsx";
+import Committee_sponsor from "./pages/committee/Sponsor.tsx";
 import Committee_profile from "./pages/committee/Profile.tsx";
 import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
 import Committee_announcement from "./pages/committee/Announcement.tsx";
@@ -233,6 +235,7 @@ function App() {
         <Route path="/admin_committee" element={<Layout_admin ><Admin_committee /></Layout_admin >} />
         <Route path="/admin_speaker" element={<Layout_admin ><Admin_speaker /></Layout_admin >} />
         <Route path="/admin_author" element={<Layout_admin ><Admin_author /></Layout_admin >} />
+        <Route path="/admin_sponsor" element={<Layout_admin ><Admin_sponsor /></Layout_admin >} />
         <Route path="/admin_profile" element={<Layout_admin ><Admin_profile /></Layout_admin >} />
         <Route path="/admin_edit_profile" element={<Layout_admin ><Admin_edit_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
@@ -255,7 +258,7 @@ function App() {
         <Route path="/committee_dashboard" element={<Layout_oc ><Committee_dashboard /></Layout_oc >} />
         <Route path="/committee_speaker" element={<Layout_oc ><Committee_speaker /></Layout_oc >} />
         <Route path="/committee_author" element={<Layout_oc ><Committee_author /></Layout_oc >} />
-        {/*<Route path="/committee_sponsor" element={<Layout_oc ><Committee_sponsor /></Layout_oc >} />*/}
+        <Route path="/committee_sponsor" element={<Layout_oc ><Committee_sponsor /></Layout_oc >} />
         <Route path="/committee_profile" element={<Layout_oc ><Committee_profile /></Layout_oc >} />
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />

@@ -26,7 +26,7 @@ const subStalls: Stall[] = [
 
 const App: React.FC = () => {
     return (
-        <div className="flex flex-col justify-center items-center min-h-screen bg-white p-4 mt-0 rounded-3xl">
+        <div className="p-4">
             <h1 className="text-4xl font-bold text-center mb-10 mt-0">Stall Maps</h1>
 
             <div className="mb-16 w-full">

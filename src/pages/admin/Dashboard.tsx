@@ -217,7 +217,7 @@ const App: React.FC = () => {
         {
             userName: 'Sponsor',
             imageSrc: 'src/assets/sponsor.png',
-            link: '/sponsor'
+            link: '/admin_sponsor'
         },
     ];
 
