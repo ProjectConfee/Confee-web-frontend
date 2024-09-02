@@ -119,6 +119,8 @@ import Committee_dashboard from "./pages/committee/Dashboard.tsx";
 import Committee_speaker from "./pages/committee/Speaker.tsx";
 import Committee_author from "./pages/committee/Author.tsx";
 import Committee_profile from "./pages/committee/Profile.tsx";
+
+
 import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
 import Committee_announcement from "./pages/committee/Announcement.tsx";
 import Committee_feedback from "./pages/committee/Feedback.tsx";
@@ -170,6 +172,7 @@ function App() {
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
         <Route path="/view_schedules" element={<Layout_sponsor ><Event_schedules/></Layout_sponsor >} />
+
         <Route path="/navbar" element={<Navbar />} />
         
         <Route path="/signup" element={<Signup/>} />
@@ -257,7 +260,6 @@ function App() {
         <Route path="/committee_dashboard" element={<Layout_oc ><Committee_dashboard /></Layout_oc >} />
         <Route path="/committee_speaker" element={<Layout_oc ><Committee_speaker /></Layout_oc >} />
         <Route path="/committee_author" element={<Layout_oc ><Committee_author /></Layout_oc >} />
-        {/*<Route path="/committee_sponsor" element={<Layout_oc ><Committee_sponsor /></Layout_oc >} />*/}
         <Route path="/committee_profile" element={<Layout_oc ><Committee_profile /></Layout_oc >} />
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />

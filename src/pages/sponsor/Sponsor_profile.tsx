@@ -473,7 +473,7 @@ const ProfileForm: React.FC<{ onSubmit: (profile: Profile) => void }> = ({ onSub
                                 setLogoFile(file);
                                 return false;
                             }}
-                            fileList={logoFile ? [logoFile] : []}
+                            // fileList={logoFile ? [logoFile] : []}
                         >
                             <Button icon={<UploadOutlined />} className="rounded-md">Upload Logo</Button>
                         </Upload>

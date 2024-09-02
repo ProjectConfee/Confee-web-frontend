@@ -771,7 +771,7 @@ const Home: React.FC = () => {
               <h3 className="text-xl font-bold mb-2">Alerts</h3>
               <img src="src/assets/speaker.png" alt="Sponsor"
                    className="w-40 h-40 rounded-full mx-auto mb-4"/>
-              <Link to="/announcement">
+              <Link to="/announcement_view">
                 <button
                     className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600"
                 >
