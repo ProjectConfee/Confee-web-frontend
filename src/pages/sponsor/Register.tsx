@@ -702,7 +702,7 @@ const Home: React.FC = () => {
         <div className="flex justify-center p-4">
           {/* Conference Details Card */}
           <div className="w-[50%] h-[300px] bg-white shadow-md rounded-2xl p-4 text-center">
-            <h2 className="text-2xl font-bold mb-2">ICTer Conference 2024</h2>
+            <h2 className="text-2xl font-bold mb-2">ICTer Conference </h2>
             <img src="src/assets/icter_logo.png" alt="Conference Logo"
                  className="w-52 h-auto object-cover mb-4 mx-auto"/>
 
