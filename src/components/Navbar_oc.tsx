@@ -14,7 +14,7 @@ const Navbar_oc = () => {
         { title: "Events", src: "events", path: "#", gap: true },
         { title: "Schedules", src: "schedule", path: "/update_schedule_oc", gap: true },
         { title: "Announcement", src: "announcement", path: "/committee_announcement", gap: true },
-        { title: "Sponsors", src: "sponsor", path: "/company", gap: true },
+        { title: "Sponsors", src: "sponsor", path: "/company_details", gap: true },
         //{ title: "Sponsors", src: "sponsor", path: "/sponsor_register_oc", gap: true },
         { title: "Innovation Studio", src: "sponsor", path: "/committee_stall", gap: true },
         // { title: "Stalls", src: "certificate", path: "#", gap: true },
