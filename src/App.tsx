@@ -126,6 +126,7 @@ import Committee_profile from "./pages/committee/Profile.tsx";
 import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
 import Committee_announcement from "./pages/committee/Announcement.tsx";
 import Committee_feedback from "./pages/committee/Feedback.tsx";
+import Committee_stall from "./pages/committee/Stall.tsx";
 
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
 import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
@@ -266,6 +267,7 @@ function App() {
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
         <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
+        <Route path="/committee_stall" element={<Layout_oc ><Committee_stall /></Layout_oc >} />
         <Route path="/company" element={<Layout_oc ><Company /></Layout_oc >} />
 
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />

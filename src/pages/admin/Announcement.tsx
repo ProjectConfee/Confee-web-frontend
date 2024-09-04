@@ -82,7 +82,7 @@ const AnnouncementPage: React.FC = () => {
         <div className="relative px-4">
             {announcements.map((announcement, index) => (
                 <div key={index}>
-                    <div className="relative bg-white mt-2 my-5 custom-card rounded-l-full pl-5 shadow-md mx-20">
+                    <div className="relative bg-white mt-2 my-5 custom-card rounded-2xl-full pl-5 shadow-md mx-20">
                         <div className="absolute top-5 right-5">
                             <FontAwesomeIcon
                                 icon={faTrash}
