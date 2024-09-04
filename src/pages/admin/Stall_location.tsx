@@ -88,7 +88,7 @@ const StallLocationForm: React.FC = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/stall-locations/add', {
+            const response = await fetch('http://localhost:8080/api/stall-locations/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

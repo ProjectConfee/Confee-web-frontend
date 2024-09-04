@@ -34,7 +34,7 @@ import ViewEvent from './pages/event/View_event.tsx';
 import EventDetail from './pages/event/Event_detail.tsx';
 import Ticket from './pages/event/Ticket.tsx';
 import Resource from './pages/event/UploadResource.tsx';
-
+import Company from './pages/committee/Company.tsx';
 import Announcement from './pages/announcement.tsx';
 import Announcement_view from './pages/announcement_view.tsx';
 import Badge_details from './pages/admin/Badge_details';
@@ -138,7 +138,7 @@ import Add_event_oc from './pages/event/Add_event.tsx';
 import No_events from './pages/event/No_event.tsx';
 import Update_schedule from './pages/event/Event_schedule.tsx';
 import Upload_resource_oc from "./pages/event/UploadResource.tsx";
-import View_profile from "./pages/sponsor/View_profile.tsx";
+//import View_profile from "./pages/sponsor/View_profile.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
@@ -266,6 +266,7 @@ function App() {
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
         <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
+        <Route path="/company" element={<Layout_oc ><Company /></Layout_oc >} />
 
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
         <Route path="/profile_oc" element={<Layout_oc ><Profile_oc /></Layout_oc >} />
