@@ -34,9 +34,9 @@ import ViewEvent from './pages/event/View_event.tsx';
 import EventDetail from './pages/event/Event_detail.tsx';
 import Ticket from './pages/event/Ticket.tsx';
 import Resource from './pages/event/UploadResource.tsx';
-
+//import Company from './pages/committee/Company.tsx';
 import Announcement from './pages/announcement.tsx';
-import Announcement_view from './pages/sponsor/announcement_view.tsx';
+import Announcement_view from './pages/announcement_view.tsx';
 import Badge_details from './pages/admin/Badge_details';
 import Stall_register from './pages/admin/Stall_register.tsx';
 import Stall_location from './pages/admin/Stall_location.tsx';
@@ -121,9 +121,12 @@ import Committee_speaker from "./pages/committee/Speaker.tsx";
 import Committee_author from "./pages/committee/Author.tsx";
 import Committee_sponsor from "./pages/committee/Sponsor.tsx";
 import Committee_profile from "./pages/committee/Profile.tsx";
+
+
 import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
 import Committee_announcement from "./pages/committee/Announcement.tsx";
 import Committee_feedback from "./pages/committee/Feedback.tsx";
+//import Committee_stall from "./pages/committee/Stall.tsx";
 
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
 import Edit_profile_oc from "./pages/committee/Edit_profile_oc.tsx";
@@ -136,6 +139,8 @@ import Add_event_oc from './pages/event/Add_event.tsx';
 import No_events from './pages/event/No_event.tsx';
 import Update_schedule from './pages/event/Event_schedule.tsx';
 import Upload_resource_oc from "./pages/event/UploadResource.tsx";
+import Company_details from "./pages/committee/Company_details.tsx";
+//import View_profile from "./pages/sponsor/View_profile.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
@@ -263,7 +268,7 @@ function App() {
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
         <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
-
+        <Route path="/company_details" element={<Layout_oc ><Company_details /></Layout_oc >} />
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
         <Route path="/profile_oc" element={<Layout_oc ><Profile_oc /></Layout_oc >} />
         <Route path="/edit_profile_oc" element={<Layout_oc ><Edit_profile_oc /></Layout_oc >} />
