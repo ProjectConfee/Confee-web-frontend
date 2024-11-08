@@ -12,10 +12,11 @@ const Navbar_speaker = () => {
         // { title: "Home", src: "home", path: "/view_event_speaker", gap: true },
         { title: "Dashboard", src: "dashboard", path: "/speaker_dashboard", gap: true },
         { title: "Profile", src: "profile", path: "/speaker_profile", gap: true },
-        { title: "Schedule", src: "schedule", path: "/view_schedules_speaker", gap: true },
-        { title: "Resource Upload", src: "upload_resource", path: "/resource_speaker", gap: true },
+        { title: "Schedule", src: "schedule", path: "/speaker_view_schedules", gap: true },
+        { title: "Resource Upload", src: "upload_resource", path: "/speaker_resource", gap: true },
         { title: "Feedback", src: "feedback", path: "/speaker_feedback", gap: true },
         { title: "Announcement", src: "announcement", path: "/speaker_announcement", gap: true },
+        { title: "Innovation Studio", src: "sponsor", path: "/speaker_stall", gap: true },
         { title: "Logout", src: "logout", path: "/" },
     ];
 
