@@ -51,8 +51,14 @@ import Edit_sp_profile from "./pages/sponsor/Edit_sp_profile.tsx";
 
  // participant imports
 import Layout_participant from "./layout/layout_participant.tsx";
+import Participant_dashboard from "./pages/participant/Dashboard.tsx";
+import Participant_profile from "./pages/participant/Profile.tsx";
+import Participant_edit_profile from "./pages/participant/Edit_profile.tsx";
+import Participant_event_schedules from './pages/participant/Event_schedule.tsx';
+import Participant_announcement from "./pages/participant/Announcement.tsx";
+import Participant_stall from "./pages/participant/Stall_allocation.tsx";
+// participant other
 import Profile_participant from "./pages/participant/Participant_profile.tsx";
-import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
 import View_feedback from "./pages/participant/Feedbacks.tsx";
@@ -195,9 +201,15 @@ function App() {
         <Route path="/all_winners" element={<MainLayout><AllWinners/></MainLayout>} />
 
         {/*Participant route*/}
+        <Route path="/participant_dashboard" element={<Layout_participant ><Participant_dashboard/></Layout_participant >} />
+        <Route path="/participant_profile" element={<Layout_participant ><Participant_profile/></Layout_participant >} />
+        <Route path="/participant_edit_profile" element={<Layout_participant ><Participant_edit_profile /></Layout_participant >} />
+        <Route path="/participant_view_schedules" element={<Layout_participant ><Participant_event_schedules/></Layout_participant >} />
+        <Route path="/participant_announcement" element={<Layout_participant ><Participant_announcement/></Layout_participant >} />
+        <Route path="/participant_stall" element={<Layout_participant ><Participant_stall/></Layout_participant >} />
+        {/*participant other*/}
         <Route path="/announcement_participant" element={<Layout_participant ><Announcement_view /></Layout_participant >} />
         <Route path="/profile_participant" element={<Layout_participant ><Profile_participant /></Layout_participant >} />
-        <Route path="/edit_profile" element={<Layout_participant ><Edit_profile /></Layout_participant >} />
         <Route path="/change_password" element={<Layout_participant ><Change_password /></Layout_participant >} />
         <Route path="/stall_allocation" element={<Layout_participant ><Stall_allocation /></Layout_participant >} />
         <Route path="/view_feedback" element={<Layout_participant ><View_feedback /></Layout_participant >} />

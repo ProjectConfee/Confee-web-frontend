@@ -6,12 +6,14 @@ const Navbar_participant = () => {
   const [open] = useState(true);
 
   const Menus = [
-    { title: "Home", src: "home", path: "/view_events", gap: true },
-    { title: "Profile", src: "profile", path: "/profile_participant", gap: true },
-    { title: "Schedule", src: "schedule", path: "/view_schedules", gap: true },
-    { title: "Winners", src: "winner", path: "/view_winners", gap: true },
-    { title: "Innovation Studio", src: "sponsor", path: "/stall_allocation", gap: true },
-    { title: "Announcement", src: "announcement", path: "/announcement_participant", gap: true },
+    { title: "Dashboard", src: "home", path: "/participant_dashboard", gap: true },
+    { title: "Profile", src: "profile", path: "/participant_profile", gap: true },
+    { title: "Events", src: "events", path: "#", gap: true },
+    { title: "Schedule", src: "schedule", path: "/participant_view_schedules", gap: true },
+    { title: "Winners", src: "winner", path: "#", gap: true },
+    { title: "Innovation Studio", src: "sponsor", path: "/participant_stall", gap: true },
+    { title: "Feedback", src: "feedback", path: "#", gap: true },
+    { title: "Announcement", src: "announcement", path: "/participant_announcement", gap: true },
     { title: "Logout", src: "logout", path: "/" },
   ];
 
