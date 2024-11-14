@@ -12,7 +12,7 @@ const Navbar_participant = () => {
     { title: "Schedule", src: "schedule", path: "/participant_view_schedules", gap: true },
     { title: "Winners", src: "winner", path: "#", gap: true },
     { title: "Innovation Studio", src: "sponsor", path: "/participant_stall", gap: true },
-    { title: "Feedback", src: "feedback", path: "#", gap: true },
+    { title: "Feedback", src: "feedback", path: "/participant_feedback", gap: true },
     { title: "Announcement", src: "announcement", path: "/participant_announcement", gap: true },
     { title: "Logout", src: "logout", path: "/" },
   ];
