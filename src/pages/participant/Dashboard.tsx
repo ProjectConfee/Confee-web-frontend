@@ -119,7 +119,7 @@ const Dashboard = () => {
                     <div className="bg-white shadow-md rounded-2xl p-4 w-1/3 text-center">
                         <h3 className="text-xl font-bold mb-2">Sponsor Details</h3>
                         <img src="src/assets/sponsor.png" alt="Sponsor Details" className="w-40 h-40 object-cover mx-auto mb-4" />
-                        <Link to="/sponsors">
+                        <Link to="/participant_sponsor">
                             <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">View Sponsors</button>
                         </Link>
                     </div>

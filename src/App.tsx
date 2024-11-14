@@ -57,11 +57,12 @@ import Participant_edit_profile from "./pages/participant/Edit_profile.tsx";
 import Participant_event_schedules from './pages/participant/Event_schedule.tsx';
 import Participant_announcement from "./pages/participant/Announcement.tsx";
 import Participant_stall from "./pages/participant/Stall_allocation.tsx";
+import Participant_sponsor from "./pages/participant/Sponsor.tsx";
+import Participant_feedback from "./pages/participant/Feedbacks.tsx";
 // participant other
 import Profile_participant from "./pages/participant/Participant_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
-import View_feedback from "./pages/participant/Feedbacks.tsx";
 import View_events from './pages/participant/View_events.tsx';
 import Event_schedules from './pages/participant/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
@@ -207,12 +208,13 @@ function App() {
         <Route path="/participant_view_schedules" element={<Layout_participant ><Participant_event_schedules/></Layout_participant >} />
         <Route path="/participant_announcement" element={<Layout_participant ><Participant_announcement/></Layout_participant >} />
         <Route path="/participant_stall" element={<Layout_participant ><Participant_stall/></Layout_participant >} />
+        <Route path="/participant_sponsor" element={<Layout_participant ><Participant_sponsor/></Layout_participant >} />
+        <Route path="/participant_feedback" element={<Layout_participant ><Participant_feedback /></Layout_participant >} />
         {/*participant other*/}
         <Route path="/announcement_participant" element={<Layout_participant ><Announcement_view /></Layout_participant >} />
         <Route path="/profile_participant" element={<Layout_participant ><Profile_participant /></Layout_participant >} />
         <Route path="/change_password" element={<Layout_participant ><Change_password /></Layout_participant >} />
         <Route path="/stall_allocation" element={<Layout_participant ><Stall_allocation /></Layout_participant >} />
-        <Route path="/view_feedback" element={<Layout_participant ><View_feedback /></Layout_participant >} />
         <Route path="/view_events" element={<Layout_participant ><View_events/></Layout_participant >} />
         <Route path="/view_schedules" element={<Layout_participant ><Event_schedules/></Layout_participant >} />
         <Route path="/view_winners" element={<Layout_participant ><View_winners/></Layout_participant >} />
