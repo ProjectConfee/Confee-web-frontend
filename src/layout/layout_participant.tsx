@@ -27,10 +27,10 @@ const Layout_participant: React.FC<MainLayoutProps> = ({ children }) => {
               alt="Logo"
               className="w-10 h-10 rounded-full mr-4"
             /> */}
-            <div className="text-xl">Home</div>
+            <div className="text-xl">Hi, Viranga Dias</div>
           </div>
           <div className="flex items-center space-x-6">
-          <div className='text-xl'>Viranga Dias</div>
+          {/*<div className='text-xl'>Viranga Dias</div>*/}
           <div>
               <img
                 src="src/assets/profile3.jpg"
