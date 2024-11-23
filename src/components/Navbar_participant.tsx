@@ -18,11 +18,13 @@ const Navbar_participant = () => {
   ];
 
   return (
-      <div className="flex" style={{backgroundColor: '#5773ff'}}>
-        <div className={`${open ? "w-80" : "w-20"}  h-screen pl-2  relative duration-300`}>
+      <div className="flex bg-white w-72"
+           // style={{backgroundColor: '#5773ff'}}
+      >
+        <div className={`${open ? "w-72" : "w-20"}  h-screen pl-6 relative duration-300`}>
           {/* Logo Section */}
           <div className="flex items-center justify-center ">
-            <img src={LOGO} alt="Logo" className="w-28 h-24 "/>
+            <img src={LOGO} alt="Logo" className="w-28 h-28 "/>
             {/*<div className=" ml-2 font-semibold text-2xl">Confee</div>*/}
             {/* Adjust size as needed */}
           </div>
@@ -31,7 +33,7 @@ const Navbar_participant = () => {
             {Menus.map((menu, index) => (
                 <li
                     key={index}
-                    className={`flex rounded-md p-2 cursor-pointer hover:bg-[#3572EF] hover:rounded-r-3xl hover:text-white text-black text-m items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
+                    className={`flex rounded-md p-2 cursor-pointer hover:bg-[#3572EF] hover:rounded-r-3xl hover:text-white text-black text-lg items-center gap-x-4 ${menu.gap ? "mt-3" : "mt-2"}`}
                 >
                   <Link to={menu.path} className="flex items-center gap-x-4 w-full">
                     <div className="size-6">
