@@ -1,7 +1,10 @@
-
-
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import LandingPage from "./pages/landingPage/landingPage.tsx";
+import AboutUs from "./pages/landingPage/aboutUs.tsx";
+
+
+
 import QRcode from './pages/sponsor/QRcode.tsx';
 import ResourceHome from './pages/sponsor/Resource_main.tsx';
 import ResourceUpload from './pages/sponsor/Resource_upload.tsx';
@@ -158,7 +161,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/login" element={<Login />} />
         {/*Sponsors routes*/}
         <Route path="/homepage" element={<Layout_sponsor ><Register /></Layout_sponsor >} />
         <Route path="/qrcode" element={<Layout_sponsor ><QRcode /></Layout_sponsor >} />
