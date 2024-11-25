@@ -74,21 +74,32 @@ const FeedbackPage = () => {
                     className={`${leftArrowClasses} p-2 rounded-full shadow focus:outline-none`}
                     disabled={currentIndex === 0}
                 >
-                    <FaArrowLeft size={24} />
+                    <FaArrowLeft
+                        size={24}
+                    />
                 </button>
 
                 {/* Feedback Cards */}
                 <div className="flex space-x-20 mx-4">
                     {feedbacks.slice(currentIndex, currentIndex + 3).map(feedback => (
-                        <div key={feedback.id} className="w-72 h-[550px] bg-white p-4 rounded-xl shadow-md text-center">
+                        <div
+                            key={feedback.id}
+                            className="w-72 h-[550px] bg-white p-4 rounded-xl shadow-md text-center"
+                        >
                             <img
                                 src={feedback.picture}
                                 alt={feedback.name}
                                 className="w-32 h-32 rounded-full mx-auto my-4"
                             />
-                            <h2 className="text-lg font-bold mb-4">{feedback.name}</h2>
-                            <h3 className="text-sm font-semibold mb-2">{feedback.title}</h3>
-                            <p className="text-gray-700 mb-4">{feedback.content}</p>
+                            <h2 className="text-lg font-bold mb-4">
+                                {feedback.name}
+                            </h2>
+                            <h3 className="text-sm font-semibold mb-2">
+                                {feedback.title}
+                            </h3>
+                            <p className="text-gray-700 mb-4">
+                                {feedback.content}
+                            </p>
                             <div className="flex justify-center mt-auto">
                                 {[...Array(5)].map((_, index) => (
                                     <FaStar
