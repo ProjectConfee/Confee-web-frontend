@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+    useState
+} from 'react';
 
 interface Member {
     name: string;
@@ -195,9 +197,11 @@ const Speakers = () => {
 
             {/* Popup Form */}
             {showPopup && (
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
                     <div className="bg-white py-5 px-10 rounded-2xl shadow-lg w-[500px]">
-                        <h2 className="text-xl font-bold mb-4">{editingMember ? 'Edit Member' : 'Add New Member'}</h2>
+                        <h2 className="text-xl font-bold mb-4">
+                            {editingMember ? 'Edit Member' : 'Add New Member'}
+                        </h2>
                         <form onSubmit={handleSave}>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium mb-1">

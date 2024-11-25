@@ -8,9 +8,15 @@ import {
     CategoryScale,
     LinearScale
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import { Link } from "react-router-dom";
-import { AiOutlinePlus } from 'react-icons/ai';
+import {
+    Bar
+} from 'react-chartjs-2';
+import {
+    Link
+} from "react-router-dom";
+import {
+    AiOutlinePlus
+} from 'react-icons/ai';
 
 ChartJS.register(
     Title,
@@ -93,27 +99,44 @@ const MainCard: React.FC<MainCardProps> = ({ title, details, buttonText, addNewB
 
     return (
         <div className="flex flex-col p-4 border rounded-2xl shadow-lg bg-white h-80 justify-center">
-            <h2 className="text-xl font-bold mb-4 text-center">{title}</h2>
+            <h2
+                className="text-xl font-bold mb-4 text-center"
+            >
+                {title}
+            </h2>
             {imageSrc && (
-                <img src={imageSrc} alt={title} className="w-32 h-20 object-cover mb-4 mx-auto" />
+                <img
+                    src={imageSrc}
+                    alt={title}
+                    className="w-32 h-20 object-cover mb-4 mx-auto"
+                />
             )}
             {details && (
                 <div className="mb-4 text-center">
                     <div className="flex space-x-2 mb-2">
                         {details.slice(0, 2).map((detail, index) => (
                             <div key={index} className="flex-1">
-                                <span className="font-medium">{detail.label}:</span> {detail.value}
+                                <span className="font-medium">
+                                    {detail.label}:
+                                </span>
+                                {detail.value}
                             </div>
                         ))}
                     </div>
                     <div className="mb-2">
-                        <span className="font-medium">{details[2].label}:</span> {details[2].value}
+                        <span className="font-medium">
+                            {details[2].label}:
+                        </span>
+                        {details[2].value}
                     </div>
                 </div>
             )}
             {chartData && (
                 <div className="flex-grow h-64 mt-6">
-                    <Bar data={data} options={options} />
+                    <Bar
+                        data={data}
+                        options={options}
+                    />
                 </div>
             )}
             <div className="flex justify-center items-center mt-4">
@@ -149,9 +172,17 @@ interface SubCardProps {
 const SubCard: React.FC<SubCardProps> = ({ userName, imageSrc, link }) => {
     return (
         <div className="flex flex-col items-center p-4 border rounded-2xl shadow-lg bg-white w-60 h-64">
-            <h3 className="text-lg font-semibold">{userName}</h3>
-            <img src={imageSrc} alt={userName} className="w-40 h-40 object-cover" />
-            <Link to={link}> {/* Use Link component for navigation */}
+            <h3 className="text-lg font-semibold">
+                {userName}
+            </h3>
+            <img
+                src={imageSrc}
+                alt={userName}
+                className="w-40 h-40 object-cover"
+            />
+            <Link
+                to={link}
+            > {/* Use Link component for navigation */}
                 <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
                     View
                 </button>
@@ -169,9 +200,18 @@ const App: React.FC = () => {
             title: 'ICTer Conference 2024',
             imageSrc: 'src/assets/icter_logo.png', // Ensure the correct path to your logo image
             details: [
-                { label: 'From', value: '2024-11-05' },
-                { label: 'To', value: '2024-11-08' },
-                { label: 'Location', value: 'Marino Beach Hotel, Colombo, Sri Lanka' }
+                {
+                    label: 'From',
+                    value: '2024-11-05'
+                },
+                {
+                    label: 'To',
+                    value: '2024-11-08'
+                },
+                {
+                    label: 'Location',
+                    value: 'Marino Beach Hotel, Colombo, Sri Lanka'
+                }
             ],
             buttonText: 'View Previous Conference',
             addNewButtonText: 'Add New Conference'
@@ -231,7 +271,10 @@ const App: React.FC = () => {
 
     const addConferenceDay = () => {
         const nextDayNumber = conferenceDays.length + 1;
-        setConferenceDays([...conferenceDays, { id: Date.now(), day: `Conference Day ${nextDayNumber}` }]);
+        setConferenceDays([...conferenceDays, {
+            id: Date.now(),
+            day: `Conference Day ${nextDayNumber}`
+        }]);
     };
 
     return (
@@ -282,7 +325,7 @@ const App: React.FC = () => {
 
                 {/* Popup for Adding New Conference */}
                 {isPopupVisible && (
-                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                         <div className="bg-white p-6 rounded-2xl w-[500px] max-h-[80vh] overflow-y-auto mt-20"> {/* Added max-h-[80vh] and overflow-y-auto */}
                             <h2 className="text-2xl font-bold mb-4">
                                 Add New Conference
@@ -294,13 +337,19 @@ const App: React.FC = () => {
                                         <label className="font-medium mb-1">
                                             Start Date
                                         </label>
-                                        <input type="date" className="border rounded-lg p-2" />
+                                        <input
+                                            type="date"
+                                            className="border rounded-lg p-2"
+                                        />
                                     </div>
                                     <div className="flex flex-col w-1/2">
                                         <label className="font-medium mb-1">
                                             End Date
                                         </label>
-                                        <input type="date" className="border rounded-lg p-2" />
+                                        <input
+                                            type="date"
+                                            className="border rounded-lg p-2"
+                                        />
                                     </div>
                                 </div>
 
@@ -349,7 +398,10 @@ const App: React.FC = () => {
                                             className="ml-2 px-2 py-2 bg-blue-600 text-white rounded-full"
                                             onClick={addConferenceDay}
                                         >
-                                            <AiOutlinePlus size={20} />
+                                            <
+                                                AiOutlinePlus
+                                                size={20}
+                                            />
                                         </button>
                                     </div>
                                 ))}
