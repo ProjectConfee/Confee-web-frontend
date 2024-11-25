@@ -14,11 +14,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
     return (
         <div className="flex min-h-screen bg-slate-50">
-            <div className="fixed top-0 left-0 h-screen z-10 pt-20"> {/* Add padding-top */}
+            <div className="fixed top-0 left-0 h-screen z-10 pt-16"> {/* Add padding-top */}
                 <Navbar />
             </div>
             <div className="flex flex-col flex-grow">
-                <div className="w-full fixed top-0 left-0 flex items-center justify-between px-6 bg-gradient-to-r from-blue-600 to-blue-900 text-white z-20" style={{ height: '80px' }}>
+                <div
+                    className="w-full fixed top-0 left-0 flex items-center justify-between px-6 bg-blue-800 text-white z-20"
+                    style={{ height: '65px' }}
+                >
                     <div className="flex items-center">
                         <img
                             src="src/assets/final%20logo.jpeg"
@@ -40,7 +43,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
                         <div className="text-4xl">
                             <Link to='/announcement_view'>
-                            <IoMdNotificationsOutline/></Link>
+                                <IoMdNotificationsOutline/>
+                            </Link>
                         </div>
                         <div>
                             <Link to='/profile'>
@@ -52,7 +56,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         </div>
                     </div>
                 </div>
-                <main className="flex-grow pt-20 ml-72">
+                <main className="flex-grow pt-16 ml-64">
                     <div className="p-6">
                         {children}
                     </div>
