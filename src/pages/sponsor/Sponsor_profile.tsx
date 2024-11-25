@@ -448,7 +448,7 @@ const ProfileForm: React.FC<{ onSubmit: (profile: Profile) => void }> = ({ onSub
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex items-center justify-center min-h-screen">
             <div className="container p-8 bg-white shadow-lg rounded-lg w-full max-w-3xl">
                 <h1 className="text-3xl font-bold mb-6 text-center text-black">Sponsor Profile</h1>
                 <Form form={form} layout="vertical" onFinish={handleFinish}>
