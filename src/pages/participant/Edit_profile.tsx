@@ -1,7 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Upload, Radio } from 'antd';
-import { FaCamera } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import React, {
+    useState,
+    useEffect
+} from 'react';
+
+import {
+    Form,
+    Input,
+    Button,
+    Upload,
+    Radio
+} from 'antd';
+
+import {
+    FaCamera
+} from "react-icons/fa";
+import {
+    useNavigate
+} from "react-router-dom";
 
 // Example user data type
 interface UserData {
@@ -77,7 +92,11 @@ const EditProfile: React.FC = () => {
                     accept="image/*"
                 >
                     <div className="relative">
-                        <img src={profilePhoto} alt="Profile" className="w-36 h-36 rounded-full border-2 border-black" />
+                        <img
+                            src={profilePhoto}
+                            alt="Profile"
+                            className="w-36 h-36 rounded-full border-2 border-black"
+                        />
                         <div className="absolute bottom-2 right-2 cursor-pointer bg-blue-500 text-white rounded-full p-2">
                             <FaCamera />
                         </div>
@@ -149,9 +168,15 @@ const EditProfile: React.FC = () => {
                         rules={[{ required: true, message: 'Please select your gender!' }]}
                     >
                         <Radio.Group>
-                            <Radio value="male">Male</Radio>
-                            <Radio value="female">Female</Radio>
-                            <Radio value="other">Other</Radio>
+                            <Radio value="male">
+                                Male
+                            </Radio>
+                            <Radio value="female">
+                                Female
+                            </Radio>
+                            <Radio value="other">
+                                Other
+                            </Radio>
                         </Radio.Group>
                     </Form.Item>
 
@@ -185,7 +210,10 @@ const EditProfile: React.FC = () => {
                         <Input />
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary" htmlType="submit">
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                        >
                             Save Changes
                         </Button>
                     </Form.Item>

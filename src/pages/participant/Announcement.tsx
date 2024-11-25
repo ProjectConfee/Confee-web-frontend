@@ -66,15 +66,26 @@ const announcements = [
 const ViewAnnouncements = () => {
     return (
         <div className="p-6">
-            <h1 className="text-3xl font-bold mb-6">Announcements</h1>
+            <h1 className="text-3xl font-bold mb-6">
+                Announcements
+            </h1>
             <div className="space-y-4">
                 {announcements.map((announcement) => (
-                    <div key={announcement.id} className="bg-white shadow-md rounded-2xl p-4 mx-10">
+                    <div
+                        key={announcement.id}
+                        className="bg-white shadow-md rounded-2xl p-4 mx-10"
+                    >
                         <div className="flex justify-between items-start mb-2">
-                            <h2 className="text-xl font-bold">{announcement.title}</h2>
-                            <p className="text-gray-500">{announcement.date}</p>
+                            <h2 className="text-xl font-bold">
+                                {announcement.title}
+                            </h2>
+                            <p className="text-gray-500">
+                                {announcement.date}
+                            </p>
                         </div>
-                        <p>{announcement.content}</p>
+                        <p>
+                            {announcement.content}
+                        </p>
                     </div>
                 ))}
             </div>

@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaStar, FaPlus } from 'react-icons/fa';
+import {
+    FaArrowLeft,
+    FaArrowRight,
+    FaStar,
+    FaPlus
+} from 'react-icons/fa';
 
 const FeedbackPage = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,21 +79,32 @@ const FeedbackPage = () => {
                     className={`${leftArrowClasses} p-2 rounded-full shadow focus:outline-none`}
                     disabled={currentIndex === 0}
                 >
-                    <FaArrowLeft size={24} />
+                    <FaArrowLeft
+                        size={24}
+                    />
                 </button>
 
                 {/* Feedback Cards */}
                 <div className="flex space-x-20 mx-4">
                     {feedbacks.slice(currentIndex, currentIndex + 3).map(feedback => (
-                        <div key={feedback.id} className="w-72 h-[550px] bg-white p-4 rounded-xl shadow-md text-center">
+                        <div
+                            key={feedback.id}
+                            className="w-72 h-[550px] bg-white p-4 rounded-xl shadow-md text-center"
+                        >
                             <img
                                 src={feedback.picture}
                                 alt={feedback.name}
                                 className="w-32 h-32 rounded-full mx-auto my-4"
                             />
-                            <h2 className="text-lg font-bold mb-4">{feedback.name}</h2>
-                            <h3 className="text-sm font-semibold mb-2">{feedback.title}</h3>
-                            <p className="text-gray-700 mb-4">{feedback.content}</p>
+                            <h2 className="text-lg font-bold mb-4">
+                                {feedback.name}
+                            </h2>
+                            <h3 className="text-sm font-semibold mb-2">
+                                {feedback.title}
+                            </h3>
+                            <p className="text-gray-700 mb-4">
+                                {feedback.content}
+                            </p>
                             <div className="flex justify-center mt-auto">
                                 {[...Array(5)].map((_, index) => (
                                     <FaStar
@@ -108,7 +124,9 @@ const FeedbackPage = () => {
                     className={`${rightArrowClasses} p-2 rounded-full shadow focus:outline-none`}
                     disabled={currentIndex >= feedbacks.length - 3}
                 >
-                    <FaArrowRight size={24} />
+                    <FaArrowRight
+                        size={24}
+                    />
                 </button>
             </div>
 
@@ -117,26 +135,44 @@ const FeedbackPage = () => {
                 className="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
                 onClick={openForm}
             >
-                <FaPlus size={24} />
+                <FaPlus
+                    size={24}
+                />
             </button>
 
             {/* Feedback Form Popup */}
             {isFormOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                     <div className="bg-white w-96 p-6 rounded-lg shadow-lg">
-                        <h2 className="text-2xl font-bold mb-4">Submit Feedback</h2>
+                        <h2 className="text-2xl font-bold mb-4">
+                            Submit Feedback
+                        </h2>
                         <form>
                             <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-700">Title</label>
-                                <input type="text" className="w-full p-2 border rounded" />
+                                <label className="block text-sm font-medium text-gray-700">
+                                    Title
+                                </label>
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border rounded"
+                                />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-700">Content</label>
+                                <label className="block text-sm font-medium text-gray-700">
+                                    Content
+                                </label>
                                 <textarea className="w-full p-2 border rounded"></textarea>
                             </div>
                             <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-700">Rating</label>
-                                <input type="number" max="5" min="1" className="w-full p-2 border rounded" />
+                                <label className="block text-sm font-medium text-gray-700">
+                                    Rating
+                                </label>
+                                <input
+                                    type="number"
+                                    max="5"
+                                    min="1"
+                                    className="w-full p-2 border rounded"
+                                />
                             </div>
                             <div className="flex justify-end space-x-2">
                                 <button

@@ -98,7 +98,11 @@ const Profile: React.FC = () => {
             {/* Left Part: Profile Card */}
             <div className="w-1/3 px-4 py-16 bg-white rounded-2xl shadow-lg ml-16">
                 <div className="flex flex-col items-center">
-                    <img src={profilePhoto} alt="Profile" className="w-52 h-52 rounded-full mb-8" />
+                    <img
+                        src={profilePhoto}
+                        alt="Profile"
+                        className="w-52 h-52 rounded-full mb-8"
+                    />
                     <h2 className="text-xl font-semibold mb-2">
                         {name}
                     </h2>
