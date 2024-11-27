@@ -28,7 +28,7 @@ import MainLayout from './layout/layout_main';
 import Layout_sponsor from './layout/layout_sponsor.tsx';
 import Login from './pages/Login';
 
-import Signup from './pages/event/Sign_up.tsx';
+import Signup from './pages/signup.tsx';
 import NoEvent from './pages/event/No_event.tsx';
 import AddEvent from './pages/event/Add_event.tsx';
 import Event from './pages/event/Event.tsx';
