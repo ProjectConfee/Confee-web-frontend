@@ -28,7 +28,7 @@ import MainLayout from './layout/layout_main';
 import Layout_sponsor from './layout/layout_sponsor.tsx';
 import Login from './pages/Login';
 
-import Signup from './pages/event/Sign_up.tsx';
+import Signup from './pages/signup.tsx';
 import NoEvent from './pages/event/No_event.tsx';
 import AddEvent from './pages/event/Add_event.tsx';
 import Event from './pages/event/Event.tsx';
@@ -116,6 +116,7 @@ import Admin_announcement from "./pages/admin/Announcement.tsx";
 import Admin_feedback from "./pages/admin/Feedback.tsx";
 import Admin_stall_allocation from "./pages/participant/Stall_allocation.tsx";
 import Admin_view_schedules from './pages/event/Event_schedule.tsx';
+import Example from './pages/admin/oc.tsx';
 // admin other
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
@@ -269,6 +270,7 @@ function App() {
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
         <Route path="/admin_view_schedules" element={<Layout_admin ><Admin_view_schedules /></Layout_admin >} />
         <Route path="/admin_stall_allocation" element={<Layout_admin ><Admin_stall_allocation /></Layout_admin >} />
+        <Route path="/example" element={<Layout_admin ><Example /></Layout_admin >} />
         {/*admin other*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
         <Route path="/profile_admin" element={<Layout_admin ><Profile_admin /></Layout_admin >} />

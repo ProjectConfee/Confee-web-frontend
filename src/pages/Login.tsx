@@ -27,6 +27,10 @@ const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     if (data.statusCode === 200) {
       message.success('Login successful!');
 
+      if (data.token) {
+        localStorage.setItem('authToken', data.token); // Store in localStorage or sessionStorage
+      }
+
       if (data.role === "PARTICIPANT") {
         window.location.href = '/event';
       } else if (data.role === "ADMIN") {
