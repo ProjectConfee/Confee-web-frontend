@@ -134,6 +134,7 @@ import Add_event_oc from './pages/event/Add_event.tsx';
 import No_events from './pages/event/No_event.tsx';
 import Update_schedule from './pages/event/Event_schedule.tsx';
 import Upload_resource_oc from "./pages/event/UploadResource.tsx";
+
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
 
 
@@ -173,8 +174,8 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
         <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
-        <Route path="/view_event" element={<MainLayout><ViewEvent/></MainLayout>} />
-        <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
+        <Route path="/view_event/:id" element={<MainLayout><ViewEvent/></MainLayout>} />
+        <Route path="/event_detail_oc/:id" element={<MainLayout><EventDetail/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
         <Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />
@@ -268,7 +269,7 @@ function App() {
         <Route path="/view_feedback_oc" element={<Layout_oc ><View_feedback_oc /></Layout_oc >} />
         <Route path="/add_winners" element={<Layout_oc ><Add_winners /></Layout_oc >} />
         <Route path="/view_events_oc" element={<Layout_oc ><View_events_oc /></Layout_oc >} />
-        <Route path="/event_details_oc" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
+        <Route path="/event_details_oc/:id" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
         <Route path="/add_event_oc" element={<Layout_oc ><Add_event_oc /></Layout_oc >} />
         <Route path="/no_events" element={<Layout_oc ><No_events /></Layout_oc >} />
         <Route path="/update_schedule_oc" element={<Layout_oc ><Update_schedule /></Layout_oc >} />
