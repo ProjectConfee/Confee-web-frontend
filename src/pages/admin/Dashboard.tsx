@@ -354,16 +354,16 @@ const App: React.FC = () => {
                                 </div>
 
                                 {/* Location */}
-                                <div>
-                                    <label className="block mb-2">
-                                        Location
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Location"
-                                        className="border p-2 rounded-md w-full mb-4"
-                                    />
-                                </div>
+                                {/*<div>*/}
+                                {/*    <label className="block mb-2">*/}
+                                {/*        Location*/}
+                                {/*    </label>*/}
+                                {/*    <input*/}
+                                {/*        type="text"*/}
+                                {/*        placeholder="Location"*/}
+                                {/*        className="border p-2 rounded-md w-full mb-4"*/}
+                                {/*    />*/}
+                                {/*</div>*/}
 
                                 {/* Upload Logo */}
                                 <div className="mb-4">
