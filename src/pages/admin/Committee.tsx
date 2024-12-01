@@ -125,14 +125,16 @@ const CommitteeMembers: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="relative container mx-auto p-4">
             <button
-                className="mb-4 bg-green-500 text-white py-2 px-4 rounded shadow hover:bg-green-600"
+                className="absolute top-2 right-4 bg-green-500 text-white py-2 px-4 rounded-2xl shadow hover:bg-green-600"
                 onClick={handleAddClick}
             >
                 Add New Member
             </button>
-            <h1 className="text-2xl font-bold mb-4">Committee Members</h1>
+            <h1 className="text-2xl font-bold mb-4">
+                Committee Members
+            </h1>
             <table className="min-w-full bg-white border border-gray-200">
                 <thead>
                 <tr>

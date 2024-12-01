@@ -14,9 +14,9 @@ import {
 import {
     Link
 } from "react-router-dom";
-import {
-    AiOutlinePlus
-} from 'react-icons/ai';
+// import {
+//     AiOutlinePlus
+// } from 'react-icons/ai';
 
 ChartJS.register(
     Title,
@@ -55,7 +55,7 @@ interface MainCardProps {
     onAddNewConference?: () => void;
 }
 
-const MainCard: React.FC<MainCardProps> = ({ title, details, buttonText, addNewButtonText, chartData, imageSrc, onAddNewConference }) => {
+const MainCard: React.FC<MainCardProps> = ({ title, details, addNewButtonText, chartData, imageSrc, onAddNewConference }) => {
     const options = {
         responsive: true,
         plugins: {
@@ -140,16 +140,16 @@ const MainCard: React.FC<MainCardProps> = ({ title, details, buttonText, addNewB
                 </div>
             )}
             <div className="flex justify-center items-center mt-4">
-                <Link to="/admin_2023">
-                    {buttonText && (
-                        <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
-                            {buttonText}
-                        </button>
-                    )}
-                </Link>
-                {buttonText && addNewButtonText && (
-                    <div className="mx-8"></div>
-                )}
+                {/*<Link to="/admin_2023">*/}
+                {/*    {buttonText && (*/}
+                {/*        <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">*/}
+                {/*            {buttonText}*/}
+                {/*        </button>*/}
+                {/*    )}*/}
+                {/*</Link>*/}
+                {/*{buttonText && addNewButtonText && (*/}
+                {/*    <div className="mx-8"></div>*/}
+                {/*)}*/}
                 {addNewButtonText && (
                     <button
                         className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600"
@@ -193,7 +193,7 @@ const SubCard: React.FC<SubCardProps> = ({ userName, imageSrc, link }) => {
 
 const App: React.FC = () => {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
-    const [conferenceDays, setConferenceDays] = useState<{ id: number, day: string }[]>([{ id: Date.now(), day: 'Conference Day 1' }]);
+    // const [conferenceDays, setConferenceDays] = useState<{ id: number, day: string }[]>([{ id: Date.now(), day: 'Conference Day 1' }]);
 
     const mainCards = [
         {
@@ -269,13 +269,13 @@ const App: React.FC = () => {
         setIsPopupVisible(false);
     };
 
-    const addConferenceDay = () => {
-        const nextDayNumber = conferenceDays.length + 1;
-        setConferenceDays([...conferenceDays, {
-            id: Date.now(),
-            day: `Conference Day ${nextDayNumber}`
-        }]);
-    };
+    // const addConferenceDay = () => {
+    //     const nextDayNumber = conferenceDays.length + 1;
+    //     setConferenceDays([...conferenceDays, {
+    //         id: Date.now(),
+    //         day: `Conference Day ${nextDayNumber}`
+    //     }]);
+    // };
 
     return (
         // <Router>
@@ -377,34 +377,34 @@ const App: React.FC = () => {
                                 </div>
 
                                 {/* Additional Fields */}
-                                {conferenceDays.map((day, index) => (
-                                    <div key={day.id} className="flex items-center mb-2 space-x-5">
-                                        <input
-                                            type="text"
-                                            value={day.day}
-                                            onChange={(e) => {
-                                                const updatedDays = [...conferenceDays];
-                                                updatedDays[index].day = e.target.value;
-                                                setConferenceDays(updatedDays);
-                                            }}
-                                            className="border rounded-lg p-2 w-full"
-                                        />
-                                        <input
-                                            type="date"
-                                            placeholder="Date"
-                                            className="border p-2 rounded-md flex-1"
-                                        />
-                                        <button
-                                            className="ml-2 px-2 py-2 bg-blue-600 text-white rounded-full"
-                                            onClick={addConferenceDay}
-                                        >
-                                            <
-                                                AiOutlinePlus
-                                                size={20}
-                                            />
-                                        </button>
-                                    </div>
-                                ))}
+                                {/*{conferenceDays.map((day, index) => (*/}
+                                {/*    <div key={day.id} className="flex items-center mb-2 space-x-5">*/}
+                                {/*        <input*/}
+                                {/*            type="text"*/}
+                                {/*            value={day.day}*/}
+                                {/*            onChange={(e) => {*/}
+                                {/*                const updatedDays = [...conferenceDays];*/}
+                                {/*                updatedDays[index].day = e.target.value;*/}
+                                {/*                setConferenceDays(updatedDays);*/}
+                                {/*            }}*/}
+                                {/*            className="border rounded-lg p-2 w-full"*/}
+                                {/*        />*/}
+                                {/*        <input*/}
+                                {/*            type="date"*/}
+                                {/*            placeholder="Date"*/}
+                                {/*            className="border p-2 rounded-md flex-1"*/}
+                                {/*        />*/}
+                                {/*        <button*/}
+                                {/*            className="ml-2 px-2 py-2 bg-blue-600 text-white rounded-full"*/}
+                                {/*            onClick={addConferenceDay}*/}
+                                {/*        >*/}
+                                {/*            <*/}
+                                {/*                AiOutlinePlus*/}
+                                {/*                size={20}*/}
+                                {/*            />*/}
+                                {/*        </button>*/}
+                                {/*    </div>*/}
+                                {/*))}*/}
                             </div>
                             <div className="flex justify-end space-x-4">
                                 <button className="px-4 py-2 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600">
