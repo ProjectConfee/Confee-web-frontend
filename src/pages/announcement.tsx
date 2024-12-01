@@ -566,13 +566,429 @@
 // };
 //
 // export default App;
+// import React, { useEffect, useState } from 'react';
+// import Swal from 'sweetalert2';
+// import { IoMdAddCircleOutline, IoMdTrash, IoMdCreate } from 'react-icons/io';
+// import { Button, Card } from 'antd';
+// import 'antd/dist/reset.css'; // Ensure Ant Design styles are imported
+//
+// // Define the type for announcements based on your backend entity
+// interface Announcement {
+//   id: number;
+//   announcement: string;
+//   timestamp: string; // Adjust the type if it's a different format
+// }
+//
+// const App: React.FC = () => {
+//   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+//
+//   // Fetch all announcements from the backend
+//   const fetchAnnouncements = async () => {
+//     try {
+//       const response = await fetch('http://localhost:8080/api/announcements/getAll');
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+//       const data = await response.json();
+//       setAnnouncements(data);
+//     } catch (error) {
+//       console.error('Error fetching announcements:', error);
+//     }
+//   };
+//
+//   useEffect(() => {
+//     fetchAnnouncements();
+//   }, []);
+//
+//   // Handle adding a new announcement
+//   const handleAddClick = async () => {
+//     const { value: text } = await Swal.fire({
+//       input: 'textarea',
+//       inputLabel: 'New Announcement',
+//       inputPlaceholder: 'Enter new announcement',
+//       inputAttributes: {
+//         'aria-label': 'Enter new announcement'
+//       },
+//       showCancelButton: true,
+//       confirmButtonText: 'Add',
+//       cancelButtonText: 'Cancel',
+//       customClass: {
+//         confirmButton: 'bg-blue-600 text-white hover:bg-blue-700',
+//         cancelButton: 'bg-gray-300 hover:bg-gray-400'
+//       }
+//     });
+//
+//     if (text) {
+//       try {
+//         const response = await fetch('http://localhost:8080/api/announcements/add', {
+//           method: 'POST',
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({ announcement: text }),
+//         });
+//
+//         if (response.ok) {
+//           Swal.fire('Announcement added!', '', 'success');
+//           fetchAnnouncements();  // Refresh the announcements
+//         } else {
+//           Swal.fire('Error!', 'Failed to add announcement.', 'error');
+//         }
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to add announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   // Handle editing an announcement
+//   const handleEditClick = async (announcement: Announcement) => {
+//     const { value: newText } = await Swal.fire({
+//       input: 'textarea',
+//       inputLabel: 'Edit Announcement',
+//       inputValue: announcement.announcement,
+//       inputPlaceholder: 'Edit announcement',
+//       inputAttributes: {
+//         'aria-label': 'Edit announcement'
+//       },
+//       showCancelButton: true,
+//       confirmButtonText: 'Save',
+//       cancelButtonText: 'Cancel',
+//       customClass: {
+//         confirmButton: 'bg-blue-600 text-white hover:bg-blue-700',
+//         cancelButton: 'bg-gray-300 hover:bg-gray-400'
+//       }
+//     });
+//
+//     if (newText) {
+//       try {
+//         const response = await fetch(`http://localhost:8080/api/announcements/update/${announcement.id}`, {
+//           method: 'PUT',
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({ announcement: newText }),
+//         });
+//
+//         if (response.ok) {
+//           Swal.fire('Announcement updated!', '', 'success');
+//           fetchAnnouncements();  // Refresh the announcements
+//         } else {
+//           Swal.fire('Error!', 'Failed to update announcement.', 'error');
+//         }
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to update announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   // Handle deleting an announcement
+//   const handleDeleteClick = async (id: number) => {
+//     const result = await Swal.fire({
+//       title: 'Are you sure?',
+//       text: "You won't be able to revert this!",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonText: 'Yes, delete it!',
+//       cancelButtonText: 'No, cancel!',
+//       customClass: {
+//         confirmButton: 'bg-red-600 text-white hover:bg-red-700',
+//         cancelButton: 'bg-gray-300 hover:bg-gray-400'
+//       }
+//     });
+//
+//     if (result.isConfirmed) {
+//       try {
+//         const response = await fetch(`http://localhost:8080/api/announcements/delete/${id}`, {
+//           method: 'DELETE',
+//         });
+//
+//         if (response.ok) {
+//           Swal.fire('Deleted!', 'The announcement has been deleted.', 'success');
+//           fetchAnnouncements();  // Refresh the announcements
+//         } else {
+//           Swal.fire('Error!', 'Failed to delete announcement.', 'error');
+//         }
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to delete announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   return (
+//       <div className="bg-gradient-to-r from-blue-50 to-gray-100 mt-16 mx-auto max-w-5xl p-8 rounded-3xl shadow-xl">
+//         <div className="flex items-center justify-between mb-8">
+//           <h2 className="text-4xl font-extrabold text-gray-800">Announcements</h2>
+//           <Button
+//               type="primary"
+//               onClick={handleAddClick}
+//               className="flex items-center space-x-2 text-lg rounded-full bg-blue-500 hover:bg-blue-600 shadow-md transition-transform transform hover:scale-105"
+//               icon={<IoMdAddCircleOutline className="text-2xl" />}
+//           >
+//             <span>Add</span>
+//           </Button>
+//         </div>
+//         <div className="space-y-6">
+//           {announcements.map((announcement) => (
+//               <Card
+//                   key={announcement.id}
+//                   className="bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-100"
+//                   style={{ padding: '12px', borderRadius: '10px', position: 'relative' }}
+//               >
+//                 <div className="flex flex-col">
+//                   <p className="text-lg font-semibold text-gray-800 mb-0">{announcement.announcement}</p>
+//                   <div className="text-gray-500 text-sm mb-4">
+//                     {new Date(announcement.timestamp).toLocaleString([], {
+//                       hour: '2-digit',
+//                       minute: '2-digit',
+//                       hour12: true
+//                     })}
+//                   </div>
+//                   <div className="absolute top-4 right-4 flex space-x-4">
+//                     <Button
+//                         type="text"
+//                         icon={<IoMdCreate className="text-blue-600 text-2xl" />}
+//                         onClick={() => handleEditClick(announcement)}
+//                         className="text-lg"
+//                     />
+//                     <Button
+//                         type="text"
+//                         danger
+//                         icon={<IoMdTrash className="text-red-600 text-2xl" />}
+//                         onClick={() => handleDeleteClick(announcement.id)}
+//                         className="text-lg"
+//                     />
+//                   </div>
+//                 </div>
+//               </Card>
+//           ))}
+//         </div>
+//       </div>
+//   );
+// };
+//
+// export default App;
+// import React, { useEffect, useState } from 'react';
+// import Swal from 'sweetalert2';
+// import axios from 'axios';
+// import { IoMdAddCircleOutline, IoMdTrash, IoMdCreate } from 'react-icons/io';
+// import { Button, Card } from 'antd';
+// import 'antd/dist/reset.css'; // Ensure Ant Design styles are imported
+//
+// // Define the type for announcements based on your backend entity
+// interface Announcement {
+//   id: number;
+//   announcement: string;
+//   timestamp: string; // Adjust the type if it's a different format
+// }
+//
+// const App: React.FC = () => {
+//   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+//
+//   // Base URL for API requests
+//   const API_BASE_URL = 'http://localhost:8080/api/announcements';
+//
+//   // Get token from local storage
+//   const getAuthToken = () => localStorage.getItem('authToken');
+//
+//   // Fetch all announcements from the backend
+//   const fetchAnnouncements = async () => {
+//     const token = getAuthToken();
+//     if (!token) {
+//       console.error('No auth token found in local storage.');
+//       return;
+//     }
+//
+//     try {
+//       const response = await axios.get(`${API_BASE_URL}/getAll`, {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+//       setAnnouncements(response.data);
+//     } catch (error) {
+//       console.error('Error fetching announcements:', error);
+//     }
+//   };
+//
+//   useEffect(() => {
+//     fetchAnnouncements();
+//   }, []);
+//
+//   // Handle adding a new announcement
+//   const handleAddClick = async () => {
+//     const { value: text } = await Swal.fire({
+//       input: 'textarea',
+//       inputLabel: 'New Announcement',
+//       inputPlaceholder: 'Enter new announcement',
+//       inputAttributes: {
+//         'aria-label': 'Enter new announcement',
+//       },
+//       showCancelButton: true,
+//       confirmButtonText: 'Add',
+//       cancelButtonText: 'Cancel',
+//     });
+//
+//     if (text) {
+//       const token = getAuthToken();
+//       if (!token) {
+//         Swal.fire('Error!', 'No auth token found.', 'error');
+//         return;
+//       }
+//
+//       try {
+//         await axios.post(
+//             `${API_BASE_URL}/add`,
+//             { announcement: text },
+//             {
+//               headers: {
+//                 Authorization: `Bearer ${token}`,
+//                 'Content-Type': 'application/json',
+//               },
+//             }
+//         );
+//         Swal.fire('Announcement added!', '', 'success');
+//         fetchAnnouncements(); // Refresh the announcements
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to add announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   // Handle editing an announcement
+//   const handleEditClick = async (announcement: Announcement) => {
+//     const { value: newText } = await Swal.fire({
+//       input: 'textarea',
+//       inputLabel: 'Edit Announcement',
+//       inputValue: announcement.announcement,
+//       inputPlaceholder: 'Edit announcement',
+//       inputAttributes: {
+//         'aria-label': 'Edit announcement',
+//       },
+//       showCancelButton: true,
+//       confirmButtonText: 'Save',
+//       cancelButtonText: 'Cancel',
+//     });
+//
+//     if (newText) {
+//       const token = getAuthToken();
+//       if (!token) {
+//         Swal.fire('Error!', 'No auth token found.', 'error');
+//         return;
+//       }
+//
+//       try {
+//         await axios.put(
+//             `${API_BASE_URL}/update/${announcement.id}`,
+//             { announcement: newText },
+//             {
+//               headers: {
+//                 Authorization: `Bearer ${token}`,
+//                 'Content-Type': 'application/json',
+//               },
+//             }
+//         );
+//         Swal.fire('Announcement updated!', '', 'success');
+//         fetchAnnouncements(); // Refresh the announcements
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to update announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   // Handle deleting an announcement
+//   const handleDeleteClick = async (id: number) => {
+//     const token = getAuthToken();
+//     if (!token) {
+//       Swal.fire('Error!', 'No auth token found.', 'error');
+//       return;
+//     }
+//
+//     const result = await Swal.fire({
+//       title: 'Are you sure?',
+//       text: "You won't be able to revert this!",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonText: 'Yes, delete it!',
+//       cancelButtonText: 'No, cancel!',
+//     });
+//
+//     if (result.isConfirmed) {
+//       try {
+//         await axios.delete(`${API_BASE_URL}/delete/${id}`, {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//
+//         });
+//
+//         Swal.fire('Deleted!', 'The announcement has been deleted.', 'success');
+//         fetchAnnouncements(); // Refresh the announcements
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to delete announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   return (
+//       <div className="bg-gradient-to-r from-blue-50 to-gray-100 mt-16 mx-auto max-w-5xl p-8 rounded-3xl shadow-xl">
+//         <div className="flex items-center justify-between mb-8">
+//           <h2 className="text-4xl font-extrabold text-gray-800">Announcements</h2>
+//           <Button
+//               type="primary"
+//               onClick={handleAddClick}
+//               className="flex items-center space-x-2 text-lg rounded-full bg-blue-500 hover:bg-blue-600 shadow-md transition-transform transform hover:scale-105"
+//               icon={<IoMdAddCircleOutline className="text-2xl" />}
+//           >
+//             <span>Add</span>
+//           </Button>
+//         </div>
+//         <div className="space-y-6">
+//           {announcements.map((announcement) => (
+//               <Card
+//                   key={announcement.id}
+//                   className="bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-100"
+//                   style={{ padding: '12px', borderRadius: '10px', position: 'relative' }}
+//               >
+//                 <div className="flex flex-col">
+//                   <p className="text-lg font-semibold text-gray-800 mb-0">{announcement.announcement}</p>
+//                   <div className="text-gray-500 text-sm mb-4">
+//                     {new Date(announcement.timestamp).toLocaleString([], {
+//                       hour: '2-digit',
+//                       minute: '2-digit',
+//                       hour12: true,
+//                     })}
+//                   </div>
+//                   <div className="absolute top-4 right-4 flex space-x-4">
+//                     <Button
+//                         type="text"
+//                         icon={<IoMdCreate className="text-blue-600 text-2xl" />}
+//                         onClick={() => handleEditClick(announcement)}
+//                         className="text-lg"
+//                     />
+//                     <Button
+//                         type="text"
+//                         danger
+//                         icon={<IoMdTrash className="text-red-600 text-2xl" />}
+//                         onClick={() => handleDeleteClick(announcement.id)}
+//                         className="text-lg"
+//                     />
+//                   </div>
+//                 </div>
+//               </Card>
+//           ))}
+//         </div>
+//       </div>
+//   );
+// };
+//
+// export default App;
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 import { IoMdAddCircleOutline, IoMdTrash, IoMdCreate } from 'react-icons/io';
 import { Button, Card } from 'antd';
 import 'antd/dist/reset.css'; // Ensure Ant Design styles are imported
 
-// Define the type for announcements based on your backend entity
 interface Announcement {
   id: number;
   announcement: string;
@@ -581,16 +997,31 @@ interface Announcement {
 
 const App: React.FC = () => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const API_BASE_URL = 'http://localhost:8080/api/announcements';
 
-  // Fetch all announcements from the backend
+  const getAuthToken = () => localStorage.getItem('authToken');
+
   const fetchAnnouncements = async () => {
+    const token = getAuthToken();
+    if (!token) {
+      console.error('No auth token found in local storage.');
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:8080/api/announcements/getAll');
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      setAnnouncements(data);
+      const response = await axios.get(`${API_BASE_URL}/getAll`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Sort announcements by timestamp (most recent first)
+      const sortedAnnouncements = response.data.sort(
+          (a: Announcement, b: Announcement) =>
+              new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
+
+      setAnnouncements(sortedAnnouncements);
     } catch (error) {
       console.error('Error fetching announcements:', error);
     }
@@ -600,89 +1031,88 @@ const App: React.FC = () => {
     fetchAnnouncements();
   }, []);
 
-  // Handle adding a new announcement
   const handleAddClick = async () => {
     const { value: text } = await Swal.fire({
       input: 'textarea',
       inputLabel: 'New Announcement',
       inputPlaceholder: 'Enter new announcement',
-      inputAttributes: {
-        'aria-label': 'Enter new announcement'
-      },
+      inputAttributes: { 'aria-label': 'Enter new announcement' },
       showCancelButton: true,
       confirmButtonText: 'Add',
       cancelButtonText: 'Cancel',
-      customClass: {
-        confirmButton: 'bg-blue-600 text-white hover:bg-blue-700',
-        cancelButton: 'bg-gray-300 hover:bg-gray-400'
-      }
     });
 
     if (text) {
-      try {
-        const response = await fetch('http://localhost:8080/api/announcements/add', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ announcement: text }),
-        });
+      const token = getAuthToken();
+      if (!token) {
+        Swal.fire('Error!', 'No auth token found.', 'error');
+        return;
+      }
 
-        if (response.ok) {
-          Swal.fire('Announcement added!', '', 'success');
-          fetchAnnouncements();  // Refresh the announcements
-        } else {
-          Swal.fire('Error!', 'Failed to add announcement.', 'error');
-        }
+      try {
+        await axios.post(
+            `${API_BASE_URL}/add`,
+            { announcement: text },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            }
+        );
+        Swal.fire('Announcement added!', '', 'success');
+        fetchAnnouncements();
       } catch (error) {
         Swal.fire('Error!', 'Failed to add announcement.', 'error');
       }
     }
   };
 
-  // Handle editing an announcement
   const handleEditClick = async (announcement: Announcement) => {
     const { value: newText } = await Swal.fire({
       input: 'textarea',
       inputLabel: 'Edit Announcement',
       inputValue: announcement.announcement,
       inputPlaceholder: 'Edit announcement',
-      inputAttributes: {
-        'aria-label': 'Edit announcement'
-      },
+      inputAttributes: { 'aria-label': 'Edit announcement' },
       showCancelButton: true,
       confirmButtonText: 'Save',
       cancelButtonText: 'Cancel',
-      customClass: {
-        confirmButton: 'bg-blue-600 text-white hover:bg-blue-700',
-        cancelButton: 'bg-gray-300 hover:bg-gray-400'
-      }
     });
 
     if (newText) {
-      try {
-        const response = await fetch(`http://localhost:8080/api/announcements/update/${announcement.id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ announcement: newText }),
-        });
+      const token = getAuthToken();
+      if (!token) {
+        Swal.fire('Error!', 'No auth token found.', 'error');
+        return;
+      }
 
-        if (response.ok) {
-          Swal.fire('Announcement updated!', '', 'success');
-          fetchAnnouncements();  // Refresh the announcements
-        } else {
-          Swal.fire('Error!', 'Failed to update announcement.', 'error');
-        }
+      try {
+        await axios.put(
+            `${API_BASE_URL}/update/${announcement.id}`,
+            { announcement: newText },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            }
+        );
+        Swal.fire('Announcement updated!', '', 'success');
+        fetchAnnouncements();
       } catch (error) {
         Swal.fire('Error!', 'Failed to update announcement.', 'error');
       }
     }
   };
 
-  // Handle deleting an announcement
   const handleDeleteClick = async (id: number) => {
+    const token = getAuthToken();
+    if (!token) {
+      Swal.fire('Error!', 'No auth token found.', 'error');
+      return;
+    }
+
     const result = await Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -690,24 +1120,15 @@ const App: React.FC = () => {
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, cancel!',
-      customClass: {
-        confirmButton: 'bg-red-600 text-white hover:bg-red-700',
-        cancelButton: 'bg-gray-300 hover:bg-gray-400'
-      }
     });
 
     if (result.isConfirmed) {
       try {
-        const response = await fetch(`http://localhost:8080/api/announcements/delete/${id}`, {
-          method: 'DELETE',
+        await axios.delete(`${API_BASE_URL}/delete/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
         });
-
-        if (response.ok) {
-          Swal.fire('Deleted!', 'The announcement has been deleted.', 'success');
-          fetchAnnouncements();  // Refresh the announcements
-        } else {
-          Swal.fire('Error!', 'Failed to delete announcement.', 'error');
-        }
+        Swal.fire('Deleted!', 'The announcement has been deleted.', 'success');
+        fetchAnnouncements();
       } catch (error) {
         Swal.fire('Error!', 'Failed to delete announcement.', 'error');
       }
@@ -740,7 +1161,7 @@ const App: React.FC = () => {
                     {new Date(announcement.timestamp).toLocaleString([], {
                       hour: '2-digit',
                       minute: '2-digit',
-                      hour12: true
+                      hour12: true,
                     })}
                   </div>
                   <div className="absolute top-4 right-4 flex space-x-4">

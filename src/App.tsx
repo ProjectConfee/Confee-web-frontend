@@ -10,13 +10,16 @@ import ResourceHome from './pages/sponsor/Resource_main.tsx';
 import ResourceUpload from './pages/sponsor/Resource_upload.tsx';
 import Resourceother from './pages/sponsor/Resource_upload_other.tsx';
 import ResourceDone from './pages/sponsor/Resource_done.tsx';
+import LiveChat from './LIvechat.tsx';
 import ResourceDocs from './Resources_docs';
 import ResourceLinks from './Resources_links';
 import ResourceOther from './Resources_other';
 // import ViewMain from './View_main';
 import Register from './pages/sponsor/Register.tsx'
 import Stall_details from './pages/sponsor/Stall_details.tsx'
-import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
+import Sponsor_profile from './pages/sponsor/SponsorProfile.tsx'
+import Profile_form  from './pages/sponsor/ProfileForm.tsx'
+import Profile_display from './pages/sponsor/ProfileDisplay.tsx'
 
 import Participant_details from './pages/sponsor/Participant_details.tsx'
 // import Schedule from './pages/sponsor/Schedule.tsx'
@@ -186,6 +189,10 @@ function App() {
         <Route path="/more-feedbacks" element={<Layout_sponsor><MoreFeedback /></Layout_sponsor>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
+        <Route path="/livechat" element={<Layout_sponsor ><LiveChat/></Layout_sponsor >} />
+        <Route path="/profileview" element={<Layout_sponsor ><Profile_display/></Layout_sponsor >} />
+        <Route path="/profileform" element={<Layout_sponsor ><Profile_form/></Layout_sponsor >} />
+       
         <Route path="/participant-details" element={<Layout_sponsor ><Participant_details/></Layout_sponsor >} />
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
