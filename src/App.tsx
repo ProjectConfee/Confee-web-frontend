@@ -1,3 +1,6 @@
+
+
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import LandingPage from "./pages/landingPage/landingPage.tsx";
@@ -64,8 +67,10 @@ import Participant_sponsor from "./pages/participant/Sponsor.tsx";
 import Participant_feedback from "./pages/participant/Feedbacks.tsx";
 // participant other
 import Profile_participant from "./pages/participant/Participant_profile.tsx";
+import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
+import View_feedback from "./pages/participant/Feedbacks.tsx";
 import View_events from './pages/participant/View_events.tsx';
 import Event_schedules from './pages/participant/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
@@ -86,6 +91,8 @@ import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
+import View_schedules_speaker from './pages/participant/Event_schedule.tsx';
+import Resource_speaker from './pages/event/UploadResource.tsx';
 import Event_speaker from './pages/speaker/Event_speaker.tsx';
 import View_event_speaker from './pages/speaker/View_event_speaker.tsx';
 
@@ -122,6 +129,8 @@ import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
 import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 import View_feedback_admin from "./pages/committee/View_feedback.tsx";
+import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
+import View_schedules_admin from './pages/event/Event_schedule.tsx';
 import Add_Oc_Admin from './pages/admin/add_oc_committee.tsx';
 import Sponsor_register_admin from './pages/admin/Sponsor_register.tsx';
 import Stall_register_admin from './pages/admin/Stall_register.tsx';
@@ -195,8 +204,8 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
         <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
-        <Route path="/view_event" element={<MainLayout><ViewEvent/></MainLayout>} />
-        <Route path="/event_detail" element={<MainLayout><EventDetail/></MainLayout>} />
+        <Route path="/view_event/:id" element={<MainLayout><ViewEvent/></MainLayout>} />
+        <Route path="/event_detail_oc/:id" element={<MainLayout><EventDetail/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
         <Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />
@@ -268,7 +277,7 @@ function App() {
         <Route path="/admin_edit_profile" element={<Layout_admin ><Admin_edit_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
-        <Route path="/admin_view_schedules" element={<Layout_admin ><Admin_view_schedules /></Layout_admin >} />
+        <Route path="/admin_view_schedules" element={<Layout_admin ><Event_schedules /></Layout_admin >} />
         <Route path="/admin_stall_allocation" element={<Layout_admin ><Admin_stall_allocation /></Layout_admin >} />
         <Route path="/example" element={<Layout_admin ><Example /></Layout_admin >} />
         {/*admin other*/}
@@ -292,7 +301,7 @@ function App() {
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
         <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
-        <Route path="/committee_update_schedule" element={<Layout_oc ><Committee_update_schedule /></Layout_oc >} />
+        <Route path="/committee_update_schedule" element={<Layout_oc ><Event_schedules /></Layout_oc >} />
         <Route path="/committee_upload_resource" element={<Layout_oc ><Committee_upload_resource /></Layout_oc >} />
         <Route path="/committee_stall" element={<Layout_oc ><Committee_stall /></Layout_oc >} />
         {/*committee other*/}
@@ -304,7 +313,7 @@ function App() {
         <Route path="/view_feedback_oc" element={<Layout_oc ><View_feedback_oc /></Layout_oc >} />
         <Route path="/add_winners" element={<Layout_oc ><Add_winners /></Layout_oc >} />
         <Route path="/view_events_oc" element={<Layout_oc ><View_events_oc /></Layout_oc >} />
-        <Route path="/event_details_oc" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
+        <Route path="/event_details_oc/:id" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
         <Route path="/add_event_oc" element={<Layout_oc ><Add_event_oc /></Layout_oc >} />
         <Route path="/no_events" element={<Layout_oc ><No_events /></Layout_oc >} />
         <Route path="/sponsor_register_oc" element={<Layout_oc ><Sponsor_register_admin /></Layout_oc >} />
