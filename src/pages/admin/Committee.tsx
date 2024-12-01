@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+    useState,
+    useEffect
+} from 'react';
+
 import axios from 'axios';
 
 interface Member {
@@ -125,35 +129,63 @@ const CommitteeMembers: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="relative container mx-auto p-4">
             <button
-                className="mb-4 bg-green-500 text-white py-2 px-4 rounded shadow hover:bg-green-600"
+                className="absolute top-2 right-4 bg-green-500 text-white py-2 px-4 rounded-2xl shadow hover:bg-green-600"
                 onClick={handleAddClick}
             >
                 Add New Member
             </button>
-            <h1 className="text-2xl font-bold mb-4">Committee Members</h1>
+            <h1 className="text-2xl font-bold mb-4">
+                Committee Members
+            </h1>
             <table className="min-w-full bg-white border border-gray-200">
                 <thead>
                 <tr>
-                    <th className="py-2 px-4 border-b">Name</th>
-                    <th className="py-2 px-4 border-b">NIC</th>
-                    <th className="py-2 px-4 border-b">Email</th>
-                    <th className="py-2 px-4 border-b">Phone</th>
-                    <th className="py-2 px-4 border-b">Role</th>
-                    <th className="py-2 px-4 border-b">Status</th>
-                    <th className="py-2 px-4 border-b">Actions</th>
+                    <th className="py-2 px-4 border-b">
+                        Name
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        NIC
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Email
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Phone
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Role
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Status
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Actions
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
                 {members.map((member) => (
                     <tr key={member.committee_id}>
-                        <td className="py-2 px-4 border-b">{member.committee_name}</td>
-                        <td className="py-2 px-4 border-b">{member.nic}</td>
-                        <td className="py-2 px-4 border-b">{member.email}</td>
-                        <td className="py-2 px-4 border-b">{member.phone}</td>
-                        <td className="py-2 px-4 border-b">{member.role}</td>
-                        <td className="py-2 px-4 border-b">{member.status}</td>
+                        <td className="py-2 px-4 border-b">
+                            {member.committee_name}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {member.nic}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {member.email}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {member.phone}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {member.role}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {member.status}
+                        </td>
                         <td className="py-2 px-4 border-b flex space-x-2">
                             <button
                                 className="bg-blue-500 text-white py-1 px-3 rounded"

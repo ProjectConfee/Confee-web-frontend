@@ -1,6 +1,4 @@
-import {
-    useState
-} from 'react';
+import { useState } from 'react';
 
 interface Member {
     name: string;
@@ -9,7 +7,7 @@ interface Member {
     contact: string;
     role: string;
     status: string;
-    code: string;    // New field
+    code: string;
     topic: string;
 }
 
@@ -80,6 +78,10 @@ const Speakers = () => {
         setShowPopup(true);
     };
 
+    const handleDelete = (nic: string) => {
+        setMembers(members.filter(member => member.nic !== nic));
+    };
+
     const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -89,8 +91,8 @@ const Speakers = () => {
         const email = formData.get('email') as string | null || '';
         const contact = formData.get('contact') as string | null || '';
         const role = formData.get('role') as string | null || '';
-        const code = formData.get('code') as string || '';    // New field
-        const topic = formData.get('topic') as string || '';  // New field
+        const code = formData.get('code') as string || '';
+        const topic = formData.get('topic') as string || '';
 
         const newMember: Member = {
             name,
@@ -114,18 +116,6 @@ const Speakers = () => {
         setShowPopup(false);
     };
 
-    const handleAccept = (nic: string) => {
-        setMembers(members.map(member =>
-            member.nic === nic ? { ...member, status: 'Accepted' } : member
-        ));
-    };
-
-    const handleDecline = (nic: string) => {
-        setMembers(members.map(member =>
-            member.nic === nic ? { ...member, status: 'Declined' } : member
-        ));
-    };
-
     return (
         <div className="relative container mx-auto p-4">
             <button
@@ -144,8 +134,7 @@ const Speakers = () => {
                     <th className="py-2 px-4 border-b">NIC</th>
                     <th className="py-2 px-4 border-b">Email</th>
                     <th className="py-2 px-4 border-b">Contact</th>
-                    {/*<th className="py-2 px-4 border-b">Role</th>*/}
-                    <th className="py-2 px-4 border-b">Status</th>
+                    <th className="py-2 px-4 border-b">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -155,41 +144,20 @@ const Speakers = () => {
                         <td className="py-2 px-4 border-b text-center">{member.nic}</td>
                         <td className="py-2 px-4 border-b text-center">{member.email}</td>
                         <td className="py-2 px-4 border-b text-center">{member.contact}</td>
-                        {/*<td className="py-2 px-4 border-b">{member.role}</td>*/}
-                        <td className="py-2 px-4 border-b flex items-center justify-center text-center">
-                            <div className="flex space-x-2">
-                                {member.status === 'Active' && (
-                                    <>
-                                        <button
-                                            className="bg-green-500 text-white py-1 px-3 rounded-xl"
-                                            onClick={() => handleAccept(member.nic)}
-                                        >
-                                            Accept
-                                        </button>
-                                        <button
-                                            className="bg-red-500 text-white py-1 px-3 rounded-xl"
-                                            onClick={() => handleDecline(member.nic)}
-                                        >
-                                            Decline
-                                        </button>
-                                    </>
-                                )}
-                                {member.status === 'Accepted' && (
-                                    <>
-                                        <button
-                                            className="bg-blue-500 text-white py-1 px-3 rounded-xl"
-                                            onClick={() => handleEditClick(member)}
-                                        >
-                                            Edit
-                                        </button>
-                                        <button className="bg-red-500 text-white py-1 px-3 rounded-xl">
-                                            Delete
-                                        </button>
-                                    </>
-                                )}
-                            </div>
+                        <td className="py-2 px-4 border-b flex justify-center items-center space-x-2">
+                            <button
+                                className="bg-blue-500 text-white py-1 px-3 rounded-xl"
+                                onClick={() => handleEditClick(member)}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                className="bg-red-500 text-white py-1 px-3 rounded-xl"
+                                onClick={() => handleDelete(member.nic)}
+                            >
+                                Delete
+                            </button>
                         </td>
-
                     </tr>
                 ))}
                 </tbody>
@@ -251,18 +219,6 @@ const Speakers = () => {
                                     required
                                 />
                             </div>
-                            {/*<div className="mb-4">*/}
-                            {/*    <label className="block text-sm font-medium mb-1">*/}
-                            {/*        Role*/}
-                            {/*    </label>*/}
-                            {/*    <input*/}
-                            {/*        type="text"*/}
-                            {/*        name="role"*/}
-                            {/*        defaultValue={editingMember ? editingMember.role : ''}*/}
-                            {/*        className="border border-gray-300 rounded w-full p-2"*/}
-                            {/*        required*/}
-                            {/*    />*/}
-                            {/*</div>*/}
                             <div className="flex justify-end space-x-2">
                                 <button
                                     type="button"
