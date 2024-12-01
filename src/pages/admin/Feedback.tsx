@@ -74,7 +74,9 @@ const FeedbackPage = () => {
                     className={`${leftArrowClasses} p-2 rounded-full shadow focus:outline-none`}
                     disabled={currentIndex === 0}
                 >
-                    <FaArrowLeft size={24} />
+                    <FaArrowLeft
+                        size={24}
+                    />
                 </button>
 
                 {/* Feedback Cards */}
@@ -86,9 +88,15 @@ const FeedbackPage = () => {
                                 alt={feedback.name}
                                 className="w-32 h-32 rounded-full mx-auto my-4"
                             />
-                            <h2 className="text-lg font-bold mb-4">{feedback.name}</h2>
-                            <h3 className="text-sm font-semibold mb-2">{feedback.title}</h3>
-                            <p className="text-gray-700 mb-4">{feedback.content}</p>
+                            <h2 className="text-lg font-bold mb-4">
+                                {feedback.name}
+                            </h2>
+                            <h3 className="text-sm font-semibold mb-2">
+                                {feedback.title}
+                            </h3>
+                            <p className="text-gray-700 mb-4">
+                                {feedback.content}
+                            </p>
                             <div className="flex justify-center mt-auto">
                                 {[...Array(5)].map((_, index) => (
                                     <FaStar
@@ -108,7 +116,9 @@ const FeedbackPage = () => {
                     className={`${rightArrowClasses} p-2 rounded-full shadow focus:outline-none`}
                     disabled={currentIndex >= feedbacks.length - 3}
                 >
-                    <FaArrowRight size={24} />
+                    <FaArrowRight
+                        size={24}
+                    />
                 </button>
             </div>
         </div>

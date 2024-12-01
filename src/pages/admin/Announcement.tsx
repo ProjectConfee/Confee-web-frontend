@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {
+    useState
+} from 'react';
+import {
+    FontAwesomeIcon
+} from '@fortawesome/react-fontawesome';
 import {
     faTrash,
     faPlus
@@ -82,7 +86,7 @@ const AnnouncementPage: React.FC = () => {
         <div className="relative px-4">
             {announcements.map((announcement, index) => (
                 <div key={index}>
-                    <div className="relative bg-white mt-2 my-5 custom-card rounded-l-full pl-5 shadow-md mx-20">
+                    <div className="relative bg-white mt-2 my-5 custom-card rounded-2xl pl-5 shadow-md mx-20">
                         <div className="absolute top-5 right-5">
                             <FontAwesomeIcon
                                 icon={faTrash}
@@ -91,7 +95,9 @@ const AnnouncementPage: React.FC = () => {
                             />
                         </div>
                         <div className="p-4">
-                            <h2 className="text-xl font-semibold mb-2">{announcement.title}</h2>
+                            <h2 className="text-xl font-semibold mb-2">
+                                {announcement.title}
+                            </h2>
                             <p>{announcement.content}</p>
                             <div className="absolute bottom-2 right-2 text-gray-500 text-sm">
                                 {announcement.time}
@@ -102,18 +108,21 @@ const AnnouncementPage: React.FC = () => {
             ))}
 
             {/* Add New Announcement Button */}
-            <div className="fixed bottom-4 right-4">
+            <div className="fixed bottom-8 right-8">
                 <button
                     onClick={handleAddClick}
                     className="p-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 focus:outline-none"
                 >
-                    <FontAwesomeIcon icon={faPlus} size={'1x'} />
+                    <FontAwesomeIcon
+                        icon={faPlus}
+                        size={'1x'}
+                    />
                 </button>
             </div>
 
             {/* Modal for adding new announcement */}
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                     <div className="bg-white py-5 px-10 rounded-2xl shadow-lg w-1/3">
                         <h2 className="text-xl font-semibold mb-4">
                             Add New Announcement
@@ -185,13 +194,13 @@ const AnnouncementPage: React.FC = () => {
                         <div className="flex justify-end">
                             <button
                                 onClick={handleCloseModal}
-                                className="mr-2 p-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+                                className="mr-2 py-2 px-4 bg-gray-300 text-black rounded-2xl shadow-md hover:bg-gray-400"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={handleSaveAnnouncement}
-                                className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                className="py-2 px-4 bg-blue-500 text-white rounded-2xl shadow-md hover:bg-blue-600"
                             >
                                 Save
                             </button>

@@ -190,7 +190,8 @@ const App = () => {
                             <LinkIcon
                                 sx={{
                                     fontSize: 80,  // Adjust the size of the icon
-                                    color: 'white' // Ensure the icon has a contrasting color
+                                    color: 'white',
+                                    alignItems:'center'// Ensure the icon has a contrasting color
                                 }}
                             />
                         </CardMedia>

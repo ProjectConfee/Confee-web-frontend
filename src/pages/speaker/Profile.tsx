@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import { Modal, Form, Input, Upload, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import {
+    Modal,
+    Form,
+    Input,
+    Upload,
+    Button
+} from 'antd';
+
+import {
+    UploadOutlined
+} from '@ant-design/icons';
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 
@@ -29,9 +38,24 @@ const Profile: React.FC = () => {
 
     // Sample session data without images
     const sessions = [
-        { topic: 'Introduction to React', date: '6th November 2024', time: '10:00 AM - 12:00 PM', location: 'Room A' },
-        { topic: 'Advanced TypeScript', date: '7th November 2024', time: '02:00 PM - 04:00 PM', location: 'Room B' },
-        { topic: 'UI/UX Design Principles', date: '8th November 2024', time: '02:00 PM - 04:00 PM', location: 'Room A' },
+        {
+            topic: 'Introduction to React',
+            date: '6th November 2024',
+            time: '10:00 AM - 12:00 PM',
+            location: 'Room A'
+        },
+        {
+            topic: 'Advanced TypeScript',
+            date: '7th November 2024',
+            time: '02:00 PM - 04:00 PM',
+            location: 'Room B'
+        },
+        {
+            topic: 'UI/UX Design Principles',
+            date: '8th November 2024',
+            time: '02:00 PM - 04:00 PM',
+            location: 'Room A'
+        },
     ];
 
     const [isPasswordModalVisible, setIsPasswordModalVisible] = useState(false);
@@ -89,10 +113,21 @@ const Profile: React.FC = () => {
     const SessionCard: React.FC<{ topic: string, date: string, time: string, location: string }> = ({ topic, date, time, location }) => (
         <div className="flex p-5 bg-gray-100 rounded-2xl shadow-md my-3 mx-2">
             <div className="flex-1 pr-3">
-                <h3 className="text-md font-semibold mb-2">{topic}</h3>
-                <p><strong>Date:</strong> {date}</p>
-                <p><strong>Time:</strong> {time}</p>
-                <p><strong>Location:</strong> {location}</p>
+                <h3 className="text-md font-semibold mb-2">
+                    {topic}
+                </h3>
+                <p>
+                    <strong>Date:</strong>
+                    {date}
+                </p>
+                <p>
+                    <strong>Time:</strong>
+                    {time}
+                </p>
+                <p>
+                    <strong>Location:</strong>
+                    {location}
+                </p>
             </div>
         </div>
     );
@@ -102,7 +137,11 @@ const Profile: React.FC = () => {
             {/* Left Part: Profile Card */}
             <div className="w-1/3 px-4 py-12 bg-white rounded-2xl shadow-lg ml-16">
                 <div className="flex flex-col items-center">
-                    <img src={profilePhoto} alt="Profile" className="w-52 h-52 rounded-full mb-8" />
+                    <img
+                        src={profilePhoto}
+                        alt="Profile"
+                        className="w-52 h-52 rounded-full mb-8"
+                    />
                     <h2 className="text-xl font-semibold mb-2">
                         {name}
                     </h2>
@@ -339,11 +378,19 @@ const Profile: React.FC = () => {
                             beforeUpload={() => false}
                             accept=".pdf, .docx, .pptx"
                         >
-                            <Button icon={<UploadOutlined />}>Select File</Button>
+                            <Button
+                                icon={<UploadOutlined />}
+                            >
+                                Select File
+                            </Button>
                         </Upload>
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" className="w-full py-2">
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            className="w-full py-2"
+                        >
                             Upload
                         </Button>
                     </Form.Item>

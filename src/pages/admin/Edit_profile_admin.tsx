@@ -21,7 +21,7 @@ import {
 
 const props = {
     name: 'file',
-    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
+    action: 'https://localhost:8080/profiles',
     headers: {
         authorization: 'authorization-text',
     },
