@@ -1,23 +1,46 @@
 import {
-    Card,
-    Col,
+
     Divider,
-    Row,
     Typography
 } from "antd";
 
-import Meta from "antd/es/card/Meta";
-
-import conference_day1 from "../../assets/event1.jpeg";
-import conference_day2 from "../../assets/event2.jpeg";
-import pre_conference_1 from "../../assets/event3.jpeg";
 import pre_conference_2 from "../../assets/event4.jpeg";
-import pre_conference_3 from "../../assets/event5.jpeg";
-import post_conference_1 from "../../assets/event6.jpeg";
-
-import {Link} from "react-router-dom";
+import EventCard from "../../components/event/EventCard.tsx";
 
 const { Title } = Typography;
+
+const events = [
+    {
+        ImgUrl : pre_conference_2,
+        title : "Workshop 3",
+        date : "2024-08-10"
+    },
+    {
+        ImgUrl : pre_conference_2,
+        title : "Workshop 3",
+        date : "2024-08-10"
+    },
+    {
+        ImgUrl : pre_conference_2,
+        title : "Workshop 3",
+        date : "2024-08-10"
+    },
+    {
+        ImgUrl : pre_conference_2,
+        title : "Workshop 3",
+        date : "2024-08-10"
+    },
+    {
+        ImgUrl : pre_conference_2,
+        title : "Workshop 3",
+        date : "2024-08-10"
+    },
+    {
+        ImgUrl : pre_conference_2,
+        title : "Workshop 3",
+        date : "2024-08-10"
+    }
+]
 
 
 const App = () => (
@@ -37,57 +60,10 @@ const App = () => (
                     <div>
                         <Title level={4}>Conference</Title>
                     </div>
-                    <div>
-                        <Row gutter={32}>
-                            <Col>
-
-                                <Link to="/event_details">
-                                    <Card
-                                        hoverable
-                                        style={{
-                                            width: 250,
-
-                                        }}
-                                        cover={<img alt="Conference day 1"
-                                                    src={conference_day1}
-                                                    style={{
-                                                        height: 160,
-                                                        objectFit: "cover",
-                                                    }}
-
-                                        />}
-                                    >
-                                        <Meta title="Conference Day 1" description="Date : 10th of November 2024"/>
-                                    </Card>
-                                </Link>
-
-                            </Col>
-
-                            <Col>
-
-                                <Link to="/event_details">
-                                    <Card
-                                        hoverable
-                                        style={{
-                                            width: 250,
-
-                                        }}
-                                        cover={<img alt="Conference day 2"
-                                                    src={conference_day2}
-                                                    style={{
-                                                        height: 160,
-                                                        objectFit: "cover",
-                                                    }}
-
-                                        />}
-                                    >
-                                        <Meta title="Conference day 2" description="Date : 11th of November 2024"/>
-                                    </Card>
-                                </Link>
-
-                            </Col>
-                        </Row>
-
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {events.map((event, index) => (
+                            <EventCard key={index} events={event}/>
+                        ))}
                     </div>
                 </div>
 
@@ -97,81 +73,10 @@ const App = () => (
                     <div>
                         <Title level={4}>Pre Conference Workshops</Title>
                     </div>
-                    <div>
-                        <Row gutter={32}>
-                            <Col>
-
-                                <Link to="/event_details">
-                                    <Card
-                                        hoverable
-                                        style={{
-                                            width: 250,
-
-                                        }}
-                                        cover={<img alt="pre conference 1"
-                                                    src={pre_conference_1}
-                                                    style={{
-                                                        height: 160,
-                                                        objectFit: "cover",
-                                                    }}
-
-                                        />}
-                                    >
-                                        <Meta title="Workshop 1" description="Date : 04th of November 2024"/>
-                                    </Card>
-                                </Link>
-
-                            </Col>
-
-                            <Col>
-
-                                <Link to="/event_details">
-                                    <Card
-                                        hoverable
-                                        style={{
-                                            width: 250,
-
-                                        }}
-                                        cover={<img alt="Conference day 2"
-                                                    src={pre_conference_2}
-                                                    style={{
-                                                        height: 160,
-                                                        objectFit: "cover",
-                                                    }}
-
-                                        />}
-                                    >
-                                        <Meta title="Workshop 2" description="Date : 05th of November 2024"/>
-                                    </Card>
-                                </Link>
-
-                            </Col>
-
-                            <Col>
-
-                                <Link to="/event_details">
-                                    <Card
-                                        hoverable
-                                        style={{
-                                            width: 250,
-
-                                        }}
-                                        cover={<img alt="Conference day 2"
-                                                    src={pre_conference_3}
-                                                    style={{
-                                                        height: 160,
-                                                        objectFit: "cover",
-                                                    }}
-
-                                        />}
-                                    >
-                                        <Meta title="Workshop 3" description="Date : 08th of November 2024"/>
-                                    </Card>
-                                </Link>
-
-                            </Col>
-                        </Row>
-
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {events.map((event, index) => (
+                            <EventCard key={index} events={event}/>
+                        ))}
                     </div>
                 </div>
 
@@ -181,33 +86,10 @@ const App = () => (
                     <div>
                         <Title level={4}>Post Conference Workshops</Title>
                     </div>
-                    <div>
-                        <Row gutter={32}>
-                            <Col>
-
-                                <Link to="/event_details">
-                                    <Card
-                                        hoverable
-                                        style={{
-                                            width: 250,
-
-                                        }}
-                                        cover={<img alt="post conference 1"
-                                                    src={post_conference_1}
-                                                    style={{
-                                                        height: 160,
-                                                        objectFit: "cover",
-                                                    }}
-
-                                        />}
-                                    >
-                                        <Meta title="Workshop 1" description="Date : 14th of November 2024"/>
-                                    </Card>
-                                </Link>
-
-                            </Col>
-                        </Row>
-
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {events.map((event, index) => (
+                            <EventCard key={index} events={event}/>
+                        ))}
                     </div>
                 </div>
             </div>
