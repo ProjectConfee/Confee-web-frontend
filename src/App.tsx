@@ -277,7 +277,7 @@ function App() {
         <Route path="/admin_edit_profile" element={<Layout_admin ><Admin_edit_profile /></Layout_admin >} />
         <Route path="/admin_announcement" element={<Layout_admin ><Admin_announcement /></Layout_admin >} />
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
-        <Route path="/admin_view_schedules" element={<Layout_admin ><Admin_view_schedules /></Layout_admin >} />
+        <Route path="/admin_view_schedules" element={<Layout_admin ><Event_schedules /></Layout_admin >} />
         <Route path="/admin_stall_allocation" element={<Layout_admin ><Admin_stall_allocation /></Layout_admin >} />
         <Route path="/example" element={<Layout_admin ><Example /></Layout_admin >} />
         {/*admin other*/}
@@ -301,7 +301,7 @@ function App() {
         <Route path="/committee_edit_profile" element={<Layout_oc ><Committee_edit_profile /></Layout_oc >} />
         <Route path="/committee_announcement" element={<Layout_oc ><Committee_announcement /></Layout_oc >} />
         <Route path="/committee_feedback" element={<Layout_oc ><Committee_feedback /></Layout_oc >} />
-        <Route path="/committee_update_schedule" element={<Layout_oc ><Committee_update_schedule /></Layout_oc >} />
+        <Route path="/committee_update_schedule" element={<Layout_oc ><Event_schedules /></Layout_oc >} />
         <Route path="/committee_upload_resource" element={<Layout_oc ><Committee_upload_resource /></Layout_oc >} />
         <Route path="/committee_stall" element={<Layout_oc ><Committee_stall /></Layout_oc >} />
         {/*committee other*/}
