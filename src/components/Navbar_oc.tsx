@@ -24,7 +24,7 @@ const Navbar_oc = () => {
         {
             title: "Events",
             src: "events",
-            path: "#",
+            path: "/committee_event",
             gap: true
         },
         {
