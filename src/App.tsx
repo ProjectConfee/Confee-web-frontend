@@ -286,6 +286,7 @@ function App() {
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
         <Route path="/admin_view_schedules" element={<Layout_admin ><Event_schedules /></Layout_admin >} />
         <Route path="/admin_stall_allocation" element={<Layout_admin ><Admin_stall_allocation /></Layout_admin >} />
+        <Route path="/admin_event" element={<Layout_admin ><Event /></Layout_admin >} />
         <Route path="/example" element={<Layout_admin ><Example /></Layout_admin >} />
         {/*admin other*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
@@ -311,6 +312,7 @@ function App() {
         <Route path="/committee_update_schedule" element={<Layout_oc ><Event_schedules /></Layout_oc >} />
         <Route path="/committee_upload_resource" element={<Layout_oc ><Committee_upload_resource /></Layout_oc >} />
         <Route path="/committee_stall" element={<Layout_oc ><Committee_stall /></Layout_oc >} />
+        <Route path="/committee_event" element={<Layout_oc ><Event /></Layout_oc >} />
         {/*committee other*/}
         <Route path="/company_details" element={<Layout_oc ><Company_details /></Layout_oc >} />
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />
