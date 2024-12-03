@@ -41,7 +41,7 @@ const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
       // }
       switch (data.role) {
         case "PARTICIPANT":
-          window.location.href = '/event';
+          window.location.href = '/participant_dashboard';
           break;
         case "ADMIN":
           window.location.href = '/admin_dashboard';
