@@ -982,6 +982,212 @@
 // };
 //
 // export default App;
+// import React, { useEffect, useState } from 'react';
+// import Swal from 'sweetalert2';
+// import axios from 'axios';
+// import { IoMdAddCircleOutline, IoMdTrash, IoMdCreate } from 'react-icons/io';
+// import { Button, Card } from 'antd';
+// import 'antd/dist/reset.css'; // Ensure Ant Design styles are imported
+//
+// interface Announcement {
+//   id: number;
+//   announcement: string;
+//   timestamp: string; // Adjust the type if it's a different format
+// }
+//
+// const App: React.FC = () => {
+//   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+//   const API_BASE_URL = 'http://localhost:8080/api/announcements';
+//
+//   const getAuthToken = () => localStorage.getItem('authToken');
+//
+//   const fetchAnnouncements = async () => {
+//     const token = getAuthToken();
+//     if (!token) {
+//       console.error('No auth token found in local storage.');
+//       return;
+//     }
+//
+//     try {
+//       const response = await axios.get(`${API_BASE_URL}/getAll`, {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+//
+//       // Sort announcements by timestamp (most recent first)
+//       const sortedAnnouncements = response.data.sort(
+//           (a: Announcement, b: Announcement) =>
+//               new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+//       );
+//
+//       setAnnouncements(sortedAnnouncements);
+//     } catch (error) {
+//       console.error('Error fetching announcements:', error);
+//     }
+//   };
+//
+//   useEffect(() => {
+//     fetchAnnouncements();
+//   }, []);
+//
+//   const handleAddClick = async () => {
+//     const { value: text } = await Swal.fire({
+//       input: 'textarea',
+//       inputLabel: 'New Announcement',
+//       inputPlaceholder: 'Enter new announcement',
+//       inputAttributes: { 'aria-label': 'Enter new announcement' },
+//       showCancelButton: true,
+//       confirmButtonText: 'Add',
+//       cancelButtonText: 'Cancel',
+//     });
+//
+//     if (text) {
+//       const token = getAuthToken();
+//       if (!token) {
+//         Swal.fire('Error!', 'No auth token found.', 'error');
+//         return;
+//       }
+//
+//       try {
+//         await axios.post(
+//             `${API_BASE_URL}/add`,
+//             { announcement: text },
+//             {
+//               headers: {
+//                 Authorization: `Bearer ${token}`,
+//                 'Content-Type': 'application/json',
+//               },
+//             }
+//         );
+//         Swal.fire('Announcement added!', '', 'success');
+//         fetchAnnouncements();
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to add announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   const handleEditClick = async (announcement: Announcement) => {
+//     const { value: newText } = await Swal.fire({
+//       input: 'textarea',
+//       inputLabel: 'Edit Announcement',
+//       inputValue: announcement.announcement,
+//       inputPlaceholder: 'Edit announcement',
+//       inputAttributes: { 'aria-label': 'Edit announcement' },
+//       showCancelButton: true,
+//       confirmButtonText: 'Save',
+//       cancelButtonText: 'Cancel',
+//     });
+//
+//     if (newText) {
+//       const token = getAuthToken();
+//       if (!token) {
+//         Swal.fire('Error!', 'No auth token found.', 'error');
+//         return;
+//       }
+//
+//       try {
+//         await axios.put(
+//             `${API_BASE_URL}/update/${announcement.id}`,
+//             { announcement: newText },
+//             {
+//               headers: {
+//                 Authorization: `Bearer ${token}`,
+//                 'Content-Type': 'application/json',
+//               },
+//             }
+//         );
+//         Swal.fire('Announcement updated!', '', 'success');
+//         fetchAnnouncements();
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to update announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   const handleDeleteClick = async (id: number) => {
+//     const token = getAuthToken();
+//     if (!token) {
+//       Swal.fire('Error!', 'No auth token found.', 'error');
+//       return;
+//     }
+//
+//     const result = await Swal.fire({
+//       title: 'Are you sure?',
+//       text: "You won't be able to revert this!",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonText: 'Yes, delete it!',
+//       cancelButtonText: 'No, cancel!',
+//     });
+//
+//     if (result.isConfirmed) {
+//       try {
+//         await axios.delete(`${API_BASE_URL}/delete/${id}`, {
+//           headers: { Authorization: `Bearer ${token}` },
+//         });
+//         Swal.fire('Deleted!', 'The announcement has been deleted.', 'success');
+//         fetchAnnouncements();
+//       } catch (error) {
+//         Swal.fire('Error!', 'Failed to delete announcement.', 'error');
+//       }
+//     }
+//   };
+//
+//   return (
+//       <div className="bg-gradient-to-r from-blue-50 to-gray-100 mt-16 mx-auto max-w-5xl p-8 rounded-3xl shadow-xl">
+//         <div className="flex items-center justify-between mb-8">
+//           <h2 className="text-4xl font-extrabold text-gray-800">Announcements</h2>
+//           <Button
+//               type="primary"
+//               onClick={handleAddClick}
+//               className="flex items-center space-x-2 text-lg rounded-full bg-blue-500 hover:bg-blue-600 shadow-md transition-transform transform hover:scale-105"
+//               icon={<IoMdAddCircleOutline className="text-2xl" />}
+//           >
+//             <span>Add</span>
+//           </Button>
+//         </div>
+//         <div className="space-y-6">
+//           {announcements.map((announcement) => (
+//               <Card
+//                   key={announcement.id}
+//                   className="bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-100"
+//                   style={{ padding: '12px', borderRadius: '10px', position: 'relative' }}
+//               >
+//                 <div className="flex flex-col">
+//                   <p className="text-lg font-semibold text-gray-800 mb-0">{announcement.announcement}</p>
+//                   <div className="text-gray-500 text-sm mb-4">
+//                     {new Date(announcement.timestamp).toLocaleString([], {
+//                       hour: '2-digit',
+//                       minute: '2-digit',
+//                       hour12: true,
+//                     })}
+//                   </div>
+//                   <div className="absolute top-4 right-4 flex space-x-4">
+//                     <Button
+//                         type="text"
+//                         icon={<IoMdCreate className="text-blue-600 text-2xl" />}
+//                         onClick={() => handleEditClick(announcement)}
+//                         className="text-lg"
+//                     />
+//                     <Button
+//                         type="text"
+//                         danger
+//                         icon={<IoMdTrash className="text-red-600 text-2xl" />}
+//                         onClick={() => handleDeleteClick(announcement.id)}
+//                         className="text-lg"
+//                     />
+//                   </div>
+//                 </div>
+//               </Card>
+//           ))}
+//         </div>
+//       </div>
+//   );
+// };
+//
+// export default App;
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
@@ -997,6 +1203,7 @@ interface Announcement {
 
 const App: React.FC = () => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const [workshopDetails, ] = useState<any>(null); // State for holding workshop data
   const API_BASE_URL = 'http://localhost:8080/api/announcements';
 
   const getAuthToken = () => localStorage.getItem('authToken');
@@ -1135,6 +1342,8 @@ const App: React.FC = () => {
     }
   };
 
+
+
   return (
       <div className="bg-gradient-to-r from-blue-50 to-gray-100 mt-16 mx-auto max-w-5xl p-8 rounded-3xl shadow-xl">
         <div className="flex items-center justify-between mb-8">
@@ -1178,11 +1387,19 @@ const App: React.FC = () => {
                         onClick={() => handleDeleteClick(announcement.id)}
                         className="text-lg"
                     />
+
                   </div>
                 </div>
               </Card>
           ))}
         </div>
+
+        {workshopDetails && (
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-800">Workshop Details</h3>
+              <pre>{JSON.stringify(workshopDetails, null, 2)}</pre>
+            </div>
+        )}
       </div>
   );
 };

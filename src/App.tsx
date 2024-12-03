@@ -86,7 +86,6 @@ import Speaker_profile from "./pages/speaker/Profile.tsx";
 import Speaker_edit_profile from "./pages/speaker/Edit_profile.tsx";
 import Speaker_feedback from "./pages/speaker/Feedback.tsx";
 import Speaker_announcement from "./pages/speaker/Announcement.tsx";
-import Speaker_stall from "./pages/participant/Stall_allocation.tsx";
 import Speaker_view_schedules from './pages/participant/Event_schedule.tsx';
 import Speaker_resource from './pages/event/UploadResource.tsx';
 // speaker other
