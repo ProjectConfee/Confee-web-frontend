@@ -93,6 +93,7 @@ import Speaker_resource from './pages/event/UploadResource.tsx';
 import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
+import Stall_allocations from "./pages/speaker/Stall_allocation.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
 // import View_schedules_speaker from './pages/participant/Event_schedule.tsx';
 // import Resource_speaker from './pages/event/UploadResource.tsx';
@@ -249,7 +250,7 @@ function App() {
         <Route path="/speaker_edit_profile" element={<Layout_speaker ><Speaker_edit_profile /></Layout_speaker >} />
         <Route path="/speaker_feedback" element={<Layout_speaker ><Speaker_feedback /></Layout_speaker >} />
         <Route path="/speaker_announcement" element={<Layout_speaker ><Speaker_announcement /></Layout_speaker >} />
-        <Route path="/speaker_stall" element={<Layout_speaker ><Speaker_stall /></Layout_speaker >} />
+        <Route path="/speaker_stall" element={<Layout_speaker ><Stall_allocations /></Layout_speaker >} />
         <Route path="/speaker_view_schedules" element={<Layout_speaker ><Speaker_view_schedules /></Layout_speaker >} />
         <Route path="/speaker_resource" element={<Layout_speaker ><Speaker_resource /></Layout_speaker >} />
         {/*speaker other*/}
