@@ -44,7 +44,13 @@ const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
           window.location.href = '/event';
           break;
         case "ADMIN":
-          window.location.href = '/announcement_admin';
+          window.location.href = '/admin_dashboard';
+          break;
+        case "COMMITTEE":
+          window.location.href = '/committee_dashboard';
+          break;
+        case "SPEAKER":
+          window.location.href = '/speaker_dashboard';
           break;
         case "SPONSOR":
           window.location.href = '/homepage';
