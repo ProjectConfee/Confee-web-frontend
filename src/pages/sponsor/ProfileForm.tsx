@@ -404,6 +404,191 @@
 //                             </Col>
 //                         </Row>
 //                     ))}
+// //                     <Button type="dashed" onClick={handleAddSocialMediaLink} block>Add Social Media Link</Button>
+// //                     <Form.Item>
+// //                         <Button type="primary" htmlType="submit" style={{ marginTop: '20px' }}>Submit</Button>
+// //                     </Form.Item>
+// //                 </Form>
+// //             </div>
+// //         </div>
+// //     );
+// // };
+// //
+// // export default ProfileForm;
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { Form, Input, Button, message, Select, Row, Col, List } from 'antd';
+//
+// const { TextArea } = Input;
+// const { Option } = Select;
+//
+// const platforms = ['Facebook', 'Twitter', 'Instagram', 'LinkedIn', 'YouTube'];
+//
+// interface SocialMediaLink {
+//     platform: string;
+//     url: string;
+// }
+//
+// interface PlayGame {
+//     gameName: string;
+//     gameType: string;
+// }
+//
+// interface Profile {
+//     companyName: string;
+//     companyAddress: string;
+//     contactNumber: string;
+//     companyEmail: string;
+//     biography: string;
+//     playGames: PlayGame[];
+//     companyLogo: string;
+//     socialMediaLinks: SocialMediaLink[];
+// }
+//
+// const ProfileForm: React.FC<{ id: string }> = ({ id }) => {
+//     const [form] = Form.useForm();
+//     const [socialMediaLinks, setSocialMediaLinks] = useState<SocialMediaLink[]>([]);
+//     const [playGames, setPlayGames] = useState<PlayGame[]>([]);
+//     const [logoFile] = useState<File | null>(null);
+//     const token = localStorage.getItem("authToken");
+//
+//
+//     useEffect(() => {
+//         const fetchProfileData = async () => {
+//             if (!token) {
+//                 message.error("No authentication token found.");
+//                 return;
+//             }
+//
+//             try {
+//                 const response = await axios.get(`http://localhost:8080/api/v1/admin/workshop/${id}`, {
+//                     headers: {
+//                         Authorization: `Bearer ${token}`,
+//                     },
+//                 });
+//
+//                 const profileData: Profile = response.data;
+//                 form.setFieldsValue(profileData);
+//                 setSocialMediaLinks(profileData.socialMediaLinks || []);
+//                 setPlayGames(profileData.playGames || []);
+//             } catch (error) {
+//                 console.error("Error fetching profile data:", error);
+//                 message.error("Failed to load profile data.");
+//             }
+//         };
+//
+//         fetchProfileData();
+//     }, [id, token, form]);
+//
+//     const handleAddSocialMediaLink = () => {
+//         setSocialMediaLinks([...socialMediaLinks, { platform: '', url: '' }]);
+//     };
+//
+//     const handleAddPlayGame = () => {
+//         setPlayGames([...playGames, { gameName: '', gameType: '' }]);
+//     };
+//
+//     const handleSocialMediaChange = (index: number, key: string, value: string) => {
+//         const newLinks = [...socialMediaLinks];
+//         newLinks[index] = { ...newLinks[index], [key]: value };
+//         setSocialMediaLinks(newLinks);
+//     };
+//
+//     const handlePlayGameChange = (index: number, key: string, value: string) => {
+//         const newPlayGames = [...playGames];
+//         newPlayGames[index] = { ...newPlayGames[index], [key]: value };
+//         setPlayGames(newPlayGames);
+//     };
+//
+//     const handleFinish = async (values: any) => {
+//         const profile: Profile = {
+//             ...values,
+//             companyLogo: logoFile ? URL.createObjectURL(logoFile) : '',
+//             socialMediaLinks: socialMediaLinks.filter(link => link.platform && link.url),
+//             playGames: playGames.filter(game => game.gameName && game.gameType),
+//         };
+//
+//         try {
+//             await axios.post(
+//                 `http://localhost:8080/api/v1/admin/workshop`,
+//                 profile,
+//                 {
+//                     headers: {
+//                         Authorization: `Bearer ${token}`,
+//                         'Content-Type': 'application/json',
+//                     },
+//                 }
+//             );
+//             message.success('Profile submitted successfully!');
+//         } catch (error) {
+//             console.error("Error submitting profile:", error);
+//             message.error("Failed to submit profile.");
+//         }
+//     };
+//
+//     return (
+//         <div className="flex items-center justify-center min-h-screen bg-gray-100">
+//             <div className="container p-6 bg-white shadow-md rounded-lg w-1/2">
+//                 <h1 className="text-2xl font-bold mb-4 text-center">Sponsor Profile</h1>
+//                 <Form form={form} layout="vertical" onFinish={handleFinish}>
+//                     <Form.Item label="Company Name" name="companyName" rules={[{ required: true, message: 'Please enter the company name' }]}>
+//                         <Input />
+//                     </Form.Item>
+//                     <Form.Item label="Company Address" name="companyAddress" rules={[{ required: true, message: 'Please enter the company address' }]}>
+//                         <Input />
+//                     </Form.Item>
+//                     <Form.Item label="Contact Number" name="contactNumber" rules={[{ required: true, message: 'Please enter the contact number' }]}>
+//                         <Input />
+//                     </Form.Item>
+//                     <Form.Item label="Company Email" name="companyEmail" rules={[{ required: true, message: 'Please enter the company email' }, { type: 'email', message: 'Please enter a valid email address' }]}>
+//                         <Input />
+//                     </Form.Item>
+//                     <Form.Item label="Biography" name="biography" rules={[{ required: true, message: 'Please enter a biography' }]}>
+//                         <TextArea rows={4} />
+//                     </Form.Item>
+//                     <Form.Item label="Play Games Added to the Event">
+//                         {playGames.length > 0 && (
+//                             <List
+//                                 bordered
+//                                 dataSource={playGames}
+//                                 renderItem={(item, index) => (
+//                                     <List.Item>
+//                                         <Input
+//                                             value={item.gameName}
+//                                             onChange={(e) => handlePlayGameChange(index, 'gameName', e.target.value)}
+//                                             placeholder="Game Name"
+//                                             style={{ marginBottom: '10px' }}
+//                                         />
+//                                         <Input
+//                                             value={item.gameType}
+//                                             onChange={(e) => handlePlayGameChange(index, 'gameType', e.target.value)}
+//                                             placeholder="Game Type"
+//                                         />
+//                                     </List.Item>
+//                                 )}
+//                             />
+//                         )}
+//                         <Button type="dashed" onClick={handleAddPlayGame} block style={{ marginTop: '10px' }}>
+//                             Add Play Game
+//                         </Button>
+//                     </Form.Item>
+//                     {socialMediaLinks.map((link, index) => (
+//                         <Row key={index} gutter={16}>
+//                             <Col span={12}>
+//                                 <Select
+//                                     value={link.platform}
+//                                     onChange={(value) => handleSocialMediaChange(index, 'platform', value)}
+//                                 >
+//                                     {platforms.map(platform => (
+//                                         <Option key={platform} value={platform}>{platform}</Option>
+//                                     ))}
+//                                 </Select>
+//                             </Col>
+//                             <Col span={12}>
+//                                 <Input value={link.url} onChange={(e) => handleSocialMediaChange(index, 'url', e.target.value)} placeholder="URL" />
+//                             </Col>
+//                         </Row>
+//                     ))}
 //                     <Button type="dashed" onClick={handleAddSocialMediaLink} block>Add Social Media Link</Button>
 //                     <Form.Item>
 //                         <Button type="primary" htmlType="submit" style={{ marginTop: '20px' }}>Submit</Button>
@@ -445,11 +630,13 @@ interface Profile {
     socialMediaLinks: SocialMediaLink[];
 }
 
-const ProfileForm: React.FC<{ id: string }> = ({ id }) => {
+const ProfileForm: React.FC = () => {
     const [form] = Form.useForm();
     const [socialMediaLinks, setSocialMediaLinks] = useState<SocialMediaLink[]>([]);
     const [playGames, setPlayGames] = useState<PlayGame[]>([]);
     const [logoFile] = useState<File | null>(null);
+    const [profileExists, setProfileExists] = useState<boolean>(false);
+    const [profileData, setProfileData] = useState<Profile | null>(null);
     const token = localStorage.getItem("authToken");
 
     useEffect(() => {
@@ -459,17 +646,29 @@ const ProfileForm: React.FC<{ id: string }> = ({ id }) => {
                 return;
             }
 
+            const userId = localStorage.getItem("id"); // Assuming you have the user ID stored in localStorage
+
+            if (!userId) {
+                message.error("No user ID found in session.");
+                return;
+            }
+
             try {
-                const response = await axios.get(`http://localhost:8080/api/v1/admin/workshop/${id}`, {
+                // Check if profile exists in the database for this user
+                const response = await axios.get(`http://localhost:8080/api/v1/profiles/{id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
 
-                const profileData: Profile = response.data;
-                form.setFieldsValue(profileData);
-                setSocialMediaLinks(profileData.socialMediaLinks || []);
-                setPlayGames(profileData.playGames || []);
+                if (response.data) {
+                    // Profile exists, display profile data
+                    setProfileExists(true);
+                    setProfileData(response.data);
+                } else {
+                    // No profile found, show the form
+                    setProfileExists(false);
+                }
             } catch (error) {
                 console.error("Error fetching profile data:", error);
                 message.error("Failed to load profile data.");
@@ -477,7 +676,7 @@ const ProfileForm: React.FC<{ id: string }> = ({ id }) => {
         };
 
         fetchProfileData();
-    }, [id, token, form]);
+    }, [token]);
 
     const handleAddSocialMediaLink = () => {
         setSocialMediaLinks([...socialMediaLinks, { platform: '', url: '' }]);
@@ -509,7 +708,7 @@ const ProfileForm: React.FC<{ id: string }> = ({ id }) => {
 
         try {
             await axios.post(
-                `http://localhost:8080/api/v1/admin/workshop`,
+                `http://localhost:8080/api/v1/profiles/add`,
                 profile,
                 {
                     headers: {
@@ -525,77 +724,104 @@ const ProfileForm: React.FC<{ id: string }> = ({ id }) => {
         }
     };
 
-    return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="container p-6 bg-white shadow-md rounded-lg w-1/2">
-                <h1 className="text-2xl font-bold mb-4 text-center">Sponsor Profile</h1>
-                <Form form={form} layout="vertical" onFinish={handleFinish}>
-                    <Form.Item label="Company Name" name="companyName" rules={[{ required: true, message: 'Please enter the company name' }]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Company Address" name="companyAddress" rules={[{ required: true, message: 'Please enter the company address' }]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Contact Number" name="contactNumber" rules={[{ required: true, message: 'Please enter the contact number' }]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Company Email" name="companyEmail" rules={[{ required: true, message: 'Please enter the company email' }, { type: 'email', message: 'Please enter a valid email address' }]}>
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Biography" name="biography" rules={[{ required: true, message: 'Please enter a biography' }]}>
-                        <TextArea rows={4} />
-                    </Form.Item>
-                    <Form.Item label="Play Games Added to the Event">
-                        {playGames.length > 0 && (
-                            <List
-                                bordered
-                                dataSource={playGames}
-                                renderItem={(item, index) => (
-                                    <List.Item>
-                                        <Input
-                                            value={item.gameName}
-                                            onChange={(e) => handlePlayGameChange(index, 'gameName', e.target.value)}
-                                            placeholder="Game Name"
-                                            style={{ marginBottom: '10px' }}
-                                        />
-                                        <Input
-                                            value={item.gameType}
-                                            onChange={(e) => handlePlayGameChange(index, 'gameType', e.target.value)}
-                                            placeholder="Game Type"
-                                        />
-                                    </List.Item>
-                                )}
-                            />
-                        )}
-                        <Button type="dashed" onClick={handleAddPlayGame} block style={{ marginTop: '10px' }}>
-                            Add Play Game
-                        </Button>
-                    </Form.Item>
-                    {socialMediaLinks.map((link, index) => (
-                        <Row key={index} gutter={16}>
-                            <Col span={12}>
-                                <Select
-                                    value={link.platform}
-                                    onChange={(value) => handleSocialMediaChange(index, 'platform', value)}
-                                >
-                                    {platforms.map(platform => (
-                                        <Option key={platform} value={platform}>{platform}</Option>
-                                    ))}
-                                </Select>
-                            </Col>
-                            <Col span={12}>
-                                <Input value={link.url} onChange={(e) => handleSocialMediaChange(index, 'url', e.target.value)} placeholder="URL" />
-                            </Col>
-                        </Row>
+    if (profileExists && profileData) {
+        // If profile exists, show profile details
+        return (
+            <div className="profile-container">
+                <h1>{profileData.companyName}</h1>
+                <p>{profileData.companyAddress}</p>
+                <p>{profileData.contactNumber}</p>
+                <p>{profileData.companyEmail}</p>
+                <p>{profileData.biography}</p>
+                {/* Render playGames and social media links as necessary */}
+                <h2>Games</h2>
+                <ul>
+                    {profileData.playGames.map((game, index) => (
+                        <li key={index}>{game.gameName} - {game.gameType}</li>
                     ))}
-                    <Button type="dashed" onClick={handleAddSocialMediaLink} block>Add Social Media Link</Button>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit" style={{ marginTop: '20px' }}>Submit</Button>
-                    </Form.Item>
-                </Form>
+                </ul>
+                <h2>Social Media</h2>
+                <ul>
+                    {profileData.socialMediaLinks.map((link, index) => (
+                        <li key={index}>{link.platform}: <a href={link.url} target="_blank" rel="noopener noreferrer">{link.url}</a></li>
+                    ))}
+                </ul>
             </div>
-        </div>
-    );
+        );
+    } else {
+        // If profile doesn't exist, show profile form
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gray-100">
+                <div className="container p-6 bg-white shadow-md rounded-lg w-1/2">
+                    <h1 className="text-2xl font-bold mb-4 text-center">Sponsor Profile</h1>
+                    <Form form={form} layout="vertical" onFinish={handleFinish}>
+                        <Form.Item label="Company Name" name="companyName" rules={[{ required: true, message: 'Please enter the company name' }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Company Address" name="companyAddress" rules={[{ required: true, message: 'Please enter the company address' }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Contact Number" name="contactNumber" rules={[{ required: true, message: 'Please enter the contact number' }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Company Email" name="companyEmail" rules={[{ required: true, message: 'Please enter the company email' }, { type: 'email', message: 'Please enter a valid email address' }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Biography" name="biography" rules={[{ required: true, message: 'Please enter a biography' }]}>
+                            <TextArea rows={4} />
+                        </Form.Item>
+                        <Form.Item label="Play Games Added to the Event">
+                            {playGames.length > 0 && (
+                                <List
+                                    bordered
+                                    dataSource={playGames}
+                                    renderItem={(item, index) => (
+                                        <List.Item>
+                                            <Input
+                                                value={item.gameName}
+                                                onChange={(e) => handlePlayGameChange(index, 'gameName', e.target.value)}
+                                                placeholder="Game Name"
+                                                style={{ marginBottom: '10px' }}
+                                            />
+                                            <Input
+                                                value={item.gameType}
+                                                onChange={(e) => handlePlayGameChange(index, 'gameType', e.target.value)}
+                                                placeholder="Game Type"
+                                            />
+                                        </List.Item>
+                                    )}
+                                />
+                            )}
+                            <Button type="dashed" onClick={handleAddPlayGame} block style={{ marginTop: '10px' }}>
+                                Add Play Game
+                            </Button>
+                        </Form.Item>
+                        {socialMediaLinks.map((link, index) => (
+                            <Row key={index} gutter={16}>
+                                <Col span={12}>
+                                    <Select
+                                        value={link.platform}
+                                        onChange={(value) => handleSocialMediaChange(index, 'platform', value)}
+                                    >
+                                        {platforms.map(platform => (
+                                            <Option key={platform} value={platform}>{platform}</Option>
+                                        ))}
+                                    </Select>
+                                </Col>
+                                <Col span={12}>
+                                    <Input value={link.url} onChange={(e) => handleSocialMediaChange(index, 'url', e.target.value)} placeholder="URL" />
+                                </Col>
+                            </Row>
+                        ))}
+                        <Button type="dashed" onClick={handleAddSocialMediaLink} block>Add Social Media Link</Button>
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit" style={{ marginTop: '20px' }}>Submit</Button>
+                        </Form.Item>
+                    </Form>
+                </div>
+            </div>
+        );
+    }
 };
 
 export default ProfileForm;
