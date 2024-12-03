@@ -1,4 +1,10 @@
-import { useState } from 'react';
+import React, {
+    useState,
+    useEffect
+} from 'react';
+
+import axios from 'axios';
+
 import {
     FaArrowLeft,
     FaArrowRight,
@@ -6,51 +12,51 @@ import {
     FaPlus
 } from 'react-icons/fa';
 
-const FeedbackPage = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isFormOpen, setIsFormOpen] = useState(false); // Track if form is open
+// Define the Feedback type for TypeScript
+type Feedback = {
+    id: number;
+    participant_name?: string;
+    title?: string;
+    content: string;
+    rating: number;
+};
 
-    const feedbacks = [
-        {
-            id: 1,
-            title: 'Relevant Session Topics',
-            content: 'The sessions covered a wide range of timely and relevant topics that directly addressed the challenges and opportunities in our industry. The speakers were well-prepared and the discussions were insightful, sparking new ideas and conversations that continued long after the sessions ended.',
-            name: 'Anjalee Fernando',
-            picture: 'src/assets/profiles.png',
-            rating: 5
-        },
-        {
-            id: 2,
-            title: 'Well-Organized Event',
-            content: 'This conference was a model of excellence in event organization. From the seamless registration process to the meticulous adherence to the schedule, every detail was handled with precision. The staff were helpful and always available, making the entire experience stress-free and enjoyable.',
-            name: 'Keshali Dhananjana',
-            picture: 'src/assets/profiles.png',
-            rating: 4
-        },
-        {
-            id: 3,
-            title: 'Networking Opportunities',
-            content: 'The networking sessions were a standout feature of the conference. The structure allowed for meaningful connections with a diverse group of professionals. I appreciated the thoughtful mix of formal and informal networking opportunities, which made it easy to build both professional and personal relationships.',
-            name: 'Viraji Dewmini',
-            picture: 'src/assets/profiles.png',
-            rating: 4
-        },
-        {
-            id: 4,
-            title: 'Insightful Keynotes',
-            content: 'The keynote sessions were exceptional, featuring leading experts who delivered thought-provoking insights on the future of our industry. Their presentations were not only informative but also inspiring, leaving us with actionable takeaways and a renewed sense of purpose.',
-            name: 'Ranuri Dissanayake',
-            picture: 'src/assets/profiles.png',
-            rating: 3 },
-        {
-            id: 5,
-            title: 'Engaging Workshops',
-            content: 'The workshops were incredibly engaging and practical. The facilitators did a fantastic job of blending theory with real-world applications, and the interactive elements kept us fully immersed. I left each session with new skills and strategies that I’m eager to implement in my daily work.',
-            name: 'Senuri Bhagya',
-            picture: 'src/assets/profiles.png',
-            rating: 5
-        },
-    ];
+const FeedbackPage: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
+    const [isFormOpen, setIsFormOpen] = useState(false); // Track if form is open
+    const [newFeedback, setNewFeedback] = useState({
+        participant_name: '',
+        title: '',
+        content: '',
+        rating: 1,
+    });
+
+    // Fetch feedbacks from the backend
+    useEffect(() => {
+        const fetchFeedbacks = async () => {
+            try {
+                const token = localStorage.getItem('authToken'); // Retrieve token from localStorage
+                if (token) {
+                    const response = await axios.get<Feedback[]>(
+                        'http://localhost:8080/api/participantFeedback/getParticipantFeedback',
+                        {
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
+                    setFeedbacks(response.data); // Assuming response.data is an array of feedback objects
+                } else {
+                    console.error('No auth token found');
+                }
+            } catch (error) {
+                console.error('Error fetching feedbacks:', error);
+            }
+        };
+
+        fetchFeedbacks();
+    }, []);
 
     const handleNext = () => {
         if (currentIndex < feedbacks.length - 3) {
@@ -64,8 +70,43 @@ const FeedbackPage = () => {
         }
     };
 
-    const openForm = () => setIsFormOpen(true);
-    const closeForm = () => setIsFormOpen(false);
+    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setNewFeedback((prevFeedback) => ({
+            ...prevFeedback,
+            [name]: value,
+        }));
+    };
+
+    const handleFormSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                const response = await axios.post(
+                    'http://localhost:8080/api/participantFeedback/saveParticipantFeedback',
+                    {
+                        ...newFeedback,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                // Update the feedback list
+                setFeedbacks([...feedbacks, response.data]);
+                setIsFormOpen(false); // Close the form after submission
+                setNewFeedback({ participant_name: '', title: '', content: '', rating: 1 }); // Reset the form
+            } else {
+                console.error('No auth token found');
+            }
+        } catch (error) {
+            console.error('Error submitting feedback:', error);
+        }
+    };
 
     const leftArrowClasses = currentIndex === 0 ? 'bg-gray-300 text-gray-400' : 'bg-gray-400 hover:bg-gray-600';
     const rightArrowClasses = currentIndex >= feedbacks.length - 3 ? 'bg-gray-300 text-gray-400' : 'bg-gray-400 hover:bg-gray-600';
@@ -86,18 +127,18 @@ const FeedbackPage = () => {
 
                 {/* Feedback Cards */}
                 <div className="flex space-x-20 mx-4">
-                    {feedbacks.slice(currentIndex, currentIndex + 3).map(feedback => (
+                    {feedbacks.slice(currentIndex, currentIndex + 3).map((feedback) => (
                         <div
                             key={feedback.id}
                             className="w-72 h-[550px] bg-white p-4 rounded-xl shadow-md text-center"
                         >
                             <img
-                                src={feedback.picture}
-                                alt={feedback.name}
-                                className="w-32 h-32 rounded-full mx-auto my-4"
+                                src={'src/assets/profiles.png'} // Replace with actual image if available
+                                alt={feedback.participant_name}
+                                className="w-32 h-32 rounded-full mx-auto my-16"
                             />
                             <h2 className="text-lg font-bold mb-4">
-                                {feedback.name}
+                                {feedback.participant_name || `Participant ${feedback.id}`}
                             </h2>
                             <h3 className="text-sm font-semibold mb-2">
                                 {feedback.title}
@@ -133,11 +174,9 @@ const FeedbackPage = () => {
             {/* Plus Button for Feedback Form */}
             <button
                 className="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
-                onClick={openForm}
+                onClick={() => setIsFormOpen(true)}
             >
-                <FaPlus
-                    size={24}
-                />
+                <FaPlus size={24} />
             </button>
 
             {/* Feedback Form Popup */}
@@ -147,21 +186,44 @@ const FeedbackPage = () => {
                         <h2 className="text-2xl font-bold mb-4">
                             Submit Feedback
                         </h2>
-                        <form>
+                        <form onSubmit={handleFormSubmit}>
+                            <div className="mb-4">
+                                <label className="block text-sm font-medium text-gray-700">
+                                    Participant Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="participant_name"
+                                    value={newFeedback.participant_name}
+                                    onChange={handleFormChange}
+                                    className="w-full p-2 border rounded"
+                                    required
+                                />
+                            </div>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium text-gray-700">
                                     Title
                                 </label>
                                 <input
                                     type="text"
+                                    name="title"
+                                    value={newFeedback.title}
+                                    onChange={handleFormChange}
                                     className="w-full p-2 border rounded"
+                                    required
                                 />
                             </div>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium text-gray-700">
                                     Content
                                 </label>
-                                <textarea className="w-full p-2 border rounded"></textarea>
+                                <textarea
+                                    name="content"
+                                    value={newFeedback.content}
+                                    onChange={handleFormChange}
+                                    className="w-full p-2 border rounded"
+                                    required
+                                />
                             </div>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium text-gray-700">
@@ -169,15 +231,19 @@ const FeedbackPage = () => {
                                 </label>
                                 <input
                                     type="number"
+                                    name="rating"
+                                    value={newFeedback.rating}
+                                    onChange={handleFormChange}
                                     max="5"
                                     min="1"
                                     className="w-full p-2 border rounded"
+                                    required
                                 />
                             </div>
                             <div className="flex justify-end space-x-2">
                                 <button
                                     type="button"
-                                    onClick={closeForm}
+                                    onClick={() => setIsFormOpen(false)}
                                     className="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500"
                                 >
                                     Cancel
@@ -193,7 +259,6 @@ const FeedbackPage = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };
