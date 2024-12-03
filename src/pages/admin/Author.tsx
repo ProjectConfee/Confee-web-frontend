@@ -64,7 +64,7 @@ const AuthorsPage: React.FC = () => {
         }
 
         try {
-            await axios.delete(`${API_BASE_URL}/deleteAuthor`, {
+            await axios.delete(`${API_BASE_URL}/deleteAuthors`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },
@@ -99,13 +99,13 @@ const AuthorsPage: React.FC = () => {
             }
 
             if (editingAuthor) {
-                await axios.put(`${API_BASE_URL}/updateAuthor`, newAuthor, {
+                await axios.put(`${API_BASE_URL}/updateAuthors`, newAuthor, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     },
                 });
             } else {
-                await axios.post(`${API_BASE_URL}/saveAuthor`, newAuthor, {
+                await axios.post(`${API_BASE_URL}/saveAuthors`, newAuthor, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     },

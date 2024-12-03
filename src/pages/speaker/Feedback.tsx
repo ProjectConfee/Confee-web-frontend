@@ -1,54 +1,46 @@
-import { useState } from 'react';
-import {
-    FaArrowLeft,
-    FaArrowRight,
-    FaStar
-} from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { FaArrowLeft, FaArrowRight, FaStar } from 'react-icons/fa';
 
-const FeedbackPage = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+// Define the Feedback type for TypeScript
+type Feedback = {
+    id: number;
+    participant_name?: string;
+    title?: string;
+    content: string;
+    rating: number;
+    participantId: number;
+};
 
-    const feedbacks = [
-        {
-            id: 1,
-            title: 'Relevant Session Topics',
-            content: 'The sessions covered a wide range of timely and relevant topics that directly addressed the challenges and opportunities in our industry. The speakers were well-prepared and the discussions were insightful, sparking new ideas and conversations that continued long after the sessions ended.',
-            name: 'Anjalee Fernando',
-            picture: 'src/assets/profiles.png',
-            rating: 5
-        },
-        {
-            id: 2,
-            title: 'Well-Organized Event',
-            content: 'This conference was a model of excellence in event organization. From the seamless registration process to the meticulous adherence to the schedule, every detail was handled with precision. The staff were helpful and always available, making the entire experience stress-free and enjoyable.',
-            name: 'Keshali Dhananjana',
-            picture: 'src/assets/profiles.png',
-            rating: 4
-        },
-        {
-            id: 3,
-            title: 'Networking Opportunities',
-            content: 'The networking sessions were a standout feature of the conference. The structure allowed for meaningful connections with a diverse group of professionals. I appreciated the thoughtful mix of formal and informal networking opportunities, which made it easy to build both professional and personal relationships.',
-            name: 'Viraji Dewmini',
-            picture: 'src/assets/profiles.png',
-            rating: 4
-        },
-        {
-            id: 4,
-            title: 'Insightful Keynotes',
-            content: 'The keynote sessions were exceptional, featuring leading experts who delivered thought-provoking insights on the future of our industry. Their presentations were not only informative but also inspiring, leaving us with actionable takeaways and a renewed sense of purpose.',
-            name: 'Ranuri Dissanayake',
-            picture: 'src/assets/profiles.png',
-            rating: 3 },
-        {
-            id: 5,
-            title: 'Engaging Workshops',
-            content: 'The workshops were incredibly engaging and practical. The facilitators did a fantastic job of blending theory with real-world applications, and the interactive elements kept us fully immersed. I left each session with new skills and strategies that I’m eager to implement in my daily work.',
-            name: 'Senuri Bhagya',
-            picture: 'src/assets/profiles.png',
-            rating: 5
-        },
-    ];
+const FeedbackPage: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
+
+    // Fetch feedbacks from the backend
+    useEffect(() => {
+        const fetchFeedbacks = async () => {
+            try {
+                const token = localStorage.getItem("authToken"); // Retrieve token from localStorage
+                if (token) {
+                    const response = await axios.get<Feedback[]>(
+                        'http://localhost:8080/api/participantFeedback/getParticipantFeedback',
+                        {
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
+                    setFeedbacks(response.data); // Assuming response.data is an array of feedback objects
+                } else {
+                    console.error('No auth token found');
+                }
+            } catch (error) {
+                console.error('Error fetching feedbacks:', error);
+            }
+        };
+
+        fetchFeedbacks();
+    }, []);
 
     const handleNext = () => {
         if (currentIndex < feedbacks.length - 3) {
@@ -74,9 +66,7 @@ const FeedbackPage = () => {
                     className={`${leftArrowClasses} p-2 rounded-full shadow focus:outline-none`}
                     disabled={currentIndex === 0}
                 >
-                    <FaArrowLeft
-                        size={24}
-                    />
+                    <FaArrowLeft size={24} />
                 </button>
 
                 {/* Feedback Cards */}
@@ -87,12 +77,12 @@ const FeedbackPage = () => {
                             className="w-72 h-[550px] bg-white p-4 rounded-xl shadow-md text-center"
                         >
                             <img
-                                src={feedback.picture}
-                                alt={feedback.name}
-                                className="w-32 h-32 rounded-full mx-auto my-4"
+                                src={'src/assets/profiles.png'} // Replace with actual image if available
+                                alt={feedback.participant_name}
+                                className="w-32 h-32 rounded-full mx-auto my-16"
                             />
                             <h2 className="text-lg font-bold mb-4">
-                                {feedback.name}
+                                {feedback.participant_name || `Participant ${feedback.participantId}`}
                             </h2>
                             <h3 className="text-sm font-semibold mb-2">
                                 {feedback.title}
