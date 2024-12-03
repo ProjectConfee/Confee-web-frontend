@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight, FaStar } from 'react-icons/fa';
 // Define the Feedback type for TypeScript
 type Feedback = {
     id: number;
-    name?: string;
+    participant_name?: string;
     title?: string;
     content: string;
     rating: number;
@@ -78,11 +78,11 @@ const FeedbackPage: React.FC = () => {
                         >
                             <img
                                 src={'src/assets/profiles.png'} // Replace with actual image if available
-                                alt={feedback.name}
+                                alt={feedback.participant_name}
                                 className="w-32 h-32 rounded-full mx-auto my-16"
                             />
                             <h2 className="text-lg font-bold mb-4">
-                                {feedback.name || `Participant ${feedback.participantId}`}
+                                {feedback.participant_name || `Participant ${feedback.participantId}`}
                             </h2>
                             <h3 className="text-sm font-semibold mb-2">
                                 {feedback.title}
