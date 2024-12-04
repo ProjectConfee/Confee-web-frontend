@@ -17,12 +17,12 @@ const App:React.FC<prop> = ({id}) => {
     const [startTime, setStartTime] = useState<Dayjs | null>(null);
     const [session, setSession] = useState<string>("");
     const [time,setTime]=useState<string|null>(null)
-    const [workshopId,setWorkshopId]=useState<number>()
+    const [conferenceId,setConferenceId]=useState<number>(0)
     const [reload,setReload]=useState(false)
 
     const showModal = (id:number) => {
         setIsModalOpen(true);
-        setWorkshopId(id)
+        setConferenceId(id)
     };
     const handleOk = async () => {
         console.log("time", time)
@@ -31,7 +31,7 @@ const App:React.FC<prop> = ({id}) => {
         const data = {
             "event": session,
             "startTime": time,
-            "workshopDayId": workshopId
+            "conferenceId": conferenceId
         }
 
 
@@ -45,7 +45,7 @@ const App:React.FC<prop> = ({id}) => {
         }
 
         try {
-            const response = await axios.post(`http://localhost:8080/admin/schedules`, data, {
+            const response = await axios.post(`http://localhost:8080/admin/conferenceSchedules`, data, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -89,7 +89,7 @@ const App:React.FC<prop> = ({id}) => {
         // Fetch workshop data from API
         const token = localStorage.getItem("authToken");
         if (token) {
-            axios.get(`http://localhost:8080/admin/schedules/${id}`, {
+            axios.get(`http://localhost:8080/admin/conferenceSchedules/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -112,19 +112,17 @@ const App:React.FC<prop> = ({id}) => {
         event:string ,
         startTime:string,
         status:string ,
-        workshopDayId:number
+        conferenceId:number
     };
 
     type prop={
-        workshopDayId:number,
-        date:string,
         events:SessionCardProps[]
     }
 
 
 
 
-    const Schedule : React.FC<prop> = ({ date,events,workshopDayId  })=>{
+    const Schedule : React.FC<prop> = ({events })=>{
         useEffect(() => {
             console.log("Events:", events);
         }, [events]);
@@ -133,9 +131,9 @@ const App:React.FC<prop> = ({id}) => {
             <div>
 
                 <div className="col-span-2 flex w-full">
-                    <Title level={3} className="w-9/12">{date || "Schedule"}</Title>
+                    {/*<Title level={3} className="w-9/12">{date || "Schedule"}</Title>*/}
                     <div className="flex w-3/12 justify-end">
-                        <Button type="primary" size="large" onClick={()=>showModal(workshopDayId)}>
+                        <Button type="primary" size="large" onClick={()=>showModal(conferenceId)}>
                             Add Session
                         </Button>
                     </div>
@@ -154,7 +152,7 @@ const App:React.FC<prop> = ({id}) => {
                                     event={session.event}
                                     status={session.status}
                                     id={session.id}
-                                    workshopDayId={session.workshopDayId}
+                                    conferenceId={conferenceId}
                                 />
                             </div>
                         ))}
@@ -195,11 +193,11 @@ const App:React.FC<prop> = ({id}) => {
                             type="primary"
                             size="large"
                             style={{
-                                backgroundColor: status === "Completed" ? "#007bff" : "#28a745",
+                                backgroundColor: status === "Completed" ? "#007bff" : "#878787",
                                 cursor: "not-allowed",
                             }}
                         >
-                            {status === "Pending" ? "Start" : status}
+                            {status}
                         </Button>
                     </div>
                 </div>
@@ -247,7 +245,7 @@ const App:React.FC<prop> = ({id}) => {
             )}
 
             {sessions && sessions.map((item, index) => (
-                <Schedule key={index} date={item.date} workshopDayId={item.workshopDayId} events={item.events} />
+                <Schedule key={index} events={item.events} />
             ))}
         </>
     );

@@ -1,9 +1,12 @@
 "use client"
-import {Divider, Typography} from "antd";
+import {Button, Divider, message, Modal, Radio, RadioChangeEvent, Typography} from "antd";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCalendarDays, faClock, faCreditCard, faLink, faLocationDot, faUsers} from "@fortawesome/free-solid-svg-icons";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+
+
+
 
 
 // import {Link} from "react-router-dom";
@@ -14,6 +17,9 @@ const { Title,Text } = Typography;
 interface prop{
     id:string|undefined
 }
+
+
+
 
 const App :React.FC<prop> = ({id}) => {
 
@@ -33,6 +39,21 @@ const App :React.FC<prop> = ({id}) => {
         subTopic:string
     }
 
+    interface PaymentRequest {
+        firstName: string;
+        lastName: string;
+        email: string;
+        phone: string;
+        address: string;
+        city: string;
+        country: string;
+        orderId: string;
+        items: string;
+        currency: string;
+        amount: number;
+        hash?: string;
+    }
+
     const [type,setType] = useState('');
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
@@ -43,8 +64,41 @@ const App :React.FC<prop> = ({id}) => {
     const [lunch,setLunch] = useState('');
     const [post,setPost] = useState('');
     // const [coverPhoto,setCoverPhoto] = useState('');
+    const [day1,setDay1]=useState(0);
+    const [day2,setDay2]=useState(0);
+    const [payAmount, setPayAmount]=useState(0);
+
+    const onChange=(e: RadioChangeEvent)=> {
+        setPayAmount(e.target.value)
+    }
+
+
 
     const [workshop, setWorkshop] =useState<Workshop[]>();
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        handlePayment();
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
+
+    const popup = (
+        <Modal title="Select Participant Type" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Radio.Group onChange={onChange} >
+                {day1 !=0 ?<Radio value={day1}>For First Day only</Radio> :""}
+                {day2 !=0?<Radio value={day2}>For All days</Radio>:""}
+            </Radio.Group>
+        </Modal>
+    )
 
 
     useEffect(() => {
@@ -74,6 +128,16 @@ const App :React.FC<prop> = ({id}) => {
                     setPost(response.data.post)
                     setWorkshop(response.data.workshopDays)
 
+                    response.data.workshopDays?.map((item: { investment: React.SetStateAction<number>; }, index: number)=>{
+                        if(index==0){
+                            setDay1(item.investment)
+                        }else{
+                            setDay2(item.investment)
+                        }
+                    })
+
+                   // console.log(setWorkshopId(response.data.workshopDays.id)) ;
+
 
                 })
                 .catch(error => console.error("Error fetching workshops:", error));
@@ -83,8 +147,86 @@ const App :React.FC<prop> = ({id}) => {
     }, []);
 
 
+    const handlePayment = async () => {
+        try {
+            // Sample payment data
+            const paymentRequest: PaymentRequest = {
+                firstName: "John",
+                lastName: "Doe",
+                email: "johndoe@example.com",
+                phone: "0771234567",
+                address: "No.1, Main Street",
+                city: "Colombo",
+                country: "Sri Lanka",
+                orderId: `${Date.now()}`,
+                items: "Sample Items",
+                currency: "LKR",
+                amount: payAmount,
+            };
+
+            const token = localStorage.getItem("authToken");
+
+            if (!token) {
+                message.error("No token found, please log in.");
+                return;
+            }
+
+            // Call the backend API to initiate the payment and get the hash
+            const response = await fetch("http://localhost:8080/admin/payments/initiate", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json", Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify(paymentRequest),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to initiate payment");
+            }
+
+            const data: PaymentRequest = await response.json();
+
+            // Dynamically create a form and submit it to PayHere
+            const form = document.createElement("form");
+            form.method = "post";
+            form.action = "https://sandbox.payhere.lk/pay/checkout";
+
+            const addField = (name: string, value: string | number) => {
+                const input = document.createElement("input");
+                input.type = "hidden";
+                input.name = name;
+                input.value = String(value);
+                form.appendChild(input);
+            };
+
+            addField("merchant_id", "1225745");
+            addField("return_url", `http://localhost:5173/successful_payment?workshop_id=${id}&amount=${data.amount}`);
+            addField("cancel_url", "http://localhost:5173/successful_payment");
+            addField("notify_url", "http://localhost:5173/successful_payment");
+            addField("order_id", data.orderId);
+            addField("items", data.items);
+            addField("currency", data.currency);
+            addField("amount", data.amount);
+            addField("first_name", data.firstName);
+            addField("last_name", data.lastName);
+            addField("email", data.email);
+            addField("phone", data.phone);
+            addField("address", data.address);
+            addField("city", data.city);
+            addField("country", data.country);
+            addField("hash", data.hash || "");
+
+            document.body.appendChild(form);
+            form.submit();
+        } catch (error) {
+            console.error("Payment initiation failed", error);
+        }
+    };
+
+
     return(
         <>
+            {popup}
             <div className={"flex flex-col"}>
                 <div className=" flex bg-white rounded-lg   gap-4 p-8">
 
@@ -112,7 +254,7 @@ const App :React.FC<prop> = ({id}) => {
                             </div>
 
                             <Divider></Divider>
-                            {workshop && workshop.map(workshopItem => (
+                            {workshop && workshop.map((workshopItem) => (
                                 <div style={{backgroundColor: '#f5f5f5'}} className="p-4 rounded-lg mb-4"
                                      key={workshopItem.id}>
 
@@ -278,15 +420,15 @@ const App :React.FC<prop> = ({id}) => {
                     </div>
 
                 </div>
-                {/*<div className={"flex justify-end"}>*/}
+                <div className={"flex justify-end"}>
 
-                {/*    <Link to="/view_ticket">*/}
-                {/*        <Button type="primary" size="large">*/}
-                {/*            Buy Ticket*/}
-                {/*        </Button>*/}
-                {/*    </Link>*/}
 
-                {/*</div>*/}
+                        <Button type="primary" size="large" onClick={showModal}>
+                            Buy Ticket
+                        </Button>
+
+
+                </div>
             </div>
 
         </>
