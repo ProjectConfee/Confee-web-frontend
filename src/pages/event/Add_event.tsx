@@ -7,7 +7,7 @@ import {
     DatePicker,
 
     Form,
-    Input, InputNumber,
+    Input, InputNumber, message,
     Row,
     Select,
     Space,
@@ -27,16 +27,24 @@ const onChange = (time: moment.Moment | null, timeString: string | string[]) => 
     console.log(time, timeString);
 };
 
-const props = {
-    name: 'file',
-    multiple: false,
-    action: 'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload',
-};
+
 
 
 
 
 const App = () => {
+
+    const [coverPhoto,setCoverPhoto]=useState<File[]>([])
+    const [postPhoto,setPostPhoto]=useState<File[]>([])
+    const [title,setTitle]=useState<string>('')
+    const [description,setDescription]=useState<string>('')
+    const [location,setLocation]=useState<string>('')
+    const [mapLink,setMapLink]=useState<string>('')
+    const [certificate,setCertificate]=useState<string>('')
+    const [noOfDate,setNoOfDate]=useState<number>(0)
+    const [noOfSeat,setNoOfSeat]=useState<string>('')
+
+
     interface User {
         noOfDate: number;
         name: string;
@@ -68,6 +76,71 @@ const App = () => {
         users: Array<{ event: string }>;
     }
 
+    async function handelSubmit() {
+        const formData = new FormData();
+        formData.append("post", postPhoto[0])
+        formData.append("coverPhoto", coverPhoto[0])
+        formData.append("title", title)
+        formData.append("description", description)
+        formData.append("noOfDate", dateCount)
+        formData.append("certificateFrom", certificate)
+        formData.append("mapLink", mapLink)
+        formData.append("location", location)
+        formData.append("lunch", "true")
+        formData.append("type", type)
+        formData.append("noOfSeat", noOfSeat)
+
+        formData.forEach((value, key) => {
+            console.log(`${key}:`, value);
+        });
+
+
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+            message.error("No token found, please log in.");
+            return;
+        }
+
+        try {
+            const response = await axios.post("http://localhost:8080/api/v1/admin/workshop/saveWorkshop", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (response.status === 200) {
+                message.success('Event added successfully');
+            }
+        } catch (error) {
+            message.error('Event addition failed');
+        }
+    }
+
+    const draggerPropsCover = {
+        beforeUpload: (file: File) => {
+            setCoverPhoto([file]);
+
+            return false; // Prevent auto-upload
+        },
+        fileList: coverPhoto.map((file, index) => ({
+            ...file,
+            uid: `${index}-${file.name}`,
+        })),
+    };
+
+    const draggerPropsPost = {
+        beforeUpload: (file: File) => {
+            setPostPhoto([file]);
+
+            return false; // Prevent auto-upload
+        },
+        fileList: coverPhoto.map((file, index) => ({
+            ...file,
+            uid: `${index}-${file.name}`,
+        })),
+    };
 
     const [inputWidth, setInputWidth] = useState('20rem');
 
@@ -204,11 +277,18 @@ const App = () => {
                         </Col>
 
                         <Col span={12}>
-                            <Form.Item name={['user', 'name']} rules={[{ required: true, message: 'Please input the title!' }]}>
+                            <Form.Item name={['user', 'title']} rules={[{ required: true, message: 'Please input the title!' }]}>
                                 <div>
                                     <label className="mb-2 font-medium text-gray-700">Title</label>
                                 </div>
-                                <Input className="mt-2"/>
+                                <Input className="mt-2" onChange={e=>setTitle(e.target.value)}/>
+                            </Form.Item>
+
+                            <Form.Item name={['user', 'noOfSeat']} rules={[{ required: true, message: 'Please input the no of seat' }]}>
+                                <div>
+                                    <label className="mb-2 font-medium text-gray-700">No of Seat</label>
+                                </div>
+                                <Input className="mt-2" onChange={e=>setNoOfSeat(e.target.value)}/>
                             </Form.Item>
                         </Col>
                     </Row>
@@ -217,7 +297,7 @@ const App = () => {
                         <Form.Item name={['user', 'description']} rules={[{ required: true, message: 'Please input the description!' }]}>
                             <div className="flex flex-col">
                                 <label className="mb-2 font-medium text-gray-700">Description</label>
-                                <Input.TextArea className="w-full"/>
+                                <Input.TextArea className="w-full" onChange={e=>setDescription(e.target.value)}/>
                             </div>
                         </Form.Item>
 
@@ -237,7 +317,7 @@ const App = () => {
                         <Col span={12}>
 
                             {[...Array(dateCount)].map((_, index) => (
-                                <Form.Item name={['user', `date${index + 1}`]}>
+
                                     <div className="flex flex-col">
 
                                             <label className="mb-2 font-medium text-gray-700">Day {index + 1}</label>
@@ -245,37 +325,37 @@ const App = () => {
 
                                         <DatePicker onChange={onChange}/>
                                     </div>
-                                </Form.Item>
+
                             ))}
                         </Col>
 
                         <Col span={12}>
                             {[...Array(dateCount)].map(() => (
-                                <Form.Item name={['user', 'time']}>
+
                                     <div className="flex flex-col">
                                         <label className="mb-2 font-medium text-gray-700">Time</label>
                                         <TimePicker.RangePicker/>
                                     </div>
-                                </Form.Item>
+
                             ))}
                         </Col>
                     </Row>
 
                     <Row gutter={32}>
                         <Col span={12}>
-                            <Form.Item name={['user', 'venue']}>
+                            <Form.Item name={['user', 'location']}>
                                 <div className="flex flex-col">
                                     <label className="mb-2 font-medium text-gray-700">Venue</label>
-                                    <Input/>
+                                    <Input onChange={e=>setLocation(e.target.value)}/>
                                 </div>
                             </Form.Item>
                         </Col>
 
                         <Col span={12}>
-                            <Form.Item name={['user', 'map']}>
+                            <Form.Item name={['user', 'mapLink']}>
                                 <div className="flex flex-col">
                                     <label className="mb-2 font-medium text-gray-700">Google Map Link</label>
-                                    <Input/>
+                                    <Input onChange={e=>setMapLink(e.target.value)}/>
                                 </div>
                             </Form.Item>
                         </Col>
@@ -288,7 +368,7 @@ const App = () => {
                         [...Array(dateCount)].map((_,index) => (
                             <Row gutter={32} className={"mb-0"}>
                                 <Col span={12}>
-                                    <Form.Item name={['user', 'topic']}>
+
                                         <div className="flex flex-col">
 
                                                 <label className="mb-2 font-medium text-gray-700">Main Topic Day {index + 1}</label>
@@ -296,56 +376,55 @@ const App = () => {
 
                                             <Input/>
                                         </div>
-                                    </Form.Item>
+
                                 </Col>
                                 <Col span={12}>
-                                    <Form.Item name={['user', 'map']}>
-                                        <div className="flex flex-col">
-                                            <label className="mb-2 font-medium text-gray-700">Sub Topics</label>
-                                            <div>
-                                                <Form
-                                                    name="dynamic_form_nest_item"
-                                                    onFinish={onFinish}
-                                                    autoComplete="off"
-                                                >
-                                                    <Form.List name="users">
-                                                        {(fields, {add, remove}) => (
-                                                            <>
-                                                                {fields.map(({key, name, ...restField}) => (
-                                                                    <Space
-                                                                        key={key}
-                                                                        style={{
-                                                                            display: 'flex',
-                                                                            marginBottom: 2,
-                                                                        }}
-                                                                        align="baseline"
-                                                                    >
+
+                                        {/*<div className="flex flex-col">*/}
+                                        {/*    <label className="mb-2 font-medium text-gray-700">Sub Topics</label>*/}
+                                        {/*    <div>*/}
+                                        {/*        <Form*/}
+                                        {/*            name="dynamic_form_nest_item"*/}
+                                        {/*            onFinish={onFinish}*/}
+                                        {/*            autoComplete="off"*/}
+                                        {/*        >*/}
+                                        {/*            */}
+                                        {/*                {(fields, {add, remove}) => (*/}
+                                        {/*                    <>*/}
+                                        {/*                        {fields.map(({key, name, ...restField}) => (*/}
+                                        {/*                            <Space*/}
+                                        {/*                                key={key}*/}
+                                        {/*                                style={{*/}
+                                        {/*                                    display: 'flex',*/}
+                                        {/*                                    marginBottom: 2,*/}
+                                        {/*                                }}*/}
+                                        {/*                                align="baseline"*/}
+                                        {/*                            >*/}
 
 
-                                                                        <Form.Item
-                                                                            {...restField}
-                                                                            name={[name, 'event']}
-                                                                            style={{ flex: 1 }}
-                                                                        >
-                                                                            <Input style={{ width: inputWidth }} placeholder="Sub Topic"/>
-                                                                        </Form.Item>
+                                        {/*                                <Form.Item*/}
+                                        {/*                                    {...restField}*/}
+                                        {/*                                    name={[name, 'event']}*/}
+                                        {/*                                    style={{ flex: 1 }}*/}
+                                        {/*                                >*/}
+                                        {/*                                    <Input style={{ width: inputWidth }} placeholder="Sub Topic"/>*/}
+                                        {/*                                </Form.Item>*/}
 
-                                                                        <MinusCircleOutlined onClick={() => remove(name)}/>
-                                                                    </Space>
-                                                                ))}
-                                                                <Form.Item>
-                                                                    <Button type="dashed" onClick={() => add()} block
-                                                                            icon={<PlusOutlined/>}>
-                                                                        Add field
-                                                                    </Button>
-                                                                </Form.Item>
-                                                            </>
-                                                        )}
-                                                    </Form.List>
-                                                </Form>
-                                            </div>
-                                        </div>
-                                    </Form.Item>
+                                        {/*                                <MinusCircleOutlined onClick={() => remove(name)}/>*/}
+                                        {/*                            </Space>*/}
+                                        {/*                        ))}*/}
+                                        {/*                        <Form.Item>*/}
+                                        {/*                            <Button type="dashed" onClick={() => add()} block*/}
+                                        {/*                                    icon={<PlusOutlined/>}>*/}
+                                        {/*                                Add field*/}
+                                        {/*                            </Button>*/}
+                                        {/*                        </Form.Item>*/}
+                                        {/*                    </>*/}
+                                        {/*                )}*/}
+                                        {/*       */}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
+
                                 </Col>
                              </Row>
                         ))
@@ -359,7 +438,7 @@ const App = () => {
                                 <Form.Item name={['user', 'certificate']}>
                                     <div className="flex flex-col">
                                         <label className="mb-2 font-medium text-gray-700">Certificate From</label>
-                                        <Input/>
+                                        <Input onChange={e=>setCertificate(e.target.value)}/>
                                     </div>
                                 </Form.Item>
                             </Col>
@@ -369,12 +448,12 @@ const App = () => {
 
                                 <Col span={12}>
                                     {[...Array(dateCount)].map((_,index) => (
-                                        <Form.Item name={['user', 'investment']}>
+
                                             <div className="flex flex-col">
                                                 <label className="mb-2 font-medium text-gray-700">Investment Day {index+1}</label>
                                                 <Input />
                                             </div>
-                                        </Form.Item>
+
                                     ))}
                                 </Col>
                         </Row>
@@ -389,30 +468,34 @@ const App = () => {
                 <div className="flex flex-col">
                     <label className="mb-2 font-medium text-gray-700">Post</label>
                 </div>
-                <Dragger {...props}>
+                <Dragger {...draggerPropsPost}>
                     <p className="ant-upload-drag-icon">
-                        <InboxOutlined/>
+                        <InboxOutlined />
                     </p>
-                    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                    <p className="ant-upload-text">
+                        Click or drag file to this area to upload
+                    </p>
                     <p className="ant-upload-hint">
-                        Support for a single upload. Please upload social media post.
+                        Support for a single upload. Please upload cover photo.
                     </p>
                 </Dragger>
             </Form.Item>
         </Col>
 
         <Col span={12}>
-            <Form.Item name={['user', 'post']}>
+            <Form.Item name={['user', 'cover']}>
                 <div className="flex flex-col">
                     <label className="mb-2 font-medium text-gray-700">Cover Photo</label>
                 </div>
-                <Dragger {...props}>
+                <Dragger {...draggerPropsCover}>
                     <p className="ant-upload-drag-icon">
-                        <InboxOutlined/>
+                        <InboxOutlined />
                     </p>
-                    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                    <p className="ant-upload-text">
+                        Click or drag file to this area to upload
+                    </p>
                     <p className="ant-upload-hint">
-                        Support for a single upload. Please upload social media post.
+                        Support for a single upload. Please upload cover photo.
                     </p>
                 </Dragger>
             </Form.Item>
@@ -422,8 +505,8 @@ const App = () => {
 
                     <div className="flex justify-end mb-2">
 
-                        <Link to="/view_events_oc">
-                            <Button type="primary" size="large">
+                        <Link to="/event">
+                            <Button type="primary" size="large" onClick={handelSubmit} >
                                 Add Event
                             </Button>
                         </Link>

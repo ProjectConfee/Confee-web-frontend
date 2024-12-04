@@ -2,10 +2,9 @@ import {Tabs, Typography} from "antd";
 
 import { useParams } from 'react-router-dom';
 
+import ConferenceDetail from './Conference_Detail.tsx';
 
-import EventDetail from '../committee/Event_oc.tsx';
-import EventSchedule from './Event_schedule.tsx';
-import Resource from './UploadResource.tsx';
+import EventSchedule from './ConferenceSchedule.tsx';
 
 const onChange = (key:string) => {
     console.log(key);
@@ -36,12 +35,7 @@ const App = () => {
                             {
                                 label: 'View Detail',
                                 key: '1',
-                                children: <EventDetail id={id}/>,
-                            },
-                            {
-                                label: 'Resources',
-                                key: '2',
-                                children: <Resource id={id}/>,
+                                children: <ConferenceDetail id={id}/>,
                             },
                             {
                                 label: 'Schedule',

@@ -3,7 +3,7 @@ import {InboxOutlined,} from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faFilePdf, faTrash,} from "@fortawesome/free-solid-svg-icons";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 
@@ -15,7 +15,11 @@ const { Title,Text } = Typography;
 
 const { Dragger } = Upload;
 
-const App = () => {
+interface prop{
+    id:string|undefined
+}
+
+const App :React.FC<prop> = ({id}) => {
 
     interface UploadedResource {
         id: number;
@@ -28,11 +32,17 @@ const App = () => {
     const [uploadedResources, setUploadedResources] = useState<UploadedResource[]>([]);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    //const [workshopId, setWorkshopId] = useState('');
+    const [workshopIds, setWorkshopIds] = useState<string>('');
     // const [fileList, setFileList] = useState([]);
 
-    const workshopId = 1;
-
+    const workshopId = id;
+    useEffect(() => {
+        if (id !== undefined && id !== workshopIds) {
+            setWorkshopIds(id); // Update only if the id has changed
+        } else if (id === undefined && workshopIds !== 'defaultId') {
+            setWorkshopIds('defaultId'); // Fallback value if id is undefined
+        }
+    }, [id, workshopIds]);
     const [fileList, setFileList] = useState<File[]>([]);
 
     useEffect(() => {
@@ -98,7 +108,7 @@ const App = () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
-        formData.append('workshopId', "1");
+        formData.append('workshopId', workshopIds);
         formData.append('file', fileList[0]);
 
         const config = {

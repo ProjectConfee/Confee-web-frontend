@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Button, Steps, message, Typography, Select, Input, DatePicker, InputNumber, Form, Checkbox } from 'antd';
+import { Button, Steps, message, Typography, Select, Input,InputNumber, Form, Checkbox } from 'antd';
 import signUp from '../../assets/Signup.jpg';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 
 const { Title } = Typography;
@@ -15,46 +14,40 @@ const onChangeNumber = (value: number | null) => {
     console.log('changed', value);
 };
 
-const onChangeDate = (date: Date, dateString: string | string[]) => {
-    console.log(date, dateString);
-};
-
 const onChangeCheck = (e: CheckboxChangeEvent) => {
     console.log(`checked = ${e.target.checked}`);
 };
 
 interface FormValues {
-    title: string;
+
     name: string;
-    contactNumber: string;
+    phone: string;
     email: string;
-    username: string;
-    dateOfBirth: string;
-    password: string;
+    altPhone: string;
     jobTitle: string;
     organization: string;
     country: string;
-    numberOfPreviousAttendance: number;
+    noOfAttendance: number;
+    yearOfExperience:number;
     researchInterest: string;
-    mealPreference: string;
-    accessibilityNeeds: boolean;
+    dietaryReference: string;
+    accessibility: boolean;
 }
 
 const initialValues: FormValues = {
-    title: '',
+
     name: '',
-    contactNumber: '',
+    phone: '',
     email: '',
-    username: '',
-    dateOfBirth: '',
-    password: '',
+    altPhone: '',
     jobTitle: '',
     organization: '',
     country: '',
-    numberOfPreviousAttendance: 1,
+    yearOfExperience:0,
+    noOfAttendance: 0,
     researchInterest: '',
-    mealPreference: '',
-    accessibilityNeeds: false,
+    dietaryReference: '',
+    accessibility: false,
 };
 
 // const onFinish = async (values: FormValues) => {
@@ -84,33 +77,29 @@ const steps = [
         content: (
             <div>
                 <div className="flex">
-                    <div className="flex flex-col w-32 mb-3">
-                        <div className="mb-1">
-                            <label>Title</label>
-                        </div>
-                        <div className="w-16">
-                            <Form.Item name="title">
-                                <Select
-                                    placeholder="Mr"
-                                    optionFilterProp="label"
-                                    onChange={onChange}
-                                    options={[
-                                        { value: 'Mr', label: 'Mr' },
-                                        { value: 'Mrs', label: 'Mrs' },
-                                        { value: 'Miss', label: 'Miss' },
-                                    ]}
-                                    style={{height:'40px',border: '1.4px solid #D9D9D9',  width: '100px', borderRadius:'8px'}}
-                                />
-                            </Form.Item>
-                        </div>
-                    </div>
+
                     <div className="flex flex-col w-full">
                         <div className="mb-1">
                             <label>Name</label>
                         </div>
                         <div>
                             <Form.Item name="name">
-                                <Input placeholder="Enter your Name" style={{height:'40px',border: '2px solid #D9D9D9',}} />
+                                <Input placeholder="Enter your Name"
+                                       style={{height: '40px', border: '2px solid #D9D9D9',}}/>
+                            </Form.Item>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex mt-3 gap-2 mb-6">
+                    <div className="flex flex-col w-full">
+                        <div className="mb-1">
+                            <label>Email Address</label>
+                        </div>
+                        <div>
+                            <Form.Item name="email">
+                                <Input placeholder="Enter your email address"
+                                       style={{height: '40px', border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -122,78 +111,26 @@ const steps = [
                             <label>Contact Number</label>
                         </div>
                         <div>
-                            <Form.Item name="contactNumber">
-                                <Input placeholder="Enter your contact number" style={{height:'40px',border: '2px solid #D9D9D9',}} />
+                            <Form.Item name="phone">
+                                <Input placeholder="Enter your contact number"
+                                       style={{height: '40px', border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
                     <div className="flex flex-col w-1/2">
                         <div className="mb-1">
-                            <label>Email Address</label>
+                            <label>Alternative Contact Number</label>
                         </div>
                         <div>
-                            <Form.Item name="email">
-                                <Input placeholder="Enter your email address" style={{height:'40px',border: '2px solid #D9D9D9',}} />
+                            <Form.Item name="altPhone">
+                                <Input placeholder="Enter your alternative contact number"
+                                       style={{height: '40px', border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex mt-3 gap-2 mb-6">
-                    <div className="flex flex-col w-1/2">
-                        <div className="mb-1">
-                            <label>Username</label>
-                        </div>
-                        <div>
-                            <Form.Item name="username">
-                                <Input placeholder="Enter Username" style={{height:'40px',border: '2px solid #D9D9D9',}} />
-                            </Form.Item>
-                        </div>
-                    </div>
-                    <div className="flex flex-col w-1/2">
-                        <div className="mb-1">
-                            <label>Date of Birth</label>
-                        </div>
-                        <div>
-                            <Form.Item name="dateOfBirth">
-                                <DatePicker onChange={onChangeDate} style={{height:'40px',border: '2px solid #D9D9D9',width: '100%' }} />
-                            </Form.Item>
-                        </div>
-                    </div>
-                </div>
 
-                <div className="flex mt-3 gap-2 mb-3">
-                    <div className="flex flex-col w-1/2">
-                        <div className="mb-1">
-                            <label>Password</label>
-                        </div>
-                        <div>
-                            <Form.Item name="password">
-                                <Input.Password
-                                    placeholder="input password"
-                                    iconRender={(visible) =>
-                                        visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                                    }
-                                    style={{height:'40px',border: '2px solid #D9D9D9',}}/>
-                            </Form.Item>
-                        </div>
-                    </div>
-                    <div className="flex flex-col w-1/2">
-                        <div className="mb-1">
-                            <label>Re-Enter Password</label>
-                        </div>
-                        <div>
-                            <Form.Item name="confirmPassword">
-                                <Input.Password
-                                    placeholder="input password"
-                                    iconRender={(visible) =>
-                                        visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                                    }
-                                    style={{height:'40px',border: '2px solid #D9D9D9',}}/>
-                            </Form.Item>
-                        </div>
-                    </div>
-                </div>
             </div>
         ),
     },
@@ -204,11 +141,12 @@ const steps = [
                 <div className="flex gap-3">
                     <div className="flex flex-col mb-3 w-1/2">
                         <div className="mb-1">
-                            <label>Job Title</label>
+                        <label>Job Title</label>
                         </div>
                         <div>
                             <Form.Item name="jobTitle">
-                                <Input placeholder="Enter your Job Title" style={{height:'40px',border: '2px solid #D9D9D9',}}/>
+                                <Input placeholder="Enter your Job Title"
+                                       style={{height: '40px', border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -218,7 +156,8 @@ const steps = [
                         </div>
                         <div>
                             <Form.Item name="organization">
-                                <Input placeholder="Enter your organization/university" style={{height:'40px',border: '2px solid #D9D9D9',}} />
+                                <Input placeholder="Enter your organization/university"
+                                       style={{height: '40px', border: '2px solid #D9D9D9',}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -240,21 +179,33 @@ const steps = [
                             <label>Number of previous attendance</label>
                         </div>
                         <div>
-                            <Form.Item name="numberOfPreviousAttendance">
+                            <Form.Item name="noOfAttendance">
                                 <InputNumber min={1} max={10} defaultValue={1} onChange={onChangeNumber} style={{height:'40px',border: '2px solid #D9D9D9', width: '100%'}}/>
                             </Form.Item>
                         </div>
                     </div>
                 </div>
 
-                <div className={"flex"}>
+                <div className={"flex mt-3 gap-2 mb-6"}>
+                    <div className="flex flex-col w-1/2">
+                        <div className="mb-1">
+                            <label>Number of Year of Experience</label>
+                        </div>
+                        <div>
+                            <Form.Item name="numberOfYear">
+                                <InputNumber min={1} max={10} defaultValue={1} onChange={onChangeNumber}
+                                             style={{height: '40px', border: '2px solid #D9D9D9', width: '100%'}}/>
+                            </Form.Item>
+                        </div>
+                    </div>
                     <div className="flex flex-col w-1/2">
                         <div className="mb-1">
                             <label>Research Interest</label>
                         </div>
                         <div>
-                            <Form.Item name="researchInterests">
-                                <Input placeholder="Enter your research interests" style={{height:'40px',border: '2px solid #D9D9D9',width:'100%'}}/>
+                            <Form.Item name="researchInterest">
+                                <Input placeholder="Enter your research interests"
+                                       style={{height: '40px', border: '2px solid #D9D9D9', width: '100%'}}/>
                             </Form.Item>
                         </div>
                     </div>
@@ -271,7 +222,7 @@ const steps = [
                         <label>Meal Preference</label>
                     </div>
                     <div className={"w-full"}>
-                        <Form.Item name="mealPreference">
+                        <Form.Item name="dietaryReference">
                             <Select
                                 placeholder="Select Meal Preference"
                                 optionFilterProp="label"
@@ -286,7 +237,7 @@ const steps = [
                     </div>
                 </div>
                 <div>
-                    <Form.Item name="accessibilityNeeds" valuePropName="checked">
+                    <Form.Item name="accessibility" valuePropName="checked">
                         <Checkbox onChange={onChangeCheck} style={{ fontSize: '16px' }}>
                             Please specify if you have any accessibility needs
                         </Checkbox>
@@ -323,16 +274,25 @@ const App = () => {
     };
 
     const handleFinish = async (values: FormValues) => {
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+            message.error("No token found, please log in.");
+            return;
+        }
         const finalValues = { ...formValues, ...values };
         console.log('Received values of form:', finalValues);
         try {
-            const response = await fetch('http://localhost:8080/auth/register', {
+            const response = await fetch('http://localhost:8080/admin/profile', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(finalValues),
             });
+
+            console.log(response)
 
             if (response.ok) {
                 message.success('Form submitted successfully!');

@@ -32,12 +32,14 @@ import Layout_sponsor from './layout/layout_sponsor.tsx';
 import Login from './pages/Login';
 
 import Signup from './pages/signup.tsx';
-import NoEvent from './pages/event/No_event.tsx';
+import NoEvent from './pages/event/PaySuccess.tsx';
 import AddEvent from './pages/event/Add_event.tsx';
 import Event from './pages/event/Event.tsx';
-
+import Profile from './pages/event/Sign_up.tsx';
 import ViewEvent from './pages/event/View_event.tsx';
+import ViewConference from './pages/event/View_conference.tsx';
 import EventDetail from './pages/event/Event_detail.tsx';
+import ConferenceDetail from './pages/event/Conference_Detail.tsx';
 import Ticket from './pages/event/Ticket.tsx';
 import Resource from './pages/event/UploadResource.tsx';
 //import Company from './pages/committee/Company.tsx';
@@ -75,6 +77,7 @@ import View_events from './pages/participant/View_events.tsx';
 import Event_schedules from './pages/participant/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
 import Event_details from './pages/participant/Event_details.tsx';
+import Payment from './pages/event/payment.tsx';
 
 // speaker imports
 import Layout_speaker from "./layout/layout_speaker.tsx";
@@ -160,10 +163,12 @@ import Add_winners from "./pages/winners.tsx";
 import View_events_oc from './pages/event/Event.tsx';
 import Event_details_oc from './pages/committee/View_event_oc.tsx';
 import Add_event_oc from './pages/event/Add_event.tsx';
-import No_events from './pages/event/No_event.tsx';
+import PaySuccess from './pages/event/PaySuccess.tsx';
 import Company_details from "./pages/committee/Company_details.tsx";
 //import View_profile from "./pages/sponsor/View_profile.tsx";
 // import Stall_allocation_add from "./pages/participant/Stall_allocation.tsx";
+
+import Conference from "./pages/event/Add_Conference.tsx";
 
 
 
@@ -202,14 +207,18 @@ function App() {
         <Route path="/navbar" element={<Navbar />} />
         
         <Route path="/signup" element={<Signup/>} />
+        <Route path="/userProfile" element={<Profile/>} />
         <Route path="/no_event" element={<MainLayout><NoEvent/></MainLayout>} />
         <Route path="/add_event" element={<MainLayout><AddEvent/></MainLayout>} />
         <Route path="/view_event/:id" element={<MainLayout><ViewEvent/></MainLayout>} />
         <Route path="/event_detail_oc/:id" element={<MainLayout><EventDetail/></MainLayout>} />
+        <Route path="/conference_detail/:id" element={<MainLayout><ViewConference/></MainLayout>} />
         <Route path="/event" element={<MainLayout><Event/></MainLayout>} />
         <Route path="/ticket" element={<MainLayout><Ticket/></MainLayout>} />
-        <Route path="/resource" element={<MainLayout><Resource/></MainLayout>} />
+        <Route path="/resource/:id" element={<MainLayout><Resource id={undefined}/></MainLayout>} />
+        <Route path="/add_conference" element={<MainLayout><Conference/></MainLayout>} />
 
+        <Route path="/payment" element={<MainLayout><Payment/></MainLayout>} />
 
         <Route path="/announcements" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/announcements_view" element={<Layout_sponsor><Announcement/></Layout_sponsor>} />
@@ -315,7 +324,7 @@ function App() {
         <Route path="/view_events_oc" element={<Layout_oc ><View_events_oc /></Layout_oc >} />
         <Route path="/event_details_oc/:id" element={<Layout_oc ><Event_details_oc /></Layout_oc >} />
         <Route path="/add_event_oc" element={<Layout_oc ><Add_event_oc /></Layout_oc >} />
-        <Route path="/no_events" element={<Layout_oc ><No_events /></Layout_oc >} />
+        <Route path="/successful_payment" element={<Layout_oc ><PaySuccess /></Layout_oc >} />
         <Route path="/sponsor_register_oc" element={<Layout_oc ><Sponsor_register_admin /></Layout_oc >} />
         <Route path="/stall_register_oc" element={<Layout_oc ><Stall_register_admin /></Layout_oc >} />
         <Route path="/stall_location_oc" element={<Layout_oc ><Stall_location_admin /></Layout_oc >} />
