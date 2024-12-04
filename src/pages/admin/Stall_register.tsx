@@ -524,9 +524,177 @@
 //     );
 // };
 //
+// // export default StallRegister;
+// import React, { useState, useEffect } from 'react';
+// import { Input, Button, message, Form, Select, Table, Card } from 'antd';
+//
+// const { Option } = Select;
+//
+// interface StallData {
+//     id: number;
+//     stallType: string;
+//     stallNumber: string;
+//     sponsorId: string;
+// }
+//
+// const StallRegister: React.FC = () => {
+//     const [stallType, setStallType] = useState('');
+//     const [stallNumber, setStallNumber] = useState('');
+//     const [sponsorId, setSponsorId] = useState('');
+//     const [stallData, setStallData] = useState<StallData[]>([]);
+//
+//     useEffect(() => {
+//         fetchStallData();
+//     }, []);
+//
+//     const fetchStallData = async () => {
+//         try {
+//             const response = await fetch('http://localhost:8080/api/stall/all');
+//             if (!response.ok) {
+//                 throw new Error('Failed to fetch stall data');
+//             }
+//             const data: StallData[] = await response.json();
+//             setStallData(data);
+//         } catch (error) {
+//             message.error('Error fetching stall data');
+//         }
+//     };
+//
+//     const handleStallTypeChange = (value: string) => {
+//         setStallType(value);
+//     };
+//
+//     const handleStallNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//         setStallNumber(e.target.value);
+//     };
+//
+//     const handleSponsorIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//         setSponsorId(e.target.value);
+//     };
+//
+//     const handleSubmit = async () => {
+//         if (!stallType || !stallNumber || !sponsorId) {
+//             message.error('Please fill all fields.');
+//             return;
+//         }
+//
+//         const stallData = {
+//             stallType,
+//             stallNumber,
+//             sponsorId
+//         };
+//
+//         try {
+//             const response = await fetch('http://localhost:8080/api/stall/add', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                 },
+//                 body: JSON.stringify(stallData),
+//             });
+//
+//             if (!response.ok) {
+//                 throw new Error('Stall registration failed');
+//             }
+//
+//             message.success('Stall registered successfully!');
+//             fetchStallData(); // Refresh the data after successful submission
+//         } catch (error) {
+//             message.error('Error');
+//         }
+//     };
+//
+//     const columns = [
+//         {
+//             title: 'Stall Type',
+//             dataIndex: 'stallType',
+//             key: 'stallType',
+//         },
+//         {
+//             title: 'Stall Number',
+//             dataIndex: 'stallNumber',
+//             key: 'stallNumber',
+//         },
+//         {
+//             title: 'Sponsor ID',
+//             dataIndex: 'sponsorId',
+//             key: 'sponsorId',
+//         },
+//     ];
+//
+//     return (
+//         <div className="flex flex-col justify-center items-center h-full p-8">
+//             <Card
+//                 title="Stall Register Details"
+//                 bordered={false}
+//                 className="w-full max-w-4xl mb-8"
+//                 headStyle={{ fontSize: '1.5rem', fontWeight: '600' }}
+//             >
+//                 <Form layout="vertical">
+//                     <Form.Item label="Stall Type:">
+//                         <Select
+//                             size="large"
+//                             placeholder="Select Stall Type"
+//                             style={{ width: '100%' }}
+//                             value={stallType}
+//                             onChange={handleStallTypeChange}
+//                         >
+//                             <Option value="main">Main Stall</Option>
+//                             <Option value="sub">Sub Stall</Option>
+//                         </Select>
+//                     </Form.Item>
+//
+//                     <Form.Item label="Stall Number:">
+//                         <Input
+//                             size="large"
+//                             placeholder="Stall Number"
+//                             style={{ width: '100%' }}
+//                             value={stallNumber}
+//                             onChange={handleStallNumberChange}
+//                         />
+//                     </Form.Item>
+//
+//                     <Form.Item label="Sponsor ID:">
+//                         <Input
+//                             size="large"
+//                             placeholder="Sponsor ID"
+//                             style={{ width: '100%' }}
+//                             value={sponsorId}
+//                             onChange={handleSponsorIdChange}
+//                         />
+//                     </Form.Item>
+//
+//                     <Form.Item>
+//                         <Button type="primary" size="large" onClick={handleSubmit}>
+//                             Submit
+//                         </Button>
+//                     </Form.Item>
+//                 </Form>
+//             </Card>
+//
+//             <Card
+//                 title="Stall Data"
+//                 bordered={false}
+//                 className="w-full max-w-4xl"
+//                 headStyle={{ fontSize: '1.5rem', fontWeight: '600' }}
+//             >
+//                 <Table
+//                     dataSource={stallData}
+//                     columns={columns}
+//                     rowKey="id"
+//                     pagination={{ pageSize: 5 }}
+//                     bordered
+//                     size="middle"
+//                 />
+//             </Card>
+//         </div>
+//     );
+// };
+//
 // export default StallRegister;
 import React, { useState, useEffect } from 'react';
 import { Input, Button, message, Form, Select, Table, Card } from 'antd';
+import axios from 'axios';
 
 const { Option } = Select;
 
@@ -548,13 +716,20 @@ const StallRegister: React.FC = () => {
     }, []);
 
     const fetchStallData = async () => {
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+            message.error('No authentication token found');
+            return;
+        }
+
         try {
-            const response = await fetch('http://localhost:8080/api/stall/all');
-            if (!response.ok) {
-                throw new Error('Failed to fetch stall data');
-            }
-            const data: StallData[] = await response.json();
-            setStallData(data);
+            const response = await axios.get('http://localhost:8080/api/stall/all', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setStallData(response.data);
         } catch (error) {
             message.error('Error fetching stall data');
         }
@@ -581,26 +756,30 @@ const StallRegister: React.FC = () => {
         const stallData = {
             stallType,
             stallNumber,
-            sponsorId
+            sponsorId,
         };
 
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+            message.error('No authentication token found');
+            return;
+        }
+
         try {
-            const response = await fetch('http://localhost:8080/api/stall/add', {
-                method: 'POST',
+            const response = await axios.post('http://localhost:8080/api/stall/add', stallData, {
                 headers: {
+                    Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(stallData),
             });
 
-            if (!response.ok) {
-                throw new Error('Stall registration failed');
+            if (response.status === 200) {
+                message.success('Stall registered successfully!');
+                fetchStallData(); // Refresh the data after successful submission
             }
-
-            message.success('Stall registered successfully!');
-            fetchStallData(); // Refresh the data after successful submission
         } catch (error) {
-            message.error('Error');
+            message.error('Stall registration failed or an error occurred');
         }
     };
 

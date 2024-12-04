@@ -30,11 +30,34 @@ const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
       if (data.token) {
         localStorage.setItem('authToken', data.token); // Store in localStorage or sessionStorage
       }
+      if(data.id){
+        localStorage.setItem('id', data.id);
+      }
 
-      if (data.role === "PARTICIPANT") {
-        window.location.href = '/event';
-      } else if (data.role === "ADMIN") {
-        window.location.href = '/announcement_admin';
+      // if (data.role === "PARTICIPANT") {
+      //   window.location.href = '/event';
+      // } else if (data.role === "ADMIN") {
+      //   window.location.href = '/announcement_admin';
+      // }
+      switch (data.role) {
+        case "PARTICIPANT":
+          window.location.href = '/participant_dashboard';
+          break;
+        case "ADMIN":
+          window.location.href = '/admin_dashboard';
+          break;
+        case "COMMITTEE":
+          window.location.href = '/committee_dashboard';
+          break;
+        case "SPEAKER":
+          window.location.href = '/speaker_dashboard';
+          break;
+        case "SPONSOR":
+          window.location.href = '/homepage';
+          break;
+        default:
+          // Handle default case if needed
+          break;
       }
 
       console.log('Login response:', data);

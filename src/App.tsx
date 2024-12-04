@@ -13,13 +13,16 @@ import ResourceHome from './pages/sponsor/Resource_main.tsx';
 import ResourceUpload from './pages/sponsor/Resource_upload.tsx';
 import Resourceother from './pages/sponsor/Resource_upload_other.tsx';
 import ResourceDone from './pages/sponsor/Resource_done.tsx';
+import LiveChat from './LIvechat.tsx';
 import ResourceDocs from './Resources_docs';
 import ResourceLinks from './Resources_links';
 import ResourceOther from './Resources_other';
 // import ViewMain from './View_main';
 import Register from './pages/sponsor/Register.tsx'
 import Stall_details from './pages/sponsor/Stall_details.tsx'
-import Sponsor_profile from './pages/sponsor/Sponsor_profile.tsx'
+import Sponsor_profile from './pages/sponsor/SponsorProfile.tsx'
+import Profile_form  from './pages/sponsor/ProfileForm.tsx'
+import Profile_display from './pages/sponsor/ProfileDisplay.tsx'
 
 import Participant_details from './pages/sponsor/Participant_details.tsx'
 // import Schedule from './pages/sponsor/Schedule.tsx'
@@ -69,10 +72,10 @@ import Participant_sponsor from "./pages/participant/Sponsor.tsx";
 import Participant_feedback from "./pages/participant/Feedbacks.tsx";
 // participant other
 import Profile_participant from "./pages/participant/Participant_profile.tsx";
-import Edit_profile from "./pages/participant/Edit_profile.tsx";
+// import Edit_profile from "./pages/participant/Edit_profile.tsx";
 import Change_password from "./pages/participant/Edit_password.tsx";
 import Stall_allocation from "./pages/participant/Stall_allocation.tsx";
-import View_feedback from "./pages/participant/Feedbacks.tsx";
+// import View_feedback from "./pages/participant/Feedbacks.tsx";
 import View_events from './pages/participant/View_events.tsx';
 import Event_schedules from './pages/participant/Event_schedule.tsx';
 import View_winners from './pages/participant/all_winners.tsx';
@@ -86,16 +89,16 @@ import Speaker_profile from "./pages/speaker/Profile.tsx";
 import Speaker_edit_profile from "./pages/speaker/Edit_profile.tsx";
 import Speaker_feedback from "./pages/speaker/Feedback.tsx";
 import Speaker_announcement from "./pages/speaker/Announcement.tsx";
-import Speaker_stall from "./pages/participant/Stall_allocation.tsx";
 import Speaker_view_schedules from './pages/participant/Event_schedule.tsx';
 import Speaker_resource from './pages/event/UploadResource.tsx';
 // speaker other
 import Profile_speaker from "./pages/speaker/Speaker_profile.tsx";
 import Edit_profile_speaker from "./pages/speaker/Edit_profile_speaker.tsx";
 import Change_password_speaker from "./pages/speaker/Edit_password_speaker.tsx";
+import Stall_allocations from "./pages/speaker/Stall_allocation.tsx";
 import View_feedback_speaker from "./pages/committee/View_feedback.tsx";
-import View_schedules_speaker from './pages/participant/Event_schedule.tsx';
-import Resource_speaker from './pages/event/UploadResource.tsx';
+// import View_schedules_speaker from './pages/participant/Event_schedule.tsx';
+// import Resource_speaker from './pages/event/UploadResource.tsx';
 import Event_speaker from './pages/speaker/Event_speaker.tsx';
 import View_event_speaker from './pages/speaker/View_event_speaker.tsx';
 
@@ -125,15 +128,15 @@ import Admin_edit_profile from "./pages/admin/Edit_profile.tsx";
 import Admin_announcement from "./pages/admin/Announcement.tsx";
 import Admin_feedback from "./pages/admin/Feedback.tsx";
 import Admin_stall_allocation from "./pages/participant/Stall_allocation.tsx";
-import Admin_view_schedules from './pages/event/Event_schedule.tsx';
+// import Admin_view_schedules from './pages/event/Event_schedule.tsx';
 import Example from './pages/admin/oc.tsx';
 // admin other
 import Profile_admin from "./pages/admin/Admin_profile.tsx";
 import Edit_profile_admin from "./pages/admin/Edit_profile_admin.tsx";
 import Change_password_admin from "./pages/admin/Edit_password_admin.tsx";
 import View_feedback_admin from "./pages/committee/View_feedback.tsx";
-import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
-import View_schedules_admin from './pages/event/Event_schedule.tsx';
+// import Stall_allocation_admin from "./pages/participant/Stall_allocation.tsx";
+// import View_schedules_admin from './pages/event/Event_schedule.tsx';
 import Add_Oc_Admin from './pages/admin/add_oc_committee.tsx';
 import Sponsor_register_admin from './pages/admin/Sponsor_register.tsx';
 import Stall_register_admin from './pages/admin/Stall_register.tsx';
@@ -152,7 +155,7 @@ import Committee_edit_profile from "./pages/committee/Edit_profile.tsx";
 import Committee_announcement from "./pages/committee/Announcement.tsx";
 import Committee_feedback from "./pages/committee/Feedback.tsx";
 import Committee_stall from "./pages/committee/Stall.tsx";
-import Committee_update_schedule from './pages/event/Event_schedule.tsx';
+// import Committee_update_schedule from './pages/event/Event_schedule.tsx';
 import Committee_upload_resource from "./pages/event/UploadResource.tsx";
 // committee other
 import Profile_oc from "./pages/committee/Oc_profile.tsx";
@@ -200,6 +203,10 @@ function App() {
         <Route path="/more-feedbacks" element={<Layout_sponsor><MoreFeedback /></Layout_sponsor>} />
         <Route path="/announcement" element={<MainLayout><Announcement/></MainLayout>} />
         <Route path="/profile" element={<Layout_sponsor ><Sponsor_profile/></Layout_sponsor >} />
+        <Route path="/livechat" element={<Layout_sponsor ><LiveChat/></Layout_sponsor >} />
+        <Route path="/profileview" element={<Layout_sponsor ><Profile_display/></Layout_sponsor >} />
+        <Route path="/profileform" element={<Layout_sponsor ><Profile_form/></Layout_sponsor >} />
+       
         <Route path="/participant-details" element={<Layout_sponsor ><Participant_details/></Layout_sponsor >} />
         <Route path="/edit_sp_profile" element={<Layout_sponsor ><Edit_sp_profile/></Layout_sponsor >} />
         <Route path="/announcement_view" element={<Layout_sponsor ><Announcement_view /></Layout_sponsor >} />
@@ -251,7 +258,7 @@ function App() {
         <Route path="/speaker_edit_profile" element={<Layout_speaker ><Speaker_edit_profile /></Layout_speaker >} />
         <Route path="/speaker_feedback" element={<Layout_speaker ><Speaker_feedback /></Layout_speaker >} />
         <Route path="/speaker_announcement" element={<Layout_speaker ><Speaker_announcement /></Layout_speaker >} />
-        <Route path="/speaker_stall" element={<Layout_speaker ><Speaker_stall /></Layout_speaker >} />
+        <Route path="/speaker_stall" element={<Layout_speaker ><Stall_allocations /></Layout_speaker >} />
         <Route path="/speaker_view_schedules" element={<Layout_speaker ><Speaker_view_schedules /></Layout_speaker >} />
         <Route path="/speaker_resource" element={<Layout_speaker ><Speaker_resource /></Layout_speaker >} />
         {/*speaker other*/}
@@ -288,6 +295,7 @@ function App() {
         <Route path="/admin_feedback" element={<Layout_admin ><Admin_feedback /></Layout_admin >} />
         <Route path="/admin_view_schedules" element={<Layout_admin ><Event_schedules /></Layout_admin >} />
         <Route path="/admin_stall_allocation" element={<Layout_admin ><Admin_stall_allocation /></Layout_admin >} />
+        <Route path="/admin_event" element={<Layout_admin ><Event /></Layout_admin >} />
         <Route path="/example" element={<Layout_admin ><Example /></Layout_admin >} />
         {/*admin other*/}
         <Route path="/announcement_admin" element={<Layout_admin ><Announcement_view /></Layout_admin >} />
@@ -313,6 +321,7 @@ function App() {
         <Route path="/committee_update_schedule" element={<Layout_oc ><Event_schedules /></Layout_oc >} />
         <Route path="/committee_upload_resource" element={<Layout_oc ><Committee_upload_resource /></Layout_oc >} />
         <Route path="/committee_stall" element={<Layout_oc ><Committee_stall /></Layout_oc >} />
+        <Route path="/committee_event" element={<Layout_oc ><Event /></Layout_oc >} />
         {/*committee other*/}
         <Route path="/company_details" element={<Layout_oc ><Company_details /></Layout_oc >} />
         <Route path="/announcement_oc" element={<Layout_oc ><Announcement /></Layout_oc >} />

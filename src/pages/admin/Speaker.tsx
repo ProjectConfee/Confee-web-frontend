@@ -1,129 +1,128 @@
-import {
-    useState
+import React, {
+    useState,
+    useEffect
 } from 'react';
 
-interface Member {
-    name: string;
+import axios from 'axios';
+
+interface Speaker {
+    speaker_id?: number;
+    speaker_name: string;
     nic: string;
     email: string;
-    contact: string;
-    role: string;
+    phone: string;
     status: string;
-    code: string;    // New field
-    topic: string;
 }
 
-const Speakers = () => {
-    const [members, setMembers] = useState<Member[]>([
-        {
-            name: 'Keshali Dhananjana',
-            nic: '200056987123',
-            email: 'keshali@gmail.com',
-            contact: '071 234 5678',
-            role: 'Chair',
-            status: 'Active',
-            code: 'C001',
-            topic: 'AI Research'
-        },
-        {
-            name: 'Viranga Dias',
-            nic: '200098745631',
-            email: 'viranga@gmail.com',
-            contact: '072 345 6789',
-            role: 'Secretary',
-            status: 'Active',
-            code: 'C002',
-            topic: 'Data Science'
-        },
-        {
-            name: 'Viraji Dewmini',
-            nic: '200185471239',
-            email: 'viraji@gmail.com',
-            contact: '077 456 7890',
-            role: 'Treasurer',
-            status: 'Active',
-            code: 'C003',
-            topic: 'Blockchain'
-        },
-        {
-            name: 'Ayesh Pramuditha',
-            nic: '200098456317',
-            email: 'ayesh@gmail.com',
-            contact: '074 567 8901',
-            role: 'Member',
-            status: 'Active',
-            code: 'C004',
-            topic: 'Cybersecurity'
-        },
-        {
-            name: 'Ranuri Dissanayake',
-            nic: '200145369128',
-            email: 'ranuri@gmail.com',
-            contact: '075 678 9012',
-            role: 'Member',
-            status: 'Active',
-            code: 'C005',
-            topic: 'Quantum Computing'
-        },
-    ]);
-
+const Speakers: React.FC = () => {
+    const [speakers, setSpeakers] = useState<Speaker[]>([]);
     const [showPopup, setShowPopup] = useState(false);
-    const [editingMember, setEditingMember] = useState<Member | null>(null);
+    const [editingSpeaker, setEditingSpeaker] = useState<Speaker | null>(null);
+
+    const API_BASE_URL = "http://localhost:8080/api/speakers";
+
+    // Fetch speakers from backend
+    useEffect(() => {
+        fetchSpeakers();
+    }, []);
+
+    const fetchSpeakers = async () => {
+        const token = localStorage.getItem("authToken"); // Get the token from localStorage
+        if (!token) {
+            console.error("No auth token found");
+            return; // Exit if no token exists
+        }
+
+        try {
+            const response = await axios.get(`${API_BASE_URL}/getSpeakers`, {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Add token to the headers
+                },
+            });
+            console.log("API Response:", response);
+            setSpeakers(response.data); // Set speakers in state
+        } catch (error) {
+            console.error("Error fetching speakers:", error);
+        }
+    };
 
     const handleAddClick = () => {
-        setEditingMember(null);
+        setEditingSpeaker(null);
         setShowPopup(true);
     };
 
-    const handleEditClick = (member: Member) => {
-        setEditingMember(member);
+    const handleEditClick = (speaker: Speaker) => {
+        setEditingSpeaker(speaker);
         setShowPopup(true);
     };
 
-    const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleDeleteClick = async (speaker: Speaker) => {
+        try {
+            const token = localStorage.getItem("authToken"); // Get the token for delete
+            if (!token) {
+                console.error("No auth token found for delete");
+                return;
+            }
+
+            await axios.delete(`${API_BASE_URL}/deleteSpeakers`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                data: speaker,
+            });
+            fetchSpeakers(); // Refresh the list after deletion
+        } catch (error) {
+            console.error("Error deleting speaker:", error);
+        }
+    };
+
+    const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
 
-        const name = formData.get('name') as string | null || '';
-        const nic = formData.get('nic') as string | null || '';
-        const email = formData.get('email') as string | null || '';
-        const contact = formData.get('contact') as string | null || '';
-        const role = formData.get('role') as string | null || '';
-        const code = formData.get('code') as string || '';    // New field
-        const topic = formData.get('topic') as string || '';  // New field
+        const speaker_name = formData.get("speaker_name") as string;
+        const nic = formData.get("nic") as string;
+        const email = formData.get("email") as string;
+        const phone = formData.get("phone") as string;
+        const status = "Active";
 
-        const newMember: Member = {
-            name,
+        const newSpeaker: Speaker = {
+            speaker_name,
             nic,
             email,
-            contact,
-            role,
-            code,
-            topic,
-            status: 'Active',
+            phone,
+            status,
+            speaker_id: editingSpeaker?.speaker_id,
         };
 
-        if (editingMember) {
-            setMembers(members.map(member =>
-                member.nic === editingMember.nic ? newMember : member
-            ));
-        } else {
-            setMembers([...members, newMember]);
+        try {
+            const token = localStorage.getItem("authToken"); // Get the token for save/update
+            if (!token) {
+                console.error("No auth token found for save");
+                return;
+            }
+
+            if (editingSpeaker) {
+                // Update existing speaker
+                await axios.put(`${API_BASE_URL}/updateSpeakers`, newSpeaker, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+            } else {
+                // Add new speaker
+                await axios.post(`${API_BASE_URL}/saveSpeakers`, newSpeaker, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+            }
+            fetchSpeakers();
+        } catch (error) {
+            console.error("Error saving speaker:", error);
         }
 
         setShowPopup(false);
-    };
-
-    const handleAccept = (nic: string) => {
-        setMembers(members.map(member =>
-            member.nic === nic ? { ...member, status: 'Accepted' } : member
-        ));
-    };
-
-    const handleDecline = (nic: string) => {
-        setMembers(members.map(member =>
-            member.nic === nic ? { ...member, status: 'Declined' } : member
-        ));
     };
 
     return (
@@ -132,7 +131,7 @@ const Speakers = () => {
                 className="absolute top-2 right-4 bg-green-500 text-white py-2 px-4 rounded-2xl shadow hover:bg-green-600"
                 onClick={handleAddClick}
             >
-                Add New Member
+                Add New Speaker
             </button>
             <h1 className="text-2xl font-bold mb-4">
                 Speakers
@@ -140,67 +139,68 @@ const Speakers = () => {
             <table className="min-w-full bg-white border border-gray-200">
                 <thead>
                 <tr>
-                    <th className="py-2 px-4 border-b">Name</th>
-                    <th className="py-2 px-4 border-b">NIC</th>
-                    <th className="py-2 px-4 border-b">Email</th>
-                    <th className="py-2 px-4 border-b">Contact</th>
-                    {/*<th className="py-2 px-4 border-b">Role</th>*/}
-                    <th className="py-2 px-4 border-b">Status</th>
+                    <th className="py-2 px-4 border-b">
+                        Name
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        NIC
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Email
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Phone
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Status
+                    </th>
+                    <th className="py-2 px-4 border-b">
+                        Actions
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                {members.map((member, index) => (
-                    <tr key={index}>
-                        <td className="py-2 px-4 border-b text-center">{member.name}</td>
-                        <td className="py-2 px-4 border-b text-center">{member.nic}</td>
-                        <td className="py-2 px-4 border-b text-center">{member.email}</td>
-                        <td className="py-2 px-4 border-b text-center">{member.contact}</td>
-                        {/*<td className="py-2 px-4 border-b">{member.role}</td>*/}
-                        <td className="py-2 px-4 border-b flex items-center justify-center text-center">
-                            <div className="flex space-x-2">
-                                {member.status === 'Active' && (
-                                    <>
-                                        <button
-                                            className="bg-green-500 text-white py-1 px-3 rounded-xl"
-                                            onClick={() => handleAccept(member.nic)}
-                                        >
-                                            Accept
-                                        </button>
-                                        <button
-                                            className="bg-red-500 text-white py-1 px-3 rounded-xl"
-                                            onClick={() => handleDecline(member.nic)}
-                                        >
-                                            Decline
-                                        </button>
-                                    </>
-                                )}
-                                {member.status === 'Accepted' && (
-                                    <>
-                                        <button
-                                            className="bg-blue-500 text-white py-1 px-3 rounded-xl"
-                                            onClick={() => handleEditClick(member)}
-                                        >
-                                            Edit
-                                        </button>
-                                        <button className="bg-red-500 text-white py-1 px-3 rounded-xl">
-                                            Delete
-                                        </button>
-                                    </>
-                                )}
-                            </div>
+                {speakers.map((speaker) => (
+                    <tr key={speaker.speaker_id}>
+                        <td className="py-2 px-4 border-b">
+                            {speaker.speaker_name}
                         </td>
-
+                        <td className="py-2 px-4 border-b">
+                            {speaker.nic}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {speaker.email}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {speaker.phone}
+                        </td>
+                        <td className="py-2 px-4 border-b">
+                            {speaker.status}
+                        </td>
+                        <td className="py-2 px-4 border-b flex space-x-2">
+                            <button
+                                className="bg-blue-500 text-white py-1 px-3 rounded"
+                                onClick={() => handleEditClick(speaker)}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                className="bg-red-500 text-white py-1 px-3 rounded"
+                                onClick={() => handleDeleteClick(speaker)}
+                            >
+                                Delete
+                            </button>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
 
-            {/* Popup Form */}
             {showPopup && (
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
-                    <div className="bg-white py-5 px-10 rounded-2xl shadow-lg w-[500px]">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                         <h2 className="text-xl font-bold mb-4">
-                            {editingMember ? 'Edit Member' : 'Add New Member'}
+                            {editingSpeaker ? "Edit Speaker" : "Add New Speaker"}
                         </h2>
                         <form onSubmit={handleSave}>
                             <div className="mb-4">
@@ -209,8 +209,8 @@ const Speakers = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    name="name"
-                                    defaultValue={editingMember ? editingMember.name : ''}
+                                    name="speaker_name"
+                                    defaultValue={editingSpeaker?.speaker_name || ""}
                                     className="border border-gray-300 rounded w-full p-2"
                                     required
                                 />
@@ -222,7 +222,7 @@ const Speakers = () => {
                                 <input
                                     type="text"
                                     name="nic"
-                                    defaultValue={editingMember ? editingMember.nic : ''}
+                                    defaultValue={editingSpeaker?.nic || ""}
                                     className="border border-gray-300 rounded w-full p-2"
                                     required
                                 />
@@ -234,46 +234,27 @@ const Speakers = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    defaultValue={editingMember ? editingMember.email : ''}
+                                    defaultValue={editingSpeaker?.email || ""}
                                     className="border border-gray-300 rounded w-full p-2"
                                     required
                                 />
                             </div>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium mb-1">
-                                    Contact
+                                    Phone
                                 </label>
                                 <input
                                     type="text"
-                                    name="contact"
-                                    defaultValue={editingMember ? editingMember.contact : ''}
+                                    name="phone"
+                                    defaultValue={editingSpeaker?.phone || ""}
                                     className="border border-gray-300 rounded w-full p-2"
                                     required
                                 />
                             </div>
-                            {/*<div className="mb-4">*/}
-                            {/*    <label className="block text-sm font-medium mb-1">*/}
-                            {/*        Role*/}
-                            {/*    </label>*/}
-                            {/*    <input*/}
-                            {/*        type="text"*/}
-                            {/*        name="role"*/}
-                            {/*        defaultValue={editingMember ? editingMember.role : ''}*/}
-                            {/*        className="border border-gray-300 rounded w-full p-2"*/}
-                            {/*        required*/}
-                            {/*    />*/}
-                            {/*</div>*/}
-                            <div className="flex justify-end space-x-2">
-                                <button
-                                    type="button"
-                                    className="bg-gray-500 text-white py-2 px-4 rounded-xl"
-                                    onClick={() => setShowPopup(false)}
-                                >
-                                    Cancel
-                                </button>
+                            <div className="flex justify-end">
                                 <button
                                     type="submit"
-                                    className="bg-blue-500 text-white py-2 px-4 rounded-xl"
+                                    className="bg-blue-500 text-white py-2 px-4 rounded shadow hover:bg-blue-600"
                                 >
                                     Save
                                 </button>
