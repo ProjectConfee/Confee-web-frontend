@@ -1,7 +1,5 @@
 import {Button, Card, Col, Divider, Row, Typography} from "antd";
 import Meta from "antd/es/card/Meta";
-import conference_day1 from "../../assets/event1.jpeg";
-import conference_day2 from "../../assets/event2.jpeg";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -26,13 +24,28 @@ const App = () => {
         workshopDays: number[] | null; // Define this according to your actual data structure
     }
 
-    const [workshops, setWorkshops] = useState<Workshop[]>([]);
+    interface Conference{
+        id:number;
+        title:string;
+        investment:number;
+        date:string;
+        startTime:string;
+        endTime:string;
+        location:string;
+        mapLink:string;
+        lunch:boolean;
+        post:string;
+        coverPhoto:string;
+        startDate:string;
+    }
 
+    const [workshops, setWorkshops] = useState<Workshop[]>([]);
+    const [conference, setConference] = useState<Conference[]>([]);
     const preWorkshops = workshops.filter((workshop) => workshop.type === "Pre-Workshop");
     const postWorkshops = workshops.filter((workshop) => workshop.type === "Post-Workshop");
 
-    useEffect(() => {
-        // Fetch workshop data from API
+
+    function getWorcshops(){
         const token = localStorage.getItem("authToken");
         if (token) {
             axios.get("http://localhost:8080/api/v1/admin/workshop", {
@@ -45,7 +58,56 @@ const App = () => {
         } else {
             console.error("Token is missing or invalid");
         }
+    }
+
+    function getConference(){
+        const token = localStorage.getItem("authToken");
+        if (token) {
+            axios.get("http://localhost:8080/api/v1/admin/conference/all", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+                .then(response => setConference(response.data))
+                .catch(error => console.error("Error fetching workshops:", error));
+        } else {
+            console.error("Token is missing or invalid");
+        }
+    }
+    useEffect(() => {
+        getWorcshops();
+        getConference();
+
     }, []);
+
+
+
+    const renderConferences = (data: Conference[]) => (
+        <Row gutter={32}>
+            {data.map((conference: Conference, index: number) => (
+                <Col key={index}>
+                    <Link to={`/conference_detail/${conference.id}`}>
+                        <Card
+                            hoverable
+                            style={{
+                                width: 250,
+                            }}
+                            cover={<img alt="Conference day 1"
+                                        src={`http://localhost:8080/${conference.coverPhoto}`}
+                                        style={{
+                                            height: 160,
+                                            objectFit: "cover",
+                                        }}
+
+                            />}
+                        >
+                            <Meta title={conference.title} description={conference.date}/>
+                        </Card>
+                    </Link>
+                </Col>
+            ))}
+        </Row>
+    );
 
     const renderWorkshops = (data: Workshop[]) => (
         <Row gutter={32}>
@@ -75,6 +137,8 @@ const App = () => {
     );
 
 
+
+
     return(
         <>
 
@@ -85,9 +149,9 @@ const App = () => {
 
                 <div className="flex justify-end mb-8">
 
-                    <Link to="/add_event_oc">
+                    <Link to="/add_conference">
                         <Button type="primary" size="large" >
-                            Add Event
+                            Add Conference
                         </Button>
                     </Link>
                 </div>
@@ -98,61 +162,19 @@ const App = () => {
                             <Title level={4}>Conference</Title>
                         </div>
                         <div>
-                            <Row gutter={32}>
-                                <Col>
-
-                                    <Link to="/event_details_oc">
-                                        <Card
-                                            hoverable
-                                            style={{
-                                                width: 250,
-
-                                            }}
-                                            cover={<img alt="Conference day 1"
-                                                        src={conference_day1}
-                                                        style={{
-                                                            height: 160,
-                                                            objectFit: "cover",
-                                                        }}
-
-                                            />}
-                                        >
-                                            <Meta title="Conference Day 1" description="Date : 10th of November 2024"/>
-                                        </Card>
-                                    </Link>
-
-                                </Col>
-
-                                <Col>
-
-                                    <Link to="/event_details_oc">
-                                        <Card
-                                            hoverable
-                                            style={{
-                                                width: 250,
-
-                                            }}
-                                            cover={<img alt="Conference day 2"
-                                                        src={conference_day2}
-                                                        style={{
-                                                            height: 160,
-                                                            objectFit: "cover",
-                                                        }}
-
-                                            />}
-                                        >
-                                            <Meta title="Conference day 2" description="Date : 11th of November 2024"/>
-                                        </Card>
-                                    </Link>
-
-                                </Col>
-                            </Row>
+                            {renderConferences(conference)}
 
                         </div>
                     </div>
 
                     <Divider></Divider>
-
+                    <div className="flex justify-end mb-8">
+                        <Link to="/add_event_oc">
+                            <Button type="primary" size="large" >
+                                Add Workshop
+                            </Button>
+                        </Link>
+                    </div>
                     <div>
                         <div>
                             <Title level={4}>Pre Conference Workshops</Title>

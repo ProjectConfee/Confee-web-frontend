@@ -3,26 +3,35 @@ import {faClock,} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { Dayjs } from 'dayjs';
+import {Dayjs} from 'dayjs';
 
-const { Title,Text } = Typography;
+const {Title, Text} = Typography;
 
-interface prop{
-    id:string|undefined
+interface prop {
+    id: string | undefined
+    event: string,
+    startTime: string,
+    status: string,
+    conferenceId: string
 }
-const App:React.FC<prop> = ({id}) => {
 
-    const [sessions,setSessions]=useState<prop[]>()
+interface ScheduleProps {
+    events?: prop[]
+}
+
+const App: React.FC<prop> = ({id}) => {
+
+    const [sessions, setSessions] = useState<prop[]>()
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [startTime, setStartTime] = useState<Dayjs | null>(null);
     const [session, setSession] = useState<string>("");
-    const [time,setTime]=useState<string|null>(null)
-    const [workshopId,setWorkshopId]=useState<number>()
-    const [reload,setReload]=useState(false)
+    const [time, setTime] = useState<string | null>(null)
+    const [conferenceId, setConferenceId] = useState<number>(0)
+    const [reload, setReload] = useState(false)
 
-    const showModal = (id:number) => {
+    const showModal = (id: number) => {
         setIsModalOpen(true);
-        setWorkshopId(id)
+        setConferenceId(id)
     };
     const handleOk = async () => {
         console.log("time", time)
@@ -31,11 +40,11 @@ const App:React.FC<prop> = ({id}) => {
         const data = {
             "event": session,
             "startTime": time,
-            "workshopDayId": workshopId
+            "conferenceId": conferenceId
         }
 
 
-        console.log("data ",data)
+        console.log("data ", data)
 
         const token = localStorage.getItem("authToken");
 
@@ -45,7 +54,7 @@ const App:React.FC<prop> = ({id}) => {
         }
 
         try {
-            const response = await axios.post(`http://localhost:8080/admin/schedules`, data, {
+            const response = await axios.post(`http://localhost:8080/admin/conferenceSchedules`, data, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -61,7 +70,7 @@ const App:React.FC<prop> = ({id}) => {
         } catch (error) {
             message.error('Event addition failed');
         }
-
+        setReload(true)
 
         setIsModalOpen(false);
     };
@@ -89,13 +98,13 @@ const App:React.FC<prop> = ({id}) => {
         // Fetch workshop data from API
         const token = localStorage.getItem("authToken");
         if (token) {
-            axios.get(`http://localhost:8080/admin/schedules/${id}`, {
+            axios.get(`http://localhost:8080/admin/conferenceSchedules/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             })
                 .then(response => {
-                    console.log(response.data)
+                    console.log("data  ",response.data)
                     setSessions(response.data)
 
 
@@ -109,57 +118,55 @@ const App:React.FC<prop> = ({id}) => {
 
     type SessionCardProps = {
         id: number,
-        event:string ,
-        startTime:string,
-        status:string ,
-        workshopDayId:number
+        event: string,
+        startTime: string,
+        status: string,
+        conferenceId: number,
+        events?: SessionCardProps[];
     };
 
-    type prop={
-        workshopDayId:number,
-        date:string,
-        events:SessionCardProps[]
+    type prop = {
+        events: SessionCardProps[]
     }
 
 
 
+    const Schedule = (events: SessionCardProps) => {
 
-    const Schedule : React.FC<prop> = ({ date,events,workshopDayId  })=>{
+        console.log("event",events)
         useEffect(() => {
             console.log("Events:", events);
         }, [events]);
+
+        console.log(events.startTime)
         return (
 
             <div>
 
                 <div className="col-span-2 flex w-full">
-                    <Title level={3} className="w-9/12">{date || "Schedule"}</Title>
-                    <div className="flex w-3/12 justify-end">
-                        <Button type="primary" size="large" onClick={()=>showModal(workshopDayId)}>
-                            Add Session
-                        </Button>
-                    </div>
+                    {/*<Title level={3} className="w-9/12">{date || "Schedule"}</Title>*/}
+
                 </div>
-                {events .length === 0 ? (
+                {/*{events.length === 0 ? (*/}
+                {/*    <div>*/}
+                {/*        <Text className="font-bold">No Sessions Available</Text>*/}
+                {/*    </div>*/}
+                {/*) : (*/}
+                <div className="p-4">
+                    {/*{events.map((session, index) => (*/}
                     <div>
-                        <Text className="font-bold">No Sessions Available</Text>
+                        <SessionDivider time={events.events.startTime}/>
+                        <SessionCard
+                            startTime={events.events.startTime}
+                            event={events.events.event}
+                            status={events.events.status}
+                            id={events.events.id}
+                            conferenceId={events.events.conferenceId}
+                        />
                     </div>
-                ) : (
-                    <div className="p-4">
-                        {events.map((session, index) => (
-                            <div key={index}>
-                                <SessionDivider time={session.startTime} />
-                                <SessionCard
-                                    startTime={session.startTime}
-                                    event={session.event}
-                                    status={session.status}
-                                    id={session.id}
-                                    workshopDayId={session.workshopDayId}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                )}
+                    {/*))}*/}
+                </div>
+                {/*)}*/}
             </div>
 
         );
@@ -173,7 +180,7 @@ const App:React.FC<prop> = ({id}) => {
                     marginLeft: "80px",
                     width: "92%",
                     backgroundColor: "#F2F3F7",
-                    marginBottom:"12px"
+                    marginBottom: "12px"
                 }}
                 bodyStyle={{padding: 10}}
                 className={"!p-0"}
@@ -195,11 +202,11 @@ const App:React.FC<prop> = ({id}) => {
                             type="primary"
                             size="large"
                             style={{
-                                backgroundColor: status === "Completed" ? "#007bff" : "#28a745",
+                                backgroundColor: status === "Completed" ? "#007bff" : "#878787",
                                 cursor: "not-allowed",
                             }}
                         >
-                            {status === "Pending" ? "Start" : status}
+                            {status}
                         </Button>
                     </div>
                 </div>
@@ -212,18 +219,18 @@ const App:React.FC<prop> = ({id}) => {
     };
 
 
-    const SessionDivider: React.FC<SessionDividerProps> = ({ time }) => {
+    const SessionDivider: React.FC<SessionDividerProps> = ({time}) => {
         return (
             <div className="flex flex-row">
                 <div className="flex min-w-20 items-center">
                     <Text className="text-base">{time}</Text>
                 </div>
-                <Divider className="min-w-52" />
+                <Divider className="min-w-52"/>
             </div>
         );
     };
 
-    return(
+    return (
 
         <>
             {isModalOpen && (
@@ -245,9 +252,13 @@ const App:React.FC<prop> = ({id}) => {
                     />
                 </Modal>
             )}
-
+            <div className="flex w-full justify-end">
+                <Button type="primary" size="large" onClick={() => showModal(sessions[0].conferenceId)}>
+                    Add Session
+                </Button>
+            </div>
             {sessions && sessions.map((item, index) => (
-                <Schedule key={index} date={item.date} workshopDayId={item.workshopDayId} events={item.events} />
+                <Schedule key={index} events={item}/>
             ))}
         </>
     );
